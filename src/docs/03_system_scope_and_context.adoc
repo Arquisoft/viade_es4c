@@ -55,11 +55,11 @@ and other type of files with his friends
 	* Pod: Each user has a POD where the routes and the shared information are stored.
 	* Viade: Decentralized application to store routes and share with other people.
 
-**<Diagram or Table>**
-=======
+**<Diagram>**
+
 image::images/03_Business_Context.png[]
 
-**<optionally: Explanation of external domain interfaces>**
+// **<optionally: Explanation of external domain interfaces>**
 
 === Technical Context
 
