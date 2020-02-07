@@ -8,7 +8,7 @@
 | Restricción | Explicación
 | SOLID | Es una organización cuyo objetivo principal es descentralizar los datos de manera que cada usuario tenga el control total sobre sus propios datos
 | React | Es una biblioteca de Javascript que permite crear interfaces de usuario sencillas y fáciles de reutilizar. es un software de código abierto, mantenido por Facebook y los usan compañias como Airbnb o Instagram
-| Arc42 | Son un conjunto de plantillas usadas en el desarrollo de un producto de software. Estas plantillas se diferencian de otras documentaciones en que la extensión es menor ya que mediante diagramas y partes del código no requiere tanto texto.
+| Arc42 | Son un HOLA conjunto de plantillas usadas en el desarrollo de un producto de software. Estas plantillas se diferencian de otras documentaciones en que la extensión es menor ya que mediante diagramas y partes del código no requiere tanto texto.
 | GitHub | Es una plataforma de desarrollo colaborativo de software para alojar proyectos utilizando el sistema de control de versiones Git
 
 
