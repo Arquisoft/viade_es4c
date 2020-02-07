@@ -3,7 +3,7 @@
 
 [role="arc42help"]
 ****
-Se realizará una aplicación web descentralizada de rutas siguiendo las especificaciones SOLID.	Los usuarios podrán almacenar rutas,visualizarlas en un mapa y podrán compartir fotos, vídeos u otro tipo de ficheros con  amigos.
+Se realizará una aplicación web descentralizada de rutas siguiendo la arquitectura SOLID y el framework React. Con ella, los usuarios podrán almacenar rutas, visualizarlas en un mapa y podrán compartir fotos, vídeos u otro tipo de ficheros con sus amigos o sus grupos de amigos.
 ****
 
 === Requirements Overview
@@ -12,16 +12,17 @@ Se realizará una aplicación web descentralizada de rutas siguiendo las especif
 ==== Funcionales
 [role="arc42help"]
 ****
-- La aplicación se basará en una arquitectura descentralizada en la que los datos están separados de la aplicación
-- Los deberán poder visualizar las rutas en un mapa y almacenarlas en sus propiods pods. Además, se podrá tener amigos y grupos de amigos con quien compartir las rutas,fotos,vídeos,etc. 
+- Los usuarios deberán poder visualizar las rutas en un mapa y almacenarlas en sus propios pods.
+- Al usar sus propios pods, la información estará totalmente descentralizada, favoreciendo la seguridad de los datos.
+- También podrán tener amigos y grupos de amigos con quien compartir estas rutas, fotos, vídeos, etc.
 ****
 
 === No funcionales
 [role="arc42help"]
 ****
-- El sistema deberá ser accesible e intuituvo para todo tipo de usuario, especialmente el novato.
-- Evitar comprometer la información de los usuarios descentralizando los datos.
-- Seguir las recomendaciones del w3c.
+- El sistema deberá ser accesible e intuituvo para todo tipo de usuario, aunque se buscará especialmente favorecer a aquellos con menos experiencia en aplicaciones de este estilo.
+- Evitar comprometer la información de los usuarios descentralizando los datos en pods independientes para cada usuario.
+- Seguir las recomendaciones del w3c para asegurar una web sin errores y más segura para el usuario.
 ****
 
 === Quality Goals
@@ -32,15 +33,14 @@ Se realizará una aplicación web descentralizada de rutas siguiendo las especif
 [options="header",cols="2"]
 |===
 |Goal|Description
-|Accesibilidad|
-|Disponibilidad|
-|Interoperabilidad|
-|Seguridad|
-|Testeabilidad|
-|Escalabilidad|
-|Consistencia|
-|Usabilidad|
-|Modularidad|
+|Accesibilidad|A la aplicación debe admitir y estar preparada para todo tipo de usuario, independientemente de sus capacidades, problemas cognitivos...
+|Disponibilidad|La web debe estar disponible siempre para sus usuarios en todo momento y, en caso de fallo, debe repararse el error rápidamente.
+|Seguridad|Los datos de los usuarios deben de estar protegidos para evitar que terceras personas puedan acceder a ellos.
+|Testeabilidad|Deben poder realizarse pruebas para comprobar el correcto funcionamiento del sistema.
+|Rendimiento|El sistema debe ser eficaz y reaccionar rápido ante las acciones que solicite el usuario.
+|Escalabilidad|La web podrá ir ampliándose progresivamente y de una forma sencilla a media que avance el desarrollo, ya sea ampliando funcionalidades que ya existen o agregando algunas nuevas.
+|Consistencia|El sistema de almacenamiento de datos debe de mantener la información en un estado correcto todo el tiempo.
+|Usabilidad|La aplicación debe ser intuitiva y fácil de utilizar por cualquier tipo de usuario.
 |===
 
 ****
@@ -53,9 +53,9 @@ Se realizará una aplicación web descentralizada de rutas siguiendo las especif
 [options="header",cols="1,2,2"]
 |===
 |Role/Name|Contact|Expectations
-| Usuarios de la aplicación | _<Contact-1>_ | _<Expectation-1>_
-| Profesores | _<Contact-2>_ | _<Expectation-2>_
-| Desarrolladores | _<Contact-2>_ | _<Expectation-2>_
+| Usuarios de la aplicación | _Estos representan a los usuarios finales de la aplicación_ | _Tener a su disposición una aplicación que les permita almacenar sus rutas y comparirlas con sus amigos._
+| Profesores | _Quienes evalúan el proyecto que se está realizando_ | _Encontrar un proyecto que cumpla con los requisitos expuestos anteriormente._
+| Desarrolladores | _Quienes se encargarán de desarrollar el producto_ | _Realizar un sistema que cumpla con los requisitos expuestos anteriormente._
 |===
 ****
 
