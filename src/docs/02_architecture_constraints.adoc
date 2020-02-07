@@ -5,11 +5,11 @@
 
 [options="header",cols="1,2"]
 |===
-| Restricción | Explicación
-| SOLID | Es una organización cuyo objetivo principal es descentralizar los datos de manera que cada usuario tenga el control total sobre sus propios datos
-| React | Es una biblioteca de Javascript que permite crear interfaces de usuario sencillas y fáciles de reutilizar. es un software de código abierto, mantenido por Facebook y los usan compañias como Airbnb o Instagram
-| Arc42 | Son un conjunto de plantillas usadas en el desarrollo de un producto de software. Estas plantillas se diferencian de otras documentaciones en que la extensión es menor ya que mediante diagramas y partes del código no requiere tanto texto.
-| GitHub | Es una plataforma de desarrollo colaborativo de software para alojar proyectos utilizando el sistema de control de versiones Git
+| Restriction | Explanation
+| SOLID | It is an organization wich principal objective decentralize the data in a way that each user has total control over their own data 
+| React | It is a Javascript library that allows you to create user interfaces that are simple and easy to reuse. It is an open source software, maintained by Facebook and used by companies such as Airbnb or Instagram
+| Arc42 | They are a set of templates used in the development of a software product. These templates differ from other documentation in that the extension is smaller since by means of diagrams and parts of the code it does not require so much text.
+| GitHub | It is a collaborative software development platform to host projects using the Git version control system
 
 
 |===
