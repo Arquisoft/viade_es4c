@@ -42,17 +42,15 @@ This development aims to fulfill the quality requirements specified in the follo
 [plantuml, 10_quality_tree, png]
 ....
 digraph G {
-    Quality -> Accesibility
-    Quality -> Consistency
-    Quality -> Disponibility
-    Quality -> Flexibility
     Quality -> Maintainability
     Quality -> Performance
-    Quality -> Security
-    Quality -> Usability
+    Quality -> Privacy
     Quality -> Testeability
+    Quality -> Usability
 }
 ....
+
+image::images/10_quality_tree_extended.png[Quality Tree Extended]
 
 === Quality Scenarios
 
@@ -80,11 +78,86 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 Tabular or free form text.
 ****
 
-Achieving the expected response of the application for the following scenarios is the goal to meet the quality expectations.
+Achieving the expected response of the application for the following scenarios is the goal to meet the quality 
+expectations.
 
-==== Accesibility
+==== Maintainability
 
-===== Scenario #1: Colorblind clarity
+===== Scenario #1: Documentation updated
+[%collapsible]
+====
+[horizontal]
+Who:: New member of the development team
+When:: Joining the development
+Where:: Documentation
+What:: The documentation should offer easily all the information the others developers will need
+How:: Keeping the arc42 updated
+====
+
+===== Scenario #2: Readable code
+[%collapsible]
+====
+[horizontal]
+Who:: New member of the development team
+When:: Joining the development
+Where:: Code
+What:: The code should be easy to understand to others
+How:: Keeping it legible, commented and following style guides
+====
+
+===== Scenario #3: Extension of the functionality
+[%collapsible]
+====
+[horizontal]
+Who:: Any member of the development team
+When:: Starting to develop a new function
+Where:: Code
+What:: The code should be easy to extend its functionality
+How:: Keeping it as modular as posible and implementing software designs.
+====
+
+==== Performance
+
+===== Scenario #4: Warning an user about an invalid operation
+[%collapsible]
+====
+[horizontal]
+Who:: Any user
+When:: Making a mistake or invalid operation
+Where:: The view
+What:: The application should register and notify the error at the moment, the warning should be clear and comprenhensible
+How:: Checking all the inputs at the moments and having a strong exception build
+====
+
+==== Privacy
+
+===== Scenario #5: Someone tries to access the data of other user
+[%collapsible]
+====
+[horizontal]
+Who:: Any user
+When:: Someone trying to access their data
+Where:: The service
+What:: The application should isntantly notify the affected user about the acess and block it
+How:: Checking the identification of each user in every operation
+====
+
+==== Testeability
+
+===== Scenario #6: Testing new functionality
+[%collapsible]
+====
+[horizontal]
+Who:: Any developer
+When:: Adding new functionality
+Where:: Any point of the application
+What:: Any new functionality added should be tested to confirm it's well implemented
+How:: Through a battery of unit tests
+====
+
+==== Usability
+
+===== Scenario #7: Colorblind clarity
 [%collapsible]
 ====
 [horizontal]
@@ -95,20 +168,18 @@ What:: The user interface must be adapted to be easily usable by all the colorbl
 How:: Through the use of a valid palette, icons and texts
 ====
 
-===== Scenario #2: Navigable using keyboard
+===== Scenario #8: Navigable using keyboard
 [%collapsible]
 ====
 [horizontal]
 Who:: Any user
-When:: Using the application
+When:: Using the application with keyboard
 Where:: GUI
 What:: The user should be able to navigate through the whole application using only the keyboard
 How:: Thorugh the use of correct shotcuts, tab navegation and mnemonics
 ====
 
-==== Flexibility
-
-===== Scenario #3: Compatibility with multiple formats
+===== Scenario #9: Compatibility with multiple formats
 [%collapsible]
 ====
 [horizontal]
@@ -117,4 +188,15 @@ When:: Importing or exporting routes
 Where:: Routes manager
 What:: The user should be able to import and export the routes to, at least: GeoJSON, KML and GPX
 How:: Using the relevant conversors
+====
+
+===== Scenario #10: New user understanding the application fast
+[%collapsible]
+====
+[horizontal]
+Who:: New user
+When:: First time using the application
+Where:: GUI
+What:: The user should be able to learn to navigate and use the app instantly
+How:: Keeping a clear and straightforward user interface
 ====
