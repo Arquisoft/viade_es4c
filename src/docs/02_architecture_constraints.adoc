@@ -1,5 +1,5 @@
 [[section-architecture-constraints]]
-== Restricciones de la Arquitectura
+== Architecture Constraints
 
 ****
 
