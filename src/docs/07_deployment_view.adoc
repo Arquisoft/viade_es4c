@@ -34,13 +34,13 @@ when your infrastructure is more complex.
 * When your (hardware) stakeholders prefer other kinds of diagrams rather than the deployment diagram, let them use any kind that is able to show nodes and channels of the infrastructure.
 ****
 
-As Viade is a decentralized browser application, we only need 2 elements per user:
+As Viade is a decentralized browser application, we only need 3 elements per user:
 
 * The user's computer. Which must have a browser to access the application. We recommend using Google Chrome as other browsers like Internet Explorer may not have all the JavaScript functionalities used to run the application. This also means that the user does not need a very powerful computer, just Internet conexion.
 * The SOLID's server. Here is where the user's POD is. All the routes and multimedia data are stored in the POD. Thanks to the SOLID de-centralized authentication mechanisms it is not necesary to have a central server for the signing up/login process.
+* The GitHub Pages server. This will be the Web Hosting Service for the application.
 
-
-_**<Overview Diagram>**_
+image::images/07_Deployment_View.png[]
 
 Motivation::
 
