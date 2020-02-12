@@ -1,62 +1,52 @@
 [[section-introduction-and-goals]]
 == Introduction and Goals
 
-[role="arc42help"]
-****
-Se realizará una aplicación web descentralizada de rutas siguiendo las especificaciones SOLID.	Los usuarios podrán almacenar rutas,visualizarlas en un mapa y podrán compartir fotos, vídeos u otro tipo de ficheros con  amigos.
-****
+A decentralized web application of routes will be made following the SOLID architecture and the React framework. With it, users will be able to store routes, visualize them on a map and share photos, videos or other types of files with their friends or groups of friends.
 
 === Requirements Overview
 
 
-==== Funcionales
-[role="arc42help"]
-****
-- La aplicación se basará en una arquitectura descentralizada en la que los datos están separados de la aplicación
-- Los deberán poder visualizar las rutas en un mapa y almacenarlas en sus propiods pods. Además, se podrá tener amigos y grupos de amigos con quien compartir las rutas,fotos,vídeos,etc. 
-****
+==== Functionals
 
-=== No funcionales
-[role="arc42help"]
-****
-- El sistema deberá ser accesible e intuituvo para todo tipo de usuario, especialmente el novato.
-- Evitar comprometer la información de los usuarios descentralizando los datos.
-- Seguir las recomendaciones del w3c.
-****
+- Users should be able to view the routes on a map and store them on their own pods.
+- By using their own pods, the information will be totally decentralized, favoring data security.
+- They will also be able to have friends and groups of friends with whom to share these routes, photos, videos, etc.
+
+
+=== Non functionals
+
+- The system must be accessible and intuitive for all types of users, although special attention will be focused on favouring those with less experience in applications of this style.
+- Avoid compromising user information by decentralizing data on separate pods for each user.
+- Follow the recommendations of the W3C to ensure an error-free and safer website.
+
 
 === Quality Goals
 
-[role="arc42help"]
-****
 .Table Goals
-[options="header",cols="2"]
 |===
 |Goal|Description
-|Accesibilidad|
-|Disponibilidad|
-|Interoperabilidad|
-|Seguridad|
-|Testeabilidad|
-|Escalabilidad|
-|Consistencia|
-|Usabilidad|
-|Modularidad|
+|Accessibility|The application must support and be prepared for all types of users, regardless of their abilities, cognitive problems...
+|Availability|The web must be available to its users at all times and, in case of failure, the error must be quickly repaired.
+|Security|User data must be protected to prevent third parties from accessing them.
+|Testability|Tests must be able to be carried out to check the correct functioning of the system.
+|Performance|The system must be effective and react quickly to user requests for action.
+|Scalability|The website can be progressively expanded in a simple way as development progresses, either by extending existing features or by adding new ones.
+|Consistency|The data storage system must keep the information in a correct state all the time.
+|Usability|The application must be intuitive and easy to use by any type of user.
 |===
 
-****
+
 
 === Stakeholders
 
-[role="arc42help"]
-****
+
 .Table Stakeholders
 [options="header",cols="1,2,2"]
 |===
 |Role/Name|Contact|Expectations
-| Usuarios de la aplicación | _<Contact-1>_ | _<Expectation-1>_
-| Profesores | _<Contact-2>_ | _<Expectation-2>_
-| Desarrolladores | _<Contact-2>_ | _<Expectation-2>_
+| Application users | _These represent the end users of the application_ | _Have at their disposal an application that allows them to store their routes and share them with their friends._
+| Teachers | _Who evaluate the project being carried out_ | _Find a project that meets the above requirements._
+| Developers| _Who will be in charge of developing the product_ | _Make a system that meets the requirements above._
 |===
-****
 
 
