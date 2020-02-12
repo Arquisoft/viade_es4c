@@ -1,24 +1,33 @@
 [[section-solution-strategy]]
 == Solution Strategy
 
+Viade is a decentralized route management system based on the Solid specifications.
 
-[role="arc42help"]
-****
-.Contents
-A short summary and explanation of the fundamental decisions and solution strategies, that shape the system's architecture. These include
+=== Technollogy decisions
 
-* technology decisions
-* decisions about the top-level decomposition of the system, e.g. usage of an architectural pattern or design pattern
-* decisions on how to achieve key quality goals
-* relevant organizational decisions, e.g. selecting a development process or delegating certain tasks to third parties.
+- Use of .geojson as the main format for route representation (more formats will be supported later).
+- NodeJs to implement the Solid server
+- Using the Solid recommendations and specifications
 
-.Motivation
-These decisions form the cornerstones for your architecture. They are the basis for many other detailed decisions or implementation rules.
+=== Organizational decisions
 
-.Form
-Keep the explanation of these key decisions short.
+All members are unaware of the React technology and SOLID specifications, so it has been decided that all members will study React and Solid on their own. In addition, some members will focus more on information management in PODs and others on access to them.
 
-Motivate what you have decided and why you decided that way,
-based upon your problem statement, the quality goals and key constraints.
-Refer to details in the following sections.
-****
+=== Solution-approaches
+
+|===
+|Quality goal |Solution approach
+
+|Accessibility 
+|Solid Style Guide
+
+|Usabilidad
+|Solid React SDK
+
+|Testeability
+|Travis CI
+
+|Availability
+|Deploy a server
+
+|===
