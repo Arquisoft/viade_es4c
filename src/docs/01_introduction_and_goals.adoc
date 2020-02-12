@@ -6,8 +6,6 @@ A decentralized web application of routes will be made following the SOLID archi
 
 === Requirements Overview
 
-
-<<<<<<< HEAD
 ==== Functionals
 
 - Users should be able to view the routes on a map and store them on their own pods.
@@ -27,7 +25,6 @@ A decentralized web application of routes will be made following the SOLID archi
 .Table Goals
 |===
 |Goal|Description
-<<<<<<< HEAD
 |Accessibility|The application must support and be prepared for all types of users, regardless of their abilities, cognitive problems...
 |Availability|The web must be available to its users at all times and, in case of failure, the error must be quickly repaired.
 |Security|User data must be protected to prevent third parties from accessing them.
@@ -36,16 +33,6 @@ A decentralized web application of routes will be made following the SOLID archi
 |Scalability|The website can be progressively expanded in a simple way as development progresses, either by extending existing features or by adding new ones.
 |Consistency|The data storage system must keep the information in a correct state all the time.
 |Usability|The application must be intuitive and easy to use by any type of user.
-=======
-|Accesibilidad|A la aplicación debe admitir y estar preparada para todo tipo de usuario, independientemente de sus capacidades, problemas cognitivos...
-|Disponibilidad|La web debe estar disponible siempre para sus usuarios en todo momento y, en caso de fallo, debe repararse el error rápidamente.
-|Seguridad|Los datos de los usuarios deben de estar protegidos para evitar que terceras personas puedan acceder a ellos.
-|Testeabilidad|Deben poder realizarse pruebas para comprobar el correcto funcionamiento del sistema.
-|Rendimiento|El sistema debe ser eficaz y reaccionar rápido ante las acciones que solicite el usuario.
-|Escalabilidad|La web podrá ir ampliándose progresivamente y de una forma sencilla a media que avance el desarrollo, ya sea ampliando funcionalidades que ya existen o agregando algunas nuevas.
-|Consistencia|El sistema de almacenamiento de datos debe de mantener la información en un estado correcto todo el tiempo.
-|Usabilidad|La aplicación debe ser intuitiva y fácil de utilizar por cualquier tipo de usuario.
->>>>>>> 496422003886434c8fbc2bbe9136d4b5f82779ef
 |===
 
 
@@ -57,15 +44,9 @@ A decentralized web application of routes will be made following the SOLID archi
 [options="header",cols="1,2,2"]
 |===
 |Role/Name|Contact|Expectations
-<<<<<<< HEAD
 | Application users | _These represent the end users of the application_ | _Have at their disposal an application that allows them to store their routes and share them with their friends._
 | Teachers | _Who evaluate the project being carried out_ | _Find a project that meets the above requirements._
 | Developers| _Who will be in charge of developing the product_ | _Make a system that meets the requirements above._
-=======
-| Usuarios de la aplicación | _Estos representan a los usuarios finales de la aplicación_ | _Tener a su disposición una aplicación que les permita almacenar sus rutas y comparirlas con sus amigos._
-| Profesores | _Quienes evalúan el proyecto que se está realizando_ | _Encontrar un proyecto que cumpla con los requisitos expuestos anteriormente._
-| Desarrolladores | _Quienes se encargarán de desarrollar el producto_ | _Realizar un sistema que cumpla con los requisitos expuestos anteriormente._
->>>>>>> 496422003886434c8fbc2bbe9136d4b5f82779ef
 |===
 
 
