@@ -6,7 +6,7 @@ This section is a decomposition of our system into diagrams. Each level is more 
 
 === Level 1
 
-Level 1 show us a global vision of the project.
+Level 1 shows us a global vision of the project.
 
 image:images/05_Level1.PNG["General View"]
 
@@ -18,5 +18,5 @@ image:images/05_Level1.PNG["General View"]
 |Description in the glossary
 
 |Viade
-|Our Aplication
+|Our Application
 |===
