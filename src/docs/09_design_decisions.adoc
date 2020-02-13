@@ -5,7 +5,7 @@
 
 | Version-control system| Github 
 
-| Programming language | JavScripts
+| Programming language | JavaScript
 
 | Distributed application structure | Solid
 
