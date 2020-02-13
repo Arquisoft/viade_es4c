@@ -13,7 +13,7 @@ A decentralized web application of routes will be made following the SOLID archi
 - They will also be able to have friends and groups of friends with whom to share these routes, photos, videos, etc.
 
 
-=== Non functionals
+==== Non functionals
 
 - The system must be accessible and intuitive for all types of users, although special attention will be focused on favouring those with less experience in applications of this style.
 - Avoid compromising user information by decentralizing data on separate pods for each user.
