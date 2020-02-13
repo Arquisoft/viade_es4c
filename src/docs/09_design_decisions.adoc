@@ -1,6 +1,19 @@
 [[section-design-decisions]]
 == Design Decisions
 
+|=== 
+
+| Version-control system| Github 
+
+| Programming language | JavScripts
+
+| Distributed application structure | Solid
+
+| Main library | React
+
+| Architectural pattern | TODO
+
+|=== 
 
 [role="arc42help"]
 ****
