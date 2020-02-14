@@ -1,67 +1,103 @@
 [[section-concepts]]
 == Cross-cutting Concepts
 
+=== _Domain Concepts_
 
-[role="arc42help"]
-****
-.Content
-This section describes overall, principal regulations and solution ideas that are
-relevant in multiple parts (= cross-cutting) of your system.
-Such concepts are often related to multiple building blocks.
-They can include many different topics, such as
+_i.e domain models, business data model_
 
-* domain models
-* architecture patterns or design patterns
-* rules for using specific technology
-* principal, often technical decisions of overall decisions
-* implementation rules
+=== _User Experience concepts (UX)_
 
-.Motivation
-Concepts form the basis for _conceptual integrity_ (consistency, homogeneity)
-of the architecture. Thus, they are an important contribution to achieve inner qualities of your system.
+_User interface_
 
-Some of these concepts cannot be assigned to individual building blocks
-(e.g. security or safety). This is the place in the template that we provided for a
-cohesive specification of such concepts.
+_Ergonomics_
 
-.Form
-The form can be varied:
+_Internationalization_ 
 
-* concept papers with any kind of structure
-* cross-cutting model excerpts or scenarios using notations of the architecture views
-* sample implementations, especially for technical concepts
-* reference to typical usage of standard frameworks (e.g. using Hibernate for object/relational mapping)
+How to make the system usable in international settings, translation, screen-layout, wording and other
 
-.Structure
-A potential (but not mandatory) structure for this section could be:
+=== _Safety and security concepts_
 
-* Domain concepts
-* User Experience concepts (UX)
-* Safety and security concepts
-* Architecture and design patterns
-* "Under-the-hood"
-* development concepts
-* operational concepts
+_Security_
 
-Note: it might be difficult to assign individual concepts to one specific topic
-on this list.
+i.e. how to achieve confidentiality, non-reputiability and other goals.
 
-image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscutting concepts"]
-****
+_Safety_
+
+Safety-critical systems are those whose failure or malfunction may result in death or injury or severe financial loss
+
+=== _Architecture and design patterns_	
+
+recurring patterns within the system 
+
+=== _“Under-the-hood” concepts_
+
+_Persistency_
+
+how / where to store and retrieve data
+
+_Process control_	
 
 
-=== _<Concept 1>_
+_Transaction handling_
 
-_<explanation>_
+How to handle technical or business transactions, i.e. to achieve ACID properties
 
+_Session handling_
 
+How to handle user/client sessions
 
-=== _<Concept 2>_
+_Communication and integration_
 
-_<explanation>_
+How to integrate with other systems, how to communicate (i.e. sync, async, pub-sub…)
 
-...
+_Exception and error handling_
 
-=== _<Concept n>_
+What errors to handle, how to handle exceptional situations
 
-_<explanation>_
+_Parallization and threading_
+
+How to parallelize tasks, how to create/spawn/manage processes
+
+_Plausibility checks and validation_
+
+i.e. client-side validation, how to verify/check data, input, results.
+
+_Business rules_
+
+i.e. how to use a rule-engine, how to implement/configure business rules, how to change those…
+
+_Batch processing_
+
+How to process data in batches (i.e. offline processing)
+
+_Reporting_
+
+How to create reports, how to gather the required data, how to render the results
+
+=== _Development concepts_	
+
+_Build, test, deploy_
+
+_Code generation_	
+
+_Migration_
+
+_Configurability_
+
+=== _Operational concepts_	
+
+_Administration_
+
+_Management_
+
+_Disaster-Recovery_ 
+ 	
+_Scaling_	 
+
+_Clustering_
+
+_Monitoring, Logging_	 
+
+_High Availability_	 
+
+_Load balancing_

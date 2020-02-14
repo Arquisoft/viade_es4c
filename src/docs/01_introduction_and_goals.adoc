@@ -1,56 +1,46 @@
 [[section-introduction-and-goals]]
 == Introduction and Goals
 
-****
-Se realizará una aplicación web descentralizada de rutas siguiendo la arquitectura SOLID y el framework React. Con ella, los usuarios podrán almacenar rutas, visualizarlas en un mapa y podrán compartir fotos, vídeos u otro tipo de ficheros con sus amigos o sus grupos de amigos.
-****
+A decentralized web application of routes will be made following the SOLID architecture and the React framework. With it, users will be able to store routes, visualize them on a map and share photos, videos or other types of files with their friends or groups of friends.
 
 === Requirements Overview
 
+==== Functionals
 
-==== Funcionales
-****
-- Los usuarios deberán poder visualizar las rutas en un mapa y almacenarlas en sus propios pods.
-- Al usar sus propios pods, la información estará totalmente descentralizada, favoreciendo la seguridad de los datos.
-- También podrán tener amigos y grupos de amigos con quien compartir estas rutas, fotos, vídeos, etc.
-****
+- Users should be able to view the routes on a map and store them on their own pods.
+- By using their own pods, the information will be totally decentralized, favoring data security.
+- They will also be able to have friends and groups of friends with whom to share these routes, photos, videos, etc.
 
-=== No funcionales
-****
-- El sistema deberá ser accesible e intuituvo para todo tipo de usuario, aunque se buscará especialmente favorecer a aquellos con menos experiencia en aplicaciones de este estilo.
-- Evitar comprometer la información de los usuarios descentralizando los datos en pods independientes para cada usuario.
-- Seguir las recomendaciones del w3c para asegurar una web sin errores y más segura para el usuario.
-****
+==== Non functionals
+
+- The system must be accessible and intuitive for all types of users, although special attention will be focused on favouring those with less experience in applications of this style.
+- Avoid compromising user information by decentralizing data on separate pods for each user.
+- Follow the recommendations of the W3C to ensure an error-free and safer website.
 
 === Quality Goals
 
-****
 .Table Goals
 |===
 |Goal|Description
-|Accesibilidad|A la aplicación debe admitir y estar preparada para todo tipo de usuario, independientemente de sus capacidades, problemas cognitivos...
-|Disponibilidad|La web debe estar disponible siempre para sus usuarios en todo momento y, en caso de fallo, debe repararse el error rápidamente.
-|Seguridad|Los datos de los usuarios deben de estar protegidos para evitar que terceras personas puedan acceder a ellos.
-|Testeabilidad|Deben poder realizarse pruebas para comprobar el correcto funcionamiento del sistema.
-|Rendimiento|El sistema debe ser eficaz y reaccionar rápido ante las acciones que solicite el usuario.
-|Escalabilidad|La web podrá ir ampliándose progresivamente y de una forma sencilla a media que avance el desarrollo, ya sea ampliando funcionalidades que ya existen o agregando algunas nuevas.
-|Consistencia|El sistema de almacenamiento de datos debe de mantener la información en un estado correcto todo el tiempo.
-|Usabilidad|La aplicación debe ser intuitiva y fácil de utilizar por cualquier tipo de usuario.
+|Mainteinability|The website can be easily maintained and progressively expanded in a simple way as development progresses, either by extending existing features or by adding new ones.
+|Performance|The system must be effective and react quickly to user requests for action.
+|Privacy|User data should be stored out of the internal servers and protected to prevent third parties from accessing them.
+|Testability|Tests must be able to be carried out to check the correct functioning of the system.
+|Usability|The application must be intuitive and easy to use by any type of user.
 |===
 
-****
+
 
 === Stakeholders
 
-****
+
 .Table Stakeholders
 [options="header",cols="1,2,2"]
 |===
 |Role/Name|Contact|Expectations
-| Usuarios de la aplicación | _Estos representan a los usuarios finales de la aplicación_ | _Tener a su disposición una aplicación que les permita almacenar sus rutas y comparirlas con sus amigos._
-| Profesores | _Quienes evalúan el proyecto que se está realizando_ | _Encontrar un proyecto que cumpla con los requisitos expuestos anteriormente._
-| Desarrolladores/Developers| _Quienes se encargarán de desarrollar el producto_ | _Realizar un sistema que cumpla con los requisitos expuestos anteriormente._
+| Application users | _These represent the end users of the application_ | _Have at their disposal an application that allows them to store their routes and share them with their friends._
+| Teachers | _Who evaluate the project being carried out_ | _Find a project that meets the above requirements._
+| Developers| _Who will be in charge of developing the product_ | _Make a system that meets the requirements above._
 |===
-****
 
 
