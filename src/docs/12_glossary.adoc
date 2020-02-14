@@ -1,31 +1,13 @@
 [[section-glossary]]
 == Glossary
 
-
-
-[role="arc42help"]
-****
-.Contents
-The most important domain and technical terms that your stakeholders use when discussing the system.
-
-You can also see the glossary as source for translations if you work in multi-language teams.
-
-.Motivation
-You should clearly define your terms, so that all stakeholders
-
-* have an identical understanding of these terms
-* do not use synonyms and homonyms
-
-.Form
-A table with columns <Term> and <Definition>.
-
-Potentially more columns in case you need translations.
-
-****
-
 [options="header"]
 |===
 | Term         | Definition
-| <Term-1>     | <definition-1>
-| <Term-2>     | <definition-2>
+|Solid|Solid is a web decentralization project led by Tim Berners-Lee.The project "aims to radically change the way Web applications work today, resulting in true data ownership as well as improved privacy" by developing a platform for linked-data applications that are completely decentralized and fully under users' control rather than controlled by other entities. 
+| POD     |  Web-accessible personal online
+datastore. Each user can have one or more pods
+from different pod providers, and can easily switch between
+providers
+|Linked Data| Is structured data which is interlinked with other data so it becomes more useful through semantic queries.
 |===
