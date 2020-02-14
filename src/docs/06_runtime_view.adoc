@@ -5,7 +5,7 @@
 
 This is a general view of how we get a friend's route
 
-image:images/06_Get_Route.png["Get a route"]
+image:06_Get_Route.png["Get a route"]
 
 
 
