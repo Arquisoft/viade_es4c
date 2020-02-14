@@ -3,7 +3,6 @@
 
 A decentralized web application of routes will be made following the SOLID architecture and the React framework. With it, users will be able to store routes, visualize them on a map and share photos, videos or other types of files with their friends or groups of friends.
 
-
 === Requirements Overview
 
 ==== Functionals
@@ -12,13 +11,11 @@ A decentralized web application of routes will be made following the SOLID archi
 - By using their own pods, the information will be totally decentralized, favoring data security.
 - They will also be able to have friends and groups of friends with whom to share these routes, photos, videos, etc.
 
-
 ==== Non functionals
 
 - The system must be accessible and intuitive for all types of users, although special attention will be focused on favouring those with less experience in applications of this style.
 - Avoid compromising user information by decentralizing data on separate pods for each user.
 - Follow the recommendations of the W3C to ensure an error-free and safer website.
-
 
 === Quality Goals
 
