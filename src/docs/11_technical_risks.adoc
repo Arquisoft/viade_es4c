@@ -5,13 +5,17 @@
 [role="arc42help"]
 ****
 .Contents
-A list of identified technical risks or technical debts, ordered by priority
+Any project that is undertaken is inevitably going to have a number of risks, both technical and team-related. At the same time, there will also be motivations and positive events on which we can rely to continue the work successfully.
 
 .Motivation
-“Risk management is project management for grown-ups” (Tim Lister, Atlantic Systems Guild.) 
-
-This should be your motto for systematic detection and evaluation of risks and technical debts in the architecture, which will be needed by management stakeholders (e.g. project managers, product owners) as part of the overall risk analysis and measurement planning.
+In this case, we will have the support of the teachers of the subject, who will advise us and consult our doubts and problems.
+In addition, as far as the internal organization of the team is concerned, we have decided to create "user histories" containing all the functionalities, modifications and tests that must be carried out on the application.
 
 .Form
-List of risks and/or technical debts, probably including suggested measures to minimize, mitigate or avoid risks or reduce technical debts.
+- SOLID. SOLID's architecture is something we are not familiar with at all, so working with this might be a little difficult when it comes to starting the project, because it will require a long research and adaptation process, and also during the development stage, for the reason that it might appear some problems that we probably don't know how to fix.
+- React. Like SOLID, React is a framework totally new for us, so we must get information about this technology before starting to produce the application. This not only implies documenting about it, but we must also investigate how to connect it with SOLID and how to integrate both with the rest of the system.
+- Little experience in web development. Before the beginning of this project, the only contact we'd had with web application development was the one we acquired in the SEW course. In addition, this knowledge was not particulary high, because a four-month subject is't enough to study the complexity of web design in depth. That's why we must do a biggest effort to be able to get acceptable results.
+- Stranger team. Even though this is probably going to be the usual thing for us in the future, the truth is that working with strangers is always a challenge and a risk, because the chance of not being able to get alog with our workmate, lack of communication or not reaching agreement despite the effort put into the dialogue is present at all times.
+- Large team. Again, this is part of our future work as software developers or software architects and we must be prepared for it. However, until we get used to it, sharing team with six other people can be a problem, because the more members it has, the more difficult it will be to coordinate it. This is why we must work to encourage good communication between us.
+- Limited time. For the first presentation of the application, we have a total of three weeks in which we must make a first prototype that includes as many functionalities as possible. Linking this limited time with everything described above could become a problem, preventing even the successful completion of this first prototype.
 ****
