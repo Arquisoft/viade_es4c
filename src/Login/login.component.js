@@ -6,8 +6,8 @@ class Login extends Component{
         return (
             <div>
                 <p>Login temporal de Viade es4c</p>
-                <LoginButton popup="popup.html"/> 
-                {/*Comprobación si popup.html funciona*/}
+                <LoginButton popup="https://christianpelaez98.solid.community/public/popup.html"/> 
+                {/*He añadido el popup.html a mi POD porque se tiene que pasar en forma de URI. Cuando se despliegue la app hay que cambiarlo*/}
                 <LoggedIn>
                     <Image src="user.image" defaultSrc="profile.svg" className="profile"/> {/*No funciona*/}
                     <p>Welcome back, <Value src="user.name"/>.</p>
