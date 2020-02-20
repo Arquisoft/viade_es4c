@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {Login} from "../../components";
+import {Login} from "../../containers";
 
 /**
  * Navigation Bar to use at the top of the site on each page

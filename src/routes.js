@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 import {
-  Home
+  Home,Login
 } from './containers';
 
 /**
@@ -17,6 +17,9 @@ const Routes = () => (
       <Switch>
         <Route path='/' exact>      {/* Homepage - "/" */}
             <Home/>
+        </Route>
+        <Route path='/login' exact>      {/* Login - "/login" */}
+            <Login/>
         </Route>
         <Redirect to="/404" />      {/* If none page is loaded redirects to 404 error page */}
       </Switch>
