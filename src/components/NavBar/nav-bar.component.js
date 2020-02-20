@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import {Login} from "../../containers";
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import { Login } from "../../containers";
 
 /**
  * Navigation Bar to use at the top of the site on each page
@@ -9,28 +9,29 @@ import {Login} from "../../containers";
  * @returns {*}
  */
 const NavBar = props => {
+  const webId = props.webId;
 
-    const webId = props.webId;
-
-    return (
-        <header role="navigation" className="header header__desktop fixed">
-            <section className="header-wrap">
-                <div className="logo-block">
-                    <Link to="/">
-                        <img src="/img/inrupt.svg" alt="inrupt"/>
-                    </Link>
-                </div>
-            </section>
-            <div>
-                {(webId)?
-                    <Link to={webId}>
-                        Profile
-                    </Link>
-                    : <Login />
-                }
-            </div>
-        </header>
-    );
+  return (
+    <header role="navigation" className="header header__desktop fixed">
+      <section className="header-wrap">
+        <div className="logo-block">
+          <Link to="/">
+            <img src="/img/inrupt.svg" alt="inrupt" />
+          </Link>
+        </div>
+      </section>
+      <div>
+        {webId ? (
+          <Fragment>
+            <Link to={webId}>Profile</Link>
+            <Link to="/friends">Friends</Link>
+          </Fragment>
+        ) : (
+          <Login />
+        )}
+      </div>
+    </header>
+  );
 };
 
 export default NavBar;

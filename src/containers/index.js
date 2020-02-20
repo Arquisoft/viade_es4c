@@ -1,5 +1,6 @@
 import Home from './Home';
-import Login from './Login'
+import Login from './Login';
+import Friends from './Friends';
 export {
-  Home,Login
+  Home,Login,Friends
 };
