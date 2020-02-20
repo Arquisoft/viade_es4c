@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Login } from "../../containers";
+import './navbar.css';
 
 /**
  * Navigation Bar to use at the top of the site on each page
@@ -15,16 +16,16 @@ const NavBar = props => {
     <header role="navigation" className="header header__desktop fixed">
       <section className="header-wrap">
         <div className="logo-block">
-          <Link to="/">
+          <NavLink to="/">
             <img src="/img/inrupt.svg" alt="inrupt" />
-          </Link>
+          </NavLink>
         </div>
       </section>
       <div>
         {webId ? (
           <Fragment>
-            <Link to={webId}>Profile</Link>
-            <Link to="/friends">Friends</Link>
+            <NavLink to={webId} className='link' activeClassName="selected-link">Profile</NavLink>
+            <NavLink exact to="/friends" className='link' activeClassName="selected-link">Friends</NavLink>
           </Fragment>
         ) : (
           <Login />
