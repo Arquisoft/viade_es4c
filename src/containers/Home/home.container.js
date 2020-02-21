@@ -11,7 +11,7 @@ export const HomeComponent = () => {
         <div>
             <NavBar webId={webId}/>
             <h1>Home</h1>
-            <h2>User: {(webId)? webId: 'Not logged in'}</h2>
+            <h2>User: {(webId)? webId: "Not logged in"}</h2>
         </div>
     );
 };

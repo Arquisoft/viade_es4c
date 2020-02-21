@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import React, { Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import {
   Home,Login,Friends
-} from './containers';
+} from "./containers";
 
 /**
  * Manages the BrowserRouter and so, all the route navigation
@@ -15,13 +15,13 @@ const Routes = () => (
     <Fragment>
         {/* Chooses the first route matching the direction and loads it */}
       <Switch>
-        <Route path='/' exact>      {/* Homepage - "/" */}
+        <Route path="/" exact>      {/* Homepage - "/" */}
             <Home/>
         </Route>
-        <Route path='/login' exact>      {/* Login - "/login" */}
+        <Route path="/login" exact>      {/* Login - "/login" */}
             <Login/>
         </Route>
-        <Route path='/friends' exact>      {/* Friends - "/friends" */}
+        <Route path="/friends" exact>      {/* Friends - "/friends" */}
             <Friends/>
         </Route>
         <Redirect to="/404" />      {/* If none page is loaded redirects to 404 error page */}

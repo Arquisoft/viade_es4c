@@ -9,7 +9,7 @@ const FriendsComponent = () => {
     if (webID) {
       const person = data[webID];
       for await (const name of person.friends) {
-        console.log(`  - ${name} is a friend`);
+        console.log("  - ${name} is a friend");
       }
     }
   };

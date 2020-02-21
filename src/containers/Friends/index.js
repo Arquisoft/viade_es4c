@@ -1,3 +1,3 @@
-import FriendsComponent from './friends.container';
+import FriendsComponent from "./friends.container";
 
 export default FriendsComponent;
