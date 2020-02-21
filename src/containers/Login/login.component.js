@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import { ProviderLogin } from '@inrupt/solid-react-components';
-import { Provider } from '../../services';
+import { Link } from "react-router-dom";
+import { ProviderLogin } from "@inrupt/solid-react-components";
+import { Provider } from "../../services";
 
 const LoginComponent = () => {
   return (

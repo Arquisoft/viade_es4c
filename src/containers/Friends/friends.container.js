@@ -9,11 +9,13 @@ const FriendsComponent = () => {
     if (webID) {
       const person = data[webID];
       for await (const name of person.friends) {
+        /* eslint no-console: ["error", { allow: ["log"] }] */
         console.log("  - ${name} is a friend");
       }
     }
   };
-  getFriends(webID);
+  const result = getFriends(webID);
+  console.log(result);
   return (
     <div>
       <NavBar webId={webID}/>

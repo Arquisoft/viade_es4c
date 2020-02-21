@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { NavBar } from "../../components";
 import { useWebId } from "@inrupt/solid-react-components";
 
