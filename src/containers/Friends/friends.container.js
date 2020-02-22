@@ -7,8 +7,7 @@ const FriendsComponent = () => {
   const webID = useWebId();
   const getFriends = async (webID) => {
     if (webID) {
-      const person = data[webID];
-      for await (const name of person.friends) {
+      for await (const name of data[webID].friends) {
         /* eslint no-console: ["error", { allow: ["log"] }] */
         console.log("  - ${name} is a friend");
       }
