@@ -26,7 +26,6 @@ const NavBar = (props) => {
           <Fragment>
             <NavLink to={webId} className="link" activeClassName="selected-link">Profile</NavLink>
             <NavLink exact to="/friends" className="link" activeClassName="selected-link">Friends</NavLink>
-            <NavLink exact to="/register" className="link" activeClassName="selected-link">SignUp</NavLink>
           </Fragment>
         ) : (
           <Login />
