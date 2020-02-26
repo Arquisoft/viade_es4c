@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import {
-  Home,Login,Friends
+  Home,Login,Friends,NotFound,
 } from "./containers";
 
 /**
@@ -24,7 +24,9 @@ const Routes = () => (
         <Route path="/friends" exact>      {/* Friends - "/friends" */}
             <Friends/>
         </Route>
-        <Redirect to="/404" />      {/* If none page is loaded redirects to 404 error page */}
+        <Route path="*" >      {/* In case that the page not exist, 404 error*/}
+            <NotFound/>
+        </Route>
       </Switch>
     </Fragment>
   </Router>
