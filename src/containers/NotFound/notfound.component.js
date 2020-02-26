@@ -1,14 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import PageNotFound from './error404.jpg'
 
 const NotFoundComponent = () => {
-    return <div>
-    <img src={PageNotFound} width="70%" height="70%" />
-    <p style={{textAlign:"center"}}>
-      <Link to="/">Go Back </Link>
-    </p>
-  </div>;
+    return <div className="ErrorImage">
+        <NavLink to="/">
+          <img src="/img/error404.jpg" alt="error" height="75%" width="75%" />
+        </NavLink>
+        <p style={{textAlign:"center"}}>
+              <Link to="/">Go back Home </Link>
+            </p>
+      </div>
 }
 
 export default NotFoundComponent;
