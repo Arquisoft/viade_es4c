@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import {
-  Home,Login,Friends,NotFound,
+  Home,Login,Friends,Register,NotFound
 } from "./containers";
 
 /**
@@ -10,7 +10,8 @@ import {
  * @returns {*}
  * @constructor
  */
-const Routes = () => (
+const Routes = () => {
+  return (
   <Router>
     <Fragment>
         {/* Chooses the first route matching the direction and loads it */}
@@ -24,6 +25,9 @@ const Routes = () => (
         <Route path="/friends" exact>      {/* Friends - "/friends" */}
             <Friends/>
         </Route>
+        <Route path="/register" exact>      {/* Register - "/register" */}
+            <Register/>
+        </Route>
         <Route path="*" >      {/* In case that the page not exist, 404 error*/}
             <NotFound/>
         </Route>
@@ -31,5 +35,6 @@ const Routes = () => (
     </Fragment>
   </Router>
 );
+  }
 
 export default Routes;
