@@ -1,5 +1,5 @@
 import React from "react";
-import { NavBar } from "../../components";
+import {NavBar, RoutesMap} from "../../components";
 import { useWebId } from "@inrupt/solid-react-components";
 
 /**
@@ -12,6 +12,7 @@ export const HomeComponent = () => {
             <NavBar webId={webId}/>
             <h1>Home</h1>
             <h2>User: {(webId)? webId: "Not logged in"}</h2>
+            <RoutesMap/>
         </div>
     );
 };
