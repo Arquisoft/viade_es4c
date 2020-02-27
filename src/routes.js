@@ -5,6 +5,8 @@ import {
   Home,Login,Friends
 } from "./containers";
 
+import {NotLoggedInLayout} from "./layouts";
+
 /**
  * Manages the BrowserRouter and so, all the route navigation
  * @returns {*}
@@ -18,9 +20,7 @@ const Routes = () => (
         <Route path="/" exact>      {/* Homepage - "/" */}
             <Home/>
         </Route>
-        <Route path="/login" exact>      {/* Login - "/login" */}
-            <Login/>
-        </Route>
+        <NotLoggedInLayout component={Login} path="/login"/>
         <Route path="/friends" exact>      {/* Friends - "/friends" */}
             <Friends/>
         </Route>
