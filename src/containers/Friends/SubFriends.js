@@ -47,26 +47,14 @@ class SubFriendsComponent extends React.Component {
       }
     
       render() {
-        const { input, expression } = this.state;
+        const { expression } = this.state;
         return (
-          <form className="playground" onSubmit={this.onExecute}>
-            <p className="expression">
-              <label><code>solid.data</code></label>
-              <input value={input} onChange={this.onChangeExpression} required />
-              <button>Execute</button>
-            </p>
-    
-            <h3>Expression</h3>
-            <pre className="expression"><code>{expression}</code></pre>
-    
-            { <div>
+            <div>
                 <h3>Friends</h3>
                 <List src={expression}>{(item, i) =>
-                  <li key={i}>{linkTo(`${item}`)}</li>}
+                    <li key={i}>{linkTo(`${item}`)}</li>}
                 </List>
-              </div>
-            }
-          </form>
+            </div>
         );
       }
     }
