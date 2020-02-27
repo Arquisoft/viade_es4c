@@ -19,7 +19,7 @@ const NavBar = (props) => {
         </div>
       </section>
       <div>
-        <NavLink to="/login" className="link" activeClassName="selected-link">
+        <NavLink to="/login" className="link" activeclassname="selected-link">
           Login
         </NavLink>
       </div>

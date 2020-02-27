@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import "./auth-nav-bar.css";
 
 
@@ -15,8 +15,8 @@ const AuthNavBar = (props) => {
         </div>
       </section>
       <div>
-        <NavLink to={webId} className="link" activeClassName="selected-link">Profile</NavLink>
-        <NavLink exact to="/friends" className="link" activeClassName="selected-link">Friends</NavLink>
+        <NavLink to={webId} className="link" activeclassname="selected-link">Profile</NavLink>
+        <NavLink to="/friends" className="link" activeclassname="selected-link" >Friends</NavLink>
       </div>
     </header>
   );

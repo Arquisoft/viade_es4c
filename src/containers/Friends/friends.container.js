@@ -8,7 +8,7 @@ const FriendsComponent = () => {
   const getFriends = async (webID) => {
     if (webID) {
       for await (const name of data[webID].friends) {
-        /* eslint no-console: ["error", { allow: ["log"] }] */
+        // eslint no-console: ["error", { allow: ["log"] }] 
         console.log("  - ${name} is a friend");
       }
     }
@@ -17,7 +17,6 @@ const FriendsComponent = () => {
   console.log(result);
   return (
     <div>
-      <NavBar webId={webID}/>
       <h1>Friends</h1>
       <p>See console</p>
     </div>

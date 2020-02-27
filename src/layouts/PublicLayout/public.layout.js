@@ -1,13 +1,11 @@
 import React from 'react';
 import { Route} from 'react-router-dom';
-import { useWebId } from '@inrupt/solid-react-components';
+import { withWebId } from '@inrupt/solid-react-components';
 import { NavBar, AuthNavBar } from '../../components';
 
 
-const PublicLayout = props => {
-  const webId = useWebId();
-  console.log(webId?true:false);
-  const { component: Component, ...rest } = props;
+const PublicLayout =props => {
+  const { component: Component,webId, ...rest } = props;
   return (
     <Route
       {...rest}
@@ -27,4 +25,4 @@ const PublicLayout = props => {
   );
 };
 
-export default PublicLayout;
+export default withWebId(PublicLayout);
