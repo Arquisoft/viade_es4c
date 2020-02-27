@@ -2,7 +2,9 @@ import React from "react";
 import { NavLink,Link } from "react-router-dom";
 import "./auth-nav-bar.css";
 
-
+/**
+* Navigation bar which contains de actions of a user loggedin 
+*/
 const AuthNavBar = (props) => {
   const webId = props.webId;
   return (

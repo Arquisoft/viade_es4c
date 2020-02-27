@@ -14,6 +14,13 @@ import {NotLoggedInLayout,PublicLayout,PrivateLayout} from "./layouts";
  * @constructor
  */
 const Routes = () => (
+  {
+    /*
+      PublicLayout para rutas que se tienen que mostrar a usuarios que estén o no registrados
+      NotLoggedInLayout para rutas que se tienen que mostrar a usuarios que NO están registrados
+      PrivateLayout para rutas que se tienen que mostrar a usuarios que SI están registrados
+    */
+  }
   <Router>
     <Fragment>
         {/* Chooses the first route matching the direction and loads it */}

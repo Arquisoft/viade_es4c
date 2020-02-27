@@ -1,11 +1,17 @@
 import React from 'react';
 import { Route} from 'react-router-dom';
-import { withWebId } from '@inrupt/solid-react-components';
+import { useWebId } from '@inrupt/solid-react-components';
 import { NavBar, AuthNavBar } from '../../components';
 
-
+/**
+* Controls the paths that can be accessed by any user (may or may not be logged in). 
+In addition, it also shows NavBar or Auth NavBar depending on whether the user is logged in or not.
+*@param {Component} component - The Container to be shown
+*@param {String} path - path asigned to the container
+*/
 const PublicLayout =props => {
-  const { component: Component,webId, ...rest } = props;
+  const { component: Component, ...rest } = props;
+  const webId=useWebId();
   return (
     <Route
       {...rest}
@@ -25,4 +31,4 @@ const PublicLayout =props => {
   );
 };
 
-export default withWebId(PublicLayout);
+export default PublicLayout;

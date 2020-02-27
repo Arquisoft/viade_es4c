@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./navbar.css";
 
 /**
- * Navigation Bar to use at the top of the site on each page
+ * Navigation bar which contains de actions of a user not loggedin 
  * @param props
  *  @webId ID of the user
  * @returns {*}
