@@ -1,3 +1,3 @@
-import RoutesListComponent from "./routesList.container";
+import {RoutesListComponent} from "./routesList.container";
 
 export default RoutesListComponent;
