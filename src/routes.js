@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import {
-  Home,Login,Friends,Profile
+  Home,Login,Friends,Profile,Register,NotFound
 } from "./containers";
 
 /**
@@ -10,7 +10,8 @@ import {
  * @returns {*}
  * @constructor
  */
-const Routes = () => (
+const Routes = () => {
+  return (
   <Router>
     <Fragment>
         {/* Chooses the first route matching the direction and loads it */}
@@ -27,10 +28,16 @@ const Routes = () => (
          <Route path="/profile" exact>      {/* Profile - "/profile" */}
              <Profile/>
          </Route>
-        <Redirect to="/404" />      {/* If none page is loaded redirects to 404 error page */}
+        <Route path="/register" exact>      {/* Register - "/register" */}
+            <Register/>
+        </Route>
+        <Route path="*" >      {/* In case that the page not exist, 404 error*/}
+            <NotFound/>
+        </Route>
       </Switch>
     </Fragment>
   </Router>
 );
+  }
 
 export default Routes;
