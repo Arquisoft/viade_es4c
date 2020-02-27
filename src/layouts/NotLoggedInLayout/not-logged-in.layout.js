@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { NavBar} from '../../components';
-import { withWebId } from '@inrupt/solid-react-components';
+import { useWebId } from '@inrupt/solid-react-components';
 
 const NotLoggedInLayout = props => {
-  const { component: Component, webId, ...rest } = props;
+  const { component: Component, ...rest } = props;
+  const webId=useWebId();
   return !webId ? (
     <Route
       {...rest}
@@ -20,4 +21,4 @@ const NotLoggedInLayout = props => {
   );
 };
 
-export default withWebId(NotLoggedInLayout);
+export default NotLoggedInLayout;

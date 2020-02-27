@@ -1,6 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { Login } from "../../containers";
 import "./navbar.css";
 
 /**
@@ -10,8 +9,6 @@ import "./navbar.css";
  * @returns {*}
  */
 const NavBar = (props) => {
-  const webId = props.webId;
-
   return (
     <header role="navigation" className="header header__desktop fixed">
       <section className="header-wrap">
@@ -22,14 +19,9 @@ const NavBar = (props) => {
         </div>
       </section>
       <div>
-        {webId ? (
-          <Fragment>
-            <NavLink to={webId} className="link" activeClassName="selected-link">Profile</NavLink>
-            <NavLink exact to="/friends" className="link" activeClassName="selected-link">Friends</NavLink>
-          </Fragment>
-        ) : (
-          <Login />
-        )}
+        <NavLink to="/login" className="link" activeClassName="selected-link">
+          Login
+        </NavLink>
       </div>
     </header>
   );
