@@ -1,0 +1,18 @@
+import React from "react";
+import data from "@solid/query-ldflex";
+import { useWebId } from "@inrupt/solid-react-components";
+import {NavBar} from "../../components";
+
+const ProfileComponent = () => {
+    const webID = useWebId();
+    return (
+        <div>
+            <NavBar webId={webID}/>
+            <p>.</p>
+            <p>.</p>
+            <h1>Profile</h1>
+        </div>
+    );
+};
+
+export default ProfileComponent;
