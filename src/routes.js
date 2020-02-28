@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import {
-  Home,Login,Friends,Profile,Register,NotFound
+  Home,Login,Friends,Profile,Register,NotFound,MyRoutes,FriendsRoutes,Upload
 } from "./containers";
 
 /**
@@ -25,9 +25,15 @@ const Routes = () => {
         <Route path="/friends" exact>      {/* Friends - "/friends" */}
             <Friends/>
         </Route>
-         <Route path="/profile" exact>      {/* Profile - "/profile" */}
-             <Profile/>
-         </Route>
+        <Route path="/profile" exact>      {/* Profile - "/profile" */}
+            <Profile/>
+        </Route>
+        <Route path="/myRoutes" exact>      {/* MyRoutes - "/myRoutes" */}
+            <MyRoutes/>
+        </Route>
+        <Route path="/friendsRoutes" exact>      {/* FriendsRoutes - "/friendsRoutes" */}
+            <FriendsRoutes/>
+        </Route>
         <Route path="/register" exact>      {/* Register - "/register" */}
             <Register/>
         </Route>
