@@ -30,8 +30,10 @@ const NavBar = (props) => {
 						<NavLink className="float-right" to="/logout">
 							<Image src="/img/logout.svg"/>
 						</NavLink>
-						<NavLink exact to="/friends" className="link" activeClassName="selected-link">Friends</NavLink>
 						<NavLink exact to="/profile" className="link" activeClassName="selected-link">Profile</NavLink>
+						<NavLink exact to="/myRoutes" className="link" activeClassName="selected-link">MyRoutes</NavLink>
+						<NavLink exact to="/friends" className="link" activeClassName="selected-link">Friends</NavLink>
+						<NavLink exact to="/friendsRoutes" className="link" activeClassName="selected-link">FriendsRoutes</NavLink>
 					</Fragment>
 				) : (
 					<Login/>
