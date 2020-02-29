@@ -19,8 +19,10 @@ const AuthNavBar = (props) => {
       </section>
       <div>
         <UploadButton/>
-        <NavLink to="/friends" className="link" activeclassname="selected-link" >Friends</NavLink>
         <NavLink exact to="/profile" className="link" activeClassName="selected-link">Profile</NavLink>
+				<NavLink exact to="/myRoutes" className="link" activeClassName="selected-link">MyRoutes</NavLink>
+        <NavLink exact to="/friends" className="link" activeClassName="selected-link">Friends</NavLink>
+				<NavLink exact to="/friendsRoutes" className="link" activeClassName="selected-link">FriendsRoutes</NavLink>
       </div>
     </header>
   );
