@@ -1,4 +1,5 @@
 import React from "react";
+import {RoutesMap} from "../../components";
 import { useWebId } from "@inrupt/solid-react-components";
 
 /**
@@ -10,6 +11,7 @@ export const HomeComponent = () => {
         <div>
             <h1>Home</h1>
             <h2>User: {(webId)? webId: "Not logged in"}</h2>
+            <RoutesMap/>
         </div>
     );
 };

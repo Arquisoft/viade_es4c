@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch} from "react-router-dom";
 
 import {
-  Home, Login, Friends
+  Home,Login,Friends,Profile,Register,NotFound
 } from "./containers";
 
 import { NotLoggedInLayout, PublicLayout, PrivateLayout } from "./layouts";
@@ -13,7 +13,8 @@ import { NotLoggedInLayout, PublicLayout, PrivateLayout } from "./layouts";
  * @returns {*}
  * @constructor
  */
-const Routes = () => (
+const Routes = () => {
+  return (
   <Router>
     <Fragment>
       {/* Chooses the first route matching the direction and loads it */}
@@ -27,11 +28,16 @@ const Routes = () => (
         }
         <PublicLayout component={Home} path="/" exact />      {/* Homepage - "/" */}
         <NotLoggedInLayout component={Login} path="/login" exact /> {/* Login - "/login" */}
+        <NotLoggedInLayout component={Register} path="/register" exact /> {/* Register - "/register" */}
         <PrivateLayout component={Friends} path="/friends" exact /> {/* Friends - "/friends" */}
-        <Redirect to="/404" />      {/* If none page is loaded redirects to 404 error page */}
+        <PrivateLayout component={Profile} path="/profile" exact /> {/* Profile - "/profile" */}
+        <PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
+
+
       </Switch>
     </Fragment>
   </Router>
 );
+  }
 
 export default Routes;

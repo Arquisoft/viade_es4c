@@ -1,6 +1,7 @@
 import React from "react";
-import { NavLink,Link } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import "./auth-nav-bar.css";
+import UploadButton from "./UploadButton";
 
 /**
 * Navigation bar which contains de actions of a user loggedin 
@@ -17,8 +18,9 @@ const AuthNavBar = (props) => {
         </div>
       </section>
       <div>
-        <NavLink to={webId} className="link" activeclassname="selected-link">Profile</NavLink>
+        <UploadButton/>
         <NavLink to="/friends" className="link" activeclassname="selected-link" >Friends</NavLink>
+        <NavLink exact to="/profile" className="link" activeClassName="selected-link">Profile</NavLink>
       </div>
     </header>
   );

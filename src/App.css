@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+.leaflet-container {
+  height: 500px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
