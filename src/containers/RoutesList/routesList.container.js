@@ -22,7 +22,8 @@ export const RoutesListComponent = () => {
 
     return (
         <div>
-            <NavBar webId={webId}/>
+            <p>.</p>
+            <p>.</p>
             <h1>Listado de rutas</h1>
         </div>
     );

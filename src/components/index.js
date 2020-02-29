@@ -1,7 +1,8 @@
 import NavBar from "./NavBar";
-import RoutesMap from "./RoutesMap/routes-map.component";
+import AuthNavBar from "./AuthNavBar";
+import ErrorBoundary from "./ErrorBoundary";
+import RoutesMap from "./RoutesMap";
 
 export {
-  NavBar,
-  RoutesMap
+  NavBar,AuthNavBar,ErrorBoundary,RoutesMap
 };

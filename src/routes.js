@@ -1,9 +1,12 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch} from "react-router-dom";
 
 import {
-  Home,Login,Friends,Register,RoutesList,NotFound
+  Home,Login,Friends,Profile,Register,NotFound,MyRoutes,FriendsRoutes,RoutesList
 } from "./containers";
+
+import { NotLoggedInLayout, PublicLayout, PrivateLayout } from "./layouts";
+
 
 /**
  * Manages the BrowserRouter and so, all the route navigation
@@ -14,26 +17,26 @@ const Routes = () => {
   return (
   <Router>
     <Fragment>
-        {/* Chooses the first route matching the direction and loads it */}
+      {/* Chooses the first route matching the direction and loads it */}
       <Switch>
-        <Route path="/" exact>      {/* Homepage - "/" */}
-            <Home/>
-        </Route>
-        <Route path="/login" exact>      {/* Login - "/login" */}
-            <Login/>
-        </Route>
-        <Route path="/friends" exact>      {/* Friends - "/friends" */}
-            <Friends/>
-        </Route>
-        <Route path="/register" exact>      {/* Register - "/register" */}
-            <Register/>
-        </Route>
-        <Route path="/routesList" exact>      {/* Routes list - "/routesList" */}
-            <RoutesList/>
-        </Route>
-        <Route path="*" >      {/* In case that the page not exist, 404 error*/}
-            <NotFound/>
-        </Route>
+        {
+          /*
+            PublicLayout para rutas que se tienen que mostrar a todos los usuarios(estén o no loggeados)
+            NotLoggedInLayout para rutas que se tienen que mostrar a usuarios que NO están loggeados
+            PrivateLayout para rutas que se tienen que mostrar a usuarios que SI están loggeados
+          */
+        }
+        <PublicLayout component={Home} path="/" exact />      {/* Homepage - "/" */}
+        <NotLoggedInLayout component={Login} path="/login" exact /> {/* Login - "/login" */}
+        <NotLoggedInLayout component={Register} path="/register" exact /> {/* Register - "/register" */}
+        <PrivateLayout component={Friends} path="/friends" exact /> {/* Friends - "/friends" */}
+        <PrivateLayout component={Profile} path="/profile" exact /> {/* Profile - "/profile" */}
+        <PrivateLayout component={MyRoutes} path="/myRoutes" exact /> {/* Friends - "/friends" */}
+        <PrivateLayout component={FriendsRoutes} path="/friendsRoutes" exact /> {/* Profile - "/profile" */}
+        <PrivateLayout component={RoutesList} path="/routesList" exact /> {/* Profile - "/profile" */}
+        <PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
+
+
       </Switch>
     </Fragment>
   </Router>
