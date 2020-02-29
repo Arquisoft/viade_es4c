@@ -204,7 +204,6 @@ function linkTo(dest) {
   console.log(result);
   return (
     <div>
-      <NavBar webId={webID}/>
       <h1>Friends</h1>
       <p>See console</p>
     </div>

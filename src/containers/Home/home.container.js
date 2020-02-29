@@ -1,5 +1,5 @@
 import React from "react";
-import {NavBar, RoutesMap} from "../../components";
+import {RoutesMap} from "../../components";
 import { useWebId } from "@inrupt/solid-react-components";
 
 /**
@@ -9,7 +9,6 @@ export const HomeComponent = () => {
     const webId = useWebId();
     return (
         <div>
-            <NavBar webId={webId}/>
             <h1>Home</h1>
             <h2>User: {(webId)? webId: "Not logged in"}</h2>
             <RoutesMap/>

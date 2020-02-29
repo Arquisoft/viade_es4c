@@ -6,7 +6,6 @@ const FriendsRoutesComponent = () => {
   const webID = useWebId();
   return (
       <div>
-        <NavBar webId={webID}/>
         <p>.</p>
         <p>.</p>
         <h1>My friends routes</h1>

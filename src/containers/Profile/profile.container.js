@@ -7,7 +7,6 @@ const ProfileComponent = () => {
     const webID = useWebId();
     return (
         <div>
-            <NavBar webId={webID}/>
             <p>.</p>
             <p>.</p>
             <h1>Profile</h1>

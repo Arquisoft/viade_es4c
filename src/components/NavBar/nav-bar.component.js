@@ -1,46 +1,38 @@
-import React, {Fragment} from "react";
-import {NavLink} from "react-router-dom";
-import {Login} from "../../containers";
-import Image from 'react-bootstrap/Image';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import Image from "react-bootstrap/Image";
 import "./navbar.css";
-import UploadButton from "./UploadButton";
 
 /**
- * Navigation Bar to use at the top of the site on each page
+ * Navigation bar which contains de actions of a user not loggedin
  * @param props
  *  @webId ID of the user
  * @returns {*}
  */
-const NavBar = (props) => {
-	const webId = props.webId;
-
-	return (
-		<header role="navigation" className="header">
-			<section className="header-wrap">
-				<div className="logo-block">
-					<NavLink to="/">
-						<img src="/img/logo.svg" alt="Viade"/>
-					</NavLink>
-				</div>
-			</section>
-			<UploadButton/>
-			<div>
-				{webId ? (
-					<Fragment>
-						<NavLink className="float-right" to="/logout">
-							<Image src="/img/logout.svg"/>
-						</NavLink>
-						<NavLink exact to="/profile" className="link" activeClassName="selected-link">Profile</NavLink>
-						<NavLink exact to="/myRoutes" className="link" activeClassName="selected-link">MyRoutes</NavLink>
-						<NavLink exact to="/friends" className="link" activeClassName="selected-link">Friends</NavLink>
-						<NavLink exact to="/friendsRoutes" className="link" activeClassName="selected-link">FriendsRoutes</NavLink>
-					</Fragment>
-				) : (
-					<Login/>
-				)}
-			</div>
-		</header>
-	);
+const NavBar = props => {
+  return (
+    <header role="navigation" className="header header__desktop fixed">
+      <section className="header-wrap">
+        <div className="logo-block">
+          <NavLink to="/">
+            <Image src="/img/inrupt.svg" alt="inrupt" />
+          </NavLink>
+        </div>
+      </section>
+      <div>
+        <NavLink
+          to="/register"
+          className="link"
+          activeclassname="selected-link"
+        >
+          Sign Up
+        </NavLink>
+        <NavLink to="/login" className="link" activeclassname="selected-link">
+          Log In
+        </NavLink>
+      </div>
+    </header>
+  );
 };
 
 export default NavBar;
