@@ -23,6 +23,7 @@ const AuthNavBar = (props) => {
 				<NavLink exact to="/myRoutes" className="link" activeClassName="selected-link">MyRoutes</NavLink>
         <NavLink exact to="/friends" className="link" activeClassName="selected-link">Friends</NavLink>
 				<NavLink exact to="/friendsRoutes" className="link" activeClassName="selected-link">FriendsRoutes</NavLink>
+        <NavLink exact to="/routesList" className="link" activeClassName="selected-link">RoutesList Example</NavLink>
       </div>
     </header>
   );
