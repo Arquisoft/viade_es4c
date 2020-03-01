@@ -1,7 +1,7 @@
 import React from 'react';
 import { LoggedIn, LoggedOut, AuthButton, Value, List, withWebId } from '@solid/react';
 
-class ProfileComponent extends React.Component {
+class Profileapp extends React.Component {
     state = { profileInput: '', activeProfile: '' };
 
     componentDidUpdate(prevProps) {
@@ -18,13 +18,11 @@ class ProfileComponent extends React.Component {
         const { profileInput, activeProfile } = this.state;
         return (
             <div>
-                <p> . </p>
-                <p> . </p>
                 <h1>Profile viewer</h1>
                 <p>
                     <LoggedOut>You are not logged in.</LoggedOut>
                     <LoggedIn>You are logged in as <Value src="user.name"/>.</LoggedIn>
-
+                    <AuthButton popup="popup.html"/>
                 </p>
                 <p>
                     <label htmlFor="profile">Profile:</label>
@@ -40,7 +38,9 @@ class ProfileComponent extends React.Component {
                     <dd>
                         <List src={`[${activeProfile}].friends`}>{friend =>
                             <li key={friend}>
-                                <Value src={`[${friend}].name`}>{`${friend}`}</Value>
+                                <button onClick={() => this.viewProfile(friend)}>
+                                    <Value src={`[${friend}].name`}>{`${friend}`}</Value>
+                                </button>
                             </li>}
                         </List>
                     </dd>
@@ -49,4 +49,4 @@ class ProfileComponent extends React.Component {
         );
     }
 }
-export default withWebId(ProfileComponent);
+export default withWebId(Profileapp);
