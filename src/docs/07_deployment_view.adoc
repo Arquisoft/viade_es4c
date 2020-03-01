@@ -51,4 +51,4 @@ We think choosing a browser application is a good way to be open to more public,
 === Infrastructure Level 2
 
 * Solid POD: This is a personal storage space where you caan decide which things are public and private and who can see them (people, apps...). 
-* GitHub Pages: Theese are public webpages hosted and published through GitHub. They can be maanaged via the web or locaally in a computer.
+* GitHub Pages: Theese are public webpages hosted and published through GitHub. They can be managed via the web or locally in a computer.
