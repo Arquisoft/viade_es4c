@@ -2,6 +2,7 @@ import React from "react";
 import auth from "solid-auth-cli";
 import FC from "solid-file-client";
 import { useWebId } from "@inrupt/solid-react-components";
+import {Spacer} from "../../components";
 
 export const RoutesListComponent = () => {
     const webId = useWebId();
@@ -21,8 +22,7 @@ export const RoutesListComponent = () => {
 
     return (
         <div>
-            <p>.</p>
-            <p>.</p>
+            <Spacer/>
             <h1>Listado de rutas</h1>
         </div>
     );
