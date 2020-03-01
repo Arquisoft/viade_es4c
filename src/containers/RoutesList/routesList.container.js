@@ -1,7 +1,6 @@
 import React from "react";
 import auth from "solid-auth-cli";
 import FC from "solid-file-client";
-import {NavBar} from "../../components";
 import { useWebId } from "@inrupt/solid-react-components";
 
 export const RoutesListComponent = () => {

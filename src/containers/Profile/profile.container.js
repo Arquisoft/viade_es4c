@@ -1,7 +1,6 @@
 import React from "react";
 import data from "@solid/query-ldflex";
 import { useWebId } from "@inrupt/solid-react-components";
-import {NavBar} from "../../components";
 
 const ProfileComponent = () => {
     const webID = useWebId();
