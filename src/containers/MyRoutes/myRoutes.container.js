@@ -5,7 +5,7 @@ import { useWebId } from "@inrupt/solid-react-components";
 import {NavBar} from "../../components";
 
 const MyRoutesComponent = () => {
-  const webID = useWebId(); // https://mrmenchaca.solid.community/profile/card#me
+  const webID = useWebId(); // https://xxxxx.solid.community/profile/card#me
     
   // I will use: https://github.com/jeff-zucker/solid-file-client
   if (webID != null){
