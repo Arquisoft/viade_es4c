@@ -2,12 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ProviderLogin } from "@inrupt/solid-react-components";
 import { Provider } from "../../services";
-import {Spacer} from "../../components";
 
 const LoginComponent = () => {
   return (
-    <div>
-        <Spacer/>
+
+    <div className="">
         <h1 data-testid="title">Login de Viade es4c</h1>
         <Link to="/register">Sign Up</Link>
         <ProviderLogin
