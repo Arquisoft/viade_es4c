@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoggedIn, LoggedOut, AuthButton, Value, List, withWebId } from '@solid/react';
+import { LoggedIn, LoggedOut, Value, List, withWebId } from '@solid/react';
 
 class ProfileComponent extends React.Component {
     state = { profileInput: '', activeProfile: '' };
@@ -18,8 +18,6 @@ class ProfileComponent extends React.Component {
         const { profileInput, activeProfile } = this.state;
         return (
             <div>
-                <p> . </p>
-                <p> . </p>
                 <h1>Profile viewer</h1>
                 <p>
                     <LoggedOut>You are not logged in.</LoggedOut>

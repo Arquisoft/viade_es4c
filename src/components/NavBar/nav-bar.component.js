@@ -7,7 +7,6 @@ import LoginModal from "./Login";
 
 /**
  * Navigation bar which contains de actions of a user not logged in
- *  @webId ID of the user
  *  @returns {*}
  */
 const NavBar = () => {

@@ -2,13 +2,14 @@
   height: 30px;
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 0;
+  margin-top: -5px;
 }
 
 .btn[class*="btn-outline-"] {
-  margin-top: 10px;
+  margin-top: 0;
 }
 
 p {
   font-weight: bold;
+  margin: -5px;
 }
