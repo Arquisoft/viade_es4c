@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import  ProviderItem  from "./ProviderItem";
+import {Spacer} from "../../components";
 
 type Provider = {};
 
@@ -70,6 +71,7 @@ class RegisterComponent extends Component<Props, State> {
 
     return (
       <div>
+        <Spacer/>
         <h1 >Register</h1>
         <form onSubmit={this.onSubmit}>
           
