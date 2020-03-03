@@ -1,16 +1,17 @@
 import React from "react";
+import "./navbar.css";
 import { NavLink } from "react-router-dom";
 import {Image, Navbar} from "react-bootstrap";
-import "./navbar.css";
 import Nav from "react-bootstrap/Nav";
+import LoginModal from "./Login";
 
 /**
- * Navigation bar which contains de actions of a user not loggedin
- * @param props
+ * Navigation bar which contains de actions of a user not logged in
  *  @webId ID of the user
- * @returns {*}
+ *  @returns {*}
  */
 const NavBar = () => {
+
   return (
       <Navbar bg="light" expand="lg">
           <Navbar.Brand href="/"><Image src="/img/logo.svg" alt="Viade" /></Navbar.Brand>
@@ -19,14 +20,12 @@ const NavBar = () => {
               <Nav  className="mr-auto">
               </Nav>
               <Nav>
+                  <LoginModal/>
                   <NavLink
                       to="/register"
                       className="link"
                   >
                       Sign Up
-                  </NavLink>
-                  <NavLink to="/login" className="link">
-                      Log In
                   </NavLink>
               </Nav>
           </Navbar.Collapse>

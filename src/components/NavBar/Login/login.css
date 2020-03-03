@@ -1,0 +1,13 @@
+.card-img-top {
+    margin: 10px;
+}
+
+.modal-dialog .modal-content {
+    background: none;
+    box-shadow: none;
+}
+
+.btn-orange {
+    font-weight: bold;
+    font-size: large;
+}

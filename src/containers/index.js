@@ -1,5 +1,5 @@
 import Home from "./Home";
-import Login from "./Login";
+import Login from "../components/NavBar/Login";
 import Friends from "./Friends";
 import Profile from "./Profile";
 import Register from "./Register";
