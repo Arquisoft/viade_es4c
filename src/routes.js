@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import {
-  Home,Login,Friends,Register,NotFound
+  Home,Login,Friends,Register,Upload,NotFound
 } from "./containers";
 
 /**
@@ -27,7 +27,10 @@ const Routes = () => {
         </Route>
         <Route path="/register" exact>      {/* Register - "/register" */}
             <Register/>
-        </Route>
+        </Route >
+         <Route path= "/upload" exact>  {/* Upload - "/upload*/}
+             <Upload/>
+         </Route>
         <Route path="*" >      {/* In case that the page not exist, 404 error*/}
             <NotFound/>
         </Route>

@@ -19,24 +19,24 @@ const NavBar = (props) => {
 			<section className="header-wrap">
 				<div className="logo-block">
 					<NavLink to="/">
+						{webId ? (
+							<Fragment>
+								<NavLink className="float-right" to="/logout">
+									<Image src="/img/logout.svg"/>
+								</NavLink>
+								<NavLink exact to="/friends" className="link" activeClassName="selected-link">Friends</NavLink>
+								<NavLink to={webId} className="link" activeClassName="selected-link">Profile</NavLink>
+							</Fragment>
+						) : (
+							<Login/>
+						)}
+
 						<img src="/img/logo.svg" alt="Viade"/>
 					</NavLink>
 				</div>
 			</section>
 			<UploadButton/>
-			<div>
-				{webId ? (
-					<Fragment>
-						<NavLink className="float-right" to="/logout">
-							<Image src="/img/logout.svg"/>
-						</NavLink>
-						<NavLink exact to="/friends" className="link" activeClassName="selected-link">Friends</NavLink>
-						<NavLink to={webId} className="link" activeClassName="selected-link">Profile</NavLink>
-					</Fragment>
-				) : (
-					<Login/>
-				)}
-			</div>
+			<div></div>
 		</header>
 	);
 };
