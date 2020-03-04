@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch} from "react-router-dom";
 
 import {
-  Home,Login,Friends,Profile,Register,NotFound,MyRoutes,FriendsRoutes,RoutesList
+  Home,Login,Friends,Profile,Register,NotFound,MyRoutes,FriendsRoutes,RoutesList,Share
 } from "./containers";
 
 import { NotLoggedInLayout, PublicLayout, PrivateLayout } from "./layouts";
@@ -34,6 +34,7 @@ const Routes = () => {
         <PrivateLayout component={MyRoutes} path="/myRoutes" exact /> {/* Friends - "/friends" */}
         <PrivateLayout component={FriendsRoutes} path="/friendsRoutes" exact /> {/* Profile - "/profile" */}
         <PrivateLayout component={RoutesList} path="/routesList" exact /> {/* Profile - "/profile" */}
+        <PrivateLayout component={Share} path="/share" exact /> {/* Share - "/Share" */}
         <PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
 
 

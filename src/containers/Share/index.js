@@ -1,3 +1,3 @@
-import ShareButton from './share.component';
+import ShareComponent from "./share.container";
 
-export default ShareButton;
+export default ShareComponent;
