@@ -1,0 +1,14 @@
+.button-img {
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0;
+  }
+  
+  .btn[class*="btn-outline-"] {
+    margin-top: 10px;
+  }
+  
+  p {
+    font-weight: bold;
+  }
