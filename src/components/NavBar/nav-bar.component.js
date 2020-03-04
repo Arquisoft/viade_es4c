@@ -1,37 +1,34 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import Image from "react-bootstrap/Image";
 import "./navbar.css";
+import { NavLink } from "react-router-dom";
+import {Image, Navbar} from "react-bootstrap";
+import Nav from "react-bootstrap/Nav";
+import LoginModal from "./Login";
 
 /**
- * Navigation bar which contains de actions of a user not loggedin
- * @param props
- *  @webId ID of the user
- * @returns {*}
+ * Navigation bar which contains de actions of a user not logged in
+ *  @returns {*}
  */
-const NavBar = props => {
+const NavBar = () => {
+
   return (
-    <header role="navigation" className="header header__desktop fixed">
-      <section className="header-wrap">
-        <div className="logo-block">
-          <NavLink to="/">
-            <Image src="/img/logo.svg" alt="Viade" />
-          </NavLink>
-        </div>
-      </section>
-      <div>
-        <NavLink
-          to="/register"
-          className="link"
-          activeclassname="selected-link"
-        >
-          Sign Up
-        </NavLink>
-        <NavLink to="/login" className="link" activeclassname="selected-link">
-          Log In
-        </NavLink>
-      </div>
-    </header>
+      <Navbar bg="light" expand="lg">
+          <Navbar.Brand href="/"><Image src="/img/logo.svg" alt="Viade" /></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+              <Nav  className="mr-auto">
+              </Nav>
+              <Nav>
+                  <LoginModal/>
+                  <NavLink
+                      to="/register"
+                      className="link"
+                  >
+                      Sign Up
+                  </NavLink>
+              </Nav>
+          </Navbar.Collapse>
+      </Navbar>
   );
 };
 

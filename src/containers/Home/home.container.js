@@ -9,7 +9,6 @@ export const HomeComponent = () => {
     const webId = useWebId();
     return (
         <div>
-            <Spacer/>
             <h1>Home</h1>
             <h2>User: {(webId)? webId: "Not logged in"}</h2>
             <RoutesMap/>
