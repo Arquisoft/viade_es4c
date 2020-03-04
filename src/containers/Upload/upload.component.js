@@ -11,29 +11,45 @@ import auth from 'solid-auth-client'
 // const auth = require('/node_modules/solid-auth-client')
 //const FileClient = require('/node_modules/solid-file-client')
 //const fc = new FileClient(auth)
-const fc = new SolidFileClient(auth , { enableLogging: true })
+const fc = new SolidFileClient(auth)
 
 //const local  = "file://" + process.cwd() + "/square.png"
 //const local  = "file://C:\\Users\\arvo\\WebstormProjects\\viade_es4c\\public\\tmp\\"
 const remote = "https://Tovarashi.solid.community/public/example.jpg"
-const local  = "file://C:/Users/arvo/WebstormProjects/viade_es4c/public/tmp/example.jpg"
+const local  = "file:///C:/Users/arvo/WebstormProjects/viade_es4c/src/containers/Upload/example.jpg"
+//const local = "file://" + process.cwd() + "/example.jpg"
 
 
 
-async function fileUploadToReactHandler(webid) {
-    if(webid)
-        alert(webid)
-    else
-        alert("No estas logeado crack")
+
+
+async function fileUploadToReactHandler2() {
+
+    console.log("file://"+ process.cwd() +"/example.jpg")
+
     try {
         alert("Intendo de logearse")
-        await auth.login()
-        //await fc.copyFile( local, remote )
+        console.log(auth.currentSession())
+        //await auth.login()
+        await fc.copyFile( local, remote )
     }
     catch(err) {
         console.log(err)
     }
 }
+
+
+async function fileUploadToReactHandler(){
+    let session = await auth.currentSession()
+    if (!session) { alert("No estas logeado") }
+    else {
+        console.log(`Logged in as ${session.webId}.`)
+        alert("estas logeado")
+        console.log(local);
+        await fc.copyFile( local, remote )
+    }
+}
+
 
 function fileUploadHandler() {
     //TODO esto lo subiria a tmp
@@ -50,16 +66,11 @@ function  fileSelectedHadler (event){
     console.log(event.target.files[0]);
 }
 
-
-
 export const UploadComponent = () => {
-    var webId = useWebId();
-
+    const webid = useWebId();
 
     return (
         //<NavBar webId={webID}/>
-
-
         <div className="upload">
             <input type="file" onChange={fileSelectedHadler}/>
             <button onClick={fileUploadHandler}>UploadToPc</button>
