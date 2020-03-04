@@ -32,11 +32,21 @@
     grid-row-end: 3;
 }
 
-.img-carousel {
+.carousel {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 3;
     grid-row-end: 4;
+}
+
+.carousel-caption {
+    background: rgba(0,0,0,.5);
+}
+.carousel-control-prev {
+    background: rgba(0,0,0,.2);
+}
+.carousel-control-next {
+    background: rgba(0,0,0,.2);
 }
 
 .video-lister {
@@ -44,4 +54,12 @@
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
+}
+
+.grid-container > div.spacer {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    box-shadow: none;
 }

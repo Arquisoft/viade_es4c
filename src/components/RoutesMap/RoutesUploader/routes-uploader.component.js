@@ -7,7 +7,7 @@ const date = "01/01/2077";
 const description = "This is an example route featuring the best town";
 
 /**
- * Home component that returns the homepage
+ * Component featuring the route information
  */
 const RouteUploader = () => {
 	return (
