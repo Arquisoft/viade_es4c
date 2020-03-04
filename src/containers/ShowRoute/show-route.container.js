@@ -1,5 +1,5 @@
 import React from "react";
-import {RouteMap, RouteUploader, RoutesCarousel, Spacer} from "../../components";
+import {RouteMap, RouteUploader, RoutesCarousel, RoutesVideosComponent, Spacer} from "../../components";
 import "./show-route.css"
 
 /**
@@ -11,8 +11,8 @@ export const ShowRoute = () => {
 			<RouteMap className="route-map"/>
 			<RouteUploader/>
 			<div className="itinerary">p</div>
-			<RoutesCarousel className="img-carousel"/>
-			<div className="video-lister">p</div>
+			<div className="image-slide"><RoutesCarousel/></div>
+			<div className="video-lister"><RoutesVideosComponent/></div>
 			<Spacer/>
 		</div>
 	);
