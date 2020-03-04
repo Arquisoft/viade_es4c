@@ -9,7 +9,6 @@
   margin-top: 0;
 }
 
-p {
-  font-weight: bold;
+.less-margin {
   margin: -5px;
 }

@@ -1,9 +1,9 @@
 import NavBar from "./NavBar";
 import AuthNavBar from "./AuthNavBar";
 import ErrorBoundary from "./ErrorBoundary";
-import RoutesMap from "./RoutesMap";
+import {RouteMap, RouteUploader} from "./RoutesMap";
 import Spacer from "./Spacer";
 
 export {
-  NavBar,AuthNavBar,ErrorBoundary,RoutesMap, Spacer
+  NavBar,AuthNavBar,ErrorBoundary,RouteMap,RouteUploader,Spacer
 };

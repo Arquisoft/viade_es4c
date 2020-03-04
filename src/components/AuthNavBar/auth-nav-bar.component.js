@@ -25,6 +25,7 @@ const AuthNavBar = () => {
               <Nav  className="mr-auto">
               </Nav>
               <Nav>
+                  <NavLink exact to="/route" className="link">ShowRoute</NavLink>
                   <NavLink exact to="/myRoutes" className="link">MyRoutes</NavLink>
                   <NavLink exact to="/friendsRoutes" className="link">FriendsRoutes</NavLink>
                   <NavLink exact to="/friends" className="link">Friends</NavLink>
