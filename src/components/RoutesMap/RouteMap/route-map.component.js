@@ -5,7 +5,7 @@ import {
 	TileLayer,
 } from "react-leaflet"
 
-const center = [42.7843378,-8.8879561]
+const center = [42.7843378,-8.8879561];
 
 const polyline = [
 	[42.7843378,-8.8879561],
@@ -15,12 +15,12 @@ const polyline = [
 	[42.7740152,-8.8903451],
 	[42.7731741,-8.8905436],
 	[42.7706397,-8.8899538],
-]
+];
 
-export default class RoutesMap extends Component<> {
+export default class RouteMap extends Component<> {
 	render() {
 		return (
-			<Map center={center} zoom={13}>
+			<Map center={center} zoom={14}>
 				<TileLayer
 					attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -29,4 +29,4 @@ export default class RoutesMap extends Component<> {
 			</Map>
 		)
 	}
-}
+};
