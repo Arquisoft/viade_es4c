@@ -1,22 +1,34 @@
-import React from "react";
+import React,{useState,useCallback} from "react";
+import {ShareFormComponent} from "./children";
+import {useNotification} from '@inrupt/solid-react-components';
 import "./share-container.css";
 
-import { useWebId } from "@inrupt/solid-react-components";
+const ShareComponent = (props)=> {
+  const [friend, setFriend] = useState('');
+  const[route,setRoute]=useState('');
+    const {webId}=props;
+    const { createNotification, notifications, notification} = useNotification(webId);
 
-const ShareComponent = () => {
-    const webID = useWebId();
-    return (
-        <div>
-          <p>.</p>
-          <p>.</p>
-          <h1>Share Routes</h1>
-          <h3>Route's name:</h3>
-          <input type="text" id="myText" value="Route..."/>
-          <p></p>
-          <h3>Insert your friend's webID: </h3>
-          <input type="text" id="myText" value="webID..."/>
-        </div>
+    const sendNotification=useCallback(
+      async (content, to, type, license) => {
+        try {
+          await createNotification(content, to, type, license);
+        } catch (error) {
+          alert('Error: ShareComponent > sendNotification');
+        }
+      },
+      [friend, notifications, notification]
     );
-  };
+
+    return (
+      <div>
+        <p>.</p>
+        <p>.</p>
+        <h1>Share Routes</h1>
+        <ShareFormComponent {...{webId,friend,setFriend,route,setRoute,sendNotification}} ></ShareFormComponent>
+      </div>
+    );
   
-  export default ShareComponent;
+}
+
+export default ShareComponent;
