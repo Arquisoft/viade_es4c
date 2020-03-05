@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
-import { BrowserRouter as Router, Switch} from "react-router-dom";
+import React, {Fragment} from "react";
+import {BrowserRouter as Router, Switch} from "react-router-dom";
 
 import {
-  Home,Login,Friends,Profile,Register,NotFound,MyRoutes,FriendsRoutes,RoutesList, ViewMap
+  Home,Login,Friends,Profile,Register,NotFound,MyRoutes,FriendsRoutes,RoutesList, ViewMap, ShowRoute
 } from "./containers";
 
-import { NotLoggedInLayout, PublicLayout, PrivateLayout } from "./layouts";
+import {NotLoggedInLayout, PublicLayout, PrivateLayout} from "./layouts";
 
 
 /**
@@ -37,11 +37,10 @@ const Routes = () => {
         <PrivateLayout component={ViewMap} path="/viewMap" exact /> {/* View Map - "/viewMap" */}
         <PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
 
-
-      </Switch>
-    </Fragment>
-  </Router>
-);
-  }
+				</Switch>
+			</Fragment>
+		</Router>
+	);
+};
 
 export default Routes;

@@ -1,5 +1,5 @@
 import Home from "./Home";
-import Login from "./Login";
+import Login from "../components/NavBar/Login";
 import Friends from "./Friends";
 import Profile from "./Profile";
 import Register from "./Register";
@@ -7,7 +7,8 @@ import NotFound from "./NotFound";
 import MyRoutes from "./MyRoutes";
 import FriendsRoutes from "./FriendsRoutes";
 import RoutesList from "./RoutesList";
+<<<<<<< HEAD
 import ViewMap from "./ViewMap";
 export {
-  Home,Login,Friends,Register,NotFound,Profile,MyRoutes,FriendsRoutes,RoutesList,ViewMap
+  Home,Login,Friends,Register,NotFound,Profile,MyRoutes,FriendsRoutes,RoutesList,ViewMap,ShowRoute
 };

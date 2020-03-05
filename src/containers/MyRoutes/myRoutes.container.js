@@ -9,6 +9,7 @@ import {} from "react-router-dom";
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
 import { useWebId } from "@inrupt/solid-react-components";
+<<<<<<< HEAD
 import RoutesListComponent from '../RoutesList';
 
 
