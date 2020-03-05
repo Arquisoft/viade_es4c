@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch} from "react-router-dom";
 
 import {
-  Home,Login,Friends,Profile,Register,NotFound,MyRoutes,FriendsRoutes,RoutesList
+  Home,Login,Friends,Profile,Register,NotFound,MyRoutes,FriendsRoutes,RoutesList, ViewMap
 } from "./containers";
 
 import { NotLoggedInLayout, PublicLayout, PrivateLayout } from "./layouts";
@@ -31,9 +31,10 @@ const Routes = () => {
         <NotLoggedInLayout component={Register} path="/register" exact /> {/* Register - "/register" */}
         <PrivateLayout component={Friends} path="/friends" exact /> {/* Friends - "/friends" */}
         <PrivateLayout component={Profile} path="/profile" exact /> {/* Profile - "/profile" */}
-        <PrivateLayout component={MyRoutes} path="/myRoutes" exact /> {/* Friends - "/friends" */}
-        <PrivateLayout component={FriendsRoutes} path="/friendsRoutes" exact /> {/* Profile - "/profile" */}
-        <PrivateLayout component={RoutesList} path="/routesList" exact /> {/* Profile - "/profile" */}
+        <PrivateLayout component={MyRoutes} path="/myRoutes" exact /> {/* My Routes - "/myROutes" */}
+        <PrivateLayout component={FriendsRoutes} path="/friendsRoutes" exact /> {/* Friends Routes - "/friendsRoute" */}
+        <PrivateLayout component={RoutesList} path="/routesList" exact /> {/* Routes List - "/routesList" */}
+        <PrivateLayout component={ViewMap} path="/viewMap" exact /> {/* View Map - "/viewMap" */}
         <PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
 
 

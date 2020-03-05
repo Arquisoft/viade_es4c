@@ -1,36 +1,55 @@
-import React from "react";
-import auth from "solid-auth-cli";
+//COmponentes generales
+import ReactDOM from 'react-dom';
+//Componentes React
+import React, { Component } from "react";
+import {ViewMap} from "../";
+import {Router, Link, Switch, BrowserRouter} from "react-router-dom";
+import {} from "react-router-dom";
+//Librerias
+import auth from "solid-auth-client";
 import FC from "solid-file-client";
 import { useWebId } from "@inrupt/solid-react-components";
-import {NavBar} from "../../components";
+import RoutesListComponent from '../RoutesList';
 
-const MyRoutesComponent = () => {
-  const webID = useWebId(); // https://xxxxx.solid.community/profile/card#me
-    
-  // I will use: https://github.com/jeff-zucker/solid-file-client
-  if (webID != null){
-    
-    const fc   = new FC( auth ) //With fc we can manage files
-    async function run(){
 
-      //Get an item which has the url with the files(routes)
-      let publicFolder = await fc.readFolder(webID.split("profile")[0] + "public") 
-
-      for(var i=0; i < publicFolder.files.length; i++){ //Iterate over the files 
-          // let file =  await fc.readHead(publicFolder.files[i].url) //Get the file's content
-          console.log(publicFolder.files[i].name) //Get the file's name
-      }
+class MyRoutesComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { 
+          url: "https://mrmenchaca.solid.community/public",
+          routes: [] 
+        };
     }
-    run()
-  }
 
-  return (
-      <div>
-        <p>.</p>
-        <p>.</p>
-        <h1>My routes</h1>
-      </div>
-  );
-};
+    getRoutes() {
+        return this.state.routes.map(obj => (<div className="text-center"><Link key={obj.name} to="/viewMap"><h3>{obj.name}</h3></Link></div>));
+    }
+
+    async componentDidMount(){
+        const fc = new FC(auth) //With fc we can manage files
+
+        let session = (await auth.currentSession()).webId;
+        let sessionString = session.split("profile")[0] + "public"
+        console.log(sessionString)
+
+        let folder = await fc.readFolder(sessionString)
+        let array = folder.files
+        this.setState({routes : array})
+    }
+
+    render() {
+        return (
+            <div>
+                <p>.</p>
+                <p>.</p>
+                <div className="container center-block vlsection1">
+                    <h1 className="text-center">Rutas</h1>
+                    {this.getRoutes()}
+                </div>
+            </div>
+        );
+    }    
+    }  
+
 
 export default MyRoutesComponent;
