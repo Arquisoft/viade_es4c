@@ -1,11 +1,11 @@
-import React,{Component} from  'react';
+import React,{Component} from  "react";
 import {Link, NavLink} from 'react-router-dom';
 import { useWebId } from "@inrupt/solid-react-components";
 import {NavBar} from "../../components";
-
-import SolidFileClient from 'solid-file-client'
-import auth from 'solid-auth-client'
-
+import UploadButton from "./upload.button.component";
+import SolidFileClient from "solid-file-client"
+import auth from "solid-auth-client"
+import $ from "jquery"
 
 
 // const auth = require('/node_modules/solid-auth-client')
@@ -21,25 +21,8 @@ const local  = "file:///C:/Users/arvo/WebstormProjects/viade_es4c/src/containers
 
 
 
-
-
-async function fileUploadToReactHandler2() {
-
-    console.log("file://"+ process.cwd() +"/example.jpg")
-
-    try {
-        alert("Intendo de logearse")
-        console.log(auth.currentSession())
-        //await auth.login()
-        await fc.copyFile( local, remote )
-    }
-    catch(err) {
-        console.log(err)
-    }
-}
-
-
 async function fileUploadToReactHandler(){
+    alert("upload")
     let session = await auth.currentSession()
     if (!session) { alert("No estas logeado") }
     else {
@@ -51,31 +34,57 @@ async function fileUploadToReactHandler(){
 }
 
 
-function fileUploadHandler() {
-    //TODO esto lo subiria a tmp
-}
-function  fileSelectedHadler (event){
-    if(event.target.files[0] !== null )//Just to avoid a crash if you dont select anything
-        if( event.target.files[0].type === 'image/jpeg') {
-            this.setState({
-                selectedFile: event.target.files[0]
-            })
-        }
-        else
-            alert('La imagen no está en formato jpeg')
-    console.log(event.target.files[0]);
-}
+
 
 export const UploadComponent = () => {
-    const webid = useWebId();
+    //const webid = useWebId();
+    //setUploadStatus(false)
+    //<button onClick={fileUploadToReactHandler}>UploadToReact</button>
+    let files
+
+    const setUploadStatus = isUploading => {
+
+        if (isUploading) {
+            $('.not-uploading').hide()
+            $('.uploading').show()
+        } else {
+            $('.not-uploading').show()
+            $('.uploading').hide()
+        }
+    }
+    const fileSelectedHadler= e => {
+        files = e.target.files
+    }
+
+
+
+    const summitHandler = async(e) => {
+        e.preventDefault()
+        //setUploadStatus(true)//empezamos a subir
+        const file = files[0]
+        //const parentContainer =
+        const parentContainer = "https://tovarashi.solid.community/public/test/"//esto esta fixeado
+        const url = parentContainer + file.name
+        try{
+            const res = await fc.putFile(url, file, file.type)
+        }catch(err){
+            console.error(err)
+        }
+        //setUploadStatus(false)//terminamos de subir
+    }
+
+
 
     return (
         //<NavBar webId={webID}/>
-        <div className="upload">
+        //<input type="file" onChange={fileSelectedHadler}/>
+        //<button onClick={fileUploadHandler}>UploadToPc</button>
+
+        <div className="upload" onLoad={setUploadStatus(false)}>
             <input type="file" onChange={fileSelectedHadler}/>
-            <button onClick={fileUploadHandler}>UploadToPc</button>
-            <button onClick={fileUploadToReactHandler}>UploadToReact</button>
+            <button onClick={summitHandler}>Upload</button>
 
         </div>
+
     );
 };
