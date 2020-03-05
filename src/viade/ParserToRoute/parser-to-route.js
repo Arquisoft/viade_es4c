@@ -4,11 +4,12 @@ class ParserToRoute{
     constructor(file){
         this.file=file;
         this.selectParser(file);
+        this.parser=null;
     }
 
     selectParser(file){
-        switch (file.parser) {
-            case ".json":
+        switch (file.type) {
+            case "geojson.json":
                 this.parser=new GeoJSONToRoute(file);
                 break; 
             default:
@@ -18,6 +19,6 @@ class ParserToRoute{
     }
 
     parse(){
-        this.parser.execute();
+        return this.parser.execute();
     }
 }
