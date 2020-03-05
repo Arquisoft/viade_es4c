@@ -6,8 +6,10 @@ class ProfileComponent extends React.Component {
 
     componentDidUpdate(prevProps) {
         const { webId } = this.props;
-        if (webId && webId !== prevProps.webId)
-            this.setState({ profileInput: webId });
+        if (webId && webId !== prevProps.webId) {
+            this.setState({profileInput: webId});
+            this.setState({activeProfile: webId});
+        }
     }
 
     viewProfile(profile) {
@@ -26,11 +28,11 @@ class ProfileComponent extends React.Component {
                 </p>
                 <p>
                     <label htmlFor="profile">Profile:</label>
+                    <label><Value>{profileInput}</Value></label>
                     <input id="profile" value={profileInput}
                            onChange={e => this.setState({ profileInput: e.target.value })}/>
-                    <button onClick={() => this.viewProfile(profileInput)}>View</button>
                 </p>
-                {activeProfile &&
+                 {activeProfile &&
                 <dl>
                     <dt>Full name</dt>
                     <dd><Value src={`[${activeProfile}].name`}/></dd>
