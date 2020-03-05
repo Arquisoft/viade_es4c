@@ -8,7 +8,6 @@ class GeoJSONToRoute {
 
     execute(){
         this.fileReader.onload=async (event)=>{
-          console.log("Hola");
             return this.parse(event.target.result);
         }
     }
