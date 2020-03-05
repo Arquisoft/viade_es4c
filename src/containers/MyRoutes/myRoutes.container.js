@@ -22,7 +22,7 @@ class MyRoutesComponent extends React.Component {
     }
 
     getRoutes() {
-        return this.state.routes.map(obj => (<div className="text-center"><Link key={obj.name} to="/showRoute/"><h3>{obj.name}</h3></Link></div>));
+        return this.state.routes.map(obj => (<div className="text-center"><Link key={obj.name} to="/showRoute"><h3>{obj.name}</h3></Link></div>));
     }
 
     async componentDidMount(){
