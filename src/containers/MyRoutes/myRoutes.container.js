@@ -9,7 +9,6 @@ import {} from "react-router-dom";
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
 import { useWebId } from "@inrupt/solid-react-components";
-<<<<<<< HEAD
 import RoutesListComponent from '../RoutesList';
 
 
@@ -23,7 +22,7 @@ class MyRoutesComponent extends React.Component {
     }
 
     getRoutes() {
-        return this.state.routes.map(obj => (<div className="text-center"><Link key={obj.name} to="/viewMap"><h3>{obj.name}</h3></Link></div>));
+        return this.state.routes.map(obj => (<div className="text-center"><Link key={obj.name} to="/showRoute/"><h3>{obj.name}</h3></Link></div>));
     }
 
     async componentDidMount(){

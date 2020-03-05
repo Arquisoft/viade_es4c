@@ -7,8 +7,7 @@ import NotFound from "./NotFound";
 import MyRoutes from "./MyRoutes";
 import FriendsRoutes from "./FriendsRoutes";
 import RoutesList from "./RoutesList";
-<<<<<<< HEAD
-import ViewMap from "./ViewMap";
+import ShowRoute from "./ShowRoute";
 export {
-  Home,Login,Friends,Register,NotFound,Profile,MyRoutes,FriendsRoutes,RoutesList,ViewMap,ShowRoute
+  Home,Login,Friends,Register,NotFound,Profile,MyRoutes,FriendsRoutes,RoutesList,ShowRoute
 };
