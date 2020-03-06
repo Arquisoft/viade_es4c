@@ -26,9 +26,9 @@ async function fileUploadToReactHandler(){
     let session = await auth.currentSession();
     if (!session) { alert("No estas logeado") }
     else {
-        console.log(`Logged in as ${session.webId}.`);
+        //console.log(`Logged in as ${session.webId}.`);
         alert("estas logeado");
-        console.log(local);
+        //console.log(local);
         await fc.copyFile( local, remote );
     }
 }
@@ -47,7 +47,7 @@ export const UploadComponent = () => {
 
 
 
-    const setUploadStatus = isUploading => {
+    const setUploadStatus = (isUploading) => {
 
         if (isUploading) {
             $(".not-uploading").hide();
@@ -57,7 +57,7 @@ export const UploadComponent = () => {
             $(".uploading").hide();
         }
     }
-    const fileSelectedHadler= e => {
+    const fileSelectedHadler = (e) => {
         files = e.target.files
     }
 
@@ -74,7 +74,7 @@ export const UploadComponent = () => {
         try{
             const res = await fc.putFile(url, file, file.type);
         }catch(err){
-            console.error(err);
+            console.error(err); // Da warning aquí por usar la consola
         }
         //setUploadStatus(false)//terminamos de subir
     }
@@ -95,9 +95,9 @@ export const UploadComponent = () => {
                     <InputGroup.Text id="basic-addon1">Folder</InputGroup.Text>
                 </InputGroup.Prepend>
                 <FormControl ref={textInput} onChange={() => handleChange()}
-                    placeholder="https://username.solid.community/folder/"
-                    aria-label="https://username.solid.community/folder/"
-                    aria-describedby="basic-addon1"
+                             placeholder="https://username.solid.community/folder/"
+                             aria-label="https://username.solid.community/folder/"
+                             aria-describedby="basic-addon1"
                 />
             </InputGroup>
             <input type="file" onChange={fileSelectedHadler}/>
