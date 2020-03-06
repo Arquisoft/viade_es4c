@@ -23,7 +23,6 @@ const local  = "file:///C:/Users/arvo/WebstormProjects/viade_es4c/src/containers
 
 
 async function fileUploadToReactHandler(){
-    alert("upload")
     let session = await auth.currentSession()
     if (!session) { alert("No estas logeado") }
     else {
