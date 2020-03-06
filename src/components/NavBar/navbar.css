@@ -1,23 +1,14 @@
-header img {
-  height: 50px;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 10px;
+nav img {
+  height: 60px;
+  cursor: pointer;
 }
 
-header {
+.navbar {
   background-color: white;
-  position: fixed;
-  top: 0;
   left: 0;
   right: 0;
-  height: 80px;
   align-items: center;
   box-shadow: 0 0 5px 0 black;
-}
-
-header * {
-  display: inline;
 }
 
 .link {
@@ -28,6 +19,6 @@ header * {
   float: right;
 }
 
-.selected-link {
+.active {
   font-weight: bold;
 }

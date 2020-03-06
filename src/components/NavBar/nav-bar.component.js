@@ -1,44 +1,35 @@
-import React, {Fragment} from "react";
-import {NavLink} from "react-router-dom";
-import {Login} from "../../containers";
-import Image from 'react-bootstrap/Image';
+import React from "react";
 import "./navbar.css";
-import UploadButton from "./UploadButton";
+import { NavLink } from "react-router-dom";
+import {Image, Navbar} from "react-bootstrap";
+import Nav from "react-bootstrap/Nav";
+import LoginModal from "./Login";
 
 /**
- * Navigation Bar to use at the top of the site on each page
- * @param props
- *  @webId ID of the user
- * @returns {*}
+ * Navigation bar which contains de actions of a user not logged in
+ *  @returns {*}
  */
-const NavBar = (props) => {
-	const webId = props.webId;
+const NavBar = () => {
 
-	return (
-		<header role="navigation" className="header">
-			<section className="header-wrap">
-				<div className="logo-block">
-					<NavLink to="/">
-						{webId ? (
-							<Fragment>
-								<NavLink className="float-right" to="/logout">
-									<Image src="/img/logout.svg"/>
-								</NavLink>
-								<NavLink exact to="/friends" className="link" activeClassName="selected-link">Friends</NavLink>
-								<NavLink to={webId} className="link" activeClassName="selected-link">Profile</NavLink>
-							</Fragment>
-						) : (
-							<Login/>
-						)}
-
-						<img src="/img/logo.svg" alt="Viade"/>
-					</NavLink>
-				</div>
-			</section>
-			<UploadButton/>
-			<div></div>
-		</header>
-	);
+  return (
+      <Navbar bg="light" expand="lg">
+          <Navbar.Brand href="/"><Image src="/img/logo.svg" alt="Viade" /></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+              <Nav  className="mr-auto">
+              </Nav>
+              <Nav>
+                  <LoginModal/>
+                  <NavLink
+                      to="/register"
+                      className="link"
+                  >
+                      Sign Up
+                  </NavLink>
+              </Nav>
+          </Navbar.Collapse>
+      </Navbar>
+  );
 };
 
 export default NavBar;

@@ -34,6 +34,8 @@ when your infrastructure is more complex.
 * When your (hardware) stakeholders prefer other kinds of diagrams rather than the deployment diagram, let them use any kind that is able to show nodes and channels of the infrastructure.
 ****
 
+=== Infrastructure Level 1
+
 As Viade is a decentralized browser application, we only need 3 elements per user:
 
 * The user's computer. Which must have a browser to access the application. We recommend using Google Chrome as other browsers like Internet Explorer may not have all the JavaScript functionalities used to run the application. This also means that the user does not need a very powerful computer, just Internet conexion.
@@ -45,3 +47,8 @@ image::images/07_Deployment_View.png[]
 Motivation::
 
 We think choosing a browser application is a good way to be open to more public, as some clients would rather access to the application online than having to install a desktop application. Moreover, being a de-centralized application can appeal clients who only want to store their routes somewhere instead of sharing them online, in this way, we can satisfy both types of clients (the ones who want to share routes and the ones wo want to keep them).
+
+=== Infrastructure Level 2
+
+* Solid POD: This is a personal storage space where you caan decide which things are public and private and who can see them (people, apps...). 
+* GitHub Pages: Theese are public webpages hosted and published through GitHub. They can be managed via the web or locally in a computer.

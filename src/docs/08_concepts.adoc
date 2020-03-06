@@ -101,3 +101,5 @@ _Monitoring, Logging_
 _High Availability_	 
 
 _Load balancing_
+
+image::images/08-Crosscutting-Concepts-Structure-EN.png[]
