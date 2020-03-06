@@ -15,7 +15,7 @@ const UploadButton = () => {
 			<NavLink to="/upload">
 				<MDBBtn color="primary" outline>
 					<Image className="button-img" src="/img/upload.svg"/>
-					<p>Upload a route</p>
+					<p className="font-weight-bold less-margin">Upload a route</p>
 				</MDBBtn>
 			</NavLink>
 		</Fragment>

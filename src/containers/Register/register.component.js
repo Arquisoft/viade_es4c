@@ -72,12 +72,9 @@ class RegisterComponent extends Component<Props, State> {
       <div>
         <h1 >Register</h1>
         <form onSubmit={this.onSubmit}>
-          
-          <header>
+          <div>
             <h2>Select Provider</h2>
             <div className="progress-bar" />
-          </header>
-          <div>
             <Fragment>
               <a
                 href="https://solid.inrupt.com/how-it-works"

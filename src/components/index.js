@@ -1,7 +1,17 @@
 import NavBar from "./NavBar";
-import RoutesMap from "./RoutesMap/routes-map.component";
+import AuthNavBar from "./AuthNavBar";
+import ErrorBoundary from "./ErrorBoundary";
+import {RouteMap, RouteUploader,RoutesCarousel, RoutesVideosComponent, RoutesItinerary} from "./RoutesMap";
+import Spacer from "./Spacer";
 
 export {
   NavBar,
-  RoutesMap
+  AuthNavBar,
+  ErrorBoundary,
+  RouteMap,
+  RouteUploader,
+  RoutesCarousel,
+  RoutesVideosComponent,
+  RoutesItinerary,
+  Spacer
 };

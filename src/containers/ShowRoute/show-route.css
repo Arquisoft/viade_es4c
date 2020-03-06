@@ -1,0 +1,65 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 1em;
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 2em;
+}
+
+.grid-container > div {
+    box-shadow: 0 0 5px 0 black;
+}
+
+.leaflet-container {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.itinerary {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+.route-uploader {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.image-slide {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.carousel-caption {
+    background: rgba(0,0,0,.5);
+}
+.carousel-control-prev {
+    background: rgba(0,0,0,.2);
+}
+.carousel-control-next {
+    background: rgba(0,0,0,.2);
+}
+
+.video-lister {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.grid-container > div.spacer {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    box-shadow: none;
+}
