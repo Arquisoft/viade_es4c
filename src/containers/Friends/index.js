@@ -1,7 +1,3 @@
-/*import FriendsComponent from "./friends.container";
-
-export default FriendsComponent;*/
-
 import React from "react";
 import { withWebId } from '@solid/react';
 import SubFriends from './SubFriends';
@@ -18,7 +14,6 @@ class FriendsComponent extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // If the user just logged in, show an example with their WebID
     const { webId } = this.props;
     if (webId && webId !== prevProps.webId && !this.savedState.expression)
       this.setState({ expression: `[${webId}].friends` });
@@ -30,8 +25,7 @@ class FriendsComponent extends React.Component {
 
   render() {
     return (
-      <SubFriends expression={this.state.expression /*|| defaultExpression*/}
-                    onExpressionChange={this.onExpressionChange}/>
+      <SubFriends expression={this.state.expression} onExpressionChange={this.onExpressionChange}/>
     );
   }
 
