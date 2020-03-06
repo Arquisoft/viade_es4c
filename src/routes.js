@@ -2,7 +2,9 @@ import React, {Fragment} from "react";
 import {BrowserRouter as Router, Switch} from "react-router-dom";
 
 import {
-  Home,Login,Friends,Profile,Register,NotFound,MyRoutes,FriendsRoutes,RoutesList, ShowRoute
+
+  Home,Login,Friends,Profile,Register,NotFound,MyRoutes,FriendsRoutes,RoutesList, ShowRoute,Upload
+
 } from "./containers";
 
 import {NotLoggedInLayout, PublicLayout, PrivateLayout} from "./layouts";
@@ -36,6 +38,7 @@ const Routes = () => {
         <PrivateLayout component={FriendsRoutes} path="/friendsRoutes" exact /> {/* Friends Routes - "/friendsRoute" */}
         <PrivateLayout component={RoutesList} path="/routesList" exact /> {/* Routes List - "/routesList" */}
         <PrivateLayout component={ShowRoute} path="/showRoute" exact /> {/* View Map - "/viewMap" */}
+        <PrivateLayout component={Upload} path="/upload" exact /> {/* Upload- "/upload" */}
         <PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
 
 				</Switch>
@@ -43,5 +46,6 @@ const Routes = () => {
 		</Router>
 	);
 };
+
 
 export default Routes;
