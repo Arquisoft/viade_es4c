@@ -1,8 +1,5 @@
 import React from "react";
-import data from "@solid/query-ldflex";
-import { useWebId } from "@inrupt/solid-react-components";
-import {NavBar} from "../../components";
-import { Value, List } from '@solid/react';
+import { List } from '@solid/react';
 
 class SubFriendsComponent extends React.Component {
   
@@ -63,23 +60,5 @@ class SubFriendsComponent extends React.Component {
       return !/^https?:/.test(dest) ? dest :
         <a href={dest} target="_blank" rel="noopener noreferrer">{dest}</a>;
     }
-
-
-
- /*   render() {
-  
-      return(
-  
-        <div>
-          <h3>Friends</h3>
-          <List src={expression}>{(item, i) =>
-            <li key={i}>{linkTo(`${item}`)}</li>}
-          </List>
-        </div>
-      );
-  
-    }
-  
-  }*/
   
   export default SubFriendsComponent;
