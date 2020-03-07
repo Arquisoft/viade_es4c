@@ -12,7 +12,7 @@ const description = "This is an example route featuring the best town";
 const RouteUploader = () => {
 	return (
 		<div className="route-uploader">
-			<p className="uploader-text d-inline-block"><a className="font-weight-bold">{uploader}</a> - {name}</p>
+			<p className="uploader-text d-inline-block"><span className="font-weight-bold">{uploader}</span> - {name}</p>
 			<p className="uploader-text float-right d-inline-block font-italic">{date}</p>
 			<p className="uploader-text">{description}</p>
 		</div>
