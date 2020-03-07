@@ -1,6 +1,6 @@
 import React from "react";
-import { ProviderLogin } from "@inrupt/solid-react-components";
-import { Provider } from "../../../services";
+import {ProviderLogin} from "@inrupt/solid-react-components";
+import {Provider} from "../../../services";
 import Card from "react-bootstrap/Card";
 import "./login.css";
 

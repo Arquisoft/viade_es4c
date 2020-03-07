@@ -1,11 +1,12 @@
 import React from "react";
 import {
 	RouteMap,
-	RouteUploader,
 	RoutesCarousel,
-	RoutesVideosComponent,
 	RoutesItinerary,
-	Spacer} from "../../components";
+	RoutesVideosComponent,
+	RouteUploader,
+	Spacer
+} from "../../components";
 import "./show-route.css"
 
 /**

@@ -5,11 +5,11 @@ import Profile from "./Profile";
 import Register from "./Register";
 import NotFound from "./NotFound";
 import MyRoutes from "./MyRoutes";
-import FriendsRoutes from "./FriendsRoutes";
 import RoutesList from "./RoutesList";
 import ShowRoute from "./ShowRoute";
 import Upload from "./Upload";
+
 export {
-  Home,Login,Friends,Register,NotFound,Profile,MyRoutes,FriendsRoutes,RoutesList,ShowRoute,Upload
+  Home,Login,Friends,Register,NotFound,Profile,MyRoutes,RoutesList,ShowRoute,Upload
 
 };

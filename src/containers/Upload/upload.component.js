@@ -1,8 +1,4 @@
-import React,{Component,useRef, useEffect } from  "react";
-import {Link, NavLink} from 'react-router-dom';
-import { useWebId } from "@inrupt/solid-react-components";
-import {NavBar} from "../../components";
-import UploadButton from "./upload.button.component";
+import React from "react";
 import SolidFileClient from "solid-file-client";
 import auth from "solid-auth-client";
 import $ from "jquery";
@@ -16,13 +12,13 @@ const fc = new SolidFileClient(auth);
 
 //const local  = "file://" + process.cwd() + "/square.png"
 //const local  = "file://C:\\Users\\arvo\\WebstormProjects\\viade_es4c\\public\\tmp\\"
-const remote = "https://Tovarashi.solid.community/public/example.jpg";
-const local  = "file:///C:/Users/arvo/WebstormProjects/viade_es4c/src/containers/Upload/example.jpg";
+// const remote = "https://Tovarashi.solid.community/public/example.jpg";
+// const local  = "file:///C:/Users/arvo/WebstormProjects/viade_es4c/src/containers/Upload/example.jpg";
 //const local = "file://" + process.cwd() + "/example.jpg"
 
 
 
-async function fileUploadToReactHandler(){
+/*async function fileUploadToReactHandler(){
     let session = await auth.currentSession();
     if (!session) { alert("No estas logeado") }
     else {
@@ -31,7 +27,7 @@ async function fileUploadToReactHandler(){
         //console.log(local);
         await fc.copyFile( local, remote );
     }
-}
+}*/
 
 
 
@@ -73,6 +69,7 @@ export const UploadComponent = () => {
         alert(url);
         try{
             const res = await fc.putFile(url, file, file.type);
+            console.log(res)
         }catch(err){
             console.error(err); // Da warning aquí por usar la consola
         }

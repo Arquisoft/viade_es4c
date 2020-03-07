@@ -1,5 +1,5 @@
 import React from "react";
-import { withWebId } from '@solid/react';
+import {withWebId} from '@solid/react';
 import SubFriends from './SubFriends';
 
 class FriendsComponent extends React.Component {

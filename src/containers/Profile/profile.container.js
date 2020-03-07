@@ -1,5 +1,5 @@
 import React from "react";
-import { LoggedIn, LoggedOut, Value, List, withWebId } from '@solid/react';
+import {List, LoggedIn, LoggedOut, Value, withWebId} from '@solid/react';
 
 class ProfileComponent extends React.Component {
     state = { profileInput: "", activeProfile: "" };

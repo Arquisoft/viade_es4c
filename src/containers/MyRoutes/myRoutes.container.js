@@ -1,15 +1,10 @@
 //COmponentes generales
-import ReactDOM from 'react-dom';
 //Componentes React
-import React, { Component } from "react";
-import {ViewMap} from "../";
-import {Router, Link, Switch, BrowserRouter} from "react-router-dom";
-import {} from "react-router-dom";
+import React from "react";
+import {Link} from "react-router-dom";
 //Librerias
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
-import { useWebId } from "@inrupt/solid-react-components";
-import RoutesListComponent from '../RoutesList';
 
 
 class MyRoutesComponent extends React.Component {
@@ -40,8 +35,6 @@ class MyRoutesComponent extends React.Component {
     render() {
         return (
             <div>
-                <p>.</p>
-                <p>.</p>
                 <div className="container center-block vlsection1">
                     <h1 className="text-center">Rutas</h1>
                     {this.getRoutes()}

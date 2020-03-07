@@ -1,9 +1,5 @@
-import React, { Component } from "react"
-import {
-	Map,
-	Polyline,
-	TileLayer,
-} from "react-leaflet"
+import React, {Component} from "react"
+import {Map, Polyline, TileLayer,} from "react-leaflet"
 
 const center = [42.7843378,-8.8879561];
 
