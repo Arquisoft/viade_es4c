@@ -1,3 +1,4 @@
-import * as viadeAPI from "./viade-api";
+import {RouteViade,ItemViade} from './Model';
+import {RouteToRDF,ParserToRoute} from './Parsers';
 
-export {viadeAPI};
+export {RouteViade,ItemViade,RouteToRDF,ParserToRoute};

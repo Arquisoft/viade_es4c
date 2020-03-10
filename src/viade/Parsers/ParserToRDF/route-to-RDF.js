@@ -85,4 +85,4 @@ class RouteToRDF {
     }
 }
 
-export default routeToRDF;
+export default RouteToRDF;
