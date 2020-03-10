@@ -1,12 +1,12 @@
 class ItemViade{
-    constructor(longitude,latitude){
+    constructor(longitude,latitude,name="",description="",addres="",elevation=null,postalCode=""){
         this.longitude=longitude;
         this.latitude=latitude;
-        this.name="";
-        this.description="";
-        this.addres="";
-        this.elevation=null;
-        this.postalCode="";
+        this.name=name
+        this.description=description;
+        this.addres=addres;
+        this.elevation=elevation;
+        this.postalCode=postalCode;
     }
 }
 
