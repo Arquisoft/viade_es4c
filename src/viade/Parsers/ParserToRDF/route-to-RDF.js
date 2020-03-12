@@ -7,79 +7,65 @@ class RouteToRDF {
     }
 
     parse() {
-        str.append('{');
-        str.append('"@context": "http://schema.org",');
-        str.append('"@type": "RouteViade",');
-        str.append('"name": "');
+        str.append('<xmp highlight="turtle">');
+
+        str.append('prefix viade: <http://arquisoft.github.io/viadeSpec/>');
+        str.append('prefix schema: <http://schema.org/>');
+        str.append('prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>');
+        str.append('prefix xsd: <http://www.w3.org/2001/XMLSchema#>');
+        str.append('prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>');
+        str.append('prefix gpx: <https://www.w3.org/ns/pim/gpx#>');
+        str.append('import <gpx.shex>');
+
+        str.append(this.route);
+        str.append(' a viade:Route;');
+        str.append('schema:name "');
         str.append(this.route.name);
-        str.append('",');
-        str.append('"description": "');
+        str.append('";');
+        str.append('schema:description "');
         str.append(this.route.description);
-        str.append('",');
-        str.append('"itinerary": {');
+        str.append('";');
 
-        str.append('"@type": "ItemList",');
-        str.append('"itemListOrder": "http://schema.org/ItemListOrderDescending",');
-        str.append('"itemListElement": [');
+        str.append('viade:points (');
+        this.parseItems(); 
+        str.append(');');
 
-        this.parseItems();
+        str.append('</xmp>');
 
-        str.append('],');
-        str.append('}');
-        str.append('}');
-
-        return this.str;
+        return this.str.toString();
     }
 
     parseItems() {
         var i = 0;
         for (i = 0; i < this.route.items.length ; i++) {
 
-            str.append('{');
-            str.append('"@type": "ItemViade",');
+            str.append('[');
 
             if (this.route.item[i].name != null) {
-                str.append('"name": "');
+                str.append('schema:name "');
                 str.append(this.route.item[i].name);
-                str.append('",');
+                str.append('";');
             }
 
             if (this.route.item[i].description != null) {
-                str.append('"description": "');
+                str.append('schema:description "');
                 str.append(this.route.item[i].description);
-                str.append('",');
-            }
-
-            if (this.route.item[i].addres != null) {
-                str.append('"addres": "');
-                str.append(this.route.item[i].addres);
-                str.append('",');
+                str.append('";');
             }
 
             if (this.route.item[i].elevation != null) {
-                str.append('"elevation": "');
+                str.append('schema:elevation ');
                 str.append(this.route.item[i].elevation);
-                str.append('",');
+                str.append(';');
             }
 
-            if (this.route.item[i].postalCode != null) {
-                str.append('"postalCode": "');
-                str.append(this.route.item[i].postalCode);
-                str.append('",');
-            }
-
-            str.append('"latitude": "');
+            str.append('schema:latitude ');
             str.append(this.route.item[i].latitude);
-            str.append('",');
-            str.append('"longitude": "');
+            str.append(';');
+            str.append('schema:longitude ');
             str.append(this.route.item[i].longitude);
-            str.append('"');
 
-            if (i == this.route.items.length - 1) {
-                str.append('}');
-            } else {
-                str.append('},');
-            }
+            str.append(']');
 
         }
     }

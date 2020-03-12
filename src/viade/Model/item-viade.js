@@ -4,9 +4,7 @@ class ItemViade{
         this.latitude=latitude;
         this.name=name
         this.description=description;
-        this.addres=addres;
         this.elevation=elevation;
-        this.postalCode=postalCode;
     }
 }
 
