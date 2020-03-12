@@ -64,9 +64,10 @@ export const UploadComponent = () => {
     const summitHandler = async(e) => {
         e.preventDefault();
         //setUploadStatus(true)//empezamos a subir
-        let parser = ParserToRoute(files[0]);
-        parser.selectParser(files[0]);
-        let route = parser.parse();
+        //let parser = new ParserToRoute(files[0]);
+        let promise = ParserToRoute.parse(files[0]);
+        let route=await promise.then((route)=>{return route});
+
         const file = files[0];
 
         //const parentContainer =
