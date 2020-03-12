@@ -11,7 +11,7 @@ class ParserToRoute{
         switch (file.type) {
             case "geojson.json":
                 this.parser=new GeoJSONToRoute(file);
-                break; 
+                break;
             default:
                 console.log("formato no soportado");
                 break;
@@ -22,3 +22,5 @@ class ParserToRoute{
         return this.parser.execute();
     }
 }
+
+export default ParserToRoute;

@@ -5,6 +5,8 @@ import $ from "jquery";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 
+import {ParserToRoute} from "../../viade/ParserToRoute";
+
 // const auth = require('/node_modules/solid-auth-client')
 //const FileClient = require('/node_modules/solid-file-client')
 //const fc = new FileClient(auth)
@@ -62,7 +64,11 @@ export const UploadComponent = () => {
     const summitHandler = async(e) => {
         e.preventDefault();
         //setUploadStatus(true)//empezamos a subir
+        let parser = ParserToRoute(files[0]);
+        parser.selectParser(files[0]);
+        let route = parser.parse();
         const file = files[0];
+
         //const parentContainer =
         const parentContainer = value;// + ((textInput.current.select().endsWith('/')) ? '' : '/')//"https://tovarashi.solid.community/public/test/"//esto esta fixeado
         const url = parentContainer + file.name;
