@@ -27,5 +27,9 @@ class ParserToRoute {
   };
 }
 
+<<<<<<< HEAD:src/viade/ParserToRoute/parser-to-route.js
 const parser = new ParserToRoute();
 export default parser;
+=======
+export default ParserToRoute;
+>>>>>>> develop:src/viade/Parsers/ParserToRoute/parser-to-route.js
