@@ -1,8 +1,8 @@
 class RouteViade{
-    constructor(name,items){
+    constructor(name,items,description=""){
         this.name=name;
         this.items=items;
-        this.description="";
+        this.description=description;
     }
 }
 

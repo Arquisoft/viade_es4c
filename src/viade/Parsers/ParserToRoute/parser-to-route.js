@@ -22,3 +22,5 @@ class ParserToRoute{
         return this.parser.execute();
     }
 }
+
+export default ParserToRoute;
