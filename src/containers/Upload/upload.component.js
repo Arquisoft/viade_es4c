@@ -36,12 +36,12 @@ export const UploadComponent = () => {
 
         //Ya tenemos un String para meter en SolidFileClient
 
-        const rutaPod = value;// + ((textInput.current.select().endsWith('/')) ? '' : '/')//"https://tovarashi.solid.community/public/test/"//esto esta fixeado
-        const url = rutaPod + "prueba1.ttl";//file.name;
-        alert(url);//Esto es debugeo pasar a console.log cuando esto funcione mejor
+        const rutaPod = value + ((value.endsWith('/')) ? '' : '/');// + ((textInput.current.select().endsWith('/')) ? '' : '/')
+        const url = rutaPod + file.name +".ttl";
+        console.log(url);//La direccion a la que se subira, para asegurarse de que funciona bien
         try{
             //const res = await fc.putFile(url, file, file.type);
-            const res = await fc.createFile(url, strRoute, "text/plain",{});//"text/turtle"
+            const res = await fc.createFile(url, strRoute, "text/turtle",{});//
             console.log(res)
         }catch(err){
             console.error(err); // Da warning aquí por usar la consola
