@@ -27,4 +27,7 @@ class ParserToRoute {
   };
 }
 
-export default ParserToRoute;
+const parser = new ParserToRoute();
+
+
+export default parser;
