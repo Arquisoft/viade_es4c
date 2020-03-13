@@ -3,7 +3,8 @@ import SolidFileClient from "solid-file-client";
 import auth from "solid-auth-client";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import {ParserToRoute} from "../../viade/ParserToRoute";
+import {ParserToRoute} from "../../viade";
+import {RouteToRDF} from "../../viade";
 
 const fc = new SolidFileClient(auth);
 
@@ -24,18 +25,21 @@ export const UploadComponent = () => {
         //let parser = new ParserToRoute(files[0]);
 
         //Empezamos a parsear el archivo
-        let promise = ParserToRoute.parse(files[0]);
-        let route=await promise.then((route)=>{return route});
         const file = files[0];
+
+        let promise = ParserToRoute.parse(file);
+        let route=await promise.then((route)=>{return route});
+        let parserToRDF = new RouteToRDF(route);
+        let strRoute = parserToRDF.parse();
 
         //Ya tenemos un String para meter en SolidFileClient
 
         const rutaPod = value;// + ((textInput.current.select().endsWith('/')) ? '' : '/')//"https://tovarashi.solid.community/public/test/"//esto esta fixeado
-        const url = rutaPod + file.name;
+        const url = rutaPod + "prueba01.ttl";//file.name;
         alert(url);//Esto es debugeo pasar a console.log cuando esto funcione mejor
         try{
             //const res = await fc.putFile(url, file, file.type);
-            const res = await fc.createFile(url, "Text to test uploading files to pods con contentType: text/plain, \n deberia abrirlo bien solid", "text/plain",{});
+            const res = await fc.createFile(url, strRoute, "text/plain",{});
             console.log(res)
         }catch(err){
             console.error(err); // Da warning aquí por usar la consola
