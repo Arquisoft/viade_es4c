@@ -4,6 +4,7 @@ import auth from "solid-auth-client";
 import $ from "jquery";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
+import {RDFToRoute} from "../../viade";
 
 // const auth = require('/node_modules/solid-auth-client')
 //const FileClient = require('/node_modules/solid-file-client')
@@ -99,7 +100,7 @@ export const UploadComponent = () => {
             </InputGroup>
             <input type="file" onChange={fileSelectedHadler}/>
             <button onClick={summitHandler}>Upload</button>
-
+            <button onClick={()=>{RDFToRoute.parse()}}>TEST</button>
         </div>
 
     );

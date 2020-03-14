@@ -1,4 +1,4 @@
-import {GeoJSONToRoute} from "./Parsers";
+import {GeoJSONToRoute} from "./ParsersTypes";
 
 class ParserToRoute{
     constructor(file){
