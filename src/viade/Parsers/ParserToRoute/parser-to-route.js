@@ -1,10 +1,12 @@
-import { GeoJSONToRoute } from "./Parsers";
+import { GeoJSONToRoute } from "./ParsersTypes";
 
 class ParserToRoute {
   constructor() {}
   selectParser = file => {
     const type = file.name.split(".")[1];
     switch (type) {
+      case "json":
+      case "geojson":
       case "GeoJSON":
         return new GeoJSONToRoute(file);
       default:
