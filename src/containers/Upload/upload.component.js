@@ -3,8 +3,7 @@ import SolidFileClient from "solid-file-client";
 import auth from "solid-auth-client";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import {ParserToRoute} from "../../viade";
-import {RouteToRDF} from "../../viade";
+import {ParserToRoute,RouteToRDF,RDFToRoute} from "../../viade";
 
 const fc = new SolidFileClient(auth);
 
