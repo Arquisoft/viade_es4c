@@ -17,7 +17,7 @@ class RouteToRDF {
         this.str +=('prefix gpx: <https://www.w3.org/ns/pim/gpx#>');
         this.str +=('import <gpx.shex>');
 
-        this.str +=(this.route);
+        this.str +=(this.route.name);
         this.str +=(' a viade:Route;');
         this.str +=('schema:name "');
         this.str +=(this.route.name);
