@@ -1,0 +1,21 @@
+.img-group>img {
+    width: 60px;
+}
+
+.p-item {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.img-group>div {
+    display: flex;
+    margin-left: 20px;
+}
+
+.img-group>span {
+    margin-left: 20px;
+}
+
+#radio-inrupt, #radio-solid-community {
+    float: left;
+}
