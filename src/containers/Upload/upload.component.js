@@ -3,7 +3,7 @@ import SolidFileClient from "solid-file-client";
 import auth from "solid-auth-client";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import {ParserToRoute,RouteToRDF,RDFToRoute} from "../../viade";
+import {ParserToRoute,RouteToRDF} from "../../viade";
 
 const fc = new SolidFileClient(auth);
 
@@ -69,7 +69,6 @@ export const UploadComponent = () => {
             </InputGroup>
             <input type="file" onChange={fileSelectedHadler}/>
             <button onClick={summitHandler}>Upload</button>
-            <button onClick={()=>{RDFToRoute.parse()}}>TEST</button>
         </div>
 
     );
