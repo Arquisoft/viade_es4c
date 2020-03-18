@@ -5,6 +5,21 @@ Viade is a decentralized route management system based on the Solid specificatio
 
 === Technollogy decisions
 
+==== Libraries
+
+- https://react-bootstrap.github.io/[React Bootstrap] : To stylize our application 
+- https://github.com/jeff-zucker/solid-file-client[Solid-File-Client] : To access POD resources
+- https://github.com/jeff-zucker/sparql-fiddle[sparql-fiddle] : 
+To manipulate data stored in RDF (Routes).
+- https://leafletjs.com/[Leaflet]: To display the routes on a map
+- https://jestjs.io/[Jest] : To do the tests
+
+==== Languages
+- Javascript
+- SPARQL
+
+==== Other decisions
+
 - Use of .geojson as the main format for route representation (more formats will be supported later).
 - NodeJs to implement the Solid server
 - Using the Solid recommendations and specifications
@@ -29,5 +44,8 @@ All members are unaware of the React technology and SOLID specifications, so it 
 
 |Availability
 |Deploy a server
+
+|Interoperability
+|Use of https://arquisoft.github.io/viadeSpec/[Viade Data Model Specification]
 
 |===
