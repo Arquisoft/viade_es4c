@@ -11,8 +11,9 @@ import "./login.css";
  */
 const LoginComponent = () => {
   return (
+    <nav className="nav nav__login">
       <Card className="text-center" style={{ width: '25rem' }}>
-          <Card.Img variant="top" src="/img/Inrupt.svg" />
+          <Card.Img variant="top" data-testid="basic-navbar-nav" src="/img/Inrupt.svg" />
           <Card.Body>
               <Card.Title>Login de Viade es4c</Card.Title>
               <Card.Text>
@@ -35,6 +36,8 @@ const LoginComponent = () => {
               </Card.Text>
           </Card.Body>
       </Card>
+    </nav>
+
   );
 };
 

@@ -5,7 +5,6 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import ErrorBoundary from './error-boundary.component';
-import '@testing-library/jest-dom';
 
 //Arrange
 const ErrorComponent = () => {
@@ -20,6 +19,7 @@ const shallowErrors = codeRun => {
 
   codeRun();
 
+  console.error = error;
 };
 
 afterAll(cleanup);
