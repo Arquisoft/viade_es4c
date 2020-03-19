@@ -28,7 +28,17 @@ class RDFToRoute {
   }
 
   arrayToRouteBasic=(result)=>{
-    return new RouteViade(result[0]["name"],null,result[0]["description"]);
+    return new RouteViade(result[0]["name"],this.basicPoints(),result[0]["description"]);
+  }
+
+  basicPoints=()=>{
+    let array=[];
+    let i;
+    let size=10;
+    for(i=0;i<size;i++){
+      array.push(new ItemViade(100+i,100+i,'Punto'+i));
+    }
+    return array;
   }
 
  
