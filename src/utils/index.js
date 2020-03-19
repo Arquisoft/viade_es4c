@@ -1,3 +1,6 @@
-import * as permissionHelper from './permissions';
+import * as permissionHelper from "./permissions";
+import StringBuilder from "./StringBuilder";
+import * as ldflexHelper from './ldflex-helper';
+import * as sparqlFiddle from './sparql-fiddle';
 
-export {permissionHelper};
+export {permissionHelper, StringBuilder,ldflexHelper,sparqlFiddle};
