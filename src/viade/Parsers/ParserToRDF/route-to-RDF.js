@@ -1,4 +1,4 @@
-import {StringBuilder} from "../../../utils";
+import {stringBuilder} from "../../../utils";
 
 class RouteToRDF {
     constructor(route) {
@@ -32,7 +32,7 @@ class RouteToRDF {
 
         this.str +=('</xmp>');
 
-        return this.str.toString();
+        return this.this.str.tothis.string();
     }
 
     parseitems() {

@@ -1,48 +1,49 @@
-import * as jsonld from 'jsonld';
-import {RouteViade,ItemViade} from '../../Model';
+import { RouteViade, ItemViade } from "../../Model";
+import {sparqlFiddle} from "../../../utils";
+class RDFToRoute {
+  async parse(url) {
+    const sparql =
+      `PREFIX viade:  <http://arquisoft.github.io/viadeSpec/>
+      PREFIX schema: <http://schema.org/>\
+      SELECT ?name ?description WHERE {  ?ruta a viade:Route;
+      schema:name  ?name.
+      OPTIONAL {?ruta schema:description ?description .}
+      }`;
 
-class RDFToRoute{
-    /**
-     * @param {*} content Content of RDF file in N-Quads format
-     */
-    constructor(content){
-        this.content=content;
-    }
+    let fiddle = {
+      data: url,
+      query: sparql,
+      wanted: "Array"
+    };
 
-    parse(){
-        const objJSON=await jsonld.fromRDF(this.content, {format: 'application/n-quads'});
-        const route=this.parseRDFRoute(objJSON);
-        return route;
-    }
+    const result = await sparqlFiddle.run(fiddle).then(
+      results => {
+        return results;
+      },
+      err => console.log(err)
+    );
+    let ruta=this.arrayToRouteBasic(result);
+    console.log(ruta);
+    return ruta;
+  }
 
-    parseRDFRoute(objJSON){
-        const routeName=objJSON.name;
-        const routeDescription=objJSON.description;
-        const items=this.parseRDFItems(objJSON.itinerary);
-        let route=new RouteViade(routeName,items,routeDescription);
-        return route;
-    }
+  arrayToRouteBasic=(result)=>{
+    return new RouteViade(result[0]["name"],this.basicPoints(),result[0]["description"]);
+  }
 
-    parseRDFItems(itinerary){
-        const size=itinerary.numberOfItems;
-        let array=[];
-        for (let i = 0; i < size; i++) {
-            let item=this.parseRDFItem(itinerary.itemListElement[i]);       
-            array.push(item);
-        }
-        return array;
+  basicPoints=()=>{
+    let array=[];
+    let i;
+    let size=10;
+    for(i=0;i<size;i++){
+      array.push(new ItemViade(100+i,100+i,'Punto'+i));
     }
+    return array;
+  }
 
-    parseRDFItem(item){
-        const nameItem=item.name;
-        const descriptionItem=item.description;
-        const addresItem=item.address;
-        const elevationItem=item.elevation;
-        const latitudeItem=item.latitude;
-        const longitudeItem=item.longitude;
-        const postalCodeItem=item.postalCode;
-        return new ItemViade(longitudeItem,latitudeItem,nameItem,descriptionItem,addresItem,elevationItem,postalCodeItem);
-    }
+ 
 }
 
-export default RDFToRoute;
+const parser = new RDFToRoute();
+
+export default parser;
