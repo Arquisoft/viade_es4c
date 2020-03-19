@@ -9,7 +9,6 @@ import {
 	NotFound,
 	Profile,
 	Register,
-	RoutesList,
 	ShowRoute,
 	Upload
 } from "./containers";
@@ -39,10 +38,9 @@ const Routes = () => {
         <NotLoggedInLayout component={Login} path="/login" exact /> {/* Login - "/login" */}
         <NotLoggedInLayout component={Register} path="/register" exact /> {/* Register - "/register" */}
         <PrivateLayout component={Friends} path="/friends" exact /> {/* Friends - "/friends" */}
-		<PrivateLayout component={ShowRoute} path="/route" exact/> {/* ShowRoute - "/route" */}
+		    <PrivateLayout component={ShowRoute} path="/route" exact/> {/* ShowRoute - "/route" */}
         <PrivateLayout component={Profile} path="/profile" exact /> {/* Profile - "/profile" */}
         <PrivateLayout component={MyRoutes} path="/myRoutes" exact /> {/* My Routes - "/myROutes" */}
-        <PrivateLayout component={RoutesList} path="/routesList" exact /> {/* Routes List - "/routesList" */}
         <PrivateLayout component={ShowRoute} path="/showRoute" exact /> {/* View Map - "/viewMap" */}
         <PrivateLayout component={Upload} path="/upload" exact /> {/* Upload- "/upload" */}
         <PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
