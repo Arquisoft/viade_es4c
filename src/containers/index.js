@@ -1,8 +1,6 @@
 import Home from "./Home";
-import Login from "../components/NavBar/Login";
 import Friends from "./Friends";
 import Profile from "./Profile";
-import Register from "./Register";
 import NotFound from "./NotFound";
 import MyRoutes from "./MyRoutes";
 import RoutesList from "./RoutesList";
@@ -10,6 +8,6 @@ import ShowRoute from "./ShowRoute";
 import Upload from "./Upload";
 
 export {
-  Home,Login,Friends,Register,NotFound,Profile,MyRoutes,RoutesList,ShowRoute,Upload
+  Home,Friends,NotFound,Profile,MyRoutes,RoutesList,ShowRoute,Upload
 
 };

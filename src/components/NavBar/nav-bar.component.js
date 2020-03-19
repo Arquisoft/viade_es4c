@@ -1,9 +1,9 @@
 import React from "react";
 import "./navbar.css";
-import {NavLink} from "react-router-dom";
 import {Image, Navbar} from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import LoginModal from "./Login";
+import RegisterModal from "./Register";
 
 /**
  * Navigation bar which contains de actions of a user not logged in
@@ -20,12 +20,7 @@ const NavBar = () => {
               </Nav>
               <Nav>
                   <LoginModal/>
-                  <NavLink
-                      to="/register"
-                      className="link"
-                  >
-                      Sign Up
-                  </NavLink>
+                  <RegisterModal/>
               </Nav>
           </Navbar.Collapse>
       </Navbar>

@@ -12,9 +12,9 @@ import "./login.css";
 const LoginComponent = () => {
   return (
       <Card className="text-center" style={{ width: '25rem' }}>
-          <Card.Img variant="top" src="/img/Inrupt.svg" />
+          <Card.Img variant="top" src="/img/logo.svg" />
           <Card.Body>
-              <Card.Title>Login de Viade es4c</Card.Title>
+              <Card.Title>Login of Viade es4c</Card.Title>
               <Card.Text>
                   <ProviderLogin
                       selectPlaceholder="Pick an identity provider"
