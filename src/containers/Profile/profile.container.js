@@ -1,11 +1,11 @@
-import React from 'react';
-import { LoggedIn, LoggedOut, Value, List, withWebId } from '@solid/react';
+import React from "react";
+import {List, LoggedIn, LoggedOut, Value, withWebId} from '@solid/react';
 
 class ProfileComponent extends React.Component {
-    state = { profileInput: '', activeProfile: '' };
+    state = { profileInput: "", activeProfile: "" };
 
     componentDidUpdate(prevProps) {
-        const { webId } = this.props;
+        const webId = this.props.webId;
         if (webId && webId !== prevProps.webId) {
             this.setState({profileInput: webId});
             this.setState({activeProfile: webId});
@@ -17,7 +17,8 @@ class ProfileComponent extends React.Component {
     }
 
     render() {
-        const { profileInput, activeProfile } = this.state;
+        const profileInput = this.state.profileInput;
+        const activeProfile  = this.state.activeProfile;
         return (
             <div>
                 <h1>Profile viewer</h1>
@@ -30,7 +31,7 @@ class ProfileComponent extends React.Component {
                     <label htmlFor="profile">Profile:</label>
                     <label><Value>{profileInput}</Value></label>
                     <input id="profile" value={profileInput}
-                           onChange={e => this.setState({ profileInput: e.target.value })}/>
+                           onChange={(e) => this.setState({ profileInput: e.target.value })}/>
                 </p>
                  {activeProfile &&
                 <dl>
@@ -38,7 +39,7 @@ class ProfileComponent extends React.Component {
                     <dd><Value src={`[${activeProfile}].name`}/></dd>
                     <dt>Friends</dt>
                     <dd>
-                        <List src={`[${activeProfile}].friends`}>{friend =>
+                        <List src={`[${activeProfile}].friends`}>{(friend) =>
                             <li key={friend}>
                                 <Value src={`[${friend}].name`}>{`${friend}`}</Value>
                             </li>}
