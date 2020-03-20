@@ -1,5 +1,3 @@
-import {StringBuilder} from "../../../utils";
-
 class RouteToRDF {
     constructor(route) {
         this.route = route;
@@ -7,18 +5,14 @@ class RouteToRDF {
     }
 
     parse() {
-        this.str +=('<xmp highlight="turtle">');
 
-        this.str +=('prefix viade: <http://arquisoft.github.io/viadeSpec/>');
-        this.str +=('prefix schema: <http://schema.org/>');
-        this.str +=('prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>');
-        this.str +=('prefix xsd: <http://www.w3.org/2001/XMLSchema#>');
-        this.str +=('prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>');
-        this.str +=('prefix gpx: <https://www.w3.org/ns/pim/gpx#>');
-        this.str +=('import <gpx.shex>');
+        this.str +=('@prefix : <#>.');
+        this.str +=('@prefix viade: <http://arquisoft.github.io/viadeSpec/>.');
+        this.str +=('@prefix schema: <http://schema.org/>.');
+        this.str +=('@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.');
+        this.str +=('@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.');
 
-        this.str +=(this.route);
-        this.str +=(' a viade:Route;');
+        this.str +=(':myRoute a viade:Route;');
         this.str +=('schema:name "');
         this.str +=(this.route.name);
         this.str +=('";');
@@ -29,8 +23,6 @@ class RouteToRDF {
         this.str +=('viade:points (');
         this.parseitems();
         this.str +=(');');
-
-        this.str +=('</xmp>');
 
         return this.str.toString();
     }
