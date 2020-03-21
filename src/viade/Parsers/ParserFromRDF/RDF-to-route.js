@@ -16,12 +16,13 @@ class RDFToRoute {
     PREFIX viade:<http://arquisoft.github.io/viadeSpec/>
     PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     
-    SELECT ?lat ?long ?order ?name WHERE {
-     ?ruta a viade:Route;
-     viade:point ?point .
+    SELECT ?lat ?long ?order ?elevation WHERE {
+     ?route a viade:Route.
+     ?route viade:point ?point .
      ?point schema:latitude ?lat ;
             schema:longitude ?long ;
             viade:order ?order.
+    OPTIONAL {?point schema:elevation ?elevation.}
     }`;
 
 
@@ -72,5 +73,5 @@ class RDFToRoute {
 }
 
 const parser = new RDFToRoute();
-
+parser.parse("https://christianpelaez98.solid.community/public/labra.ttl");
 export default parser;
