@@ -1,7 +1,7 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
-import {useWebId} from '@inrupt/solid-react-components';
-import {AuthNavBar, NavBar} from '../../components';
+import { Route} from 'react-router-dom';
+import { useWebId } from '@inrupt/solid-react-components';
+import { NavBar, AuthNavBar } from '../../components';
 
 /**
 * Controls the paths that can be accessed by any user (may or may not be logged in). 

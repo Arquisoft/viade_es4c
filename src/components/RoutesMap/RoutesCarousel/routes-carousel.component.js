@@ -11,7 +11,7 @@ class RoutesCarousel extends React.Component {
 	data = [
 		{ src: "/img/inrupt.svg", name: "Imagen 1", description: "Description"},
 		{ src: "/img/logo.svg", name: "Imagen 2", description: "Description"},
-		{ src: "/img/Solid.svg", name: "Imagen 3", description: "Description"}
+		{ src: "/img/Solid.png", name: "Imagen 3", description: "Description"}
 	];
 
 	render() {

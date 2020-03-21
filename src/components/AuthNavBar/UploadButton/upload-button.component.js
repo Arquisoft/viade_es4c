@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import {MDBBtn} from "mdbreact";
 import {NavLink} from "react-router-dom";
 import Image from "react-bootstrap/Image";
