@@ -3,8 +3,10 @@ import SolidFileClient from "solid-file-client";
 import auth from "solid-auth-client";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
-import {ParserToRoute, RouteToRDF} from "../../viade";
+import {ParserToRoute, RouteToRDF} from "../../../viade";
 import Button from "react-bootstrap/Button";
+
+import "./upload.component.css"
 
 const fc = new SolidFileClient(auth);
 
@@ -57,7 +59,6 @@ export const UploadComponent = () => {
 	};
 
 	return (
-
 
 		<Form>
 			{/** Campo del nombre **/}
