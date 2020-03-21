@@ -4,6 +4,7 @@
   "homepage": "https://arquisoft.github.io/viade_0/",
   "private": true,
   "dependencies": {
+    "@comunica/actor-init-sparql": "^1.10.0",
     "@inrupt/solid-react-components": "^0.5.0",
     "@solid/context": "^1.1.0",
     "@solid/query-ldflex": "^2.10.0",
