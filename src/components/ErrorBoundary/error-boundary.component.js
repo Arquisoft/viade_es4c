@@ -1,5 +1,4 @@
 import React from "react";
-
 //https://codepen.io/gaearon/pen/wqvxGa?editors=0010
 /**
 * Component that shows the Javascript error without react crash

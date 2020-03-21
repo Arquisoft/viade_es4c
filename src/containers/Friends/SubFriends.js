@@ -1,5 +1,5 @@
 import React from "react";
-import {List} from '@solid/react';
+import {  List } from '@solid/react';
 
 class SubFriendsComponent extends React.Component {
   
