@@ -51,7 +51,7 @@ class RDFToRoute {
  */
   getRoute=(results)=>{
     if(!results||!results.length) return;
-    let items=results.map((i)=>new ItemViade(this.cleanValue(i["?long"]),this.cleanValue(i["?lat"]),"","","",this.cleanValue(i["?elevation"])));
+    let items=results.map((i)=>new ItemViade(this.cleanValue(i["?long"]),this.cleanValue(i["?lat"]),this.cleanValue(i["?elevation"])));
     return new RouteViade(this.cleanValue(results[0]["?name"]),items,this.cleanValue(results[0]["?description"]));
   }
 
