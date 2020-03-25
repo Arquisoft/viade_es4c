@@ -25,7 +25,7 @@ class RouteToRDF {
 
         this.parseitems();
 
-        return this.this.str.tothis.string();
+        return this.str;
     }
 
     parseitems() {
