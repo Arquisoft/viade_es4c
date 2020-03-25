@@ -29,8 +29,8 @@ export class ShowRoute extends Component {
 				<RouteMap route={this.route} className="route-map"/>				{/* Map */}
 				<RouteUploader route={this.route}/>									{/* Basic route info */}
 				<RoutesItinerary route={this.route}/>								{/* List of points of the route */}
-				<div className="image-slide"><RoutesCarousel/></div>				{/* Images of the route */}
-				<div className="video-lister"><RoutesVideosComponent/></div>  		{/* Videos of the route */}
+				{/*<div className="image-slide"><RoutesCarousel/></div>*/}				{/* Images of the route */}
+				{/*<div className="video-lister"><RoutesVideosComponent/></div>*/}  		{/* Videos of the route */}
 				<Spacer/>
 			</div>
 		);

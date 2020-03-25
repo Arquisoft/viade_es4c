@@ -17,7 +17,7 @@ class RoutesItinerary extends React.Component {
 		return (
 			<div className="itinerary">
 				{this.data.map(function (object) {
-					return <Card>
+					return <Card key={object.latitude}>
 						<Card.Body>
 							<Card.Title>{object.name}</Card.Title>
 							<Card.Text>
