@@ -65,19 +65,8 @@ class RDFToRoute {
     return value.split("^^")[0].replace(/['"]+/g,"");
   }
 
-  arrayToRouteBasic=async (url)=>{
-    let promise=this.parse(url);
-    let solucion=await  promise.then((result)=>result);
-    console.log(solucion);
-    //return new RouteViade(result[0]["name"],null,result[0]["description"]);
-  }
-
 }
 
 const parser = new RDFToRoute();
 
-parser.arrayToRouteBasic("https://christianpelaez98.solid.community/ejemplos/ruta1.ttl");
-parser.arrayToRouteBasic("https://christianpelaez98.solid.community/ejemplos/ruta2.ttl");
-parser.arrayToRouteBasic("https://christianpelaez98.solid.community/ejemplos/ruta3.ttl");
-parser.arrayToRouteBasic("https://christianpelaez98.solid.community/ejemplos/ruta4.ttl");
 export default parser;

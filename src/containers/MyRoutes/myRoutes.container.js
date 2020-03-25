@@ -54,7 +54,8 @@ class MyRoutesComponent extends React.Component {
         // Con los nombres de los archivos, los obtengo y los parseo de RDF a Route
         let aux = []
         for (let r of routesName){
-            let route = await RDFToRoute.parse(sessionString + "/" + r.name)
+            let promise = RDFToRoute.parse(sessionString + "/" + r.name);
+            let route=await  promise.then((result)=>result);
             aux.push(route)
         }
         this.setState({routes: aux})
