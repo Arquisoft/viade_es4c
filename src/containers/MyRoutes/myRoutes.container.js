@@ -13,7 +13,7 @@ class MyRoutesComponent extends React.Component {
     constructor(props) {
       super(props);
       this.state = { 
-          routes: []
+            routes: []
         };
     }
 
@@ -38,18 +38,25 @@ class MyRoutesComponent extends React.Component {
         let session = (await auth.currentSession()).webId;
         let sessionString = session.split("profile")[0] + "public/viade"
 
+        let routesName = await this.obtainRoutesName(fc, sessionString)
+        this.obtainRoutes(sessionString, routesName)
+    }
+
+    async obtainRoutesName(fc, sessionString){
         // Obtengo los nombres de los archivos
         let folder = await fc.readFolder(sessionString)
         let array = folder.files
+        console.log(array)
+        return array
+    }
 
+    async obtainRoutes(sessionString, routesName){
         // Con los nombres de los archivos, los obtengo y los parseo de RDF a Route
         let aux = []
-        for(let i=0; i < array.length; i++){
-            let route = await RDFToRoute.parse(sessionString + "/pruebaRuta.ttl")
-            console.log(route)
+        for (let r of routesName){
+            let route = await RDFToRoute.parse(sessionString + "/" + r.name)
             aux.push(route)
         }
-        console.log(aux)
         this.setState({routes: aux})
     }
 
