@@ -1,6 +1,5 @@
 import * as ldflexHelper from "./ldflex-helper";
-import * as helperNotification from "./notification";
-
 import * as permissionHelper from "./permissions";
+import * as notificationHelper from "./notification-helper";
 
-export { ldflexHelper, permissionHelper, helperNotification };
+export { ldflexHelper, permissionHelper, notificationHelper };

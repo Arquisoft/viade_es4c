@@ -1,6 +1,6 @@
 import React from "react";
 import { NotificationTypes } from "@inrupt/solid-react-components";
-import { helperNotification} from "../../../utils";
+import { notificationHelper} from "../../../utils";
 
 const ShareFormComponent = ({
     webId,
@@ -17,7 +17,7 @@ const ShareFormComponent = ({
 
     const shareRoute = async () => {
         const licenseUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
-        const inboxes = await helperNotification.findUserInboxes([
+        const inboxes = await notificationHelper.findUserInboxes([
             { path: friend, name: "Global" }
         ]);
 
