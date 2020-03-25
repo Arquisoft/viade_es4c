@@ -1,14 +1,14 @@
 import React, {Component} from "react"
 import {Map, Polyline, TileLayer} from "react-leaflet"
 
+let center = [];
 let polyline = [];
-let center = null;
 
 export default class RouteMap extends Component<> {
 
 	constructor(props) {
 		super(props);
-		this.props.route.items.forEach(item => polyline.push([item.longitude,item.latitude]));
+		this.props.route.items.forEach(item => polyline.push([item.latitude,item.longitude]));
 		center = polyline[Math.round(polyline.length/2)];
 	}
 
