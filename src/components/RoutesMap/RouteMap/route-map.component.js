@@ -7,6 +7,7 @@ export default class RouteMap extends Component<> {
 
 	constructor(props) {
 		super(props);
+		console.log(this.props.route.items);
 		this.props.route.items.forEach(item => polyline.push([item.longitude,item.latitude]));
 		this.center = polyline[polyline.length/2];
 	}
