@@ -1,0 +1,17 @@
+.home-div {
+    padding-top: 2em;
+    text-align: center;
+}
+
+.logo-div {
+    Display: flex;
+    Align-Items: center;
+    Justify-Content: center;
+}
+
+.fill-image {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
