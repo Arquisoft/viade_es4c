@@ -1,5 +1,4 @@
 import React from "react";
-import "./auth-nav-bar.css";
 import {Image, Navbar} from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import UploadButton from "./UploadButton";
@@ -13,7 +12,7 @@ const AuthNavBar = () => {
 
   const logOut=()=>{
     auth.logout();
-    window.location="/login";
+    window.location="/";
   };
 
   return (

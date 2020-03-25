@@ -19,10 +19,6 @@ class RoutesItinerary extends React.Component {
 				{this.data.map(function (object) {
 					return <Card key={object.latitude}>
 						<Card.Body>
-							<Card.Title>{object.name}</Card.Title>
-							<Card.Text>
-								{object.description}
-							</Card.Text>
 							<ListGroup className="list-group-flush">
 								<ListGroupItem>Latitude: {object.latitude}</ListGroupItem>
 								<ListGroupItem>Longitude: {object.longitude}</ListGroupItem>
