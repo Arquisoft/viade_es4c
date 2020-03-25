@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import {Map, Polyline, TileLayer, Marker, Popup} from "react-leaflet"
+import {Map, Polyline, TileLayer, Marker} from "react-leaflet"
 
 let center = [];
 let polyline = [];
