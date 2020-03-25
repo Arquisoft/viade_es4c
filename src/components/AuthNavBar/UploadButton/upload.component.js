@@ -13,12 +13,28 @@ const fc = new SolidFileClient(auth);
 export const UploadComponent = () => {
 	//const webid = useWebId();
 	let files;
-	let textInput = React.createRef();
-	let value = "";
+	let nameInput = React.createRef();//Campo nombre
+	let descriptionInput = React.createRef();//campo descripcion
+	let folderInput = React.createRef();//Campo de la carpeta
+
+
+	let valueName = "";
+	let valueDescription = "";
+	let valueFolder = "";
+
 
 
 	const fileSelectedHadler = (e) => {
 		files = e.target.files
+	};
+	const handleNameChange = () => {
+		valueName = nameInput.current.value;
+	};
+	const handleDescriptionChange = () => {
+		valueDescription = descriptionInput.current.value;
+	};
+	const handleFolderChange = () => {
+		valueFolder = folderInput.current.value;
 	};
 
 	const summitHandler = async (e) => {
@@ -34,13 +50,14 @@ export const UploadComponent = () => {
 			return route
 		});
 		console.log(route);
+
 		let parserToRDF = new RouteToRDF(route);
 		let strRoute = parserToRDF.parse();
 
 
 		//Ya tenemos un String para meter en SolidFileClient
 
-		const rutaPod = value + ((value.endsWith('/')) ? '' : '/');// + ((textInput.current.select().endsWith('/')) ? '' : '/')
+		const rutaPod = valueFolder + ((valueFolder.endsWith('/')) ? '' : '/');// + ((folderInput.current.select().endsWith('/')) ? '' : '/')
 		const url = rutaPod + file.name + ".ttl";
 		console.log(url);//La direccion a la que se subira, para asegurarse de que funciona bien
 		try {
@@ -53,10 +70,8 @@ export const UploadComponent = () => {
 		//setUploadStatus(false)//terminamos de subir
 	};
 
-	const handleChange = () => {
-		value = textInput.current.value;
 
-	};
+
 
 	return (
 
@@ -64,12 +79,14 @@ export const UploadComponent = () => {
 			{/** Campo del nombre **/}
 			<Form.Group controlId="formName">
 				<Form.Label>Name:</Form.Label>
-				<Form.Control type="text" placeholder="Enter the name of the route"/>
+				<Form.Control ref={nameInput} onChange={() => handleNameChange()}
+							  type="text" placeholder="Enter the name of the route"/>
 			</Form.Group>
 			{/** Campo de la descripción**/}
 			<Form.Group controlId="formDescription">
 				<Form.Label>Description:</Form.Label>
-				<Form.Control as="textarea" placeholder="Enter the description of the route"/>
+				<Form.Control ref={descriptionInput} onChange={() => handleDescriptionChange()}
+					 as="textarea" placeholder="Enter the description of the route"/>
 				<Form.Text className="text-muted">
 					(Optional)
 				</Form.Text>
@@ -79,7 +96,7 @@ export const UploadComponent = () => {
 				<InputGroup.Prepend>
 					<InputGroup.Text id="basic-addon1">Folder</InputGroup.Text>
 				</InputGroup.Prepend>
-				<Form.Control ref={textInput} onChange={() => handleChange()}
+				<Form.Control ref={folderInput} onChange={() => handleFolderChange()}
 							  placeholder="https://username.solid.community/folder/"
 							  aria-label="https://username.solid.community/folder/"
 							  aria-describedby="basic-addon1"
