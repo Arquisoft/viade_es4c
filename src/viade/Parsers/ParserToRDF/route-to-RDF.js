@@ -34,18 +34,6 @@ class RouteToRDF {
 
             this.str +=('viade:point [');
 
-            if (this.route.items[i].name != null && this.route.items[i].elevation != "") {
-                this.str +=('schema:name "');
-                this.str +=(this.route.items[i].name);
-                this.str +=('";');
-            }
-
-            if (this.route.items[i].description != null && this.route.items[i].elevation != "") {
-                this.str +=('schema:description "');
-                this.str +=(this.route.items[i].description);
-                this.str +=('";');
-            }
-
             if (this.route.items[i].elevation != null) {
                 this.str +=('schema:elevation ');
                 this.str +=(this.route.items[i].elevation);
