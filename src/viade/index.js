@@ -1,6 +1,5 @@
 
 import {RouteViade,ItemViade} from './Model';
-import {ParserToRoute} from './Parsers';
-import {RouteToRDF} from './Parsers';
+import {RouteToRDF,ParserToRoute,RDFToRoute} from './Parsers';
 
-export {RouteViade,ItemViade,RouteToRDF,ParserToRoute};
+export {RouteViade,ItemViade,RouteToRDF,ParserToRoute,RDFToRoute};
