@@ -32,5 +32,4 @@ class ParserToRoute {
 
 const parser = new ParserToRoute();
 
-
 export default parser;
