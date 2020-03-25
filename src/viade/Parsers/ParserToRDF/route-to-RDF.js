@@ -16,13 +16,14 @@ class RouteToRDF {
         this.str +=('schema:name "');
         this.str +=(this.route.name);
         this.str +=('";');
-        this.str +=('schema:description "');
-        this.str +=(this.route.description);
-        this.str +=('";');
 
-        this.str +=('viade:points (');
+        if (this.route.description != null && this.route.name != "") {
+            this.str +=('schema:description "');
+            this.str +=(this.route.description);
+            this.str +=('";');
+        }
+
         this.parseitems();
-        this.str +=(');');
 
         return this.str.toString();
     }
@@ -31,15 +32,15 @@ class RouteToRDF {
         var i = 0;
         for (i = 0; i < this.route.items.length ; i++) {
 
-            this.str +=('[');
+            this.str +=('viade:point [');
 
-            if (this.route.items[i].name != null) {
+            if (this.route.items[i].name != null && this.route.items[i].elevation != "") {
                 this.str +=('schema:name "');
                 this.str +=(this.route.items[i].name);
                 this.str +=('";');
             }
 
-            if (this.route.items[i].description != null) {
+            if (this.route.items[i].description != null && this.route.items[i].elevation != "") {
                 this.str +=('schema:description "');
                 this.str +=(this.route.items[i].description);
                 this.str +=('";');
@@ -57,7 +58,12 @@ class RouteToRDF {
             this.str +=('schema:longitude ');
             this.str +=(this.route.items[i].longitude);
 
-            this.str +=(']');
+            if (i == this.route.items.length - 1) {
+                this.str +=('].');
+            } else {
+                this.str +=('];');
+            }
+            
 
         }
     }
