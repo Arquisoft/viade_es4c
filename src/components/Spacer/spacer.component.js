@@ -3,7 +3,7 @@ import "./spacer.component.css";
 
 const Spacer = props => {
 	return (
-		<div class="spacer">
+		<div className="spacer">
 			&nbsp;
 		</div>
 	)
