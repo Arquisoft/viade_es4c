@@ -1,26 +1,24 @@
 import React from "react";
 import SolidFileClient from "solid-file-client";
 import auth from "solid-auth-client";
-import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import {ParserToRoute, RouteToRDF} from "../../../viade";
 import Button from "react-bootstrap/Button";
+import { useWebId } from "@inrupt/solid-react-components";
 
 import "./upload.component.css"
 
 const fc = new SolidFileClient(auth);
 
 export const UploadComponent = () => {
-	//const webid = useWebId();
+	const webid = useWebId();
 	let files;
 	let nameInput = React.createRef();//Campo nombre
 	let descriptionInput = React.createRef();//campo descripcion
-	let folderInput = React.createRef();//Campo de la carpeta
 
 
 	let valueName = "";
 	let valueDescription = "";
-	let valueFolder = "";
 
 
 
@@ -32,9 +30,6 @@ export const UploadComponent = () => {
 	};
 	const handleDescriptionChange = () => {
 		valueDescription = descriptionInput.current.value;
-	};
-	const handleFolderChange = () => {
-		valueFolder = folderInput.current.value;
 	};
 
 	const summitHandler = async (e) => {
@@ -60,16 +55,19 @@ export const UploadComponent = () => {
 
 		//Ya tenemos un String para meter en SolidFileClient
 
-		const rutaPod = valueFolder + ((valueFolder.endsWith('/')) ? '' : '/');// + ((folderInput.current.select().endsWith('/')) ? '' : '/')
-		const url = rutaPod + file.name + ".ttl";
-		console.log(url);//La direccion a la que se subira, para asegurarse de que funciona bien
-		try {
-			//const res = await fc.putFile(url, file, file.type);
-			const res = await fc.createFile(url, strRoute, "text/turtle", {});//
-			console.log(res)
-		} catch (err) {
-			console.error(err); // Da warning aquí por usar la consola
-		}
+		if(webid) {
+			const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/";
+			//webid -> https://usernamme.solid.community/profile/card#me
+			const url = rutaPod + file.name + ".ttl";
+			console.log(url);//La direccion a la que se subira, para asegurarse de que funciona bien
+			try {
+				//const res = await fc.putFile(url, file, file.type);
+				const res = await fc.createFile(url, strRoute, "text/turtle", {});//
+				console.log(res)
+			} catch (err) {
+				console.error(err); // Da warning aquí por usar la consola
+			}
+		}else alert("Es necesario estar logeado");
 		//setUploadStatus(false)//terminamos de subir
 	};
 
@@ -94,17 +92,6 @@ export const UploadComponent = () => {
 					(Optional)
 				</Form.Text>
 			</Form.Group>
-			{/** Campo de la ruta de almacenamiento **/}
-			<InputGroup className="mb-3">
-				<InputGroup.Prepend>
-					<InputGroup.Text id="basic-addon1">Folder</InputGroup.Text>
-				</InputGroup.Prepend>
-				<Form.Control ref={folderInput} onChange={() => handleFolderChange()}
-							  placeholder="https://username.solid.community/folder/"
-							  aria-label="https://username.solid.community/folder/"
-							  aria-describedby="basic-addon1"
-				/>
-			</InputGroup>
 			{/** Selección de archivo **/}
 			<input type="file" onChange={fileSelectedHadler}/>
 			{/** Botón de subida de archivo **/}
