@@ -64,7 +64,6 @@ class RouteToRDF {
             this.str +=(';');
             this.str +=('schema:longitude ');
             this.str +=(this.route.items[i].longitude);
-
             this.str +=(']');
 
         }
