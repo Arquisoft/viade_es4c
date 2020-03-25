@@ -4,7 +4,9 @@ import auth from "solid-auth-client";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import {ParserToRoute, RouteToRDF} from "../../../viade";
+import {VideoViade, ImageViade} from "../../../viade";
 import Button from "react-bootstrap/Button";
+import ImageUploader from 'react-images-upload';
 
 import "./upload.component.css"
 
@@ -13,6 +15,7 @@ const fc = new SolidFileClient(auth);
 export const UploadComponent = () => {
 	//const webid = useWebId();
 	let files;
+	let media;
 	let nameInput = React.createRef();//Campo nombre
 	let descriptionInput = React.createRef();//campo descripcion
 	let folderInput = React.createRef();//Campo de la carpeta
@@ -25,7 +28,10 @@ export const UploadComponent = () => {
 
 
 	const fileSelectedHadler = (e) => {
-		files = e.target.files
+		files = e.target.files;
+	};
+	const mediaSelectedHadler = (e) => {
+		media = e;
 	};
 	const handleNameChange = () => {
 		valueName = nameInput.current.value;
@@ -44,6 +50,8 @@ export const UploadComponent = () => {
 
 		//Empezamos a parsear el archivo
 		const file = files[0];
+		const rutaPod = valueFolder + ((valueFolder.endsWith('/')) ? '' : '/');// + ((folderInput.current.select().endsWith('/')) ? '' : '/')
+		const url = rutaPod + file.name + ".ttl";
 
 		let promise = ParserToRoute.parse(file);
 		let route = await promise.then((route) => {
@@ -54,14 +62,30 @@ export const UploadComponent = () => {
 		route.name = valueName;//Valor del campo del nombre
 		route.description = valueDescription;//Valor del campo de descripcion
 
+		// Subida de archivos
+		try {
+			for (let i=0; i<media.length; i++) {
+				await fc.putFile(rutaPod + media[i].name, media[i], media[i].type);
+				if (media[i].name.contains(".mp4")){
+					route.media.push(new VideoViade(rutaPod,"Pepito",new Date()));
+				}
+				else {
+					route.media.push(new ImageViade(rutaPod,"Pepito",new Date()));
+				}
+			}
+		} catch (err) {
+			console.error(err);
+		}
+
+
 		let parserToRDF = new RouteToRDF(route);
 		let strRoute = parserToRDF.parse();
 
 
 		//Ya tenemos un String para meter en SolidFileClient
 
-		const rutaPod = valueFolder + ((valueFolder.endsWith('/')) ? '' : '/');// + ((folderInput.current.select().endsWith('/')) ? '' : '/')
-		const url = rutaPod + file.name + ".ttl";
+
+		//const res2 = await fc.putFile(rutaPod + media[0].name, media[0], media[0].type);
 		console.log(url);//La direccion a la que se subira, para asegurarse de que funciona bien
 		try {
 			//const res = await fc.putFile(url, file, file.type);
@@ -107,6 +131,15 @@ export const UploadComponent = () => {
 			</InputGroup>
 			{/** Selección de archivo **/}
 			<input type="file" onChange={fileSelectedHadler}/>
+			<input type="file" multiple onChange={mediaSelectedHadler}/>
+			<ImageUploader
+				withIcon={true}
+				withPreview={true}
+				buttonText='Choose images'
+				onChange={mediaSelectedHadler}
+				imgExtension={['.jpg', '.gif', '.png', '.gif','.mp4']}
+				maxFileSize={5242880}
+			/>
 			{/** Botón de subida de archivo **/}
 			<Button onClick={summitHandler}>Upload</Button>
 		</Form>
