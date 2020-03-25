@@ -15,7 +15,7 @@ const fc = new SolidFileClient(auth);
 export const UploadComponent = () => {
 	//const webid = useWebId();
 	let files;
-	let media;
+	let media = [];
 	let nameInput = React.createRef();//Campo nombre
 	let descriptionInput = React.createRef();//campo descripcion
 	let folderInput = React.createRef();//Campo de la carpeta
@@ -31,7 +31,7 @@ export const UploadComponent = () => {
 		files = e.target.files;
 	};
 	const mediaSelectedHadler = (e) => {
-		media = e;
+		media.push(e);
 	};
 	const handleNameChange = () => {
 		valueName = nameInput.current.value;
@@ -64,9 +64,11 @@ export const UploadComponent = () => {
 
 		// Subida de archivos
 		try {
-			for (let i=0; i<media.length; i++) {
-				await fc.putFile(rutaPod + media[i].name, media[i], media[i].type);
-				if (media[i].name.contains(".mp4")){
+			for (let i=0; i<media[0].length; i++) {
+				console.log(media[0].length);
+				console.log(media[0]);
+				const res1 = await fc.putFile(rutaPod + media[0][i].name, media[0][i], media[0][i].type);
+				if (media[0][i].name.includes(".mp4")){
 					route.media.push(new VideoViade(rutaPod,"Pepito",new Date()));
 				}
 				else {
@@ -131,7 +133,6 @@ export const UploadComponent = () => {
 			</InputGroup>
 			{/** Selección de archivo **/}
 			<input type="file" onChange={fileSelectedHadler}/>
-			<input type="file" multiple onChange={mediaSelectedHadler}/>
 			<ImageUploader
 				withIcon={true}
 				withPreview={true}
