@@ -8,8 +8,7 @@ import {
 	NotFound,
 	Profile,
 	RoutesList,
-	ShowRoute,
-	Upload
+	ShowRoute
 } from "./containers";
 
 import {PrivateLayout, PublicLayout} from "./layouts";
@@ -40,7 +39,6 @@ const Routes = () => {
 					<PrivateLayout component={MyRoutes} path="/myRoutes" exact/> {/* My Routes - "/myROutes" */}
 					<PrivateLayout component={RoutesList} path="/routesList" exact/> {/* Routes List - "/routesList" */}
 					<PrivateLayout component={ShowRoute} path="/showRoute" exact/> {/* View Map - "/viewMap" */}
-					<PrivateLayout component={Upload} path="/upload" exact/> {/* Upload- "/upload" */}
 					<PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
 
 				</Switch>

@@ -8,27 +8,24 @@ import ListGroupItem from "react-bootstrap/ListGroupItem";
  */
 class RoutesItinerary extends React.Component {
 
-	data = [
-		{name: "Noia", lat: "40", long: "50", description: "Description"},
-		{name: "Bergondo", lat: "41", long: "51", description: "Description1"},
-		{name: "Sobreviñas", lat: "42", long: "52", description: "Description2"},
-		{name: "San Lois", lat: "43", long: "53", description: "Description3"},
-		{name: "Piñeiro", lat: "44", long: "54", description: "Description4"},
-	];
+	constructor(props) {
+		super(props);
+		this.data = this.props.route.items;
+	}
 
 	render() {
 		return (
 			<div className="itinerary">
 				{this.data.map(function (object) {
-					return <Card>
+					return <Card key={object.latitude}>
 						<Card.Body>
 							<Card.Title>{object.name}</Card.Title>
 							<Card.Text>
 								{object.description}
 							</Card.Text>
 							<ListGroup className="list-group-flush">
-								<ListGroupItem>Latitude: {object.lat}</ListGroupItem>
-								<ListGroupItem>Longitude: {object.long}</ListGroupItem>
+								<ListGroupItem>Latitude: {object.latitude}</ListGroupItem>
+								<ListGroupItem>Longitude: {object.longitude}</ListGroupItem>
 							</ListGroup>
 						</Card.Body>
 					</Card>
