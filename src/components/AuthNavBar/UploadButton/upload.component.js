@@ -51,6 +51,9 @@ export const UploadComponent = () => {
 		});
 		console.log(route);
 
+		route.name = valueName;//Valor del campo del nombre
+		route.description = valueDescription;//Valor del campo de descripcion
+
 		let parserToRDF = new RouteToRDF(route);
 		let strRoute = parserToRDF.parse();
 
