@@ -30,6 +30,8 @@ export const UploadComponent = () => {
         let promise = ParserToRoute.parse(file);
         let route=await promise.then((route)=>{return route});
         console.log(route);
+
+
         let parserToRDF = new RouteToRDF(route);
         let strRoute = parserToRDF.parse();
         
