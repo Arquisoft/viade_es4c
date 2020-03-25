@@ -40,3 +40,26 @@
     transform: rotate(360deg);
   }
 }
+
+nav img {
+  height: 60px;
+  cursor: pointer;
+}
+
+.link {
+  font-size: 1.5em;
+  margin: 20px;
+  color: black;
+  text-decoration: none;
+  float: right;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.logout-img {
+  margin-top: 20px;
+  margin-left: 10px;
+  height: 40px;
+}

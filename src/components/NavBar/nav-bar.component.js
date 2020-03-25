@@ -1,5 +1,4 @@
 import React from "react";
-import "./navbar.css";
 import {Image, Navbar} from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import LoginModal from "./Login";
