@@ -1,7 +1,5 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/ListGroupItem";
 
 /**
  * Element listing all the different points of interest of the route
@@ -16,14 +14,10 @@ class RoutesItinerary extends React.Component {
 	render() {
 		return (
 			<div className="itinerary">
+				<h2>Points:</h2>
 				{this.data.map(function (object) {
-					return <Card key={object.latitude}>
-						<Card.Body>
-							<ListGroup className="list-group-flush">
-								<ListGroupItem>Latitude: {object.latitude}</ListGroupItem>
-								<ListGroupItem>Longitude: {object.longitude}</ListGroupItem>
-							</ListGroup>
-						</Card.Body>
+					return <Card key={object.latitude + object.longitude}>
+						<p className="coordinate">{object.latitude}, {object.longitude}</p>
 					</Card>
 				})}
 			</div>
