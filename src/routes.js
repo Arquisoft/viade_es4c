@@ -7,7 +7,6 @@ import {
 	MyRoutes,
 	NotFound,
 	Profile,
-	RoutesList,
 	ShowRoute
 } from "./containers";
 
@@ -37,7 +36,6 @@ const Routes = () => {
 					<PrivateLayout component={ShowRoute} path="/route" exact/> {/* ShowRoute - "/route" */}
 					<PrivateLayout component={Profile} path="/profile" exact/> {/* Profile - "/profile" */}
 					<PrivateLayout component={MyRoutes} path="/myRoutes" exact/> {/* My Routes - "/myROutes" */}
-					<PrivateLayout component={RoutesList} path="/routesList" exact/> {/* Routes List - "/routesList" */}
 					<PrivateLayout component={ShowRoute} path="/showRoute" exact/> {/* View Map - "/viewMap" */}
 					<PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
 				</Switch>
