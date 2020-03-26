@@ -52,49 +52,48 @@ export const UploadComponent = () => {
       //Empezamos a parsear el archivo
 
 
-      let promise = ParserToRoute.parse(file);
-      let route = await promise.then((route) => {
-        return route
-      });
-      console.log(route);
+      	let promise = ParserToRoute.parse(file);
+      	let route = await promise.then((route) => {
+			return route
+      	});
+      	console.log(route);
 
-      route.name = valueName;//Valor del campo del nombre
-      route.description = valueDescription;//Valor del campo de descripcion
+      	route.name = valueName;//Valor del campo del nombre
+		route.description = valueDescription;//Valor del campo de descripcion
 
 		// Subida de archivos
-      try {
-        for (let i=0; i<media[0].length; i++) {
-          console.log(media[0].length);
-          console.log(media[0]);
-          await fc.putFile(rutaMedia + media[0][i].name, media[0][i], media[0][i].type);
-          if (media[0][i].name.includes(".mp4")){
-            route.videos.push(new VideoViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
-          }
-          else {
-            route.images.push(new ImageViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
-          }
-        }
-      } catch (err) {
-        console.error(err);
-      }
+		try {
+			for (let i=0; i<media[0].length; i++) {
+			  	console.log(media[0].length);
+			  	console.log(media[0]);
+			  	await fc.putFile(rutaMedia + media[0][i].name, media[0][i], media[0][i].type);
+			  	if (media[0][i].name.includes(".mp4")){
+					route.media.push(new VideoViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
+			  	}
+			  	else {
+					route.media.push(new ImageViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
+			  	}
+			}
+		} catch (err) {
+			console.error(err);
+		}
 
-
-      let parserToRDF = new RouteToRDF(route);
-      let strRoute = parserToRDF.parse();
+		let parserToRDF = new RouteToRDF(route);
+		let strRoute = parserToRDF.parse();
 
 
 		//Ya tenemos un String para meter en SolidFileClient
-			try {
-				//const res = await fc.putFile(url, file, file.type);
-				const res = await fc.createFile(url, strRoute, "text/turtle", {});//
-				console.log(res)
-			} catch (err) {
-				console.error(err); // Da warning aquí por usar la consola
-			}
-		}else alert("Es necesario estar logeado");
-		//setUploadStatus(false)//terminamos de subir
-	};
+		try {
+			//const res = await fc.putFile(url, file, file.type);
+			const res = await fc.createFile(url, strRoute, "text/turtle", {});//
+			console.log(res)
+		} catch (err) {
+			console.error(err); // Da warning aquí por usar la consola
+		}
 
+    }else alert("Es necesario estar logeado");
+			//setUploadStatus(false)//terminamos de subir
+	};
 
 
 
