@@ -73,5 +73,4 @@ class MyRoutesComponent extends React.Component {
     }    
     }  
 
-
 export default MyRoutesComponent;
