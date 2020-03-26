@@ -1,15 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
-import { ErrorBoundary } from "./components";
+import {ErrorBoundary} from "./components";
 //import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <ErrorBoundary>}>
-    <App />
-  </ErrorBoundary>,
-  document.getElementById("root")
+	<ErrorBoundary>
+		<App/>
+	</ErrorBoundary>,
+	document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

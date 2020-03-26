@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn[class*="btn-outline-"] text {
+  margin: 0;
+  font-size: large;
+}

@@ -4,3 +4,4 @@ import * as notificationHelper from "./notification-helper";
 import  sparqlFiddle from "./sparql-fiddle";
 
 export { ldflexHelper, permissionHelper, notificationHelper,sparqlFiddle};
+

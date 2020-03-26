@@ -76,10 +76,12 @@ export const fetchLdflexDocument = async documentUri => {
 
 export const resourceExists = async resourcePath => {
   try {
+
     const result = await auth.fetch(resourcePath);
    return result.status === 403 || result.status === 200;
   } catch (e) {
     alert('Error:ldflex-helper > resourceExists');
+
   }
 };
 

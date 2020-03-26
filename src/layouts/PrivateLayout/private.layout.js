@@ -1,8 +1,8 @@
-import React,{useEffect} from "react";
-import { Route } from "react-router-dom";
-import { withAuthorization } from "@inrupt/solid-react-components";
-import { AuthNavBar } from "../../components";
-import { permissionHelper } from '../../utils';
+import React, {useEffect} from "react";
+import {Route} from "react-router-dom";
+import {withAuthorization} from "@inrupt/solid-react-components";
+import {AuthNavBar} from "../../components";
+import {permissionHelper} from '../../utils';
 
 /**
 * Controls the paths that can be accessed only by logged users. If a not logged-in user tries to access that path he will be redirected to "/login".In addition, it also shows Auth NavBar.
@@ -20,7 +20,7 @@ const PrivateLayout =({component:Component, webId, location, history, ...rest })
     if (webId) {
       permissionHelper.checkPermissions(webId, errorMessages);
     }
-  }, [webId]);
+  }, [webId, errorMessages]);
 
   return  (
     <Route

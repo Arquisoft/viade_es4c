@@ -1,11 +1,10 @@
 import React from "react";
 import auth from "solid-auth-cli";
 import FC from "solid-file-client";
-import {NavBar} from "../../components";
-import { useWebId } from "@inrupt/solid-react-components";
+import {Spacer} from "../../components";
 
 export const RoutesListComponent = () => {
-    const webId = useWebId();
+    //const webId = useWebId();
     
     // I will use: https://github.com/jeff-zucker/solid-file-client
     const fc   = new FC( auth ) //With fc we can manage files
@@ -22,8 +21,7 @@ export const RoutesListComponent = () => {
 
     return (
         <div>
-            <p>.</p>
-            <p>.</p>
+            <Spacer/>
             <h1>Listado de rutas</h1>
         </div>
     );

@@ -1,4 +1,5 @@
 import { RouteViade, ItemViade } from "../../Model";
+
 import * as comunica from '@comunica/actor-init-sparql';
 class RDFToRoute {
 
@@ -50,7 +51,7 @@ class RDFToRoute {
  */
   getRoute=(results)=>{
     if(!results||!results.length) return;
-    let items=results.map((i)=>new ItemViade(this.cleanValue(i["?long"]),this.cleanValue(i["?lat"]),this.cleanValue(i["?elevation"])));
+    let items=results.map((i)=>new ItemViade(this.parseToFloat(i["?long"]),this.parseToFloat(i["?lat"]),this.parseToFloat(i["?elevation"])));
     return new RouteViade(this.cleanValue(results[0]["?name"]),items,this.cleanValue(results[0]["?description"]));
   }
   /**
@@ -64,11 +65,11 @@ class RDFToRoute {
     return value.split("^^")[0].replace(/['"]+/g,"");
   }
 
-  arrayToRouteBasic=async (url)=>{
-    let promise=this.parse(url);
-    let solucion=await  promise.then((result)=>result);
-    console.log(solucion);
-    //return new RouteViade(result[0]["name"],null,result[0]["description"]);
+  parseToFloat=(value)=>{
+    if(!value)return;
+    let clean=this.cleanValue(value);
+    return parseFloat(clean);
+
   }
 
 }
