@@ -51,7 +51,6 @@ class RouteToRDF {
             } else {
                 this.str +=('];');
             }
-            
 
         }
     }
