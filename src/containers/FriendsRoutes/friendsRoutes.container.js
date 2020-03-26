@@ -36,27 +36,26 @@ class FriendsRoutesComponent extends React.Component {
       let session = (await auth.currentSession()).webId;
       let sessionString = session.split("profile")[0] + "public/viade";
 
-      let routes = await this.obtainRoutesName(fc, sessionString);
-      this.obtainRoutes(routes)
+      let json = await this.obtainRoutesName(fc, sessionString);
+      this.obtainRoutes(json)
   }
 
   async obtainRoutesName(fc, sessionString){
       // Obtengo los nombres de los archivos
-      let filesArray = [];
       let filesString = "";
       try{
         filesString = await fc.readFile(sessionString + "/shared_with_me.txt");
       }catch{
         console.log("No tienes ficheros compartidos de amigos, pringao :(");
       }
-      filesArray = filesString.split("\n");
-      return filesArray;
+      let json = JSON.parse(filesString);
+      return json;
   }
 
-  async obtainRoutes(routes){
+  async obtainRoutes(json){
       // Con los nombres de los archivos, los obtengo y los parseo de RDF a Route
       let aux = [];
-      for (let r of routes){
+      for (let r of json.routes){
           let promise = RDFToRoute.parse(r);
           let route=await  promise.then((result)=>result);
           aux.push(route)
