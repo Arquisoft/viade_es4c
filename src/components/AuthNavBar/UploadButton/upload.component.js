@@ -69,10 +69,10 @@ export const UploadComponent = () => {
           console.log(media[0]);
           const res1 = await fc.putFile(rutaPod + media[0][i].name, media[0][i], media[0][i].type);
           if (media[0][i].name.includes(".mp4")){
-            route.media.push(new VideoViade(rutaPod,"Pepito",new Date()));
+            route.videos.push(new VideoViade(rutaPod + "media/",webid.substring(0, webid.length - 16),new Date()));
           }
           else {
-            route.media.push(new ImageViade(rutaPod,"Pepito",new Date()));
+            route.images.push(new ImageViade(rutaPod + "media/",webid.substring(0, webid.length - 16),new Date()));
           }
         }
       } catch (err) {
