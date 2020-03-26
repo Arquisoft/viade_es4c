@@ -1,6 +1,5 @@
 import auth from 'solid-auth-client';
 import ldflex from '@solid/query-ldflex';
-;
 
 export const documentExists = async documentUri =>
   auth.fetch(documentUri, {
@@ -77,11 +76,12 @@ export const fetchLdflexDocument = async documentUri => {
 
 export const resourceExists = async resourcePath => {
   try {
-    console.log(auth);
+
     const result = await auth.fetch(resourcePath);
-    return result.status === 403 || result.status === 200;
+   return result.status === 403 || result.status === 200;
   } catch (e) {
-    alert(e.message, 'Error');
+    alert('Error:ldflex-helper > resourceExists');
+
   }
 };
 

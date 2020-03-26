@@ -1,5 +1,5 @@
 import { RouteViade, ItemViade } from "../../Model";
-import {sparqlFiddle} from "../../../utils";
+
 import * as comunica from '@comunica/actor-init-sparql';
 class RDFToRoute {
 
@@ -51,7 +51,7 @@ class RDFToRoute {
  */
   getRoute=(results)=>{
     if(!results||!results.length) return;
-    let items=results.map((i)=>new ItemViade(this.parseToFloat(i["?long"]),this.parseToFloat(i["?lat"]),this.parseToFloat(i["?elevation"])));
+    let items=results.map((i)=>new ItemViade(this.parseToFloat(i["?long"]),this.parseToFloat(i["?lat"]),this.parseToFloat(i["?order"]),this.parseToFloat(i["?elevation"])));
     return new RouteViade(this.cleanValue(results[0]["?name"]),items,this.cleanValue(results[0]["?description"]));
   }
   /**
@@ -69,6 +69,7 @@ class RDFToRoute {
     if(!value)return;
     let clean=this.cleanValue(value);
     return parseFloat(clean);
+
   }
 
 }

@@ -28,7 +28,7 @@ const PrivateLayout =({component:Component, webId, location, history, ...rest })
       component={({ history, location, match }) => (
         <div>
           <AuthNavBar {...{ history, location, match, webId }} />
-          <Component {...{ history, location, match }} />
+          <Component {...{ history, location, match,webId }} />
         </div>
       )}
     />

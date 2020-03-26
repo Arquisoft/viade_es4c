@@ -5,7 +5,6 @@ class RouteToRDF {
     }
 
     parse() {
-
         this.str +=('@prefix : <#>.');
         this.str +=('@prefix viade: <http://arquisoft.github.io/viadeSpec/>.');
         this.str +=('@prefix schema: <http://schema.org/>.');
@@ -31,9 +30,7 @@ class RouteToRDF {
     parseitems() {
         var i = 0;
         for (i = 0; i < this.route.items.length ; i++) {
-
             this.str +=('viade:point [');
-
             if (this.route.items[i].elevation != null) {
                 this.str +=('schema:elevation ');
                 this.str +=(this.route.items[i].elevation);
@@ -55,6 +52,7 @@ class RouteToRDF {
             } else {
                 this.str +=('];');
             }
+
 
         }
     }

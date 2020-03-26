@@ -1,4 +1,5 @@
 class ItemViade{
+
     constructor(longitude,latitude,order,elevation=null){
         this.longitude=longitude;
         this.latitude=latitude;
@@ -8,3 +9,4 @@ class ItemViade{
 }
 
 export default ItemViade;
+
