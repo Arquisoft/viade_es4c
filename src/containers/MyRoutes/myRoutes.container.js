@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 //Librerias
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
-import {ItemViade, RouteViade} from "../../viade/Model";
 import {RDFToRoute} from "../../viade";
 
 
@@ -32,30 +31,31 @@ class MyRoutesComponent extends React.Component {
     }
 
     async componentDidMount(){
-        const fc = new FC(auth) //With fc we can manage files
+        const fc = new FC(auth); //With fc we can manage files
 
         // Obtengo el link de la sesion
         let session = (await auth.currentSession()).webId;
-        let sessionString = session.split("profile")[0] + "public/viade"
+        let sessionString = session.split("profile")[0] + "public/viade/routes";
 
-        let routesName = await this.obtainRoutesName(fc, sessionString)
+        let routesName = await this.obtainRoutesName(fc, sessionString);
         this.obtainRoutes(sessionString, routesName)
     }
 
     async obtainRoutesName(fc, sessionString){
         // Obtengo los nombres de los archivos
-        let folder = await fc.readFolder(sessionString)
-        let array = folder.files
-        console.log(array)
+        let folder = await fc.readFolder(sessionString);
+        let array = folder.files;
+        console.log(array);
         return array
     }
 
     async obtainRoutes(sessionString, routesName){
         // Con los nombres de los archivos, los obtengo y los parseo de RDF a Route
-        let aux = []
+        let aux = [];
         for (let r of routesName){
             let promise = RDFToRoute.parse(sessionString + "/" + r.name);
             let route=await  promise.then((result)=>result);
+            console.log(route);
             aux.push(route)
         }
         this.setState({routes: aux})
@@ -72,6 +72,5 @@ class MyRoutesComponent extends React.Component {
         );
     }    
     }  
-
 
 export default MyRoutesComponent;

@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 //Librerias
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
-import {ItemViade, RouteViade} from "../../viade/Model";
 import {RDFToRoute} from "../../viade";
 
 class FriendsRoutesComponent extends React.Component {
@@ -31,32 +30,32 @@ class FriendsRoutesComponent extends React.Component {
   }
 
   async componentDidMount(){
-      const fc = new FC(auth) //With fc we can manage files
+      const fc = new FC(auth); //With fc we can manage files
 
       // Obtengo el link de la sesion
       let session = (await auth.currentSession()).webId;
-      let sessionString = session.split("profile")[0] + "public/viade"
+      let sessionString = session.split("profile")[0] + "public/viade";
 
-      let routes = await this.obtainRoutesName(fc, sessionString)
+      let routes = await this.obtainRoutesName(fc, sessionString);
       this.obtainRoutes(routes)
   }
 
   async obtainRoutesName(fc, sessionString){
       // Obtengo los nombres de los archivos
-      let filesArray = []
-      let filesString = ""
+      let filesArray = [];
+      let filesString = "";
       try{
-        filesString = await fc.readFile(sessionString + "/shared_with_me.txt")
+        filesString = await fc.readFile(sessionString + "/shared_with_me.txt");
       }catch{
-        console.log("No tienes ficheros compartidos de amigos :(")
+        console.log("No tienes ficheros compartidos de amigos, pringao :(");
       }
-      filesArray = filesString.split("\n") 
-      return filesArray
+      filesArray = filesString.split("\n");
+      return filesArray;
   }
 
   async obtainRoutes(routes){
       // Con los nombres de los archivos, los obtengo y los parseo de RDF a Route
-      let aux = []
+      let aux = [];
       for (let r of routes){
           let promise = RDFToRoute.parse(r);
           let route=await  promise.then((result)=>result);

@@ -1,15 +1,14 @@
 import React, {Fragment} from "react";
 import {BrowserRouter as Router, Switch} from "react-router-dom";
 
-{
-	Friends,
+import {
 	FriendsRoutes,
 	Home,
 	MyRoutes,
 	NotFound,
 	Profile,
 	RoutesList,
-	ShowRoute,Share,Notifications
+	ShowRoute
 } from "./containers";
 
 import {PrivateLayout, PublicLayout} from "./layouts";
@@ -34,17 +33,13 @@ const Routes = () => {
 						*/
 					}
 					<PublicLayout component={Home} path="/" exact/> {/* Homepage - "/" */}
-					<PrivateLayout component={Friends} path="/friends" exact/> {/* Friends - "/friends" */}
 					<PrivateLayout component={FriendsRoutes} path="/friendsRoutes" exact/> {/* Friends - "/friends" */}
 					<PrivateLayout component={ShowRoute} path="/route" exact/> {/* ShowRoute - "/route" */}
 					<PrivateLayout component={Profile} path="/profile" exact/> {/* Profile - "/profile" */}
 					<PrivateLayout component={MyRoutes} path="/myRoutes" exact/> {/* My Routes - "/myROutes" */}
 					<PrivateLayout component={RoutesList} path="/routesList" exact/> {/* Routes List - "/routesList" */}
 					<PrivateLayout component={ShowRoute} path="/showRoute" exact/> {/* View Map - "/viewMap" */}
-    <PrivateLayout component={Share} path="/share" exact /> {/* Share - "/Share" */}
-    <PrivateLayout component={Notifications} path="/notifications" exact /> {/* Notifications - "/notifications" */}
 					<PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
-
 				</Switch>
 			</Fragment>
 		</Router>

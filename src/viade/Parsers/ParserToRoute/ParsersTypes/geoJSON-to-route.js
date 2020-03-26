@@ -15,8 +15,8 @@ class GeoJSONToRoute {
   };
 
   getItems = coordinates => {
-    return coordinates.map(coor => {
-      return new ItemViade(coor[0], coor[1]);
+    return coordinates.map((coor,index) => {
+      return new ItemViade(coor[0], coor[1],index);
     });
   };
 }
