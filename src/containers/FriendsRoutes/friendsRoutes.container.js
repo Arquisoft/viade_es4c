@@ -48,14 +48,13 @@ class FriendsRoutesComponent extends React.Component {
       }catch{
         console.log("No tienes ficheros compartidos de amigos, pringao :(");
       }
-      let json = JSON.parse(filesString);
-      return json;
+      return JSON.parse(filesString);
   }
 
   async obtainRoutes(json){
       // Con los nombres de los archivos, los obtengo y los parseo de RDF a Route
       let aux = [];
-      for (let r of json.routes){
+      for (let r of json.rutas){
           let promise = RDFToRoute.parse(r);
           let route=await  promise.then((result)=>result);
           aux.push(route)

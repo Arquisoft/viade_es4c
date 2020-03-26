@@ -21,8 +21,7 @@ const AuthNavBar = () => {
           <UploadButton/>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-              <Nav  className="mr-auto">
-              </Nav>
+              <Nav  className="mr-auto"/>
               <Nav>
                   <NavLink exact to="/notifications">
                       <Image className="logout-img" src="/img/bell.svg" alt="Notifications" />
