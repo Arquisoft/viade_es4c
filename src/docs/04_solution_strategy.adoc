@@ -11,11 +11,13 @@ Viade is a decentralized route management system based on the Solid specificatio
 - https://github.com/jeff-zucker/solid-file-client[Solid-File-Client] : To access POD resources
 - https://github.com/jeff-zucker/sparql-fiddle[sparql-fiddle] : 
 To manipulate data stored in RDF (Routes).
+- https://comunica.linkeddatafragments.org/[Cominca Engine]: As SPARQL Engine
 - https://leafletjs.com/[Leaflet]: To display the routes on a map
 - https://jestjs.io/[Jest] : To do the tests
 
 ==== Languages
 - Javascript
+- CSS
 - SPARQL
 
 ==== Other decisions
