@@ -53,7 +53,7 @@ const ShareFormComponent = ({
         <input
                     type="text"
                     name="friend"
-                    onChange={e => setFriend(e.target.value)}
+                    onChange={(e) => setFriend(e.target.value)}
                 />
             </label>
             <input type="submit" value="Submit" />

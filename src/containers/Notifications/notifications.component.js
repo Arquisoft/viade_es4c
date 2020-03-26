@@ -24,8 +24,9 @@ const Notifications = props => {
            * If user doesn't has inbox in his pod will show an error and link to
            * know how fix it.
            */
-          if (inboxes.length === 0)
+          if (inboxes.length === 0) {
             alert("Error you dont have an inbox");
+          }
           setInbox(inboxes);
         } catch (error) {
           /**

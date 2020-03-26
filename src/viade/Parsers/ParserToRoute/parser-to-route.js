@@ -2,7 +2,7 @@
 import { GeoJSONToRoute } from "./ParsersTypes";
 
 class ParserToRoute {
-  selectParser = file => {
+  selectParser = (file) => {
     const type = file.name.split(".")[1];
     switch (type) {
       case "json":
