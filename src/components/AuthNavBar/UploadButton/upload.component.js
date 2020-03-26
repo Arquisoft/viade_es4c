@@ -5,10 +5,9 @@ import Form from "react-bootstrap/Form";
 import {ParserToRoute, RouteToRDF} from "../../../viade";
 import {VideoViade, ImageViade} from "../../../viade";
 import Button from "react-bootstrap/Button";
-import ImageUploader from 'react-images-upload';
+import ImageUploader from "react-images-upload";
 import { useWebId } from "@inrupt/solid-react-components";
-
-import "./upload.component.css"
+import "./upload.component.css";
 
 const fc = new SolidFileClient(auth);
 
@@ -42,60 +41,58 @@ export const UploadComponent = () => {
 		e.preventDefault();
 		//setUploadStatus(true)//empezamos a subir
 		//let parser = new ParserToRoute(files[0]);
-    
-    if(webid) {
+
+	if(webid) {
 		const file = files[0];
-			const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/";
+		const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/routes/";
+		const rutaMedia = webid.substring(0, webid.length - 16) + "/public/viade/media/";
 			//webid -> https://usernamme.solid.community/profile/card#me
-			const url = rutaPod + file.name + ".ttl";
-			console.log(url);//La direccion a la que se subira, para asegurarse de que funciona bien
+			const url = rutaPod + file.name.substr(0, file.name.indexOf(".")) + ".ttl";
+	  //Empezamos a parsear el archivo
 
-      //Empezamos a parsear el archivo
+		let promise = ParserToRoute.parse(file);
+		let route = await promise.then((route) => {
+			return route;
+		});
 
+		route.name = valueName;//Valor del campo del nombre
+		route.description = valueDescription;//Valor del campo de descripcion
 
-      let promise = ParserToRoute.parse(file);
-      let route = await promise.then((route) => {
-        return route
-      });
-      console.log(route);
+		// Subida de archivos
+		try {
+			for (let i=0; i<media[0].length; i++) {
+				//console.log(media[0].length);
+				//console.log(media[0]);
+				await fc.putFile(rutaMedia + media[0][i].name, media[0][i], media[0][i].type);
+				if (media[0][i].name.includes(".mp4")){
+					route.media.push(new VideoViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
+				}
+				else {
+					route.media.push(new ImageViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
+				}
 
-      route.name = valueName;//Valor del campo del nombre
-      route.description = valueDescription;//Valor del campo de descripcion
+			}
+		} catch (err) {
+			alert("Error en la subida de archivos");//console.error(err);
+		}
 
-      // Subida de archivos
-      try {
-        for (let i=0; i<media[0].length; i++) {
-          console.log(media[0].length);
-          console.log(media[0]);
-          const res1 = await fc.putFile(rutaPod + media[0][i].name, media[0][i], media[0][i].type);
-          if (media[0][i].name.includes(".mp4")){
-            route.media.push(new VideoViade(rutaPod,"Pepito",new Date()));
-          }
-          else {
-            route.media.push(new ImageViade(rutaPod,"Pepito",new Date()));
-          }
-        }
-      } catch (err) {
-        console.error(err);
-      }
-
-
-      let parserToRDF = new RouteToRDF(route);
-      let strRoute = parserToRDF.parse();
+		let parserToRDF = new RouteToRDF(route);
+		let strRoute = parserToRDF.parse();
 
 
 		//Ya tenemos un String para meter en SolidFileClient
-			try {
-				//const res = await fc.putFile(url, file, file.type);
-				const res = await fc.createFile(url, strRoute, "text/turtle", {});//
-				console.log(res)
-			} catch (err) {
-				console.error(err); // Da warning aquí por usar la consola
-			}
-		}else alert("Es necesario estar logeado");
-		//setUploadStatus(false)//terminamos de subir
-	};
+		try {
+			//const res = await fc.putFile(url, file, file.type);
+			const res = await fc.createFile(url, strRoute, "text/turtle", {});
+		} catch (err) {
+			alert("Error en la subida de archivos");//console.error(err); // Da warning aquí por usar la consola
+		}
 
+	}else {
+		alert("Es necesario estar logeado");
+	}
+			//setUploadStatus(false)//terminamos de subir
+	};
 
 
 
@@ -122,9 +119,9 @@ export const UploadComponent = () => {
 			<ImageUploader
 				withIcon={true}
 				withPreview={true}
-				buttonText='Choose images'
+				buttonText='Choose images and videos'
 				onChange={mediaSelectedHadler}
-				imgExtension={['.jpg', '.gif', '.png', '.gif','.mp4']}
+				imgExtension={[".jpg", ".gif", ".png", ".gif",".mp4"]}
 				maxFileSize={5242880}
 			/>
 			{/** Botón de subida de archivo **/}

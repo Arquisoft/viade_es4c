@@ -17,7 +17,7 @@ class MyRoutesComponent extends React.Component {
     }
 
     getRoutes() {
-        return this.state.routes.map(obj => (
+        return this.state.routes.map((obj) => (
             <div className="text-center">
                 <Link key={obj.name} to={{
                         pathname: "/showRoute",
@@ -38,15 +38,15 @@ class MyRoutesComponent extends React.Component {
         let sessionString = session.split("profile")[0] + "public/viade/routes";
 
         let routesName = await this.obtainRoutesName(fc, sessionString);
-        this.obtainRoutes(sessionString, routesName)
+        this.obtainRoutes(sessionString, routesName);
     }
 
     async obtainRoutesName(fc, sessionString){
         // Obtengo los nombres de los archivos
+        if(!await fc.itemExists(sessionString)) {console.error("no se escuentra la carpeta viade");return [];}
         let folder = await fc.readFolder(sessionString);
         let array = folder.files;
-        console.log(array);
-        return array
+        return array;
     }
 
     async obtainRoutes(sessionString, routesName){
@@ -55,10 +55,9 @@ class MyRoutesComponent extends React.Component {
         for (let r of routesName){
             let promise = RDFToRoute.parse(sessionString + "/" + r.name);
             let route=await  promise.then((result)=>result);
-            console.log(route);
-            aux.push(route)
+            aux.push(route);
         }
-        this.setState({routes: aux})
+        this.setState({routes: aux});
     }
 
     render() {

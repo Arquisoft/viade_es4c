@@ -7,8 +7,9 @@ import {
 	MyRoutes,
 	NotFound,
 	Profile,
-	RoutesList,
-	ShowRoute
+	ShowRoute,
+	Share,
+	Notifications
 } from "./containers";
 
 import {PrivateLayout, PublicLayout} from "./layouts";
@@ -37,8 +38,9 @@ const Routes = () => {
 					<PrivateLayout component={ShowRoute} path="/route" exact/> {/* ShowRoute - "/route" */}
 					<PrivateLayout component={Profile} path="/profile" exact/> {/* Profile - "/profile" */}
 					<PrivateLayout component={MyRoutes} path="/myRoutes" exact/> {/* My Routes - "/myROutes" */}
-					<PrivateLayout component={RoutesList} path="/routesList" exact/> {/* Routes List - "/routesList" */}
 					<PrivateLayout component={ShowRoute} path="/showRoute" exact/> {/* View Map - "/viewMap" */}
+					<PrivateLayout component={Share} path="/share" exact /> {/* Share - "/share" */}
+					<PrivateLayout component={Notifications} path="/notifications" exact /> {/* Notifications - "/notifications" */}
 					<PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
 				</Switch>
 			</Fragment>

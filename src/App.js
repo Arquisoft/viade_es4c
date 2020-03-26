@@ -1,5 +1,5 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 import "mdbreact/dist/css/mdb.css";
 import "./bootstrap.min.css";
 
