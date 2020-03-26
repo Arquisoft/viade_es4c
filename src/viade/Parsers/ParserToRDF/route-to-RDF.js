@@ -45,6 +45,10 @@ class RouteToRDF {
             this.str +=(';');
             this.str +=('schema:longitude ');
             this.str +=(this.route.items[i].longitude);
+            this.str +=(';');
+
+            this.str +=('viade:order ');
+            this.str +=(this.route.items[i].order);
 
             if (i == this.route.items.length - 1) {
                 this.str +=('].');
