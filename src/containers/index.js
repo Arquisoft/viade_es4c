@@ -7,8 +7,8 @@ import RoutesList from "./RoutesList";
   import Share from "./Share";
 import Notifications from "./Notifications";
 import ShowRoute from "./ShowRoute";
+import FriendsRoutes from "./FriendsRoutes";
 
-export {
-  Home,Friends,NotFound,Profile,MyRoutes,RoutesList,ShowRoute,Share,Notifications
+  Home,Friends,NotFound,Profile,MyRoutes,RoutesList,ShowRoute,FriendsRoutes,Share,Notifications
 
 };
