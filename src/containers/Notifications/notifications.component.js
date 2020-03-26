@@ -1,5 +1,5 @@
 import React,{useState,useCallback,useEffect} from "react";
-import NotificationsList from "./children";
+import {NotificationsList} from "./children";
 import {ldflexHelper} from "../.././utils";
 
 const Notifications = props => {

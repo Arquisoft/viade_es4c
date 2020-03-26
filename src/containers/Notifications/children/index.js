@@ -1,2 +1,4 @@
-import NotificationsList from "./notifications-list.component";
-export default NotificationsList;
+import NotificationsList from "./NotificationsList";
+import NotificationItem from "./NotificationItem";
+
+export {NotificationsList,NotificationItem};
