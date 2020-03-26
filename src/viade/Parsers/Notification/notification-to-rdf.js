@@ -21,6 +21,7 @@ class NotificationToRDF{
     }
 
     clearQuotes=(string)=>{
+        if(!string)return;
         return string.replace(/['"]+/g, '');
     }
 }

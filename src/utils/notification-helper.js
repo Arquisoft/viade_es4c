@@ -15,6 +15,7 @@ export const fetchNotifications = async inboxURL => {
     let noti = await RDFToNotification.parse(filesURL[i]);
     noti.url = filesURL[i];
     notifications.push(noti);
+
   }
   return orderByDate(notifications);
 };
@@ -69,6 +70,7 @@ export const getDefaultInbox = (inboxes, inbox1, inbox2) =>
   inboxes.find(inbox => inbox.name === inbox2);
 
 export const addRouteSharedWithMe = async (url, webId) => {
+  console.log(url);
   const base = "/public/viade/shared_with_me.txt";
   const path = webId.split("/profile/card#me")[0] + base;
   if (!(await fc.itemExists(path))) {
@@ -83,7 +85,6 @@ export const addRouteSharedWithMe = async (url, webId) => {
 };
 
 export const markAsRead = async notification => {
-  console.log(notification);
   notification.read = true;
   let docu = NotificationToRDF.parse(notification);
   await fc.createFile(notification.url, docu, "text/turtle", {});
