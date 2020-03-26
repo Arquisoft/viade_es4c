@@ -7,7 +7,7 @@ const ShareComponent = (props)=> {
   const [friend, setFriend] = useState('');
   const[route,setRoute]=useState('');
     const {webId}=props;
-    const { createNotification, notifications, notification} = useNotification(webId);
+    const { createNotification} = useNotification(webId);
 
     const sendNotification=useCallback(
       async (content, to, type, license) => {
@@ -17,7 +17,7 @@ const ShareComponent = (props)=> {
           alert('Error: ShareComponent > sendNotification');
         }
       },
-      [friend, notifications, notification]
+      [  createNotification]
     );
 
     return (
