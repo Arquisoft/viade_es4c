@@ -43,11 +43,9 @@ const Notifications = props => {
         }
       }, [webId]);
   return (
-    <div>
-      <p>.</p>
-      <p>.</p>
+    <div style={{margin: "50px"}}>
       <h1>Notifications</h1>
-      <NotificationsList inboxes={inboxUrl} {...props}></NotificationsList>
+      <NotificationsList inboxes={inboxUrl} {...props}/>
     </div>
   );
 };

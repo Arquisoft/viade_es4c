@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { notificationHelper } from "../../../../utils";
 import NotificationItem from "../NotificationItem";
+
 const NotificationsList = props => {
   const { webId, inboxes } = props;
   const [notifications, setNotifications] = useState();
