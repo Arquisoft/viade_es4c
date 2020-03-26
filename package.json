@@ -1,7 +1,7 @@
 {
-  "name": "viade_0",
-  "version": "0.1.0",
-  "homepage": "https://arquisoft.github.io/viade_0/",
+  "name": "viade_es4c",
+  "version": "1.0.0",
+  "homepage": "https://arquisoft.github.io/viade_es4c/",
   "private": true,
   "dependencies": {
     "@comunica/actor-init-sparql": "^1.10.0",
