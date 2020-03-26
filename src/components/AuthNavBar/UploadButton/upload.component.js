@@ -7,7 +7,6 @@ import {VideoViade, ImageViade} from "../../../viade";
 import Button from "react-bootstrap/Button";
 import ImageUploader from 'react-images-upload';
 import { useWebId } from "@inrupt/solid-react-components";
-
 import "./upload.component.css"
 
 const fc = new SolidFileClient(auth);
@@ -122,7 +121,7 @@ export const UploadComponent = () => {
 			<ImageUploader
 				withIcon={true}
 				withPreview={true}
-				buttonText='Choose images'
+				buttonText='Choose images and videos'
 				onChange={mediaSelectedHadler}
 				imgExtension={['.jpg', '.gif', '.png', '.gif','.mp4']}
 				maxFileSize={5242880}
