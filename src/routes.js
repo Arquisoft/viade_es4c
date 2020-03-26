@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch} from "react-router-dom";
 
 import {
 	Friends,
+	FriendsRoutes,
 	Home,
 	MyRoutes,
 	NotFound,
@@ -34,6 +35,7 @@ const Routes = () => {
 					}
 					<PublicLayout component={Home} path="/" exact/> {/* Homepage - "/" */}
 					<PrivateLayout component={Friends} path="/friends" exact/> {/* Friends - "/friends" */}
+					<PrivateLayout component={FriendsRoutes} path="/friendsRoutes" exact/> {/* Friends - "/friends" */}
 					<PrivateLayout component={ShowRoute} path="/route" exact/> {/* ShowRoute - "/route" */}
 					<PrivateLayout component={Profile} path="/profile" exact/> {/* Profile - "/profile" */}
 					<PrivateLayout component={MyRoutes} path="/myRoutes" exact/> {/* My Routes - "/myROutes" */}

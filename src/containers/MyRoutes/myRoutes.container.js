@@ -36,7 +36,7 @@ class MyRoutesComponent extends React.Component {
 
         // Obtengo el link de la sesion
         let session = (await auth.currentSession()).webId;
-        let sessionString = session.split("profile")[0] + "public/viade"
+        let sessionString = session.split("profile")[0] + "public/viade/routes"
 
         let routesName = await this.obtainRoutesName(fc, sessionString)
         this.obtainRoutes(sessionString, routesName)
@@ -72,6 +72,5 @@ class MyRoutesComponent extends React.Component {
         );
     }    
     }  
-
 
 export default MyRoutesComponent;
