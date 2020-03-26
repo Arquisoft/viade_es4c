@@ -13,9 +13,9 @@ const LoginComponent = () => {
   return (
     <nav className="nav nav__login">
       <Card className="text-center" style={{ width: '25rem' }}>
-          <Card.Img variant="top" data-testid="basic-navbar-nav" src="/img/Inrupt.svg" />
+          <Card.Img variant="top" src="/img/logo.svg" />
           <Card.Body>
-              <Card.Title>Login de Viade es4c</Card.Title>
+              <Card.Title>Login of Viade es4c</Card.Title>
               <Card.Text>
                   <ProviderLogin
                       selectPlaceholder="Pick an identity provider"

@@ -1,14 +1,10 @@
 import Home from "./Home";
-import Login from "../components/NavBar/Login";
-import Friends from "./Friends";
 import Profile from "./Profile";
-import Register from "./Register";
 import NotFound from "./NotFound";
 import MyRoutes from "./MyRoutes";
 import ShowRoute from "./ShowRoute";
-import Upload from "./Upload";
+import FriendsRoutes from "./FriendsRoutes";
 
 export {
-  Home,Login,Friends,Register,NotFound,Profile,MyRoutes,ShowRoute,Upload
-
+  Home,NotFound,Profile,MyRoutes,RoutesList,ShowRoute,FriendsRoutes
 };

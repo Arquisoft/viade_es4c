@@ -1,26 +1,37 @@
-import React from "react";
+import React, {Component} from "react";
 import {
 	RouteMap,
 	RoutesCarousel,
 	RoutesItinerary,
-	RoutesVideosComponent,
 	RouteUploader,
 	Spacer
 } from "../../components";
 import "./show-route.css"
 
 /**
- * Home component that returns the homepage
+ * Page which prints a Route and all its info
  */
-export const ShowRoute = () => {
-	return (
-		<div className="grid-container">
-			<RouteMap className="route-map"/>
-			<RouteUploader/>
-			<RoutesItinerary/>
-			<div className="image-slide"><RoutesCarousel/></div>
-			<div className="video-lister"><RoutesVideosComponent/></div>
-			<Spacer/>
-		</div>
-	);
-};
+export class ShowRoute extends Component {
+
+	/**
+	 * The page receives a route through the state
+	 * @param props	Containing the route to display
+	 */
+	constructor(props) {
+		super(props);
+		this.route = this.props.location.state.route;
+	}
+
+	render() {
+		return (
+			<div className="grid-container">
+				<RouteMap route={this.route} className="route-map"/>				{/* Map */}
+				<RouteUploader route={this.route}/>									{/* Basic route info */}
+				<RoutesItinerary route={this.route}/>								{/* List of points of the route */}
+				{/* Images of the route */}
+				{(this.route.media.length === 0) ? <div className="image-slide"><RoutesCarousel/></div> : <div/>}
+				<Spacer/>
+			</div>
+		);
+	};
+}
