@@ -6,5 +6,5 @@ import ShowRoute from "./ShowRoute";
 import FriendsRoutes from "./FriendsRoutes";
 
 export {
-  Home,NotFound,Profile,MyRoutes,RoutesList,ShowRoute,FriendsRoutes
+  Home,NotFound,Profile,MyRoutes,ShowRoute,FriendsRoutes
 };

@@ -28,7 +28,7 @@ it("Prueba que renderiza", () => {
   act(() => {
     render(<HomeComponent />, container);
   });
-  expect(container.textContent).toBe("HomeUser: Not logged in");
+  expect(container.textContent).toBe("Viade is a Solid project developed by third year students of the University of Oviedo Software Engineering degree in the Software Architecture subject. It offers a route sharing application following the SOLID principles. This is a site where all your data always remains yours. Developed by team es4c.Upload a new routeComplete it with images and videosShare it with whoever you wantAnd keep the ownership of all this  ");
 });
 
 
