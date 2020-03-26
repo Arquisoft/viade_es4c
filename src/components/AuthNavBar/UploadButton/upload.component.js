@@ -66,7 +66,7 @@ export const UploadComponent = () => {
         for (let i=0; i<media[0].length; i++) {
           console.log(media[0].length);
           console.log(media[0]);
-          const res1 = await fc.putFile(rutaMedia + media[0][i].name, media[0][i], media[0][i].type);
+          await fc.putFile(rutaMedia + media[0][i].name, media[0][i], media[0][i].type);
           if (media[0][i].name.includes(".mp4")){
             route.videos.push(new VideoViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
           }
