@@ -43,7 +43,7 @@ class MyRoutesComponent extends React.Component {
 
     async obtainRoutesName(fc, sessionString){
         // Obtengo los nombres de los archivos
-        if(!await fc.itemExists(sessionString)) return [];
+        if(!await fc.itemExists(sessionString)) {console.error("no se escuentra la carpeta viade");return [];}
         let folder = await fc.readFolder(sessionString);
         let array = folder.files;
         console.log(array);
