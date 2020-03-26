@@ -5,8 +5,9 @@ import NotFound from "./NotFound";
 import MyRoutes from "./MyRoutes";
 import RoutesList from "./RoutesList";
 import ShowRoute from "./ShowRoute";
+import FriendsRoutes from "./FriendsRoutes";
 
 export {
-  Home,Friends,NotFound,Profile,MyRoutes,RoutesList,ShowRoute
+  Home,Friends,NotFound,Profile,MyRoutes,RoutesList,ShowRoute,FriendsRoutes
 
 };
