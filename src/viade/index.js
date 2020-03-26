@@ -1,6 +1,5 @@
+import {RouteViade,ItemViade,VideoViade,ImageViade,NotificationViade} from './Model';
+import {RouteToRDF,ParserToRoute,RDFToRoute,RDFToNotification,NotificationToRDF} from './Parsers';
 
-import {RouteViade,ItemViade} from './Model';
-import {ParserToRoute} from './Parsers';
-import {RouteToRDF} from './Parsers';
+export {RouteViade,ItemViade,RouteToRDF,ParserToRoute,RDFToRoute,VideoViade,ImageViade,NotificationViade,RDFToNotification,NotificationToRDF};
 
-export {RouteViade,ItemViade,RouteToRDF,ParserToRoute};

@@ -1,3 +1,4 @@
+
 import { GeoJSONToRoute } from "./ParsersTypes";
 
 class ParserToRoute {
@@ -30,6 +31,5 @@ class ParserToRoute {
 }
 
 const parser = new ParserToRoute();
-
 
 export default parser;
