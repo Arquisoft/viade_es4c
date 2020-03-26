@@ -45,11 +45,11 @@ export const UploadComponent = () => {
     
     if(webid) {
 		const file = files[0];
-			const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/";
+		const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/routes/";
+		const rutaMedia = webid.substring(0, webid.length - 16) + "/public/viade/media/";
 			//webid -> https://usernamme.solid.community/profile/card#me
-			const url = rutaPod + file.name + ".ttl";
+			const url = rutaPod + file.name.substr(0, file.name.indexOf('.')) + ".ttl";
 			console.log(url);//La direccion a la que se subira, para asegurarse de que funciona bien
-
       //Empezamos a parsear el archivo
 
 
@@ -62,17 +62,17 @@ export const UploadComponent = () => {
       route.name = valueName;//Valor del campo del nombre
       route.description = valueDescription;//Valor del campo de descripcion
 
-      // Subida de archivos
+		// Subida de archivos
       try {
         for (let i=0; i<media[0].length; i++) {
           console.log(media[0].length);
           console.log(media[0]);
-          const res1 = await fc.putFile(rutaPod + media[0][i].name, media[0][i], media[0][i].type);
+          const res1 = await fc.putFile(rutaMedia + media[0][i].name, media[0][i], media[0][i].type);
           if (media[0][i].name.includes(".mp4")){
-            route.media.push(new VideoViade(rutaPod,"Pepito",new Date()));
+            route.videos.push(new VideoViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
           }
           else {
-            route.media.push(new ImageViade(rutaPod,"Pepito",new Date()));
+            route.images.push(new ImageViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
           }
         }
       } catch (err) {
@@ -122,7 +122,7 @@ export const UploadComponent = () => {
 			<ImageUploader
 				withIcon={true}
 				withPreview={true}
-				buttonText='Choose images'
+				buttonText='Choose images and videos'
 				onChange={mediaSelectedHadler}
 				imgExtension={['.jpg', '.gif', '.png', '.gif','.mp4']}
 				maxFileSize={5242880}
