@@ -47,7 +47,7 @@ class RDFToNotification {
       result[0]["published"],
       result[0]["summary"],
       result[0]["target"],
-      result[0]["read"]=="true"
+      result[0]["read"]==="true"
     );
   };
 }

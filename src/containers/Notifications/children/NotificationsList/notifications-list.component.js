@@ -3,7 +3,7 @@ import { notificationHelper } from "../../../../utils";
 import NotificationItem from "../NotificationItem";
 
 const NotificationsList = props => {
-  const { webId, inboxes } = props;
+  const { inboxes } = props;
   const [notifications, setNotifications] = useState();
   const [isSharing, setSharing] = useState(false);
   const initNotifications = async () => {

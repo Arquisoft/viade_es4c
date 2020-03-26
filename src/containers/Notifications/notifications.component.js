@@ -33,7 +33,7 @@ const Notifications = props => {
            */
           alert("Error seleccionando inbox");
         }
-      }, [webId, inboxes]);
+      }, [webId]);
 
       const inboxUrl = inboxes.map(item => item.path);
 
@@ -41,7 +41,7 @@ const Notifications = props => {
         if (webId) {
           discoverInbox();
         }
-      }, [webId]);
+      }, [webId,discoverInbox]);
   return (
     <div style={{margin: "50px"}}>
       <h1>Notifications</h1>
