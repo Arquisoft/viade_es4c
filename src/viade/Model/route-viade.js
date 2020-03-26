@@ -1,11 +1,10 @@
 class RouteViade{
 
-    constructor(name,items,description="", videos=[], images=[], comments = []){
+    constructor(name,items,description="", media=[], comments = []){
         this.name=name;
         this.items=items;
         this.description=description;
-        this.images = images;
-        this.videos = videos;
+        this.media = media;
         this.comments = comments;
     }
 }
