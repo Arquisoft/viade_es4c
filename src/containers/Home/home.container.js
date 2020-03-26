@@ -77,3 +77,5 @@ export const HomeComponent = () => {
         </Container>
     );
 };
+
+export default HomeComponent;

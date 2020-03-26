@@ -40,7 +40,6 @@ const Routes = () => {
 					<PrivateLayout component={RoutesList} path="/routesList" exact/> {/* Routes List - "/routesList" */}
 					<PrivateLayout component={ShowRoute} path="/showRoute" exact/> {/* View Map - "/viewMap" */}
 					<PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
-
 				</Switch>
 			</Fragment>
 		</Router>

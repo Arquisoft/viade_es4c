@@ -9,6 +9,7 @@ import LoginComponent from "./login.component";
  * @constructor
  */
 const LoginModal = () => {
+	
 	const [isOpen, setIsOpen] = React.useState(false);
 
 	const showModal = () => {
