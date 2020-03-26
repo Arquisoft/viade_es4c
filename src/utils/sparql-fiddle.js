@@ -1,7 +1,7 @@
 import * as rdf from "rdflib";
 class SparqlFiddle{
 
-    setRdfType = (type) => { this.rdfType = type };
+    setRdfType = (type) => { this.rdfType = type; };
 
     do = (fiddle) => {
       return new Promise((resolve, reject) => {
@@ -41,7 +41,7 @@ class SparqlFiddle{
         }
         return hash;
     };
-    parseRdf = (fiddle) => { return new Promise((resolve, reject)=>{
+    parseRdf = (fiddle) => { return new Promise((resolve, reject) => {
         if(!fiddle.data){
               return resolve();
         }
@@ -56,7 +56,7 @@ class SparqlFiddle{
             resolve();
         }
         catch(err) { reject(err); }
-    })};
+    });};
     prepare = (fiddle) => {
         return new Promise((resolve, reject)=>{
             try {
@@ -71,13 +71,13 @@ class SparqlFiddle{
         return new Promise((resolve, reject)=>{
             let wanted = preparedQuery.vars;
             let resultAry = [];
-            fiddle.store.query(preparedQuery, results =>  {
+            fiddle.store.query((preparedQuery, results) =>  {
                 if(typeof(results)==="undefined") { reject("No results."); }
                 else { 
                     let row = rowHandler(fiddle,wanted,results) ;
                     if(row) {resultAry.push(row);}
                 }
-            }, {} , function(){resolve(resultAry)} )
+            }, {} , function(){resolve(resultAry);} )
         })
     };
     rowHandler =(fiddle,wanted,results) => {
@@ -158,8 +158,8 @@ class SparqlFiddle{
         ?x :name ?name; :dataFormat ?format; :data ?data; :query ?query . 
     }
 */
-    runFromLibrary = ( fiddleLibrary, fiddleName, options)=>{
-        return new Promise((resolve, reject)=>{
+    runFromLibrary = ( fiddleLibrary, fiddleName, options) => {
+        return new Promise((resolve, reject) => {
             let fiddle = {
               wanted : "Array",
                 data : fiddleLibrary,
@@ -170,20 +170,20 @@ class SparqlFiddle{
     }
 `,
             };
-            this.run( fiddle ).then( fiddle => {
+            this.run( fiddle ).then( (fiddle) => {
                 let newFiddle = {
                     wanted : options.wanted,
                       data : fiddle[0].data,
                      query : fiddle[0].query,
                   dataType : fiddle[0].type
                 };
-                this.run( newFiddle ).then( results => {
+                this.run( newFiddle ).then( (results) => {
                     resolve(results)
                 }, err => reject(err) )
             }, err => reject(err) )
         }, err => console.log("CH:"+err) )
     };
-    loadLibrary = ( fiddleLibrary)=>{
+    loadLibrary = ( fiddleLibrary) => {
         return new Promise((resolve, reject)=>{
             let fiddle = {
               wanted : "Hash",
@@ -196,10 +196,10 @@ class SparqlFiddle{
     }
 `,
             };
-            this.run( fiddle ).then( results => {
+            this.run( fiddle ).then( (results) => {
                 resolve(results)
             }, err => reject(err) )
-        }, err => console.log("CH: "+err) )
+        }, (err) => console.log("CH: "+err) );
     };
     run = (fiddle) => { 
       return new Promise((resolve, reject)=>{
@@ -207,44 +207,44 @@ class SparqlFiddle{
                      ? rdf.graph()
                      : this.store;
         if( fiddle.data.match(/^http/ ) ){
-            this.loadFromUrl(fiddle,"data").then( fiddle => {
-                this.loadSparqlAndDo( fiddle ).then( results => {
+            this.loadFromUrl(fiddle,"data").then( (fiddle) => {
+                this.loadSparqlAndDo( fiddle ).then( (results) => {
                     resolve(results)
-                }, err => reject(err) )
-            }, err => reject(err) )
+                }, (err) => reject(err) )
+            }, (err) => reject(err) )
         }
         else {
-            this.loadSparqlAndDo( fiddle ).then( results => {
+            this.loadSparqlAndDo( fiddle ).then( (results) => {
                 resolve(results)
-            }, err => reject(err) )
+            }, (err) => reject(err) )
         }
       })
     };
 /* 
   DATA LOADING
 */
-    loadSparqlAndDo = ( fiddle )=> {
-      return new Promise((resolve, reject)=>{
+    loadSparqlAndDo = ( fiddle ) => {
+      return new Promise((resolve, reject) =>{
         if( fiddle.query.match( /^http/ ) ){
-            this.loadFromUrl(fiddle,"query").then( fiddle => {
-                this.do(fiddle).then( results => {
+            this.loadFromUrl(fiddle,"query").then( (fiddle) => {
+                this.do(fiddle).then( (results) => {
                     resolve(results)
-                }, err => reject(err) )
-            }, err =>  reject(err) )
+                }, (err) => reject(err) )
+            }, (err) =>  reject(err) )
         }
         else {
-            this.do(fiddle).then( results => {
+            this.do(fiddle).then( (results) => {
                 resolve(results)
-            }, err => reject(err) )
+            }, (err) => reject(err) );
         }
       })
     };
-    loadFromUrl = (fiddle,type)=>{
+    loadFromUrl = (fiddle,type) => {
       let url = fiddle[type];
       return new Promise((resolve, reject)=>{
         let fetcher = new rdf.fetcher( rdf.graph() );
         try {
-            fetcher.load(url).then( response => {
+            fetcher.load(url).then( (response) => {
                 // replace the url with it's content
                 fiddle[type] = response.responseText;
                 resolve( fiddle )
@@ -252,15 +252,15 @@ class SparqlFiddle{
         } catch(err) { reject(err) }
       })
     };
-    loadFromUrlPlain = (url)=>{
-      return new Promise((resolve, reject)=>{
+    loadFromUrlPlain = (url) => {
+      return new Promise((resolve, reject) => {
         let fetcher = new rdf.fetcher( rdf.graph() );
         try {
             fetcher.load(url).then( response => {
-                resolve( response.responseText )
+                resolve( response.responseText );
             })
-        } catch(err) { reject(err) }
-      })
+        } catch(err) { reject(err); }
+      });
     }
 }
 
