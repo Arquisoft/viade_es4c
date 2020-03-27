@@ -1,5 +1,6 @@
 
 import { GeoJSONToRoute } from "./ParsersTypes";
+import { GpxToRoute } from "./ParsersTypes";
 
 class ParserToRoute {
   selectParser = (file) => {
@@ -9,6 +10,8 @@ class ParserToRoute {
       case "geojson":
       case "GeoJSON":
         return new GeoJSONToRoute(file);
+      case "gpx":
+        return new GpxToRoute(file);
       default:
         console.log("formato no soportado");
         break;
