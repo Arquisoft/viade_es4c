@@ -9,9 +9,9 @@ import "./routes-carousel.component.css";
 class RoutesCarousel extends React.Component {
 
 	data = [
-		{ src: "/img/inrupt.svg", date: "Imagen 1", description: "Description"},
-		{ src: "/img/logo.svg", date: "Imagen 2", description: "Description"},
-		{ src: "/img/Solid.svg", date: "Imagen 3", description: "Description"}
+		{ src: "/viade_es4c/img/inrupt.svg", date: "Imagen 1", description: "Description"},
+		{ src: "/viade_es4c/img/logo.svg", date: "Imagen 2", description: "Description"},
+		{ src: "/viade_es4c/img/Solid.svg", date: "Imagen 3", description: "Description"}
 	];
 
 	render() {

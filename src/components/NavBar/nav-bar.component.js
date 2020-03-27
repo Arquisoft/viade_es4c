@@ -12,7 +12,7 @@ const NavBar = () => {
 
   return (
       <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/"><Image src="/img/logo.svg" alt="Viade" /></Navbar.Brand>
+          <Navbar.Brand href="/viade_es4c"><Image src="/viade_es4c/img/logo.svg" alt="Viade" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
               <Nav  className="mr-auto">
