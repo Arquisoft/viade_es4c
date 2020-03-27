@@ -50,7 +50,7 @@ digraph G {
 }
 ....
 
-image:10_quality_tree_extended.png[Quality Tree Extended]
+image::images/10_quality_tree_extended.png[Quality Tree Extended]
 
 === Quality Scenarios
 

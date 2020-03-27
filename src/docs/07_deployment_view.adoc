@@ -42,7 +42,7 @@ As Viade is a decentralized browser application, we only need 3 elements per use
 * The SOLID's server. Here is where the user's POD is. All the routes and multimedia data are stored in the POD. Thanks to the SOLID de-centralized authentication mechanisms it is not necesary to have a central server for the signing up/login process.
 * The GitHub Pages server. This will be the Web Hosting Service for the application.
 
-image:07_Deployment_View.png[]
+image::images/07_Deployment_View.png[]
 
 Motivation::
 

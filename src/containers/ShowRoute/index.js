@@ -1,3 +1,3 @@
-import { ShowRoute } from "./show-route.container";
+import {ShowRoute} from "./show-route.container";
 
 export default ShowRoute;
