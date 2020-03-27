@@ -1,8 +1,8 @@
-import React from 'react';
-import { cleanup, act } from '@testing-library/react';
+import React from "react";
+import { cleanup, act } from "@testing-library/react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { BrowserRouter as Router } from 'react-router-dom';
-import HomeComponent from './home.container';
+import HomeComponent from "./home.container";
 
 afterAll(cleanup);
 
