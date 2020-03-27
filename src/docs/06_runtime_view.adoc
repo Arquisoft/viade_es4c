@@ -1,6 +1,8 @@
 [[section-runtime-view]]
 == Runtime View
 
+Here are some Scenarios to understand how Viade works
+
 === Log in
 
 This is a general view of how to access viade's web
