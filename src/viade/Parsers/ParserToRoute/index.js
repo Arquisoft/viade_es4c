@@ -1,3 +1,3 @@
-import ParserToRoute from './parser-to-route';
+import ParserToRoute from "./parser-to-route";
 
 export {ParserToRoute};

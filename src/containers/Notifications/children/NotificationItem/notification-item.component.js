@@ -8,7 +8,6 @@ const NotificationItem = (props) => {
 	const {notification, webId, setSharing, isSharing} = props;
 
 	const addSharedWithMe = async (notification) => {
-		console.log(notification.object + "-" + notification.read);
 		if (!notification.read) {
 			setSharing(true);
 			await notificationHelper.addRouteSharedWithMe(notification.object, webId);
