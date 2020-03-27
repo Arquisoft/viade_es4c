@@ -11,9 +11,7 @@ class RouteToRDF {
         this.str +=('@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.');
         this.str +=('@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.');
 
-        this.str +=(':');
-        this.str +=(this.route.name);
-        this.str +=(' a viade:Route;');
+        this.str +=(':myRoute a viade:Route;');
         this.str +=('schema:name "');
         this.str +=(this.route.name);
         this.str +=('";');
