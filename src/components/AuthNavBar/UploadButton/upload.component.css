@@ -1,0 +1,7 @@
+form {
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 20px solid white;
+}

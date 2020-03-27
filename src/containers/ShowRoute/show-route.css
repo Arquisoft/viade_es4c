@@ -8,7 +8,7 @@
 }
 
 .grid-container > div {
-    box-shadow: 0 0 5px 0 black;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
 
 .leaflet-container {
@@ -18,11 +18,12 @@
     grid-row-end: 2;
 }
 
-.itinerary {
+.grid-container > div.itinerary {
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 4;
+    box-shadow: none;
 }
 
 .route-uploader {
@@ -34,7 +35,7 @@
 
 .image-slide {
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
 }
@@ -49,17 +50,15 @@
     background: rgba(0,0,0,.2);
 }
 
-.video-lister {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
-}
-
 .grid-container > div.spacer {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 4;
     grid-row-end: 5;
     box-shadow: none;
+}
+
+p.coordinate {
+    margin: 10px;
+    font-size: 1rem;
 }

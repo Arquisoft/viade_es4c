@@ -7,7 +7,7 @@ A decentralized web application of routes will be made following the SOLID archi
 
 ==== Functionals
 
-- Users should be able to view the routes on a map and store them on their own pods.
+- Users  should be able to view the routes on a map and store them on their own pods.
 - By using their own pods, the information will be totally decentralized, favoring data security.
 - They will also be able to have friends and groups of friends with whom to share these routes, photos, videos, etc.
 
