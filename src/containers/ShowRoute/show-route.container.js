@@ -29,7 +29,7 @@ export class ShowRoute extends Component {
 				<RouteUploader route={this.route}/>									{/* Basic route info */}
 				<RoutesItinerary route={this.route}/>								{/* List of points of the route */}
 				{/* Images of the route */}
-				{(this.route.media.length === 0) ? <div className="image-slide"><RoutesCarousel/></div> : <div/>}
+				{(this.route.media.length !== 0) ? <div className="image-slide"><RoutesCarousel/></div> : <div/>}
 				<Spacer/>
 			</div>
 		);

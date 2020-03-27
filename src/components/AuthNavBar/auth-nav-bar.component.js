@@ -12,7 +12,7 @@ const AuthNavBar = () => {
 
   const logOut=() => {
     auth.logout();
-    window.location="/";
+    window.location="/viade_es4c";
   };
 
   return (
