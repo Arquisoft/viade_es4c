@@ -1,6 +1,6 @@
 import { RouteViade, ItemViade } from "../../Model";
 
-import * as comunica from '@comunica/actor-init-sparql';
+import * as comunica from "@comunica/actor-init-sparql";
 class RDFToRoute {
 
   /**
@@ -8,7 +8,7 @@ class RDFToRoute {
    * @param {*} url URL of the route
    * @return A promise
    */
-  parse=async (url) =>{
+  parse=async (url) => {
     const engine=comunica.newEngine();
     const sparql =
       `PREFIX schema: <http://schema.org/>
@@ -26,47 +26,47 @@ class RDFToRoute {
       OPTIONAL {?point schema:elevation ?elevation.}
       }`;
       const result= await engine.query(sparql,{sources:[url]});
-      const { data } = await engine.resultToString(result, 'application/json');
-      return new Promise((resolve,reject)=>{
+      const { data } = await engine.resultToString(result, "application/json");
+      return new Promise((resolve,reject) => {
         
     
     
     let text="";
 
-    data.on('data', (chunk) => {
+    data.on("data", (chunk) => {
       text+=chunk;  
     });
 
-    data.on('end',()=> {
+    data.on("end",() => {
       resolve(this.getRoute(JSON.parse(text)));
    });
       });
     
-  }
+  };
 
 
 /**
  * @param {*} results Array of JSON objects with the items value
  * @returns RouteViade object
  */
-  getRoute=(results)=>{
-    if(!results||!results.length) return;
-    let items=results.map((i)=>new ItemViade(this.parseToFloat(i["?long"]),this.parseToFloat(i["?lat"]),this.parseToFloat(i["?order"]),this.parseToFloat(i["?elevation"])));
+  getRoute=(results) => {
+    if(!results||!results.length) {return;}
+    let items=results.map((i) => new ItemViade(this.parseToFloat(i["?long"]),this.parseToFloat(i["?lat"]),this.parseToFloat(i["?order"]),this.parseToFloat(i["?elevation"])));
     return new RouteViade(this.cleanValue(results[0]["?name"]),items,this.cleanValue(results[0]["?description"]));
-  }
+  };
   /**
    * Removes type of literals(RDF) and double quotes
    *  @param {*} value value of literal
    * 
    * Example: "47.64458"^^http://www.w3.org/2001/XMLSchema#decimal => 47.64458
    */
-  cleanValue=(value)=>{
+  cleanValue=(value) => {
     if(!value)return;
     return value.split("^^")[0].replace(/['"]+/g,"");
-  }
+  };
 
-  parseToFloat=(value)=>{
-    if(!value)return;
+  parseToFloat=(value) => {
+    if(!value){return;}
     let clean=this.cleanValue(value);
     return parseFloat(clean);
 
