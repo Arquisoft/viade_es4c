@@ -23,7 +23,7 @@ const UploadButton = () => {
 	return (
 		<>
 			<MDBBtn onClick={showModal}  color="primary" outline>
-				<Image className="button-img" src="/img/upload.svg"/>
+				<Image className="button-img" src="/viade_es4c/img/upload.svg"/>
 				<p className="font-weight-bold less-margin">Upload a route</p>
 			</MDBBtn>
 			<Modal show={isOpen} onHide={hideModal}>

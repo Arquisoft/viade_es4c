@@ -17,21 +17,20 @@ const AuthNavBar = () => {
 
   return (
       <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/"><Image src="/img/logo.svg" alt="Viade" /></Navbar.Brand>
+          <Navbar.Brand href="/"><Image src="/viade_es4c/img/logo.svg" alt="Viade" /></Navbar.Brand>
           <UploadButton/>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
               <Nav  className="mr-auto"/>
               <Nav>
-                  <NavLink exact to="/notifications">
-                      <Image className="logout-img" src="/img/bell.svg" alt="Notifications" />
+                  <NavLink exact to="/viade_es4c/notifications">
+                      <Image className="logout-img" src="/viade_es4c/img/bell.svg" alt="Notifications" />
                   </NavLink>
-                  <NavLink exact to="/myRoutes" className="link">MyRoutes</NavLink>
-                  <NavLink exact to="/friendsRoutes" className="link">FriendsRoutes</NavLink>
-                  <NavLink exact to="/friends" className="link">Friends</NavLink>
-                  <NavLink exact to="/profile" className="link">Profile</NavLink>
-                  <NavLink exact to="/share" className="link">Share</NavLink>
-                  <Image className="logout-img" src="/img/logout.svg" onClick={logOut}/>
+                  <NavLink exact to="/viade_es4c/myRoutes" className="link">MyRoutes</NavLink>
+                  <NavLink exact to="/viade_es4c/friendsRoutes" className="link">FriendsRoutes</NavLink>
+                  <NavLink exact to="/viade_es4c/profile" className="link">Profile</NavLink>
+                  <NavLink exact to="/viade_es4c/share" className="link">Share</NavLink>
+                  <Image className="logout-img" src="/viade_es4c/img/logout.svg" onClick={logOut}/>
               </Nav>
           </Navbar.Collapse>
       </Navbar>
