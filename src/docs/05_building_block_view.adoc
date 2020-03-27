@@ -8,7 +8,7 @@ This section is a decomposition of our system into diagrams. Each level is more 
 
 Level 1 shows us a global vision of the project.
 
-image:images/05_Level1.PNG["General View"]
+image:images/05_Level1.png["General View"]
 
 .Level 1 descriptions
 |===
@@ -25,7 +25,7 @@ image:images/05_Level1.PNG["General View"]
 
 Level 2 shows us a global vision about project architecture.
 
-image:images/05_Level2.PNG["General View"]
+image:images/05_Level2.png["Viade View"]
 
 .Level 2 descriptions
 |===
