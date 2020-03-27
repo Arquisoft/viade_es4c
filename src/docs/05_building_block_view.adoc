@@ -8,7 +8,7 @@ This section is a decomposition of our system into diagrams. Each level is more 
 
 Level 1 shows us a global vision of the project.
 
-image:05_Level1.PNG["General View"]
+image:images/05_Level1.PNG["General View"]
 
 .Level 1 descriptions
 |===
