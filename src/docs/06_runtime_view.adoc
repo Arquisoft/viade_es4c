@@ -5,12 +5,14 @@
 
 This is a general view of how to access viade's web
 
+
 image:images/06_LogIn.png["Log in"]
 
 
 === Get your own Routes
 
 This is a general view of how can you see your Routes
+
 
 image:images/06_ReadRoutes.png["Get ur Routes"]
 
