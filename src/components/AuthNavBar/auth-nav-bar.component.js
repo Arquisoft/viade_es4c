@@ -17,7 +17,7 @@ const AuthNavBar = () => {
 
   return (
       <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/"><Image src="/viade_es4c/img/logo.svg" alt="Viade" /></Navbar.Brand>
+          <Navbar.Brand href="/viade_es4c/"><Image src="/viade_es4c/img/logo.svg" alt="Viade" /></Navbar.Brand>
           <UploadButton/>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
