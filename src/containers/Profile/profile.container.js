@@ -1,5 +1,5 @@
 import React from "react";
-import {List, Value, withWebId} from '@solid/react';
+import {List, Value, withWebId} from "@solid/react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {Image} from "react-bootstrap";
@@ -39,7 +39,7 @@ class ProfileComponent extends React.Component {
                 </Row>
                 {/* Description row */}
                 <Row>
-                    <Col xs={12}></Col>
+                    <Col xs={12}/>
                     <Col xs={12} md={8} className="profile-card">
                         <Card className="text-center">
                             <Card.Header>
@@ -78,7 +78,7 @@ class ProfileComponent extends React.Component {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col xs={12}></Col>
+                    <Col xs={12}/>
                 </Row>
             </Container>
         );

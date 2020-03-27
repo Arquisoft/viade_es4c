@@ -19,7 +19,7 @@ class RouteUploader extends Component {
 				<p className="uploader-text">{this.description}</p>
 			</div>
 		);
-	};
+	}
 }
 
 export default RouteUploader;

@@ -83,13 +83,13 @@ export const UploadComponent = () => {
 		//Ya tenemos un String para meter en SolidFileClient
 		try {
 			//const res = await fc.putFile(url, file, file.type);
-			const res = await fc.createFile(url, strRoute, "text/turtle", {});
+			await fc.createFile(url, strRoute, "text/turtle", {});
 		} catch (err) {
-			alert("Error en la subida de archivos");//console.error(err); // Da warning aquí por usar la consola
+			alert("Error uploading files");//console.error(err); // Da warning aquí por usar la consola
 		}
 
 	}else {
-		alert("Es necesario estar logeado");
+		alert("You need to be logged in");
 	}
 			//setUploadStatus(false)//terminamos de subir
 	};

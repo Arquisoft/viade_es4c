@@ -19,7 +19,7 @@ class RoutesItinerary extends React.Component {
 					return <Card key={object.latitude + object.longitude}>
 						<p className="coordinate">{object.latitude}, {object.longitude}</p>
 					</Card>
-				})}
+				})};
 			</div>
 		);
 	}
@@ -27,4 +27,3 @@ class RoutesItinerary extends React.Component {
 }
 
 export default RoutesItinerary;
-

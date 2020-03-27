@@ -10,7 +10,7 @@ import {NavLink} from "react-router-dom";
 */
 const AuthNavBar = () => {
 
-  const logOut=()=>{
+  const logOut=() => {
     auth.logout();
     window.location="/";
   };

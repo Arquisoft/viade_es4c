@@ -18,7 +18,7 @@ class RoutesCarousel extends React.Component {
 		return (
 			<Carousel interval={5000}>
 				{this.data.map(function(object){
-					return <Carousel.Item>
+					return <Carousel.Item key={object.src}>
 						<img
 							className="d-block route-img"
 							src={object.src}

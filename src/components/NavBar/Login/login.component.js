@@ -12,7 +12,7 @@ import "./login.css";
 const LoginComponent = () => {
   return (
     <nav className="nav nav__login">
-      <Card className="text-center" style={{ width: '25rem' }}>
+      <Card className="text-center" style={{ width: "25rem" }}>
           <Card.Img variant="top" src="/img/logo.svg" />
           <Card.Body>
               <Card.Title>Login of Viade es4c</Card.Title>
