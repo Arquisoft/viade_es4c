@@ -5,10 +5,16 @@ import { RDFToNotification, NotificationToRDF } from "../viade";
 
 const fc = new FC(auth);
 
-export const fetchNotifications = async inboxURL => {
-  if (!inboxURL) return;
+const orderByDate = (list) => {
+  return list.sort((a, b) => new Date(b.published) - new Date(a.published));
+};
+
+export const fetchNotifications = async (inboxURL) => {
+  if (!inboxURL){
+    return;
+  }
   const folder = await fc.readFolder(inboxURL, []);
-  let filesURL = folder.files.map(file => file.url);
+  let filesURL = folder.files.map((file) => file.url);
   let i = 0;
   let notifications = [];
   for (i; i < filesURL.length; i++) {
@@ -20,13 +26,11 @@ export const fetchNotifications = async inboxURL => {
   return orderByDate(notifications);
 };
 
-export const fetchNotification = async url => {
+export const fetchNotification = async (url) => {
   return await RDFToNotification.parse(url);
 };
 
-const orderByDate = list => {
-  return list.sort((a, b) => new Date(b.published) - new Date(a.published));
-};
+
 
 export const sendNotification = async (
   opponent,
@@ -47,7 +51,7 @@ export const sendNotification = async (
   }
 };
 
-export const findUserInboxes = async paths => {
+export const findUserInboxes = async (paths) => {
   try {
     let inboxes = [];
     for await (const path of paths) {
@@ -66,11 +70,11 @@ export const findUserInboxes = async paths => {
 };
 
 export const getDefaultInbox = (inboxes, inbox1, inbox2) =>
-  inboxes.find(inbox => inbox.name === inbox1) ||
-  inboxes.find(inbox => inbox.name === inbox2);
+  inboxes.find((inbox) => inbox.name === inbox1) ||
+  inboxes.find((inbox) => inbox.name === inbox2);
 
 export const addRouteSharedWithMe = async (url, webId) => {
-  console.log(url);
+  //console.log(url);
   const base = "/public/viade/shared_with_me.txt";
   const path = webId.split("/profile/card#me")[0] + base;
   if (!(await fc.itemExists(path))) {
@@ -84,7 +88,7 @@ export const addRouteSharedWithMe = async (url, webId) => {
   await fc.createFile(path, JSON.stringify(obj), "text/plain", {});
 };
 
-export const markAsRead = async notification => {
+export const markAsRead = async (notification) => {
   notification.read = true;
   let docu = NotificationToRDF.parse(notification);
   await fc.createFile(notification.url, docu, "text/turtle", {});
