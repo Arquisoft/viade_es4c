@@ -54,7 +54,7 @@ class MyRoutesComponent extends React.Component {
         let aux = [];
         for (let r of routesName){
             let promise = RDFToRoute.parse(sessionString + "/" + r.name);
-            let route=await  promise.then((result)=>result);
+            let route=await  promise.then((result) => result);
             aux.push(route);
         }
         this.setState({routes: aux});
