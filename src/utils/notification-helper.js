@@ -9,6 +9,14 @@ const orderByDate = (list) => {
   return list.sort((a, b) => new Date(b.published) - new Date(a.published));
 };
 
+export const fetchNotificationsURLS=async (inboxURL)=>{
+  if (!inboxURL){
+    return;
+  }
+  const folder = await fc.readFolder(inboxURL, []);
+  return folder.files.map((file) => file.url);
+}
+
 export const fetchNotifications = async (inboxURL) => {
   if (!inboxURL){
     return;
