@@ -11,6 +11,7 @@
     "@solid/react": "^1.8.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
+    "gpx-parse": "^0.10.4",
     "jquery": "^3.4.1",
     "jsonld": "^3.0.1",
     "leaflet": "^1.6.0",
