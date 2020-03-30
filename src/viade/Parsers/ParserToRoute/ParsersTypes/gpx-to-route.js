@@ -1,8 +1,8 @@
-import { ItemViade, RouteViade } from "../../../Model";
+//import { ItemViade, RouteViade } from "../../../Model";
 //import { gpxParse } from "gpx-parse";
 
 class GpxToRoute {
-
+/*
     execute = (content) => {
         return this.parse(content);
     };
@@ -11,8 +11,7 @@ class GpxToRoute {
         var gpxParse = require("gpx-parse");
         const route = gpxParse.parseGpx(content,  function(error, result) {
 
-            /* En caso de que no se produzca un error (es decir, si el error es null)
-                utilizamos el objeto result para obtener los datos que necesitamos */
+            // En caso de que no se produzca un error (es decir, si el error es null) utilizamos el objeto result para obtener los datos que necesitamos
             if (error == null) {
                 
                 // Obtenemos el número de puntos que tiene la ruta
@@ -48,7 +47,7 @@ class GpxToRoute {
         console.log(route);
         return route;
     };
-
+*/
 }
 
 export default GpxToRoute;
