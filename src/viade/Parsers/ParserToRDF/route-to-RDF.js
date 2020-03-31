@@ -1,10 +1,14 @@
 class RouteToRDF {
+
     constructor(route) {
+
         this.route = route;
         this.str = "";
+        
     }
 
     parse() {
+
         this.str +=('@prefix : <#>.');
         this.str +=('@prefix viade: <http://arquisoft.github.io/viadeSpec/>.');
         this.str +=('@prefix schema: <http://schema.org/>.');
@@ -14,8 +18,6 @@ class RouteToRDF {
         this.str += (':');
         this.str += (this.route.name.replace(/ /g, ""));
         this.str +=(' a viade:Route;');
-
-        //this.str +=(':myRoute a viade:Route;');
 
         this.str +=('schema:name "');
         this.str +=(this.route.name);
@@ -30,9 +32,11 @@ class RouteToRDF {
         this.parseitems();
 
         return this.str;
+
     }
 
     parseitems() {
+
         for (let i = 0; i < this.route.items.length ; i++) {
             this.str +=('viade:point [');
             if (this.route.items[i].elevation != null) {
@@ -56,10 +60,10 @@ class RouteToRDF {
             } else {
                 this.str +=('];');
             }
-
-
         }
+
     }
+
 }
 
 export default RouteToRDF;
