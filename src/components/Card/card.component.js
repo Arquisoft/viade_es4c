@@ -18,7 +18,7 @@ export const RouteCardComponent = (props) => {
 					className="route-card-image"/>
 				{/* Hidden fields, we should the same as visible and the a spn the mark it is a link */}
 				<div className="route-card-extra">
-					<h3>{props.name}</h3>
+					<h4>{props.name}</h4>
 					<p className="route-card-p">{props.desc}</p>
 					<div className="route-card-link">
 						Show
@@ -27,7 +27,7 @@ export const RouteCardComponent = (props) => {
 			</div>
 			{/* Right side of the card, with the visible info */}
 			<div className="route-card-right">
-				<h3>{props.name}</h3>
+				<h4>{props.name}</h4>
 				<p className="route-card-p">{props.desc}</p>
 			</div>
 		</div>

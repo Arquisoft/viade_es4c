@@ -9,9 +9,8 @@
     margin: 1rem 0.5rem;
 }
 
-.route-card h3 {
+.route-card h4 {
     margin-top: 5px;
-    text-align: center;
 }
 
 .route-card .route-card-left {
@@ -54,7 +53,7 @@
     height: 100%;
 }
 
-.route-card .route-card-left .route-card-extra h3 {
+.route-card .route-card-left .route-card-extra h4 {
     margin-top: 5px;
 }
 
@@ -82,6 +81,7 @@ a.route-card-a {
 }
 
 .route-card .route-card-right {
+    left: 150px;
     width: 75%;
     height: 100%;
     position: absolute;
