@@ -12,8 +12,11 @@ class RouteToRDF {
         this.str +=('@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.');
 
         this.str += (':');
-        this.str += (this.route.name);
+        this.str += (this.route.name.replace(/ /g, ""));
         this.str +=(' a viade:Route;');
+
+        //this.str +=(':myRoute a viade:Route;');
+
         this.str +=('schema:name "');
         this.str +=(this.route.name);
         this.str +=('";');
