@@ -51,8 +51,8 @@ class MyRoutesComponent extends React.Component {
 		return (
 			<div>
 				<Row className="justify-content-md-center">
-					<Col key="col-1" xs={12} sm={12} md={12} lg={2} xl={2}/>
-					<Col key="col-2" xs={12} sm={12} md={12} lg={8} xl={8}>
+					<Col key="col-1" xs={12} sm={12} md={12} lg={1} xl={1}/>
+					<Col key="col-2" xs={12} sm={12} md={12} lg={10} xl={10}>
 						<Row>
 							{this.state.routes.map((obj) => (
 								<Col md={12} lg={4}>
@@ -68,7 +68,7 @@ class MyRoutesComponent extends React.Component {
 							))}
 						</Row>
 					</Col>
-					<Col key="col-3" xs={12} sm={12} md={12} lg={2} xl={2}/>
+					<Col key="col-3" xs={12} sm={12} md={12} lg={1} xl={1}/>
 				</Row>
 			</div>
 		);
