@@ -13,7 +13,7 @@ const LoginComponent = () => {
   return (
     <nav className="nav nav__login">
       <Card className="text-center" style={{ width: "25rem" }}>
-          <Card.Img variant="top" src="/viade_es4c/img/logo.svg" />
+          <Card.Img variant="top" src={process.env.PUBLIC_URL + "/img/logo.svg"} />
           <Card.Body>
               <Card.Title>Login of Viade es4c</Card.Title>
               <Card.Text>
@@ -24,7 +24,7 @@ const LoginComponent = () => {
                       btnTxtWebId="Login with WebId"
                       btnTxtProvider="Login with Provider"
                       className="provider-login-component"
-                      callbackUri={`${window.location.origin}` + /viade_es4c/}
+                      callbackUri={process.env.PUBLIC_URL}
                       errorsText={{
                           unknown: "unknown error",
                           webIdNotValid: "webIdNotValid",

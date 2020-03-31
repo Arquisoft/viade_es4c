@@ -19,7 +19,7 @@ class FriendsRoutesComponent extends React.Component {
       return this.state.routes.map((obj) => (
           <div className="text-center">
               <Link key={obj.name} to={{
-                      pathname: "/viade_es4c/showRoute",
+                      pathname: "/showRoute",
                       state: {
                           route: obj
                       }

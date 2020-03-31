@@ -73,7 +73,7 @@ class RegisterComponent extends Component<Props, State> {
 
 		return (
 			<Card className="text-center" style={{ width: "25rem" }}>
-				<Card.Img variant="top" src="/viade_es4c/img/logo.svg" />
+				<Card.Img variant="top" src={process.env.PUBLIC_URL + "/img/logo.svg"} />
 				<Card.Body>
 					<Card.Title>Make a SOLID account</Card.Title>
 					<Card.Body>
