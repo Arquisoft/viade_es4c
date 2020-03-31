@@ -15,7 +15,7 @@ export const RouteCardComponent = (props) => {
 			{/* Left side of the card, contains the image and hidden fields */}
 			<div className="card-left">
 				<Image src={process.env.PUBLIC_URL + "/img/routes/route.png"} alt={"Route"}
-					   className="card-image"/>
+					className="card-image"/>
 				{/* Hidden fields, we should the same as visible and the a spn the mark it is a link */}
 				<div className="card-extra">
 					<h3>{props.name}</h3>
