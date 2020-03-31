@@ -6,7 +6,7 @@ import {
 	RouteUploader,
 	Spacer
 } from "../../components";
-import "./show-route.css"
+import "./show-route.css";
 
 /**
  * Page which prints a Route and all its info
@@ -33,5 +33,5 @@ export class ShowRoute extends Component {
 				<Spacer/>
 			</div>
 		);
-	};
+	}
 }
