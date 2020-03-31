@@ -20,7 +20,7 @@ class MyRoutesComponent extends React.Component {
         return this.state.routes.map((obj) => (
             <div className="text-center">
                 <Link key={obj.name} to={{
-                        pathname: "/viade_es4c/showRoute",
+                        pathname: "/showRoute",
                         state: {
                             route: obj
                         }
@@ -45,8 +45,7 @@ class MyRoutesComponent extends React.Component {
         // Obtengo los nombres de los archivos
         if(!await fc.itemExists(sessionString)) {console.error("no se escuentra la carpeta viade");return [];}
         let folder = await fc.readFolder(sessionString);
-        let array = folder.files;
-        return array;
+        return folder.files;
     }
 
     async obtainRoutes(sessionString, routesName){

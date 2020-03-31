@@ -17,7 +17,7 @@ export const HomeComponent = () => {
             <Row>
                 <Col xs={12}></Col>
                 <Col xs={12} md={8} className="logo-div home-div">
-                    <Image src="/viade_es4c/img/logo.svg" alt="Viade"/>
+                    <Image src={process.env.PUBLIC_URL + "/img/logo.svg"} alt="Viade"/>
                 </Col>
                 <Col xs={12}></Col>
             </Row>
@@ -36,19 +36,23 @@ export const HomeComponent = () => {
             <Row>
                 <Col xs={12}></Col>
                 <Col xs={6} md={2} className="home-div">
-                    <Image src="/viade_es4c/img/home/uploadroute.svg" alt="Upload a route" className="fill-image"/>
+                    <Image src={process.env.PUBLIC_URL + "/img/home/uploadroute.svg"}
+                           alt="Upload a route" className="fill-image"/>
                     <p>Upload a new route</p>
                 </Col>
                 <Col xs={6} md={2} className="home-div">
-                    <Image src="/viade_es4c/img/home/uploadmedia.svg" alt="Upload images and videos" className="fill-image"/>
+                    <Image src={process.env.PUBLIC_URL + "/img/home/uploadmedia.svg"}
+                           alt="Upload images and videos" className="fill-image"/>
                     <p>Complete it with images and videos</p>
                 </Col>
                 <Col xs={6} md={2} className="home-div">
-                    <Image src="/viade_es4c/img/home/shareroute.svg" alt="Share it" className="fill-image"/>
+                    <Image src={process.env.PUBLIC_URL + "/img/home/shareroute.svg"}
+                           alt="Share it" className="fill-image"/>
                     <p>Share it with whoever you want</p>
                 </Col>
                 <Col xs={6} md={2} className="home-div">
-                    <Image src="/viade_es4c/img/home/keepyours.svg" alt="Keep the ownership of your data" className="fill-image"/>
+                    <Image src={process.env.PUBLIC_URL + "/img/home/keepyours.svg"}
+                           alt="Keep the ownership of your data" className="fill-image"/>
                     <p>And keep the ownership of all this</p>
                 </Col>
                 <Col xs={12}></Col>
@@ -64,13 +68,13 @@ export const HomeComponent = () => {
             <Row>
                 <Col xs={12}></Col>
                 <Col xs={4} md={2} className="home-div logo-div">
-                    <Image src="/viade_es4c/img/Solid.svg" alt="Solid" className="fill-image"/>
+                    <Image src={process.env.PUBLIC_URL + "/img/Solid.svg"} alt="Solid" className="fill-image"/>
                 </Col>
                 <Col xs={4} md={3} className="logo-div home-div">
-                    <Image src="/viade_es4c/img/home/uniovi.jpg" alt="Universidad de Oviedo"/>
+                    <Image src={process.env.PUBLIC_URL + "/img/home/uniovi.jpg"} alt="Universidad de Oviedo"/>
                 </Col>
                 <Col xs={4} md={2} className="home-div logo-div">
-                    <Image src="/viade_es4c/img/inrupt.svg" alt="Inrupt" className="fill-image"/>
+                    <Image src={process.env.PUBLIC_URL + "/img/inrupt.svg"} alt="Inrupt" className="fill-image"/>
                 </Col>
                 <Col xs={12}></Col>
             </Row>
