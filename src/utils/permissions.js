@@ -1,9 +1,9 @@
-import {AccessControlList, AppPermission} from '@inrupt/solid-react-components';
+import {AccessControlList, AppPermission} from "@inrupt/solid-react-components";
 //import { errorToaster } from '@utils';
 
 // Check that all permissions we need are set. If any are missing, this returns false
 const checkAppPermissions = (userAppPermissions, appPermissions) =>
-  appPermissions.every(permission => userAppPermissions.includes(permission));
+  appPermissions.every((permission) => userAppPermissions.includes(permission));
 
 // Function to check for a specific permission included in the app
 export const checkSpecificAppPermission = async (webId, permission) => {
@@ -51,9 +51,9 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
   // Fetch app permissions for the inbox and see if Append is there
   const inboxAcls = new AccessControlList(webId, inboxPath);
   const permissions = await inboxAcls.getPermissions();
-  const inboxPublicPermissions = permissions.filter(perm => perm.agents === null);
+  const inboxPublicPermissions = permissions.filter((perm) => perm.agents === null);
 
-  const appendPermission = inboxPublicPermissions.filter(perm =>
+  const appendPermission = inboxPublicPermissions.filter((perm) =>
     perm.modes.includes(AccessControlList.MODES.APPEND)
   );
 
