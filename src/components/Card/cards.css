@@ -1,0 +1,93 @@
+.card {
+    width: 100%;
+    height: 150px;
+    background: #f2f2f2;
+    box-shadow: 0 8px 12px -8px rgba(0,0,0,0.4);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    margin: 1rem 0.5rem;
+}
+
+.card h3 {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.card .card-left {
+    position: absolute;
+    width: 150px;
+    height: 100%;
+    background: #bcdad3;
+    transition: width 0.4s;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.card:hover .card-left {
+    width: 100%;
+    border-radius: 0 5px 5px 0;
+}
+
+.card .card-left .card-image {
+    width: 150px;
+    height: 100%;
+    position: relative;
+    float: left;
+}
+
+.card .card-left .card-image::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: -2px;
+    height: 80%;
+    border-left: 2px solid rgba(0,0,0,0.025);
+}
+
+.card .card-left .card-extra {
+    width: 75%;
+    float: left;
+    position: absolute;
+    left: 150px;
+    height: 100%;
+}
+
+.card .card-left .card-extra h3 {
+    margin-top: 5px;
+}
+
+.card-p {
+    font-size: 1rem;
+    margin-left: 5px;
+}
+
+.card-link {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    color: #f2f2f2;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    font-weight: bold;
+    background: rgba(0,0,0,0.15);
+    padding: 0.125rem 0.75rem;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+a.card-a {
+    color: black;
+}
+
+.card .card-right {
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 0 1rem 1rem;
+}
