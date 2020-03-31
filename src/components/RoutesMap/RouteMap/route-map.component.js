@@ -23,6 +23,6 @@ export default class RouteMap extends Component<> {
 				<Polyline color="blue" positions={polyline} />
 				<Marker position={polyline[polyline.length-1]}/>
 			</Map>
-		)
-	};
+		);
+	}
 }
