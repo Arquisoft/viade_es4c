@@ -1,8 +1,5 @@
-//COmponentes generales
-//Componentes React
 import React from "react";
 import {Link} from "react-router-dom";
-//Librerias
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
 import {RDFToRoute} from "../../viade";
@@ -32,7 +29,7 @@ class MyRoutesComponent extends React.Component {
 	async obtainRoutesName(fc, sessionString) {
 		// Obtengo los nombres de los archivos
 		if (!await fc.itemExists(sessionString)) {
-			console.error("no se escuentra la carpeta viade");
+			//console.error("no se escuentra la carpeta viade");
 			return [];
 		}
 		let folder = await fc.readFolder(sessionString);

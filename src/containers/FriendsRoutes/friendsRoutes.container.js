@@ -1,13 +1,11 @@
-//COmponentes generales
-//Componentes React
+
 import React from "react";
 import {Link} from "react-router-dom";
-//Librerias
 import auth from "solid-auth-client";
-import FC from "solid-file-client";
 import {RDFToRoute} from "../../viade";
 import {Col, Row} from "react-bootstrap";
 import {RouteCard} from "../../components";
+import FC from "solid-file-client";
 
 class FriendsRoutesComponent extends React.Component {
 	constructor(props) {
