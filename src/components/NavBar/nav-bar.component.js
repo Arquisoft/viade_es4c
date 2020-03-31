@@ -1,5 +1,4 @@
 import React from "react";
-import "./navbar.css";
 import {Image, Navbar} from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import LoginModal from "./Login";
@@ -13,7 +12,9 @@ const NavBar = () => {
 
   return (
       <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/"><Image src="/img/logo.svg" alt="Viade" /></Navbar.Brand>
+          <Navbar.Brand href={process.env.PUBLIC_URL}>
+              <Image src={process.env.PUBLIC_URL + "/img/logo.svg"} alt="Viade" />
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
               <Nav  className="mr-auto">

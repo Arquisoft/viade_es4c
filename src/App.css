@@ -1,3 +1,5 @@
+@import url('https://unpkg.com/leaflet@1.5.1/dist/leaflet.css');
+
 .App {
   text-align: center;
 }
@@ -39,4 +41,27 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+nav img {
+  height: 60px;
+  cursor: pointer;
+}
+
+.link {
+  font-size: 1.5em;
+  margin: 20px;
+  color: black;
+  text-decoration: none;
+  float: right;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.logout-img {
+  margin-top: 20px;
+  margin-left: 10px;
+  height: 40px;
 }

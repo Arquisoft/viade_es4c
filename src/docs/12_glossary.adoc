@@ -10,4 +10,8 @@ datastore. Each user can have one or more pods
 from different pod providers, and can easily switch between
 providers
 |Linked Data| Is structured data which is interlinked with other data so it becomes more useful through semantic queries.
+|RDF | RDF stands for Resource Description Framework and is a standard for data interchange, developed and agreed upon by W3C.
+|Turtle | Is a syntax and file format for expressing data in the Resource Description Framework (RDF) data model
+|SPARQL | Query language for RDF
+|
 |===

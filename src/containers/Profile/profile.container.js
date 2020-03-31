@@ -1,5 +1,15 @@
 import React from "react";
-import {List, LoggedIn, LoggedOut, Value, withWebId} from '@solid/react';
+import {List, Value, withWebId} from "@solid/react";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import {Image} from "react-bootstrap";
+import {Spacer} from "../../components";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import "./profile.container.css";
+import Accordion from "react-bootstrap/Accordion";
+import Button from "react-bootstrap/Button";
+import {Link} from "react-router-dom";
 
 class ProfileComponent extends React.Component {
     state = { profileInput: "", activeProfile: "" };
@@ -20,33 +30,58 @@ class ProfileComponent extends React.Component {
         const profileInput = this.state.profileInput;
         const activeProfile  = this.state.activeProfile;
         return (
-            <div>
-                <h1>Profile viewer</h1>
-                <p>
-                    <LoggedOut>You are not logged in.</LoggedOut>
-                    <LoggedIn>You are logged in as <Value src="user.name"/>.</LoggedIn>
-
-                </p>
-                <p>
-                    <label htmlFor="profile">Profile:</label>
-                    <label><Value>{profileInput}</Value></label>
-                    <input id="profile" value={profileInput}
-                           onChange={(e) => this.setState({ profileInput: e.target.value })}/>
-                </p>
-                 {activeProfile &&
-                <dl>
-                    <dt>Full name</dt>
-                    <dd><Value src={`[${activeProfile}].name`}/></dd>
-                    <dt>Friends</dt>
-                    <dd>
-                        <List src={`[${activeProfile}].friends`}>{(friend) =>
-                            <li key={friend}>
-                                <Value src={`[${friend}].name`}>{`${friend}`}</Value>
-                            </li>}
-                        </List>
-                    </dd>
-                </dl>}
-            </div>
+            <Container>
+                {/* Spacer row */}
+                <Row>
+                    <Col xs={12} md={12}>
+                        <Spacer/>
+                    </Col>
+                </Row>
+                {/* Description row */}
+                <Row>
+                    <Col xs={12}/>
+                    <Col xs={12} md={8} className="profile-card">
+                        <Card className="text-center">
+                            <Card.Header>
+                                <Image src={process.env.PUBLIC_URL + "/img/profile/user.png"} className="profile-img"/>
+                                <Value src={`[${activeProfile}].name`}/>
+                            </Card.Header>
+                            <Card.Body>
+                                <Card.Title>
+                                    <Image src={process.env.PUBLIC_URL + "/img/Solid.svg"} className="profile-img"/>
+                                    <a href={profileInput}>
+                                        {profileInput}
+                                    </a>
+                                </Card.Title>
+                                <Accordion defaultActiveKey="0">
+                                    <Card>
+                                        <Card.Header>
+                                            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                                                Friends
+                                            </Accordion.Toggle>
+                                        </Card.Header>
+                                        <Accordion.Collapse eventKey="0">
+                                            <List src={`[${activeProfile}].friends`}>{(friend) =>
+                                                <li key={friend}>
+                                                    <Value src={`[${friend}].name`}>{`${friend}`}</Value>
+                                                </li>}
+                                            </List>
+                                        </Accordion.Collapse>
+                                    </Card>
+                                </Accordion>
+                                <Card.Text>
+                                    <Link to="/myRoutes">
+                                        <Image src={process.env.PUBLIC_URL + "/img/home/keepyours.svg"}
+                                               className="profile-img"/>
+                                        <h2>My routes</h2>
+                                    </Link>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col xs={12}/>
+                </Row>
+            </Container>
         );
     }
 }

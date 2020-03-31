@@ -1,5 +1,4 @@
 import React from "react";
-import "./auth-nav-bar.css";
 import {Image, Navbar} from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import UploadButton from "./UploadButton";
@@ -11,25 +10,29 @@ import {NavLink} from "react-router-dom";
 */
 const AuthNavBar = () => {
 
-  const logOut=()=>{
+  const logOut=() => {
     auth.logout();
-    window.location="/login";
+    window.location="/";
   };
 
   return (
       <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/"><Image src="/img/logo.svg" alt="Viade" /></Navbar.Brand>
+          <Navbar.Brand href={process.env.PUBLIC_URL}>
+              <Image src={process.env.PUBLIC_URL + "/img/logo.svg"} alt="Viade" />
+          </Navbar.Brand>
           <UploadButton/>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-              <Nav  className="mr-auto">
-              </Nav>
+              <Nav  className="mr-auto"/>
               <Nav>
-                  <NavLink exact to="/myRoutes" className="link">MyRoutes</NavLink>
-                  <NavLink exact to="/friendsRoutes" className="link">FriendsRoutes</NavLink>
-                  <NavLink exact to="/friends" className="link">Friends</NavLink>
-                  <NavLink exact to="/profile" className="link">Profile</NavLink>
-                  <Image className="logout-img" src="/img/logout.svg" onClick={logOut}/>
+                  <NavLink exact to={"/notifications"}>
+                      <Image className="logout-img" src={process.env.PUBLIC_URL + "/img/bell.svg"} alt="Notifications"/>
+                  </NavLink>
+                  <NavLink exact to={"/myRoutes"} className="link">MyRoutes</NavLink>
+                  <NavLink exact to={"/friendsRoutes"} className="link">FriendsRoutes</NavLink>
+                  <NavLink exact to={"/profile"} className="link">Profile</NavLink>
+                  <NavLink exact to={"/share"} className="link">Share</NavLink>
+                  <Image className="logout-img" src={process.env.PUBLIC_URL + "/img/logout.svg"} onClick={logOut}/>
               </Nav>
           </Navbar.Collapse>
       </Navbar>

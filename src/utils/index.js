@@ -1,5 +1,7 @@
+import * as ldflexHelper from "./ldflex-helper";
 import * as permissionHelper from "./permissions";
-import * as ldflexHelper from './ldflex-helper';
-import * as sparqlFiddle from './sparql-fiddle';
+import * as notificationHelper from "./notification-helper";
+import  sparqlFiddle from "./sparql-fiddle";
 
-export {permissionHelper, ldflexHelper, sparqlFiddle};
+export { ldflexHelper, permissionHelper, notificationHelper,sparqlFiddle};
+

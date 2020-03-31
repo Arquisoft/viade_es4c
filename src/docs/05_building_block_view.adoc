@@ -20,3 +20,26 @@ image:images/05_Level1.PNG["General View"]
 |Viade
 |Our Application
 |===
+
+=== Level 2
+
+Level 2 shows us a global vision about project architecture.
+
+image:images/05_Level2.png["Viade View"]
+
+.Level 2 descriptions
+|===
+|Name |Responsibility
+
+|Components and Containters
+|Generate the code to show the page using React
+
+|GeoJson -> Route
+|We transform de GeoJson into an object Route in order to make route managment easier from our app.
+
+|Route -> RDF
+|We transform de object Route into RDF to be able to upload it to a Solid Pod.
+
+|Route <- RDF
+|We download RDF object and transform it into object Route to show it.
+|===

@@ -5,7 +5,6 @@ class RouteToRDF {
     }
 
     parse() {
-
         this.str +=('@prefix : <#>.');
         this.str +=('@prefix viade: <http://arquisoft.github.io/viadeSpec/>.');
         this.str +=('@prefix schema: <http://schema.org/>.');
@@ -19,7 +18,7 @@ class RouteToRDF {
         this.str +=(this.route.name);
         this.str +=('";');
 
-        if (this.route.description != null && this.route.name != "") {
+        if (this.route.description != null && this.route.name !== "") {
             this.str +=('schema:description "');
             this.str +=(this.route.description);
             this.str +=('";');
@@ -31,11 +30,8 @@ class RouteToRDF {
     }
 
     parseitems() {
-        var i = 0;
-        for (i = 0; i < this.route.items.length ; i++) {
-
+        for (let i = 0; i < this.route.items.length ; i++) {
             this.str +=('viade:point [');
-
             if (this.route.items[i].elevation != null) {
                 this.str +=('schema:elevation ');
                 this.str +=(this.route.items[i].elevation);
@@ -47,13 +43,17 @@ class RouteToRDF {
             this.str +=(';');
             this.str +=('schema:longitude ');
             this.str +=(this.route.items[i].longitude);
+            this.str +=(';');
 
-            if (i == this.route.items.length - 1) {
+            this.str +=('viade:order ');
+            this.str +=(this.route.items[i].order);
+
+            if (i === this.route.items.length - 1) {
                 this.str +=('].');
             } else {
                 this.str +=('];');
             }
-            
+
 
         }
     }
