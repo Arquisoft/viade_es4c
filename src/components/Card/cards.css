@@ -50,11 +50,12 @@
 }
 
 .route-card .route-card-left .route-card-extra {
-    width: 75%;
-    float: left;
-    position: absolute;
-    left: 150px;
+    width: 250px;
     height: 100%;
+    position: absolute;
+    float: left;
+    left: 150px;
+    padding: 0 1rem 1rem;
 }
 
 .route-card .route-card-left .route-card-extra h4 {
@@ -67,8 +68,8 @@
 
 .route-card-link {
     position: absolute;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
+    bottom: 1rem;
+    right: 1rem;
     color: #f2f2f2;
     text-transform: uppercase;
     font-size: 1.25em;
@@ -84,12 +85,11 @@ a.route-card-a {
 }
 
 .route-card .route-card-right {
-    left: 150px;
-    width: 75%;
+    width: 250px;
     height: 100%;
     position: absolute;
-    top: 0;
-    right: 0;
+    float: left;
+    left: 150px;
     z-index: 1;
     box-sizing: border-box;
     padding: 0 1rem 1rem;
