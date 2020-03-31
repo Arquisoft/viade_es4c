@@ -24,6 +24,6 @@ class RoutesItinerary extends React.Component {
 		);
 	}
 
-}
+};
 
 export default RoutesItinerary;
