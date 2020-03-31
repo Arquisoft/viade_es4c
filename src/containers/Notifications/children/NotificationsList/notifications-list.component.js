@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { notificationHelper} from "../../../../utils";
 import NotificationItem from "../NotificationItem";
 
-const NotificationsList = props => {
+const NotificationsList = (props) => {
   const { inboxes } = props;
   const [notifications, setNotifications] = useState();
   const [isSharing, setSharing] = useState(false);
   
   const initNotifications = async () => {
-    if(notifications)return;
+    if(notifications){
+      return;
+    }
     try {
       let urls = await notificationHelper.fetchNotificationsURLS(inboxes[0]);
       setNotifications(urls);
