@@ -11,24 +11,24 @@ import "./cards.css";
 export const RouteCardComponent = (props) => {
 
 	return (
-		<div className="card">
+		<div className="route-card">
 			{/* Left side of the card, contains the image and hidden fields */}
-			<div className="card-left">
+			<div className="route-card-left">
 				<Image src={process.env.PUBLIC_URL + "/img/routes/route.png"} alt={"Route"}
-					className="card-image"/>
+					className="route-card-image"/>
 				{/* Hidden fields, we should the same as visible and the a spn the mark it is a link */}
-				<div className="card-extra">
+				<div className="route-card-extra">
 					<h3>{props.name}</h3>
-					<p className="card-p">{props.desc}</p>
-					<div className="card-link">
+					<p className="route-card-p">{props.desc}</p>
+					<div className="route-card-link">
 						Show
 					</div>
 				</div>
 			</div>
 			{/* Right side of the card, with the visible info */}
-			<div className="card-right">
+			<div className="route-card-right">
 				<h3>{props.name}</h3>
-				<p className="card-p">{props.desc}</p>
+				<p className="route-card-p">{props.desc}</p>
 			</div>
 		</div>
 	);

@@ -1,4 +1,4 @@
-.card {
+.route-card {
     width: 100%;
     height: 150px;
     background: #f2f2f2;
@@ -9,12 +9,12 @@
     margin: 1rem 0.5rem;
 }
 
-.card h3 {
+.route-card h3 {
     margin-top: 5px;
     text-align: center;
 }
 
-.card .card-left {
+.route-card .route-card-left {
     position: absolute;
     width: 150px;
     height: 100%;
@@ -24,19 +24,19 @@
     z-index: 2;
 }
 
-.card:hover .card-left {
+.route-card:hover .route-card-left {
     width: 100%;
     border-radius: 0 5px 5px 0;
 }
 
-.card .card-left .card-image {
+.route-card .route-card-left .route-card-image {
     width: 150px;
     height: 100%;
     position: relative;
     float: left;
 }
 
-.card .card-left .card-image::after {
+.route-card .route-card-left .route-card-image::after {
     content: "";
     display: block;
     position: absolute;
@@ -46,7 +46,7 @@
     border-left: 2px solid rgba(0,0,0,0.025);
 }
 
-.card .card-left .card-extra {
+.route-card .route-card-left .route-card-extra {
     width: 75%;
     float: left;
     position: absolute;
@@ -54,16 +54,16 @@
     height: 100%;
 }
 
-.card .card-left .card-extra h3 {
+.route-card .route-card-left .route-card-extra h3 {
     margin-top: 5px;
 }
 
-.card-p {
+.route-card-p {
     font-size: 1rem;
     margin-left: 5px;
 }
 
-.card-link {
+.route-card-link {
     position: absolute;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -77,11 +77,11 @@
     white-space: nowrap;
 }
 
-a.card-a {
+a.route-card-a {
     color: black;
 }
 
-.card .card-right {
+.route-card .route-card-right {
     width: 75%;
     height: 100%;
     position: absolute;
