@@ -1,5 +1,5 @@
 import React from "react";
-import {notificationHelper} from "../../../../utils";
+import {notificationHelper} from "../../../../viade";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";

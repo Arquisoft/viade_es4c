@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { notificationHelper} from "../../../../utils";
+import { notificationHelper} from "../../../../viade";
 import NotificationItem from "../NotificationItem";
 
 const NotificationsList = props => {
