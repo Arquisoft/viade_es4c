@@ -23,7 +23,7 @@ export default class Provider {
       {
         id: "solid-community",
         label: "Solid Community",
-        image: "/viade_es4c//img/Solid.svg",
+        image: "/viade_es4c/img/Solid.svg",
         value: "https://solid.community",
         registerLink: "https://solid.community/register",
         description: "Lorem ipsum dolor sit non consectetur"

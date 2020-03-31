@@ -24,7 +24,7 @@ const LoginComponent = () => {
                       btnTxtWebId="Login with WebId"
                       btnTxtProvider="Login with Provider"
                       className="provider-login-component"
-                      callbackUri={process.env.PUBLIC_URL}
+                      callbackUri={`${window.location.origin}` + /viade_es4c/}
                       errorsText={{
                           unknown: "unknown error",
                           webIdNotValid: "webIdNotValid",
