@@ -3,7 +3,7 @@ import {ShareFormComponent} from "./children";
 import {useNotification} from "@inrupt/solid-react-components";
 import "./share-container.css";
 
-const ShareComponent = (props)=> {
+const ShareComponent = (props) => {
   const [friend, setFriend] = useState("");
   const[route,setRoute]=useState("");
     const {webId}=props;
