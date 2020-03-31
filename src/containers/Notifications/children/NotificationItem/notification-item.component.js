@@ -1,5 +1,5 @@
 import React from "react";
-import {notificationHelper} from "../../../../utils";
+import {notificationHelper,errorToaster} from "../../../../utils";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
@@ -21,9 +21,10 @@ class NotificationItem extends React.Component{
 		}
 		const notification=await notificationHelper.fetchNotification(this.url);
 		this.setState({notification:notification});
+		errorToaster("HOLA","HOLA",{});
 	}
 
-	addSharedWithMe = async (notification) => {
+	addSharedWithMe = async (notification) => {	
 		if(!notification){
 			return;
 		}

@@ -1,0 +1,21 @@
+.toaster{
+display: 
+    flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex: 1 1 auto;}
+
+  .toaster > span {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .toaster > p {
+    margin: 0;
+    padding: 2px 0;
+    color: inherit;
+  }
+  .toaster > a {
+    color: white;
+    display: block;
+    margin: 5px 0;
+  }
