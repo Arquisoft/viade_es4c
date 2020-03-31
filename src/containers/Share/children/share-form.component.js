@@ -10,7 +10,7 @@ const ShareFormComponent = ({
     setRoute,
     sendNotification
 }) => {
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         shareRoute();
     };
@@ -45,7 +45,7 @@ const ShareFormComponent = ({
         <input
                     type="text"
                     name="route"
-                    onChange={e => setRoute(e.target.value)}
+                    onChange={(e) => setRoute(e.target.value)}
                 />
             </label>
             <label>
