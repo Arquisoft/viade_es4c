@@ -15,14 +15,18 @@ class NotificationItem extends React.Component{
 		this.state={};
 	}
 
-	init = async ()=>{
-		if(this.state.notification)return;
+	init = async () => {
+		if(this.state.notification){
+			return;
+		}
 		const notification=await notificationHelper.fetchNotification(this.url);
 		this.setState({notification:notification});
 	}
 
 	addSharedWithMe = async (notification) => {
-		if(!notification)return;
+		if(!notification){
+			return;
+		}
 		if (!notification.read) {
 			this.setSharing(true);
 			await notificationHelper.addRouteSharedWithMe(notification.object, this.webId);
