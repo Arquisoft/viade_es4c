@@ -35,10 +35,12 @@ class RDFToNotification {
       },
       (err) => console.log(err)
     );
-    return this.arrayToNotification(result);
+    return this.arrayToNotification(result,url);
   }
 
-  arrayToNotification = (result) => {
+  arrayToNotification = (result,url) => {
+    console.log("hola".split("#")[0]);
+    let urlNotification=url.split("#")[0];
     return new NotificationViade(
       result[0]["title"],
       result[0]["license"],
@@ -47,7 +49,8 @@ class RDFToNotification {
       result[0]["published"],
       result[0]["summary"],
       result[0]["target"],
-      result[0]["read"]==="true"
+      result[0]["read"]==="true",
+      urlNotification
     );
   };
 }

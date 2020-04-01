@@ -1,7 +1,6 @@
 class NotificationToRDF{
 
     parse= (notification) => {
-        console.log(notification.title);
         return `@prefix terms: <http://purl.org/dc/terms#>.
         @prefix as: <https://www.w3.org/ns/activitystreams#>.
         @prefix schema: <http://schema.org/>.

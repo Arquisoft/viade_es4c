@@ -1,5 +1,5 @@
 import React from "react";
-import {notificationHelper, errorToaster} from "../../../../utils";
+import {notificationHelper,} from "../../../../utils";
 import {NotificationCard} from "../../../../components";
 
 class NotificationItem extends React.Component {
@@ -17,10 +17,10 @@ class NotificationItem extends React.Component {
 		}
 		const notification = await notificationHelper.fetchNotification(this.url);
 		this.setState({notification: notification});
-		errorToaster("HOLA", "HOLA", {});
 	};
 
 	addSharedWithMe = async (notification) => {
+		console.log(notification);
 		if (!notification) {
 			return;
 		}
