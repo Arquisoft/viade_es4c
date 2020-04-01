@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Image} from "react-bootstrap";
 import "./cards.css";
 
@@ -10,8 +10,15 @@ import "./cards.css";
  */
 export const NotificationCardComponent = (props) => {
 
+	let [isAccepted, setAccepted] = useState(props.read);
+
+	let accept = () => {
+		props.action();
+		setAccepted(!isAccepted);
+	};
+
 	return (
-		<div className={"route-card " + (props.read ? "already-accepted" : "")}>
+		<div className={"route-card " + (isAccepted ? "already-accepted" : "")}>
 			{/* Left side of the card, contains the image and hidden fields */}
 			<div className="route-card-left">
 				<Image src={process.env.PUBLIC_URL + "/img/cards/notification.png"} alt={"Notification"}
@@ -20,9 +27,9 @@ export const NotificationCardComponent = (props) => {
 				<div className="route-card-extra">
 					<h4>{props.name}</h4>
 					<p className="route-card-p">{props.user}</p>
-					{props.read ?
+					{isAccepted ?
 						<div className="route-card-link"> Accepted </div> :
-						<div> <button className="route-card-link" onClick={props.action}>Accept</button> </div>
+						<div> <button className="route-card-link" onClick={accept}>Accept</button> </div>
 					}
 				</div>
 			</div>
@@ -30,7 +37,7 @@ export const NotificationCardComponent = (props) => {
 			<div className={"route-card-right"}>
 				<h4>{props.name}</h4>
 				<p className="route-card-p">{props.user}</p>
-				{props.read ?
+				{isAccepted ?
 					<div className="route-card-link"> Accepted </div> :
 					<div className="route-card-link"> Pending </div>
 				}

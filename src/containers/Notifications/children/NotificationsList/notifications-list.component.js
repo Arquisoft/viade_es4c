@@ -30,7 +30,7 @@ const NotificationsList = (props) => {
 					<Row>
 						{notifications
 							? notifications.map((url, index) => (
-								<Col md={12} lg={4}>
+								<Col md={12} lg={4} key={index}>
 									<NotificationItem
 										key={index}
 										isSharing={isSharing}

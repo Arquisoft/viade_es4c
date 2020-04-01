@@ -20,14 +20,10 @@ class NotificationItem extends React.Component {
 	};
 
 	addSharedWithMe = async (notification) => {
-		console.log(notification);
 		if (!notification) {
 			return;
 		}
 		if (!notification.read) {
-			console.log(notification.object);
-			console.log(this.webId);
-			console.log(notification);
 			await notificationHelper.addRouteSharedWithMe(notification.object, this.webId);
 			await notificationHelper.markAsRead(notification);
 		}
