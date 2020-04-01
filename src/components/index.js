@@ -1,20 +1,24 @@
 import NavBar from "./NavBar";
 import AuthNavBar from "./AuthNavBar";
-import RouteCard from "./Card";
+import {
+	RouteCardComponent as RouteCard,
+	NotificationCardComponent as NotificationCard
+} from "./Card";
 import ErrorBoundary from "./ErrorBoundary";
 import {RouteMap, RoutesCarousel, RoutesItinerary, RouteUploader} from "./RoutesMap";
 import Spacer from "./Spacer";
 import Toaster from "./Toaster";
 
 export {
-  NavBar,
-  AuthNavBar,
-  RouteCard,
-  ErrorBoundary,
-  RouteMap,
-  RouteUploader,
-  RoutesCarousel,
-  RoutesItinerary,
-  Spacer,
-  Toaster
+	NavBar,
+	AuthNavBar,
+	RouteCard,
+	NotificationCard,
+	ErrorBoundary,
+	RouteMap,
+	RouteUploader,
+	RoutesCarousel,
+	RoutesItinerary,
+	Spacer,
+	Toaster
 };

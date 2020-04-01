@@ -1,10 +1,10 @@
 import React, {Fragment} from "react";
+import Routes from "./routes";
+import {ToastContainer} from "react-toastify";
 import "./App.css";
 import "mdbreact/dist/css/mdb.css";
 import "./bootstrap.min.css";
-import Routes from "./routes";
-import 'react-toastify/dist/ReactToastify.css';
-import {ToastContainer} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	return (

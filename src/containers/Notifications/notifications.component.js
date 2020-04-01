@@ -44,10 +44,7 @@ const Notifications = (props) => {
         }
       }, [webId,discoverInbox]);
   return (
-    <div style={{margin: "50px"}}>
-      <h1>Notifications</h1>
       <NotificationsList inboxes={inboxUrl} {...props}/>
-    </div>
   );
 };
 

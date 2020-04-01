@@ -1,3 +1,4 @@
-import {RouteCardComponent} from "./card.component";
+import {RouteCardComponent} from "./route-card.component";
+import {NotificationCardComponent} from "./notification-card.component";
 
-export default RouteCardComponent;
+export {RouteCardComponent, NotificationCardComponent};
