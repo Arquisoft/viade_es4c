@@ -29,7 +29,11 @@ export const NotificationCardComponent = (props) => {
 					<p className="route-card-p">{props.user}</p>
 					{isAccepted ?
 						<div className="route-card-link"> Accepted </div> :
-						<div> <button className="route-card-link" onClick={accept}>Accept</button> </div>
+						<div>
+							<button className="route-card-link" onClick={accept} disabled={props.disabled}>
+								Accept
+							</button>
+						</div>
 					}
 				</div>
 			</div>
