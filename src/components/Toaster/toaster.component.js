@@ -1,5 +1,4 @@
 import React from 'react';
-import "./toaster.component.css";
 
 type Props = {
   title: String,
