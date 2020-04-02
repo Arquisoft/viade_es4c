@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import RouteItem from "./RouteItem";
 import {Col, Row} from "react-bootstrap";
 
-const RouteList=(props)=>{
+const RouteList = (props) => {
     const [urlRoutes, setUrlRoutes] = useState();
     const {readRoutes,webId} =props;
 
@@ -24,14 +24,14 @@ const RouteList=(props)=>{
             <Col key="col-2" xs={12} sm={12} md={12} lg={10} xl={10}>
                 <Row>
                     {urlRoutes?urlRoutes.map((url,pos) => 
-                        <RouteItem key={pos} url={url} webId={webId}></RouteItem>
+                        <RouteItem key={pos} url={url} webId={webId}/>
                     ):null}
                 </Row>
             </Col>
             <Col key="col-3" xs={12} sm={12} md={12} lg={1} xl={1}/>
         </Row>
     </div>);
-}
+};
 
 export default RouteList;
 

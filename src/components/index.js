@@ -23,6 +23,6 @@ export {
 	RoutesItinerary,
 	Spacer,
 	Toaster,
-	RouteList
+	RouteList,
 	CustomButton
 };

@@ -4,7 +4,7 @@ import { RouteCard } from "../../../components";
 import { Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const RouteItem = props => {
+const RouteItem = (props) => {
   const [route, setRoute] = useState();
   const { url} = props;
 
