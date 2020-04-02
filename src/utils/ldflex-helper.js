@@ -27,9 +27,9 @@ export const deleteFile = async (url) => {
 export const createDocument = async (documentUri, body = "") => {
   try {
     const options = {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'text/turtle'
+        "Content-Type": "text/turtle"
       },
       body
     };

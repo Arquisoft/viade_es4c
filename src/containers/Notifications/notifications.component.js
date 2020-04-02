@@ -2,7 +2,7 @@ import React,{useState,useCallback,useEffect} from "react";
 import {NotificationsList} from "./children";
 import {ldflexHelper} from "../.././utils";
 
-const Notifications = props => {
+const Notifications = (props) => {
     const [inboxes, setInbox] = useState([]);
     const { webId } = props;
     
@@ -17,7 +17,7 @@ const Notifications = props => {
           if (globalInbox) {
             inboxes = [
               ...inboxes,
-              { path: globalInbox, inboxName: 'Global', shape: 'default' }
+              { path: globalInbox, inboxName: "Global", shape: "default" }
             ];
           }
           /**
@@ -36,7 +36,7 @@ const Notifications = props => {
         }
       }, [webId]);
 
-      const inboxUrl = inboxes.map(item => item.path);
+      const inboxUrl = inboxes.map((item) => item.path);
 
       useEffect(() => {
         if (webId) {
@@ -44,10 +44,7 @@ const Notifications = props => {
         }
       }, [webId,discoverInbox]);
   return (
-    <div style={{margin: "50px"}}>
-      <h1>Notifications</h1>
       <NotificationsList inboxes={inboxUrl} {...props}/>
-    </div>
   );
 };
 

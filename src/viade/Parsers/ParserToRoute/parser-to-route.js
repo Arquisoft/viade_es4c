@@ -18,12 +18,12 @@ class ParserToRoute {
     }
   };
 
-  parse =  file => {
+  parse =  (file) => {
     const f = file;
     const parser = this.selectParser(f);
     return new Promise((resolve, reject) => {
       let reader = new FileReader();
-      reader.onload = ()=> {
+      reader.onload = () => {
         resolve(parser.execute(reader.result));
       };
       reader.onerror=reject;

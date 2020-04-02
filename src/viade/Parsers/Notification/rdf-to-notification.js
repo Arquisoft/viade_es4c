@@ -30,15 +30,15 @@ class RDFToNotification {
     };
 
     const result = await sparqlFiddle.run(fiddle).then(
-      results => {
+      (results) => {
         return results;
       },
-      err => console.log(err)
+      (err) => console.log(err)
     );
-    return this.arrayToNotification(result);
+    return this.arrayToNotification(result,url);
   }
 
-  arrayToNotification = result => {
+  arrayToNotification = (result,url) => {
     return new NotificationViade(
       result[0]["title"],
       result[0]["license"],
@@ -47,7 +47,8 @@ class RDFToNotification {
       result[0]["published"],
       result[0]["summary"],
       result[0]["target"],
-      result[0]["read"]==="true"
+      result[0]["read"]==="true",
+      url
     );
   };
 }

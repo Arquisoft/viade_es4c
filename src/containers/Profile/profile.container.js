@@ -43,12 +43,12 @@ class ProfileComponent extends React.Component {
                     <Col xs={12} md={8} className="profile-card">
                         <Card className="text-center">
                             <Card.Header>
-                                <Image src="/viade_es4c/img/profile/user.png" className="profile-img"/>
+                                <Image src={process.env.PUBLIC_URL + "/img/profile/user.png"} className="profile-img"/>
                                 <Value src={`[${activeProfile}].name`}/>
                             </Card.Header>
                             <Card.Body>
                                 <Card.Title>
-                                    <Image src="/viade_es4c/img/Solid.svg" className="profile-img"/>
+                                    <Image src={process.env.PUBLIC_URL + "/img/Solid.svg"} className="profile-img"/>
                                     <a href={profileInput}>
                                         {profileInput}
                                     </a>
@@ -71,7 +71,8 @@ class ProfileComponent extends React.Component {
                                 </Accordion>
                                 <Card.Text>
                                     <Link to="/myRoutes">
-                                        <Image src="/viade_es4c/img/home/keepyours.svg" className="profile-img"/>
+                                        <Image src={process.env.PUBLIC_URL + "/img/home/keepyours.svg"}
+                                               className="profile-img"/>
                                         <h2>My routes</h2>
                                     </Link>
                                 </Card.Text>

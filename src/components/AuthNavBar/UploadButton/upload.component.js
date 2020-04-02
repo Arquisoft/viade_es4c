@@ -28,7 +28,7 @@ export const UploadComponent = () => {
 		files = e.target.files;
 	};
 	const mediaSelectedHadler = (e) => {
-		media.push(e);
+		media = e;
 	};
 	const handleNameChange = () => {
 		valueName = nameInput.current.value;
@@ -40,7 +40,6 @@ export const UploadComponent = () => {
 	const summitHandler = async (e) => {
 		e.preventDefault();
 		//setUploadStatus(true)//empezamos a subir
-		//let parser = new ParserToRoute(files[0]);
 
 	if(webid) {
 		const file = files[0];
@@ -48,7 +47,7 @@ export const UploadComponent = () => {
 		const rutaMedia = webid.substring(0, webid.length - 16) + "/public/viade/media/";
 			//webid -> https://usernamme.solid.community/profile/card#me
 			const url = rutaPod + file.name.substr(0, file.name.indexOf(".")) + ".ttl";
-	  //Empezamos a parsear el archivo
+	 	 //Empezamos a parsear el archivo
 
 		let promise = ParserToRoute.parse(file);
 		let route = await promise.then((route) => {
@@ -60,11 +59,9 @@ export const UploadComponent = () => {
 
 		// Subida de archivos
 		try {
-			for (let i=0; i<media[0].length; i++) {
-				//console.log(media[0].length);
-				//console.log(media[0]);
-				await fc.putFile(rutaMedia + media[0][i].name, media[0][i], media[0][i].type);
-				if (media[0][i].name.includes(".mp4")){
+			for (let i=0; i<media.length; i++) {
+				await fc.putFile(rutaMedia + media[i].name, media[i], media[i].type);
+				if (media[i].name.includes(".mp4")){
 					route.media.push(new VideoViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
 				}
 				else {
@@ -73,7 +70,8 @@ export const UploadComponent = () => {
 
 			}
 		} catch (err) {
-			alert("Error en la subida de archivos");//console.error(err);
+			alert("Error en la subida de archivos");
+			console.error(err);
 		}
 
 		let parserToRDF = new RouteToRDF(route);
@@ -103,13 +101,13 @@ export const UploadComponent = () => {
 			<Form.Group controlId="formName">
 				<Form.Label>Name:</Form.Label>
 				<Form.Control ref={nameInput} onChange={() => handleNameChange()}
-							  type="text" placeholder="Enter the name of the route"/>
+							type="text" placeholder="Enter the name of the route"/>
 			</Form.Group>
 			{/** Campo de la descripción**/}
 			<Form.Group controlId="formDescription">
 				<Form.Label>Description:</Form.Label>
 				<Form.Control ref={descriptionInput} onChange={() => handleDescriptionChange()}
-					 as="textarea" placeholder="Enter the description of the route"/>
+							as="textarea" placeholder="Enter the description of the route"/>
 				<Form.Text className="text-muted">
 					(Optional)
 				</Form.Text>

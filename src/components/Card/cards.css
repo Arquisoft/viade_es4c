@@ -1,0 +1,97 @@
+.route-card {
+    width: 100%;
+    height: 150px;
+    background: #f2f2f2;
+    box-shadow: 0 8px 12px -8px rgba(0,0,0,0.4);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    margin: 1rem 0.5rem;
+}
+
+.route-card h4 {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.route-card .route-card-left {
+    position: absolute;
+    width: 150px;
+    height: 100%;
+    background: #bcdad3;
+    transition: width 0.4s;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.route-card:hover .route-card-left {
+    width: 100%;
+    border-radius: 0 5px 5px 0;
+}
+
+.route-card .route-card-left .route-card-image {
+    width: 150px;
+    height: 100%;
+    position: relative;
+    float: left;
+}
+
+.route-card .route-card-left .route-card-image::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: -2px;
+    height: 80%;
+    border-left: 2px solid rgba(0,0,0,0.025);
+}
+
+.route-card .route-card-left .route-card-extra {
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    float: left;
+    left: 150px;
+    padding: 0 1rem 1rem;
+}
+
+.route-card .route-card-left .route-card-extra h4 {
+    margin-top: 5px;
+}
+
+.route-card-p {
+    font-size: 1rem;
+}
+
+.route-card-link {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    font-weight: bold;
+    background: rgba(0,0,0,0.15);
+    padding: 0.125rem 0.75rem;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+a.route-card-a {
+    color: black;
+}
+
+.route-card .route-card-right {
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    float: left;
+    left: 150px;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 0 1rem 1rem;
+}
+
+.already-accepted {
+    background: #bcdad3;
+}

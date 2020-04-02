@@ -7,14 +7,14 @@ class GeoJSONToRoute {
   };
 
   //Por ahora solo soportaremos LineString
-  parse = content => {
+  parse = (content) => {
     const geoJSON = JSON.parse(content);
     const items = this.getItems(geoJSON.coordinates);
     const route = new RouteViade("Unknown", items);
     return route;
   };
 
-  getItems = coordinates => {
+  getItems = (coordinates) => {
     return coordinates.map((coor,index) => {
       return new ItemViade(coor[0], coor[1],index);
     });

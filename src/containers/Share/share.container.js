@@ -1,11 +1,11 @@
 import React,{useState,useCallback} from "react";
 import {ShareFormComponent} from "./children";
-import {useNotification} from '@inrupt/solid-react-components';
+import {useNotification} from "@inrupt/solid-react-components";
 import "./share-container.css";
 
-const ShareComponent = (props)=> {
-  const [friend, setFriend] = useState('');
-  const[route,setRoute]=useState('');
+const ShareComponent = (props) => {
+  const [friend, setFriend] = useState("");
+  const[route,setRoute]=useState("");
     const {webId}=props;
     const { createNotification} = useNotification(webId);
 
@@ -14,7 +14,7 @@ const ShareComponent = (props)=> {
         try {
           await createNotification(content, to, type, license);
         } catch (error) {
-          alert('Error: ShareComponent > sendNotification');
+          alert("Error: ShareComponent > sendNotification");
         }
       },
       [  createNotification]
@@ -29,6 +29,6 @@ const ShareComponent = (props)=> {
       </div>
     );
   
-}
+};
 
 export default ShareComponent;

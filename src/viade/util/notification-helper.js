@@ -27,7 +27,6 @@ export const fetchNotifications = async (inboxURL) => {
   let notifications = [];
   for (i; i < filesURL.length; i++) {
     let noti = await RDFToNotification.parse(filesURL[i]);
-    noti.url = filesURL[i];
     notifications.push(noti);
 
   }
