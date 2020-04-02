@@ -41,7 +41,13 @@ export const UploadComponent = () => {
 		e.preventDefault();
 		//setUploadStatus(true)//empezamos a subir
 
-	if(webid) {
+	if(!webid) {
+		alert("You need to be logged in");
+	}
+	else if (files == null) {
+		alert("You need to upload a route");
+	}
+	else {
 		const file = files[0];
 		const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/routes/";
 		const rutaMedia = webid.substring(0, webid.length - 16) + "/public/viade/media/";
@@ -49,45 +55,47 @@ export const UploadComponent = () => {
 			const url = rutaPod + file.name.substr(0, file.name.indexOf(".")) + ".ttl";
 	 	 //Empezamos a parsear el archivo
 
-		let promise = ParserToRoute.parse(file);
-		let route = await promise.then((route) => {
-			return route;
-		});
-
-		route.name = valueName;//Valor del campo del nombre
-		route.description = valueDescription;//Valor del campo de descripcion
-
-		// Subida de archivos
 		try {
-			for (let i=0; i<media.length; i++) {
-				await fc.putFile(rutaMedia + media[i].name, media[i], media[i].type);
-				if (media[i].name.includes(".mp4")){
-					route.media.push(new VideoViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
-				}
-				else {
-					route.media.push(new ImageViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
-				}
+			let promise = ParserToRoute.parse(file);
+			let route = await promise.then((route) => {
+				return route;
+			});
 
+			route.name = valueName;//Valor del campo del nombre
+			route.description = valueDescription;//Valor del campo de descripcion
+
+			// Subida de archivos
+			try {
+				for (let i = 0; i < media.length; i++) {
+					await fc.putFile(rutaMedia + media[i].name, media[i], media[i].type);
+					if (media[i].name.includes(".mp4")) {
+						route.media.push(new VideoViade(rutaMedia, webid.substring(0, webid.length - 16), new Date()));
+					} else {
+						route.media.push(new ImageViade(rutaMedia, webid.substring(0, webid.length - 16), new Date()));
+					}
+
+				}
+			} catch (err) {
+				alert("Error en la subida de archivos");
+				console.error(err);
 			}
-		} catch (err) {
-			alert("Error en la subida de archivos");
-			console.error(err);
+
+			let parserToRDF = new RouteToRDF(route);
+			let strRoute = parserToRDF.parse();
+
+
+			//Ya tenemos un String para meter en SolidFileClient
+			try {
+				//const res = await fc.putFile(url, file, file.type);
+				await fc.createFile(url, strRoute, "text/turtle", {});
+			} catch (err) {
+				alert("Error uploading files");//console.error(err); // Da warning aquí por usar la consola
+			}
+		}
+		catch (err) {
+			alert(err.toString());
 		}
 
-		let parserToRDF = new RouteToRDF(route);
-		let strRoute = parserToRDF.parse();
-
-
-		//Ya tenemos un String para meter en SolidFileClient
-		try {
-			//const res = await fc.putFile(url, file, file.type);
-			await fc.createFile(url, strRoute, "text/turtle", {});
-		} catch (err) {
-			alert("Error uploading files");//console.error(err); // Da warning aquí por usar la consola
-		}
-
-	}else {
-		alert("You need to be logged in");
 	}
 			//setUploadStatus(false)//terminamos de subir
 	};
