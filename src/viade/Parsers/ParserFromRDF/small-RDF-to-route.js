@@ -1,6 +1,6 @@
-import { RouteViade, ItemViade } from "../../Model";
+import { RouteViade} from "../../Model";
 import {sparqlFiddle} from "../../../utils";
-class RDFToRoute {
+class SmallRDFToRoute {
 
   
   parse=async (url) => {
@@ -9,15 +9,11 @@ class RDFToRoute {
       PREFIX viade:<http://arquisoft.github.io/viadeSpec/>
       PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
       
-      SELECT ?lat ?long ?order ?name ?description ?name ?elevation WHERE {
+      SELECT ?name ?description WHERE {
        ?route a viade:Route.
        ?route viade:point ?point .
-       ?point schema:latitude ?lat ;
-              schema:longitude ?long ;
-              viade:order ?order.
+       ?route schema:name ?name.
       OPTIONAL {?route schema:description ?description.}
-      OPTIONAL {?route schema:name ?name.}
-      OPTIONAL {?point schema:elevation ?elevation.}
       }`;
       let fiddle = {
         data: url,
@@ -36,18 +32,11 @@ class RDFToRoute {
 
   getRoute=(results) => {
     if(!results||!results.length) {return;}
-    let items=results.map((i) => new ItemViade(this.parseToFloat(i["long"]),this.parseToFloat(i["lat"]),this.parseToFloat(i["order"]),this.parseToFloat(i["elevation"])));
-    return new RouteViade(results[0]["name"],items,results[0]["description"]);
+    return new RouteViade(results[0]["name"],null,results[0]["description"]);
   };
-
-  parseToFloat=(value) => {
-    if(!value){return;}
-    return parseFloat(value);
-
-  }
 
 }
 
-const parser = new RDFToRoute();
+const parser = new SmallRDFToRoute();
 
 export default parser;

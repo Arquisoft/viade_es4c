@@ -1,5 +1,5 @@
 import React from "react";
-import {notificationHelper,} from "../../../../utils";
+import {notificationHelper,} from "../../../../viade";
 import {NotificationCard} from "../../../../components";
 
 class NotificationItem extends React.Component {

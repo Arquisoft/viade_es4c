@@ -1,7 +1,7 @@
-import { ldflexHelper } from "./index";
+import { ldflexHelper } from "../../utils/index";
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
-import { RDFToNotification, NotificationToRDF } from "../viade";
+import { RDFToNotification, NotificationToRDF } from "../Parsers";
 
 const fc = new FC(auth);
 

@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {notificationHelper} from "../../../../utils";
+import React, { useState } from "react";
+import { notificationHelper} from "../../../../viade";
 import NotificationItem from "../NotificationItem";
 import {Col, Row} from "react-bootstrap";
 

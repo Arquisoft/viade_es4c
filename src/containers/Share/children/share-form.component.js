@@ -1,6 +1,6 @@
 import React from "react";
 import { NotificationTypes } from "@inrupt/solid-react-components";
-import { notificationHelper} from "../../../utils";
+import { notificationHelper} from "../../../viade";
 
 const ShareFormComponent = ({
     webId,
