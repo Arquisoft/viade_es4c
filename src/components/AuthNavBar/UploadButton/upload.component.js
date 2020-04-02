@@ -28,7 +28,7 @@ export const UploadComponent = () => {
 		files = e.target.files;
 	};
 	const mediaSelectedHadler = (e) => {
-		media.push(e);
+		media = e;
 	};
 	const handleNameChange = () => {
 		valueName = nameInput.current.value;
@@ -59,11 +59,9 @@ export const UploadComponent = () => {
 
 		// Subida de archivos
 		try {
-			for (let i=0; i<media[0].length; i++) {
-				//console.log(media[0].length);
-				//console.log(media[0]);
-				await fc.putFile(rutaMedia + media[0][i].name, media[0][i], media[0][i].type);
-				if (media[0][i].name.includes(".mp4")){
+			for (let i=0; i<media.length; i++) {
+				await fc.putFile(rutaMedia + media[i].name, media[i], media[i].type);
+				if (media[i].name.includes(".mp4")){
 					route.media.push(new VideoViade(rutaMedia,webid.substring(0, webid.length - 16),new Date()));
 				}
 				else {
@@ -72,7 +70,8 @@ export const UploadComponent = () => {
 
 			}
 		} catch (err) {
-			alert("Error en la subida de archivos");//console.error(err);
+			alert("Error en la subida de archivos");
+			console.error(err);
 		}
 
 		let parserToRDF = new RouteToRDF(route);
