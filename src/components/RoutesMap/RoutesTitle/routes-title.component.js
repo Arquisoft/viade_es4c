@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import {Button, Image} from "react-bootstrap";
 import "./routes-title.css";
+import {CustomButton} from "../../";
 
 /**
  * Component featuring the route information
@@ -21,11 +21,7 @@ class RouteTitle extends Component {
 					<p className="title-text">{this.description}</p>
 				</div>
 				<div className="float-right">
-					<Button variant="info" size="lg">
-						<Image src={process.env.PUBLIC_URL + "/img/cards/share.png"} alt={"Share"}
-							className="share-img"/>
-						Share
-					</Button>
+					<CustomButton text="Share" img="/img/buttons/share.png"/>
 				</div>
 			</div>
 		);

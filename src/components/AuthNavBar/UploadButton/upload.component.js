@@ -4,9 +4,9 @@ import auth from "solid-auth-client";
 import Form from "react-bootstrap/Form";
 import {ParserToRoute, RouteToRDF} from "../../../viade";
 import {VideoViade, ImageViade} from "../../../viade";
-import Button from "react-bootstrap/Button";
 import ImageUploader from "react-images-upload";
 import { useWebId } from "@inrupt/solid-react-components";
+import {CustomButton} from "../../";
 import "./upload.component.css";
 
 const fc = new SolidFileClient(auth);
@@ -123,7 +123,7 @@ export const UploadComponent = () => {
 				maxFileSize={5242880}
 			/>
 			{/** Botón de subida de archivo **/}
-			<Button onClick={summitHandler}>Upload</Button>
+			<CustomButton onClick={summitHandler} text="Upload"/>
 		</Form>
 
 	);

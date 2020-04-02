@@ -1,0 +1,33 @@
+.custom-button {
+    border-radius: 6px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+.custom-button:hover,
+.custom-button:focus {
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em rgba(255,255,255,0);
+    background: #89d9c6;
+}
+
+.custom-button:disabled {
+    background: #bcdad3;
+}
+
+.cb-img {
+    height: 50px;
+}
+
+button {
+    background: #34d1ab;
+    color: #f2f2f2;
+    border: none;
+    font: inherit;
+    margin: 0.5em;
+    padding: 1em 2em;
+    transition: 0.25s;
+    line-height: 1;
+}
