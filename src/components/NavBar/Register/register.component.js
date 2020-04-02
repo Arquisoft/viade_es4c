@@ -3,7 +3,7 @@ import ProviderItem from "./ProviderItem";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import "./register.component.css";
-import {MDBBtn} from "mdbreact";
+import {CustomButton} from "../../index";
 
 type Provider = {};
 
@@ -104,15 +104,13 @@ class RegisterComponent extends Component<Props, State> {
 									</ul>
 								</Fragment>
 							</div>
-							<MDBBtn
+							<CustomButton
 								className="btn-solid"
 								onClick={this.next}
 								type="submit"
 								disabled={!canContinue}
-								color="orange" outline
-							>
-								Next
-							</MDBBtn>
+								text="Next"
+							/>
 						</Form>
 					</Card.Body>
 				</Card.Body>

@@ -63,6 +63,12 @@
     font-size: 1rem;
 }
 
+.route-card-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
 .route-card-link {
     position: absolute;
     bottom: 1rem;

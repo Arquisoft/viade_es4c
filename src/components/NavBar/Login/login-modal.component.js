@@ -1,7 +1,7 @@
 import * as React from "react";
 import Modal from "react-bootstrap/Modal";
-import {MDBBtn} from "mdbreact";
 import LoginComponent from "./login.component";
+import {CustomButton} from "../../Customs";
 
 /**
  * Button triggering a modal pop-up with the LoginComponent
@@ -21,14 +21,12 @@ const LoginModal = () => {
 	};
 
 	return (
-		<>
-			<MDBBtn onClick={showModal} color="orange" outline>
-				Login
-			</MDBBtn>
+		<div>
+			<CustomButton onClick={showModal} img="/img/buttons/login.png" text="Login"/>
 			<Modal show={isOpen} onHide={hideModal}>
 				<Modal.Body><LoginComponent/></Modal.Body>
 			</Modal>
-		</>
+		</div>
 	);
 };
 
