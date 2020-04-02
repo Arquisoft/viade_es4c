@@ -4,6 +4,14 @@
     margin: 0 auto;
 }
 
+.carousel-caption {
+    background: rgba(0,0,0,.5);
+}
+
+.carousel-control-prev {
+    background: rgba(0,0,0,.2);
+}
+
 .carousel-control-next {
-    color: black;
+    background: rgba(0,0,0,.2);
 }
