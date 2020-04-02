@@ -9,7 +9,6 @@ import "./cards.css";
  * @constructor
  */
 export const RouteCardComponent = (props) => {
-
 	return (
 		<div className="route-card">
 			{/* Left side of the card, contains the image and hidden fields */}
