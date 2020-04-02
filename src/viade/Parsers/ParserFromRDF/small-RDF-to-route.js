@@ -27,12 +27,12 @@ class SmallRDFToRoute {
         },
         err => console.log(err)
       );
-      return this.getRoute(result);    
+      return this.getRoute(result,url);    
   };
 
-  getRoute=(results) => {
+  getRoute=(results,url) => {
     if(!results||!results.length) {return;}
-    return new RouteViade(results[0]["name"],null,results[0]["description"]);
+    return new RouteViade(results[0]["name"],null,results[0]["description"],[],[],url);
   };
 
 }

@@ -31,13 +31,13 @@ class RDFToRoute {
         },
         err => console.log(err)
       );
-      return this.getRoute(result);    
+      return this.getRoute(result,url);    
   };
 
-  getRoute=(results) => {
+  getRoute=(results,url) => {
     if(!results||!results.length) {return;}
     let items=results.map((i) => new ItemViade(this.parseToFloat(i["long"]),this.parseToFloat(i["lat"]),this.parseToFloat(i["order"]),this.parseToFloat(i["elevation"])));
-    return new RouteViade(results[0]["name"],items,results[0]["description"]);
+    return new RouteViade(results[0]["name"],items,results[0]["description"],[],[],url);
   };
 
   parseToFloat=(value) => {

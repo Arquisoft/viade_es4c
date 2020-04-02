@@ -8,6 +8,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import {RouteMap, RoutesCarousel, RoutesItinerary, RouteTitle} from "./RoutesMap";
 import Spacer from "./Spacer";
 import Toaster from "./Toaster";
+import RouteList from "./RouteList";
 import {CustomButton} from "./Customs/";
 
 export {
@@ -22,5 +23,6 @@ export {
 	RoutesItinerary,
 	Spacer,
 	Toaster,
+	RouteList,
 	CustomButton
 };
