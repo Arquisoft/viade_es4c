@@ -12,7 +12,8 @@
 | GitHub | It is a collaborative software development platform to host projects using the Git version control system
 | Components | In this project 7 components collaborate, contributing with different parts of the project each one and making progress together
 | Project Time | We have 4 months to develop the hole project 
-
+| Solid Server | Not supporting JSON-LD as serializing format RDF
+| Solid Server | Not supporting queries to navigate in the user POD
 |===
 
 ****
