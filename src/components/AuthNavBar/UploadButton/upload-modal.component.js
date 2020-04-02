@@ -1,9 +1,8 @@
 import React from "react";
-import {MDBBtn} from "mdbreact";
-import Image from "react-bootstrap/Image";
 import "./upload-button.css";
 import Modal from "react-bootstrap/Modal";
 import {UploadComponent} from "./upload.component";
+import {CustomButton} from "../../";
 
 /**
  * Button triggering a modal pop-up with the UploadComponent
@@ -21,15 +20,12 @@ const UploadButton = () => {
 	};
 
 	return (
-		<>
-			<MDBBtn onClick={showModal}  color="primary" outline>
-				<Image className="button-img" src={process.env.PUBLIC_URL + "/img/upload.svg"}/>
-				<p className="font-weight-bold less-margin">Upload a route</p>
-			</MDBBtn>
+		<div>
+			<CustomButton onClick={showModal} text="Upload a route" img="/img/buttons/upload.png"/>
 			<Modal show={isOpen} onHide={hideModal}>
 				<Modal.Body><UploadComponent/></Modal.Body>
 			</Modal>
-		</>
+		</div>
 	);
 };
 

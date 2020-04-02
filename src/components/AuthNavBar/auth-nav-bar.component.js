@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import UploadButton from "./UploadButton";
 import auth from "solid-auth-client";
 import {NavLink} from "react-router-dom";
+import {CustomButton} from "../";
 
 /**
 * Navigation bar which contains de actions of a user logged in
@@ -26,13 +27,13 @@ const AuthNavBar = () => {
               <Nav  className="mr-auto"/>
               <Nav>
                   <NavLink exact to={"/notifications"}>
-                      <Image className="logout-img" src={process.env.PUBLIC_URL + "/img/bell.svg"} alt="Notifications"/>
+                      <CustomButton img="/img/buttons/notification.png"/>
                   </NavLink>
                   <NavLink exact to={"/myRoutes"} className="link">MyRoutes</NavLink>
                   <NavLink exact to={"/friendsRoutes"} className="link">FriendsRoutes</NavLink>
                   <NavLink exact to={"/profile"} className="link">Profile</NavLink>
                   <NavLink exact to={"/share"} className="link">Share</NavLink>
-                  <Image className="logout-img" src={process.env.PUBLIC_URL + "/img/logout.svg"} onClick={logOut}/>
+                  <CustomButton img="/img/buttons/logout.png" onClick={logOut}/>
               </Nav>
           </Navbar.Collapse>
       </Navbar>

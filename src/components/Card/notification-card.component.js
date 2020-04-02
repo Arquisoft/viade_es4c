@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Image} from "react-bootstrap";
+import {CustomButton} from "../index";
 import "./cards.css";
 
 /**
@@ -30,9 +31,8 @@ export const NotificationCardComponent = (props) => {
 					{isAccepted ?
 						<div className="route-card-link"> Accepted </div> :
 						<div>
-							<button className="route-card-link" onClick={accept} disabled={props.disabled}>
-								Accept
-							</button>
+							<CustomButton onClick={accept} disabled={props.disabled} text="Accept"
+								className="route-card-button"/>
 						</div>
 					}
 				</div>

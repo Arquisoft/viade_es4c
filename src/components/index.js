@@ -5,10 +5,11 @@ import {
 	NotificationCardComponent as NotificationCard
 } from "./Card";
 import ErrorBoundary from "./ErrorBoundary";
-import {RouteMap, RoutesCarousel, RoutesItinerary, RouteUploader} from "./RoutesMap";
+import {RouteMap, RoutesCarousel, RoutesItinerary, RouteTitle} from "./RoutesMap";
 import Spacer from "./Spacer";
 import Toaster from "./Toaster";
 import RouteList from "./RouteList";
+import {CustomButton} from "./Customs/";
 
 export {
 	NavBar,
@@ -17,10 +18,11 @@ export {
 	NotificationCard,
 	ErrorBoundary,
 	RouteMap,
-	RouteUploader,
+	RouteTitle,
 	RoutesCarousel,
 	RoutesItinerary,
 	Spacer,
 	Toaster,
 	RouteList
+	CustomButton
 };
