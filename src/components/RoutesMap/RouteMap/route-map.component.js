@@ -12,10 +12,10 @@ export default class RouteMap extends Component<> {
 	}
 
 	getBounds() {
-		let north = Math.max.apply(null, polyline.map(x => x[0]));
-		let east = Math.max.apply(null, polyline.map(x => x[1]));
-		let south = Math.min.apply(null, polyline.map(x => x[0]));
-		let west = Math.min.apply(null, polyline.map(x => x[1]));
+		let north = Math.max.apply(null, polyline.map((x) => x[0]));
+		let east = Math.max.apply(null, polyline.map((x) => x[1]));
+		let south = Math.min.apply(null, polyline.map((x) => x[0]));
+		let west = Math.min.apply(null, polyline.map((x) => x[1]));
 		return {north: north, east: east, south: south, west: west};
 	}
 

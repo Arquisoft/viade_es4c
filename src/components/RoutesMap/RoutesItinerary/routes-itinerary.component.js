@@ -20,7 +20,7 @@ const RoutesItinerary = (props) => {
 					{props.route.items.map(function (object) {
 						return <div key={object.latitude + object.longitude} className="coordinate">
 							{object.latitude}, {object.longitude}
-						</div>
+						</div>;
 					})};
 				</div>
 			</Collapse>
