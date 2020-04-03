@@ -9,7 +9,7 @@ import {RouteMap, RoutesCarousel, RoutesItinerary, RouteTitle} from "./RoutesMap
 import Spacer from "./Spacer";
 import Toaster from "./Toaster";
 import RouteList from "./RouteList";
-import {CustomButton} from "./Customs/";
+import {CustomButton, Loader} from "./Customs/";
 
 export {
 	NavBar,
@@ -24,5 +24,6 @@ export {
 	Spacer,
 	Toaster,
 	RouteList,
-	CustomButton
+	CustomButton,
+	Loader
 };

@@ -1,3 +1,4 @@
-import CustomButton from "./custom-button.component";
+import CustomButton from "./CustomButton/custom-button.component";
+import Loader from "./CustomLoader";
 
-export {CustomButton};
+export {CustomButton, Loader};
