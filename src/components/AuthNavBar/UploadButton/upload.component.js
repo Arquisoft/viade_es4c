@@ -44,7 +44,7 @@ export const UploadComponent = () => {
 	if(!webid) {
 		alert("You need to be logged in");
 	}
-	else if (files == null) {
+	else if (files === null) {
 		alert("You need to upload a route");
 	}
 	else {
