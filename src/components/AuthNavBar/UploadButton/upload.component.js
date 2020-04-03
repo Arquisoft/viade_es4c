@@ -8,6 +8,7 @@ import ImageUploader from "react-images-upload";
 import {useWebId} from "@inrupt/solid-react-components";
 import {CustomButton} from "../../";
 import "./upload.component.css";
+import {errorToaster} from "../../../utils/toaster";
 
 const fc = new SolidFileClient(auth);
 
@@ -43,7 +44,7 @@ export const UploadComponent = () => {
         if (!webid) {
             alert("You need to be logged in");//esto no deberia pasar pero bueno
         } else if (files == null) {
-            alert("You need to upload a route");
+			errorToaster("Tienes que seleccionar un archivo", "Error");
         } else {
             const file = files[0];
             const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/routes/";
@@ -75,14 +76,10 @@ export const UploadComponent = () => {
                     } else {
                         route.media.push(new ImageViade(rutaMedia, webid.substring(0, webid.length - 16), new Date()));
                     }
-
                 }
-
-
             } catch (err) {
-                alert(err.toString());
+               errorToaster("Error en la subida de archivos", "Error");
             }
-
         }
         //setUploadStatus(false)//terminamos de subir
     };
