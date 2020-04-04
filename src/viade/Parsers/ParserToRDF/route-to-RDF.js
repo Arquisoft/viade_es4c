@@ -36,6 +36,9 @@ class RouteToRDF {
         // Añadimos los items parseados.
         this.parseitems();
 
+        // Añadimos los archivos multimedia parseados
+        this.parseMedia();
+
         /*
         Devolvemos la cadena de texto que hemos creado, que tendrá el formato definido en viadeSpec,
         concretamente basado en Turtle.
@@ -82,6 +85,33 @@ class RouteToRDF {
             } else {
                 this.str +=('];');
             }
+        }
+
+    }
+
+    parseMedia() {
+
+        var aux;
+
+        // Para cada archivo multimedia de la ruta que estamos parseando se hace lo siguiente:
+        for (let i = 0; i < this.route.media.length; i++) {
+
+            if (i == this.route.media.length - 1) {
+                
+            }
+            
+            aux +=(':media');
+            aux +=(i + 1);
+            aux +=(' schema:contentUrl <');
+            aux +=(this.route.media[i].iri);
+            aux +=('>;');
+            aux +=('schema:publishedDate "');
+            aux +=(this.route.media[i].publicationTime);
+            aux +=('";');
+            aux +=('schema:author <');
+            aux +=(this.route.media[i].author);
+            aux +=('>.');
+
         }
 
     }
