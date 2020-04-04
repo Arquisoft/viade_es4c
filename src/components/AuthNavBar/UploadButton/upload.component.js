@@ -8,7 +8,7 @@ import ImageUploader from "react-images-upload";
 import {useWebId} from "@inrupt/solid-react-components";
 import {CustomButton} from "../../";
 import "./upload.component.css";
-import {errorToaster} from "../../../utils/toaster";
+import {errorToaster,warningToaster} from "../../../utils/toaster";
 
 const fc = new SolidFileClient(auth);
 
@@ -44,7 +44,7 @@ export const UploadComponent = () => {
         if (!webid) {
             alert("You need to be logged in");//esto no deberia pasar pero bueno
         } else if (files == null) {
-			errorToaster("Tienes que seleccionar un archivo", "Error");
+			warningToaster("Tienes que seleccionar un archivo", "Warn");
         } else {
             const file = files[0];
             const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/routes/";
