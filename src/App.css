@@ -50,14 +50,27 @@ nav img {
 
 .link {
   font-size: 1.5em;
-  margin: 20px;
+  margin: 0 20px;
   color: black;
   text-decoration: none;
   float: right;
+  padding-top: 15px;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #34d1ab;
+  border-top: 4px solid #34d1ab;
+}
+
+.link > div {
+  display: flex;
+  justify-content: center;
 }
 
 .active {
   font-weight: bold;
+  border-bottom: 4px solid #34d1ab;
 }
 
 .logout-img {

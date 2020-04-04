@@ -13,8 +13,7 @@ class ParserToRoute {
       case "gpx":
         return new GpxToRoute(file);
       default:
-        console.log("formato no soportado");
-        break;
+        throw new Error("Formato no soportado");
     }
   };
 
