@@ -91,13 +91,18 @@ class RouteToRDF {
 
     parseMedia() {
 
-        var aux;
+        var aux = "";
 
         // Para cada archivo multimedia de la ruta que estamos parseando se hace lo siguiente:
         for (let i = 0; i < this.route.media.length; i++) {
 
+            this.str +=('viade:hasMediaAttached :media');
+            this.str +=(i + 1);
+
             if (i == this.route.media.length - 1) {
-                
+                this.str +=('.');
+            } else {
+                this.str +=(';');
             }
             
             aux +=(':media');
@@ -107,12 +112,14 @@ class RouteToRDF {
             aux +=('>;');
             aux +=('schema:publishedDate "');
             aux +=(this.route.media[i].publicationTime);
-            aux +=('";');
+            aux +=('"^^xsd:dateTime;');
             aux +=('schema:author <');
             aux +=(this.route.media[i].author);
             aux +=('>.');
 
         }
+
+        this.str +=(aux);
 
     }
 
