@@ -8,7 +8,7 @@ import ImageUploader from "react-images-upload";
 import {useWebId} from "@inrupt/solid-react-components";
 import {CustomButton} from "../../";
 import "./upload.component.css";
-import {errorToaster,warningToaster} from "../../../utils/toaster";
+import {errorToaster,warningToaster,successToaster} from "../../../utils/toaster";
 
 const fc = new SolidFileClient(auth);
 
@@ -42,8 +42,10 @@ export const UploadComponent = () => {
         //setUploadStatus(true)//empezamos a subir
 
         if (!webid) {
-            alert("You need to be logged in");//esto no deberia pasar pero bueno
-        } else if (files == null) {
+            errorToaster("You need to be logged in");//esto no deberia pasar pero bueno
+        }else if( valueName == ""){
+            warningToaster("Tienes que introducir un nombre", "Warn");
+        }else if (files == null) {
 			warningToaster("Tienes que seleccionar un archivo", "Warn");
         } else {
             const file = files[0];
@@ -62,23 +64,42 @@ export const UploadComponent = () => {
                 route.name = valueName;//Valor del campo del nombre
                 route.description = valueDescription;//Valor del campo de descripcion
 
-                let parserToRDF = new RouteToRDF(route);
-                let strRoute = parserToRDF.parse();
-                //Ya tenemos un String para meter en SolidFileClient
-                await fc.createFile(url, strRoute, "text/turtle", {});
+                let strRoute = null;
 
-                // Subida de archivos
-
-                for (let i = 0; i < media.length; i++) {
-                    await fc.putFile(rutaMedia + media[i].name, media[i], media[i].type);
-                    if (media[i].name.includes(".mp4")) {
-                        route.media.push(new VideoViade(rutaMedia, webid.substring(0, webid.length - 16), new Date()));
-                    } else {
-                        route.media.push(new ImageViade(rutaMedia, webid.substring(0, webid.length - 16), new Date()));
+                try {
+                    let parserToRDF = new RouteToRDF(route);
+                    strRoute = parserToRDF.parse();
+                    //Ya tenemos un String para meter en SolidFileClient
+                    if(strRoute == null){
+                        throw new Error();
                     }
+                }catch (err){
+                    throw new Error("Error en el contenido de la ruta");
                 }
-            } catch (err) {
-               errorToaster("Error en la subida de archivos", "Error");
+                
+                try{
+                    
+                    await fc.createFile(url, strRoute, "text/turtle", {});
+                }catch(err) {
+                    throw new Error("Error en la subida de la ruta");
+                }
+                // Subida de archivos
+                try {
+                    for (let i = 0; i < media.length; i++) {
+                        await fc.putFile(rutaMedia + media[i].name, media[i], media[i].type);
+                        if (media[i].name.includes(".mp4")) {
+                            route.media.push(new VideoViade(rutaMedia, webid.substring(0, webid.length - 16), new Date()));
+                        } else {
+                            route.media.push(new ImageViade(rutaMedia, webid.substring(0, webid.length - 16), new Date()));
+                        }
+                    }
+                }catch(err){
+                    throw new Error("Error en la subida de archivos media");
+                }
+
+                successToaster("Ruta subida con exito");
+            } catch (err) {//Damos feedback al usuario
+               errorToaster(err.toString());
             }
         }
         //setUploadStatus(false)//terminamos de subir
