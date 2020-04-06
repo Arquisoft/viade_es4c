@@ -2,8 +2,9 @@ import NavBar from "./NavBar";
 import AuthNavBar from "./AuthNavBar";
 import {
 	RouteCardComponent as RouteCard,
-	NotificationCardComponent as NotificationCard
-} from "./Card";
+	NotificationCardComponent as NotificationCard,
+	ProfileCardComponent as ProfileCard
+} from "./Cards";
 import ErrorBoundary from "./ErrorBoundary";
 import {RouteMap, RoutesCarousel, RoutesItinerary, RouteTitle} from "./RoutesMap";
 import Spacer from "./Spacer";
@@ -16,6 +17,7 @@ export {
 	AuthNavBar,
 	RouteCard,
 	NotificationCard,
+	ProfileCard,
 	ErrorBoundary,
 	RouteMap,
 	RouteTitle,

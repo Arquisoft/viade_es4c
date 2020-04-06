@@ -4,7 +4,7 @@ import {CustomButton} from "../index";
 import "./cards.css";
 
 /**
- * Card with the notification info to display on the lists of routes
+ * Cards with the notification info to display on the lists of routes
  * @param props
  * @returns {*}
  * @constructor
