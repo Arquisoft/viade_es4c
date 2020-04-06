@@ -1,9 +1,14 @@
 import React,{useState,useCallback,useEffect} from "react";
 import {NotificationsList} from "./children";
 import {ldflexHelper} from "../.././utils";
+import {RDFToRoute} from "../.././viade";
+import auth from "solid-auth-client";
+import FC from "solid-file-client";
+const fc = new FC(auth);
 
 const Notifications = (props) => {
     const [inboxes, setInbox] = useState([]);
+    const [image,setImage]=useState([]);
     const { webId } = props;
     
     const discoverInbox = useCallback(async () => {
@@ -43,8 +48,17 @@ const Notifications = (props) => {
           discoverInbox();
         }
       }, [webId,discoverInbox]);
+
+const imagen=async ()=>{
+  console.log(await RDFToRoute.parse("https://viadees4c.solid.community/public/viade/routes/ruta2.ttl"));
+}
+
   return (
+    <div>
+      <button onClick={imagen}>TEST</button>
+      {image?<img src={image}></img>:null}
       <NotificationsList inboxes={inboxUrl} {...props}/>
+      </div>
   );
 };
 
