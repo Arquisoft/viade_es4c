@@ -49,14 +49,10 @@ const Notifications = (props) => {
         }
       }, [webId,discoverInbox]);
 
-const imagen=async ()=>{
-  console.log(await RDFToRoute.parse("https://viadees4c.solid.community/public/viade/routes/ruta2.ttl"));
-}
+
 
   return (
     <div>
-      <button onClick={imagen}>TEST</button>
-      {image?<img src={image}></img>:null}
       <NotificationsList inboxes={inboxUrl} {...props}/>
       </div>
   );
