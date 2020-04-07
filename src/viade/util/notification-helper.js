@@ -1,4 +1,4 @@
-import { ldflexHelper } from "../../utils/index";
+import { ldflexHelper} from "../../utils/index";
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
 import { RDFToNotification, NotificationToRDF } from "../Parsers";
@@ -21,8 +21,7 @@ export const fetchNotifications = async (inboxURL) => {
   if (!inboxURL){
     return;
   }
-  const folder = await fc.readFolder(inboxURL, []);
-  let filesURL = folder.files.map((file) => file.url);
+  let filesURL = await this.fetchNotificationsURLS(inboxURL);
   let i = 0;
   let notifications = [];
   for (i; i < filesURL.length; i++) {
@@ -34,7 +33,11 @@ export const fetchNotifications = async (inboxURL) => {
 };
 
 export const fetchNotification = async (url) => {
+  try{
   return await RDFToNotification.parse(url);
+  }catch(error){
+    throw new Error("An error has occurred parsing the notification from RDF");
+  }
 };
 
 
@@ -52,7 +55,7 @@ export const sendNotification = async (
     /**
      * If the opponent doesn't have an inbox, show an error
      */
-    throw new Error("Error: The opponent does not have an available inbox");
+    throw new Error("The opponent does not have an available inbox");
   } catch (error) {
     throw new Error(error);
   }

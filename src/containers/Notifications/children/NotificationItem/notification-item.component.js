@@ -1,6 +1,7 @@
-import React from "react";
+import React,{Fragment} from "react";
 import {notificationHelper,} from "../../../../viade";
 import {NotificationCard} from "../../../../components";
+import { errorToaster } from "../../../../utils";
 
 class NotificationItem extends React.Component {
 	constructor(props) {
@@ -17,8 +18,14 @@ class NotificationItem extends React.Component {
 		if (this.state.notification) {
 			return;
 		}
-		const notification = await notificationHelper.fetchNotification(this.url);
-		this.setState({notification: notification});
+		try{
+			const notification = await notificationHelper.fetchNotification(this.url);
+			this.setState({notification: notification});
+		}catch(err){
+			console.error(err);
+			let link={href:this.url,label:this.url}
+			errorToaster(err.message,err.name,link);
+		}
 	};
 
 	addSharedWithMe = async (notification) => {
@@ -36,7 +43,7 @@ class NotificationItem extends React.Component {
 	render() {
 		this.init();
 		return (
-			<div>
+			<Fragment>
 				{this.state.notification ?
 					<NotificationCard
 						name={this.state.notification.object.toString().split("/").pop()}
@@ -46,7 +53,7 @@ class NotificationItem extends React.Component {
 						action={() => this.addSharedWithMe(this.state.notification)}
 						disabled={this.isSharing}/>
 					: null}
-			</div>
+			</Fragment>
 		);
 	}
 }
