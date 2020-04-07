@@ -1,9 +1,10 @@
-import NavBar from "./NavBar";
 import AuthNavBar from "./AuthNavBar";
+import NavBar from "./NavBar";
 import {
-	RouteCardComponent as RouteCard,
+	FriendCardComponent as FriendCard,
 	NotificationCardComponent as NotificationCard,
-	ProfileCardComponent as ProfileCard
+	ProfileCardComponent as ProfileCard,
+	RouteCardComponent as RouteCard
 } from "./Cards";
 import ErrorBoundary from "./ErrorBoundary";
 import {RouteMap, RoutesCarousel, RoutesItinerary, RouteTitle} from "./RoutesMap";
@@ -13,10 +14,11 @@ import RouteList from "./RouteList";
 import {CustomButton} from "./Customs/";
 
 export {
-	NavBar,
 	AuthNavBar,
-	RouteCard,
+	NavBar,
+	FriendCard,
 	NotificationCard,
+	RouteCard,
 	ProfileCard,
 	ErrorBoundary,
 	RouteMap,

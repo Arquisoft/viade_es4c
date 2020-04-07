@@ -1,5 +1,6 @@
-import {RouteCardComponent} from "./route-card.component";
+import {FriendCardComponent} from "./friend-card.component";
 import {NotificationCardComponent} from "./notification-card.component";
 import {ProfileCardComponent} from "./profile-card.component";
+import {RouteCardComponent} from "./route-card.component";
 
-export {RouteCardComponent, NotificationCardComponent, ProfileCardComponent};
+export {FriendCardComponent, NotificationCardComponent, ProfileCardComponent, RouteCardComponent};

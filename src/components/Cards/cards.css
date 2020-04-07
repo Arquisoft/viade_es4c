@@ -2,11 +2,15 @@
     width: 100%;
     height: 150px;
     background: #f2f2f2;
-    box-shadow: 0 8px 12px -8px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 12px -8px rgba(0, 0, 0, 0.4);
     border-radius: 6px;
     overflow: hidden;
     position: relative;
     margin: 1rem 0.5rem;
+}
+
+.friend-card {
+    height: 50px;
 }
 
 .route-card h4 {
@@ -22,6 +26,10 @@
     transition: width 0.4s;
     overflow: hidden;
     z-index: 2;
+}
+
+.route-card .friend-card-left {
+    width: 15px;
 }
 
 .route-card .profile-card-left {
@@ -47,7 +55,7 @@
     top: 10%;
     right: -2px;
     height: 80%;
-    border-left: 2px solid rgba(0,0,0,0.025);
+    border-left: 2px solid rgba(0, 0, 0, 0.025);
 }
 
 .route-card .route-card-left .route-card-extra {
@@ -59,8 +67,16 @@
     padding: 0 1rem 1rem;
 }
 
+.route-card .route-card-left .friend-card-extra {
+    left: 15px;
+}
+
 .route-card .route-card-left .route-card-extra h4 {
     margin-top: 5px;
+}
+
+.route-card h3 {
+    margin-top: 10px;
 }
 
 .route-card h1 {
@@ -91,7 +107,7 @@
     text-transform: uppercase;
     font-size: 1.25em;
     font-weight: bold;
-    background: rgba(0,0,0,0.15);
+    background: rgba(0, 0, 0, 0.15);
     padding: 0.125rem 0.75rem;
     border-radius: 100px;
     white-space: nowrap;
@@ -101,7 +117,7 @@
     position: absolute;
     font-size: 1.25em;
     font-weight: bold;
-    background: rgba(0,0,0,0.15);
+    background: rgba(0, 0, 0, 0.15);
     padding: 0.125rem 0.75rem;
     border-radius: 100px;
     white-space: nowrap;
@@ -139,7 +155,8 @@
     line-height: 1.5rem;
 }
 
-a.route-card-a {
+a.route-card-a,
+.friend-card a {
     color: black;
 }
 
@@ -161,6 +178,10 @@ a.route-card-a {
     z-index: 1;
     box-sizing: border-box;
     padding: 0 1rem 1rem;
+}
+
+.route-card .friend-card-right {
+    left: 15px;
 }
 
 .already-accepted {

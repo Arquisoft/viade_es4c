@@ -1,6 +1,6 @@
 import React from "react";
 import {Image, List, LoggedIn, Value, withWebId} from "@solid/react";
-import {ProfileCard} from "../../components";
+import {FriendCard, ProfileCard} from "../../components";
 import {routeHelper} from "../../viade";
 import Container from "react-bootstrap/Container";
 import "./profile.container.css";
@@ -44,13 +44,12 @@ class ProfileComponent extends React.Component {
                         nMyRoutes={this.state.loadedNMyRoutes? this.nMyRoutes : null}
                         nFriendsRoutes={this.state.loadedNFriendsRoutes? this.nFriendsRoutes : null}
                         />
-
-                    <h2>Friends</h2>
+                    <h2 style={{textAlign: "center"}}>Friends</h2>
                     <List src="user.friends">
                         {(friend) =>
-                            <li key={friend}>
-                                <Value src={`[${friend}].name`}>{`${friend}`}</Value>
-                            </li>}
+                            <FriendCard
+                                friend={`${friend}`}
+                            />}
                     </List>
                 </LoggedIn>
             </Container>

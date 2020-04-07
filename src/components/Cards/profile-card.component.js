@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import "./cards.css";
 
 /**
- * Cards with the notification info to display on the lists of routes
+ * Cards with the profile info
  * @param props
  * @returns {*}
  * @constructor
