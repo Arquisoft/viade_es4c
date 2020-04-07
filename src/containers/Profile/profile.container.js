@@ -36,6 +36,7 @@ class ProfileComponent extends React.Component {
             <Container>
                 <LoggedIn>
                     <ProfileCard
+                        webId={this.props.webId}
                         image={<Image src="user.image" defaultSrc={process.env.PUBLIC_URL + "/img/cards/profile.png"}
                                       className="profile route-card-image"  alt={"Profile image"}/>}
                         name={<Value src="user.name"/>}

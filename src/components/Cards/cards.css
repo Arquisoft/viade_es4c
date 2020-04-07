@@ -143,6 +143,15 @@ a.route-card-a {
     color: black;
 }
 
+.profile-card-left a {
+    color: #f2f2f2;
+}
+
+.profile-card-left a:hover {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
 .route-card .route-card-right {
     width: 250px;
     height: 100%;
@@ -156,4 +165,9 @@ a.route-card-a {
 
 .already-accepted {
     background: #bcdad3;
+}
+
+.fa-external-link-alt {
+    height: 15px;
+    margin-bottom: 15px;
 }
