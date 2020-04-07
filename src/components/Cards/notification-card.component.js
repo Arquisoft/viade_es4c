@@ -41,7 +41,7 @@ export const NotificationCardComponent = (props) => {
 			<div className={"route-card-right"}>
 				<h4>{props.name}</h4>
 				<p className="route-card-p">{props.user}</p>
-				{isAccepted ?
+				{(isAccepted) ?
 					<div className="route-card-link"> Accepted </div> :
 					<div className="route-card-link"> Pending </div>
 				}
