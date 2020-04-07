@@ -1,5 +1,5 @@
 import React from "react";
-import {List, Value, withWebId, Image, LoggedIn} from "@solid/react";
+import {Image, List, LoggedIn, Value, withWebId} from "@solid/react";
 import {ProfileCard} from "../../components";
 import {routeHelper} from "../../viade";
 import Container from "react-bootstrap/Container";
@@ -7,15 +7,29 @@ import "./profile.container.css";
 
 class ProfileComponent extends React.Component {
 
-    getNumMyRoutes=async ()=>{
-        let myRoutes=await routeHelper.fetchUrlMyRoutes();
-        return myRoutes.length();
+    constructor(props) {
+        super(props);
+        this.state = {
+            loadedNMyRoutes: false,
+            loadedNFriendsRoutes: false
+        };
+        this.nMyRoutes = this.getNumMyRoutes();
+        this.nFriendsRoutes = this.getNumSharedWithMe();
     }
 
-    getNumSharedWithMe=async()=>{
-        let sharedWithMe=await routeHelper.fetchUrlSharedWithMeRoutes();
-        return sharedWithMe.length();   
-    }
+    getNumMyRoutes = async () => {
+        return await routeHelper.fetchUrlMyRoutes().then((res) => {
+            this.nMyRoutes = res.length;
+            this.setState({loadedNMyRoutes: true});
+        });
+    };
+
+    getNumSharedWithMe = async () => {
+        return await routeHelper.fetchUrlSharedWithMeRoutes().then((res) => {
+            this.nFriendsRoutes = res.length;
+            this.setState({loadedNFriendsRoutes: true});
+        });
+    };
 
     render() {
         return (
@@ -26,8 +40,8 @@ class ProfileComponent extends React.Component {
                                       className="profile route-card-image"  alt={"Profile image"}/>}
                         name={<Value src="user.name"/>}
                         user={<Value src="user"/>}
-                        getNumMyRoutes={this.getNumMyRoutes}
-                        getNumSharedWithMe={this.getNumSharedWithMe}
+                        nMyRoutes={this.state.loadedNMyRoutes? this.nMyRoutes : null}
+                        nFriendsRoutes={this.state.loadedNFriendsRoutes? this.nFriendsRoutes : null}
                         />
 
                     <h2>Friends</h2>

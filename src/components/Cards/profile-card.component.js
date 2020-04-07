@@ -11,7 +11,8 @@ import "./cards.css";
  */
 export const ProfileCardComponent = (props) => {
 
-	//const webId = props.user;
+	console.log(props.nMyRoutes);
+	console.log(props.nFriendsRoutes);
 
 	return (
 		<div className={"route-card"}>
@@ -27,12 +28,12 @@ export const ProfileCardComponent = (props) => {
 						<div>
 							<FontAwesomeIcon icon={faRoute} />
 							<div className="title">My Routes</div>
-							<div className="value">2</div>
+							<div className="value">{props.nMyRoutes ? props.nMyRoutes : "?"}</div>
 						</div>
 						<div>
 							<FontAwesomeIcon icon={faUserFriends} />
 							<div className="title">Friend Routes</div>
-							<div className="value">27</div>
+							<div className="value">{props.nFriendsRoutes ? props.nFriendsRoutes : "?"}</div>
 						</div>
 					</div>
 				</div>
