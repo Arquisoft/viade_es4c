@@ -26,7 +26,7 @@ class ProfileComponent extends React.Component {
 
     getNumSharedWithMe = async () => {
         return await routeHelper.fetchUrlSharedWithMeRoutes().then((res) => {
-            this.nFriendsRoutes = res.length;
+            this.nFriendsRoutes = res ? res.length : 0;
             this.setState({loadedNFriendsRoutes: true});
         });
     };
@@ -48,6 +48,7 @@ class ProfileComponent extends React.Component {
                     <List src="user.friends">
                         {(friend) =>
                             <FriendCard
+                                key={`${friend}`}
                                 friend={`${friend}`}
                             />}
                     </List>

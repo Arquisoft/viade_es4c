@@ -30,14 +30,14 @@ export const ProfileCardComponent = (props) => {
 							<Link to={"/myRoutes"}>
 								<FontAwesomeIcon icon={faRoute}/>
 								<div className="title">My Routes</div>
-								<div className="value">{props.nMyRoutes ? props.nMyRoutes : "?"}</div>
+								<div className="value">{props.nMyRoutes ? props.nMyRoutes : "0"}</div>
 							</Link>
 						</div>
 						<div>
 							<Link to={"/friendsRoutes"}>
 								<FontAwesomeIcon icon={faUserFriends}/>
 								<div className="title">Friend Routes</div>
-								<div className="value">{props.nFriendsRoutes ? props.nFriendsRoutes : "?"}</div>
+								<div className="value">{props.nFriendsRoutes ? props.nFriendsRoutes : "0"}</div>
 							</Link>
 						</div>
 					</div>

@@ -28,7 +28,7 @@ const NotificationsList = (props) => {
 				<Col key="col-1" xs={12} sm={12} md={12} lg={1} xl={1}/>
 				<Col key="col-2" xs={12} sm={12} md={12} lg={10} xl={10}>
 					<Row>
-						{notifications
+						{(notifications && notifications.length > 0)
 							? notifications.map((url, index) => (
 								<Col md={12} lg={4} key={index}>
 									<NotificationItem
@@ -39,8 +39,10 @@ const NotificationsList = (props) => {
 										{...props}
 									/>
 								</Col>
-							))
-							: null}
+							)) :
+							<h4 style={{textAlign: "center", margin: "15px 0 0 0", width: "100%"}}>
+								Sadly, you don't have notifications to show here yet :(
+							</h4>}
 					</Row>
 				</Col>
 				<Col key="col-3" xs={12} sm={12} md={12} lg={1} xl={1}/>
