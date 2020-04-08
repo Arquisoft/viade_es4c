@@ -19,7 +19,9 @@ export const fetchUrlSharedWithMeRoutes = async () => {
   try {
     let webId = (await auth.currentSession()).webId;
     let filesString = await fc.readFile(getSharedWithMeFolder(webId));
-    return JSON.parse(filesString).rutas;
+    let routes= JSON.parse(filesString).rutas;
+    if(!routes)return [];
+    return routes;
   } catch (err) {
     console.error(err);
     throw new Error("An error has occurred loading the routes shared with you");
