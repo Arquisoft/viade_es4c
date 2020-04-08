@@ -13,8 +13,12 @@ export const fetchNotificationsURLS=async (inboxURL)=>{
   if (!inboxURL){
     return;
   }
-  const folder = await fc.readFolder(inboxURL, []);
-  return folder.files.map((file) => file.url);
+  try{
+    const folder = await fc.readFolder(inboxURL, []);
+    return folder.files.map((file) => file.url);
+  }catch(err){
+    throw new Error("An error has occurred trying to load your notifications");
+  }
 }
 
 export const fetchNotifications = async (inboxURL) => {

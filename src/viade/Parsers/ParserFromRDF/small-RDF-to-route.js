@@ -21,13 +21,17 @@ class SmallRDFToRoute {
         wanted: "Array"
       };
   
+      try{
       const result = await sparqlFiddle.run(fiddle).then(
         results => {
           return results;
         },
-        err => console.log(err)
+        err => {throw err;}
       );
       return this.getRoute(result,url);    
+      }catch(err){
+        throw err;
+      }
   };
 
   getRoute=(results,url) => {

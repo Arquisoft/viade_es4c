@@ -25,11 +25,12 @@ const Notifications = (props) => {
            * know how fix it.
            */
           if (inboxes.length === 0) {
-            errorToaster("ERROR:Your inbox couldn't be found");
+            errorToaster("Your inbox couldn't be found","Error");
           }
           setInbox(inboxes);
         } catch (error) {
-          error("ERROR:An error has occurred with the inbox folder");
+          console.error(error);
+          errorToaster("An error has occurred with the inbox folder","Error");
         }
       }, [webId]);
 

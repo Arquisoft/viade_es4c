@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import RouteItem from "./RouteItem";
 import {Col, Row} from "react-bootstrap";
+import { errorToaster } from "../../utils";
 
 const RouteList = (props) => {
     const [urlRoutes, setUrlRoutes] = useState();
@@ -14,7 +15,8 @@ const RouteList = (props) => {
             let urls=await readRoutes();
 			setUrlRoutes(urls);
 		} catch (error) {
-			console.error(error);
+            console.error(error);
+            errorToaster(error.message,error.name);
 		}
     };
     initRoutes();
