@@ -1,6 +1,6 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faExternalLinkAlt, faRoute, faUserFriends} from "@fortawesome/free-solid-svg-icons";
+import {faExternalLinkAlt, faFolderOpen, faRoute, faUserFriends} from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
 import "./cards.css";
 
@@ -40,11 +40,17 @@ export const ProfileCardComponent = (props) => {
 								<div className="value">{props.nFriendsRoutes ? props.nFriendsRoutes : "0"}</div>
 							</Link>
 						</div>
+						<div>
+							<Link to={"/friendsRoutes"}>
+								<FontAwesomeIcon icon={faFolderOpen}/>
+								<div className="title">My POD</div>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>
 			{/* Right side of the card, with the visible info */}
-			<div className={"route-card-right"}>
+			<div className={"route-card-right profile-card-right"}>
 				<h1>{props.name}</h1>
 				<p className="profile-card-webid">{props.user}</p>
 				{/* Maybe putting a non clickable link is not a good idea*/}

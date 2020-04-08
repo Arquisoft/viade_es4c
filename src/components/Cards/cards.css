@@ -78,6 +78,10 @@
     padding: 0 1rem 1rem;
 }
 
+.route-card .profile-card-left .route-card-extra {
+    width: calc(100% - 150px);
+}
+
 .route-card .route-card-left .friend-card-extra {
     left: 15px;
 }
@@ -163,7 +167,7 @@ a.card-a:hover {
 }
 
 .route-card .route-card-right {
-    width: 250px;
+    width: calc(100% - 150px);
     height: 100%;
     position: absolute;
     float: left;
