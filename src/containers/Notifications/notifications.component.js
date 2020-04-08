@@ -41,6 +41,7 @@ const Notifications = (props) => {
           discoverInbox();
         }
       }, [webId,discoverInbox]);
+
   return (
       <NotificationsList inboxes={inboxUrl} {...props}/>
   );

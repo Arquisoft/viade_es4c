@@ -5,7 +5,7 @@ import { errorToaster, successToaster } from "../../utils";
 import "./cards.css";
 
 /**
- * Card with the notification info to display on the lists of routes
+ * Cards with the notification info to display on the lists of routes
  * @param props
  * @returns {*}
  * @constructor
@@ -48,7 +48,7 @@ export const NotificationCardComponent = (props) => {
 			<div className={"route-card-right"}>
 				<h4>{props.name}</h4>
 				<p className="route-card-p">{props.user}</p>
-				{isAccepted ?
+				{(isAccepted) ?
 					<div className="route-card-link"> Accepted </div> :
 					<div className="route-card-link"> Pending </div>
 				}

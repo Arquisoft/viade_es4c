@@ -2,7 +2,6 @@ import React, {Fragment} from "react";
 import Routes from "./routes";
 import {ToastContainer} from "react-toastify";
 import "./App.css";
-import "mdbreact/dist/css/mdb.css";
 import "./bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 
