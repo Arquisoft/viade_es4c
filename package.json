@@ -5,6 +5,9 @@
   "private": true,
   "dependencies": {
     "@comunica/actor-init-sparql": "^1.11.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "@inrupt/solid-react-components": "^0.5.0",
     "@solid/context": "^1.1.0",
     "@solid/query-ldflex": "^2.10.0",
