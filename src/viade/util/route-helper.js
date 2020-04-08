@@ -42,18 +42,23 @@ export const fetchUrlMyRoutes = async () => {
 };
 
 export const getBasicRoute = async (url) => {
-    try{
-  return await SmallRDFToRoute.parse(url);
-    }catch(err){
-        console.error(err);
-        throw new Error("An error occurred while loading the route");
-    }
+  try {
+    return await SmallRDFToRoute.parse(url);
+  } catch (err) {
+    console.error(err);
+    throw new Error("An error occurred while loading the route");
+  }
 };
 
 export const getFullRoute = async (url) => {
-  return RDFToRoute.parse(url);
+  try {
+    return await RDFToRoute.parse(url);
+  } catch (err) {
+    console.error(err);
+    throw new Error("An error occurred while loading the route");
+  }
 };
 
 export const parseRoutefromFile = (file) => {
-  return ParserToRoute.parse(file).then((route) => route);
+  return ParserToRoute.parse(file).then((route) => route,(err)=>{throw err});
 };

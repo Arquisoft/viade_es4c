@@ -5,10 +5,6 @@ import { RDFToNotification, NotificationToRDF } from "../Parsers";
 
 const fc = new FC(auth);
 
-const orderByDate = (list) => {
-  return list.sort((a, b) => new Date(b.published) - new Date(a.published));
-};
-
 export const fetchNotificationsURLS=async (inboxURL)=>{
   if (!inboxURL){
     return;
@@ -20,21 +16,6 @@ export const fetchNotificationsURLS=async (inboxURL)=>{
     throw new Error("An error has occurred trying to load your notifications");
   }
 }
-
-export const fetchNotifications = async (inboxURL) => {
-  if (!inboxURL){
-    return;
-  }
-  let filesURL = await this.fetchNotificationsURLS(inboxURL);
-  let i = 0;
-  let notifications = [];
-  for (i; i < filesURL.length; i++) {
-    let noti = await RDFToNotification.parse(filesURL[i]);
-    notifications.push(noti);
-
-  }
-  return orderByDate(notifications);
-};
 
 export const fetchNotification = async (url) => {
   try{
@@ -59,7 +40,7 @@ export const sendNotification = async (
     /**
      * If the opponent doesn't have an inbox, show an error
      */
-    throw new Error("The opponent does not have an available inbox");
+    throw new Error("The user does not have an available inbox");
   } catch (error) {
     throw new Error(error);
   }
@@ -88,7 +69,7 @@ export const getDefaultInbox = (inboxes, inbox1, inbox2) =>
   inboxes.find((inbox) => inbox.name === inbox2);
 
 export const addRouteSharedWithMe = async (url, webId) => {
-  
+  try{
   const base = "/public/viade/shared_with_me.txt";
   const path = webId.split("/profile/card#me")[0] + base;
   if (!(await fc.itemExists(path))) {
@@ -100,6 +81,9 @@ export const addRouteSharedWithMe = async (url, webId) => {
   let obj = JSON.parse(docu);
   obj.rutas.push(url);
   await fc.createFile(path, JSON.stringify(obj), "text/plain", {});
+}catch(err){
+  throw new Error("An error has occurred adding the route they have shared with you");
+}
 };
 
 export const markAsRead = async (notification) => {

@@ -3,7 +3,7 @@ import { ItemViade, RouteViade } from "../../../Model";
 class GeoJSONToRoute {
     
   execute = (content) => {
-    return this.parse(content);
+      return this.parse(content);
   };
 
   //Por ahora solo soportaremos LineString
