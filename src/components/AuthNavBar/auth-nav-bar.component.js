@@ -31,7 +31,7 @@ const AuthNavBar = () => {
 						<CustomButton img={navbar.notifications.src}/>
 					</NavLink>
                     {navbar.links.map((link) =>
-                        <NavLink exact to={link.href} className="link">
+                        <NavLink exact to={link.href} className="link" key={link.href}>
                             <div>
                                 <Image
                                     src={process.env.PUBLIC_URL + link.src}
