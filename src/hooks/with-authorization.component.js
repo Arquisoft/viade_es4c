@@ -1,7 +1,6 @@
-import React from 'react';
-import { withWebId } from '@solid/react';
+import React from "react";
+import { withWebId } from "@solid/react";
 import {withHistory} from "./components";
-import { Redirect} from 'react-router-dom';
 
 export const withAuthorization = (Component, Loader) =>
   withHistory(withWebId(
