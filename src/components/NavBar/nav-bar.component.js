@@ -1,9 +1,10 @@
 import React from "react";
 import {Image, Navbar} from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
-import LoginModal from "./Login";
-import RegisterModal from "./Register";
+import LoginComponent from "./Login";
+import RegisterContainer from "./Register";
 import {navbar} from "../../contexts";
+import {CustomModal} from "../index";
 
 /**
  * Navigation bar which contains de actions of a user not logged in
@@ -21,8 +22,10 @@ const NavBar = () => {
               <Nav  className="mr-auto">
               </Nav>
               <Nav>
-                  <LoginModal/>
-                  <RegisterModal/>
+                  {/* Button that opens the login modal */}
+                  <CustomModal img="/img/buttons/login.png" text="Login" component={<LoginComponent/>}/>
+                  {/* Button that opens the register modal */}
+                  <CustomModal img="/img/buttons/register.png" text="Register" component={<RegisterContainer/>}/>
               </Nav>
           </Navbar.Collapse>
       </Navbar>

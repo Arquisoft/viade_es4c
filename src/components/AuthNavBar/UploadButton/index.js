@@ -1,3 +1,3 @@
-import UploadButton from "./upload-modal.component";
+import {UploadComponent} from "./upload.component";
 
-export default UploadButton;
+export default UploadComponent;
