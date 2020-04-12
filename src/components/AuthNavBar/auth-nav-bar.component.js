@@ -22,7 +22,8 @@ const AuthNavBar = () => {
 			<Navbar.Brand href={process.env.PUBLIC_URL + navbar.logo.href}>
 				<Image src={process.env.PUBLIC_URL + navbar.logo.src} alt={navbar.logo.alt}/>
 			</Navbar.Brand>
-			<CustomModal text="Upload a route" img="/img/buttons/upload.png" component={<UploadComponent/>}/>
+			<CustomModal text="Upload a route" img="/img/buttons/upload.png"
+				component={<UploadComponent/>}/>
 			<Navbar.Toggle aria-controls="basic-navbar-nav"/>
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="mr-auto"/>

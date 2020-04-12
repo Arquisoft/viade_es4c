@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./routes-title.css";
-import {CustomButton} from "../../";
+import {CustomModal} from "../../";
+import ShareComponent from "../../Share";
 
 /**
  * Component featuring the route information
@@ -21,7 +22,8 @@ class RouteTitle extends Component {
 					<p className="title-text">{this.description}</p>
 				</div>
 				<div className="float-right">
-					<CustomButton text="Share" img="/img/buttons/share.png"/>
+					<CustomModal text="Share" img="/img/buttons/share.png"
+						component={<ShareComponent/>}/>
 				</div>
 			</div>
 		);

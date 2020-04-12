@@ -44,7 +44,7 @@ const RouteList = (props) => {
 				</Row>
 				: <div>
 					<Spacer/>
-					<Loader/>
+					<Loader size="150"/>
 				</div>}
 		</div>);
 };

@@ -12,24 +12,26 @@ import {CustomModal} from "../index";
  */
 const NavBar = () => {
 
-  return (
-      <Navbar bg="light" expand="lg">
-          <Navbar.Brand href={process.env.PUBLIC_URL + navbar.logo.href}>
-              <Image src={process.env.PUBLIC_URL + navbar.logo.src} alt={navbar.logo.alt}/>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-              <Nav  className="mr-auto">
-              </Nav>
-              <Nav>
-                  {/* Button that opens the login modal */}
-                  <CustomModal img="/img/buttons/login.png" text="Login" component={<LoginComponent/>}/>
-                  {/* Button that opens the register modal */}
-                  <CustomModal img="/img/buttons/register.png" text="Register" component={<RegisterContainer/>}/>
-              </Nav>
-          </Navbar.Collapse>
-      </Navbar>
-  );
+	return (
+		<Navbar bg="light" expand="lg">
+			<Navbar.Brand href={process.env.PUBLIC_URL + navbar.logo.href}>
+				<Image src={process.env.PUBLIC_URL + navbar.logo.src} alt={navbar.logo.alt}/>
+			</Navbar.Brand>
+			<Navbar.Toggle aria-controls="basic-navbar-nav"/>
+			<Navbar.Collapse id="basic-navbar-nav">
+				<Nav className="mr-auto">
+				</Nav>
+				<Nav>
+					{/* Button that opens the login modal */}
+					<CustomModal img="/img/buttons/login.png" text="Login"
+								component={<LoginComponent/>}/>
+					{/* Button that opens the register modal */}
+					<CustomModal img="/img/buttons/register.png" text="Register"
+								component={<RegisterContainer/>}/>
+				</Nav>
+			</Navbar.Collapse>
+		</Navbar>
+	);
 };
 
 export default NavBar;

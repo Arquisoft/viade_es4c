@@ -50,7 +50,11 @@ const NotificationsList = (props) => {
 					</Col>
 					<Col key="col-3" xs={12} sm={12} md={12} lg={1} xl={1}/>
 				</Row>
-				: <div><Spacer/><Loader/></div>}
+				: <div>
+					<Spacer/>
+					<Loader size="150"/>
+				</div>
+			}
 		</div>
 	)
 };
