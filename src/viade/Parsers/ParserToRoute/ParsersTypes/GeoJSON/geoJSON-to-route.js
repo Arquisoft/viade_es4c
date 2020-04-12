@@ -1,7 +1,7 @@
 import {LineString,Feature,FeatureCollection} from "./Types";
 
 class GeoJSONToRoute {
-  selectType=(type) =>{
+  selectType=(type) => {
     switch (type) {
       case "FeatureCollection":
         return new FeatureCollection();
