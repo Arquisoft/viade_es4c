@@ -56,7 +56,7 @@ const NotificationsList = (props) => {
 				</div>
 			}
 		</div>
-	)
+	);
 };
 
 export default NotificationsList;
