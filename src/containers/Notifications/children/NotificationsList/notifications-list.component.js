@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {notificationHelper} from "../../../../viade";
 import NotificationItem from "../NotificationItem";
 import {Col, Row} from "react-bootstrap";
+import { errorToaster } from "../../../../utils";
 
 const NotificationsList = (props) => {
 	const {inboxes} = props;
@@ -17,10 +18,10 @@ const NotificationsList = (props) => {
 			setNotifications(urls);
 		} catch (error) {
 			console.error(error);
+			errorToaster(error.message,error.name);
 		}
 	};
 	initNotifications();
-
 
 	return (
 		<div>
