@@ -2,7 +2,7 @@ import Feature from "./feature";
 
 class FeatureCollection{
     
-    execute=(geoJSON)=>  {
+    execute=(geoJSON) => {
         const features=geoJSON.features;
         if(features.length>1){throw new Error("FeatureCollection of route GeoJSON not supported");}
         this.parser=new Feature();
