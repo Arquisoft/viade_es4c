@@ -1,6 +1,7 @@
 import React, { Fragment,useState } from "react";
 import { routeHelper } from "../../../viade";
 import { RouteCard } from "../../../components";
+import { errorToaster } from "../../../utils";
 import { Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -12,7 +13,13 @@ const RouteItem = (props) => {
     if (route) {
       return;
     }
+    try{
     setRoute(await routeHelper.getBasicRoute(url));
+    }catch(error){
+      console.log(error);
+      let link={href:url,label:url};
+      errorToaster(error.message,error.name,link);
+    }
   };
   init();
   return (

@@ -80,7 +80,7 @@ export const resourceExists = async (resourcePath) => {
     const result = await auth.fetch(resourcePath);
    return result.status === 403 || result.status === 200;
   } catch (e) {
-    alert("Error:ldflex-helper > resourceExists");
+    throw e;
 
   }
 };

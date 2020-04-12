@@ -181,7 +181,7 @@ class SparqlFiddle{
                     resolve(results)
                 }, err => reject(err) )
             }, err => reject(err) )
-        }, err => console.log("CH:"+err) )
+        }, err => console.log(err) )
     };
     loadLibrary = ( fiddleLibrary) => {
         return new Promise((resolve, reject)=>{
@@ -248,7 +248,7 @@ class SparqlFiddle{
                 // replace the url with it's content
                 fiddle[type] = response.responseText;
                 resolve( fiddle )
-            })
+            }).catch((err)=>reject(err));
         } catch(err) { reject(err) }
       })
     };

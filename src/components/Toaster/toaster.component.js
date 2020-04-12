@@ -9,7 +9,6 @@ type Props = {
 
 const Toaster = (props: Props) => {
   const { title, content, link } = props;
-  console.log("FUNCIONAA");
   return (
     <div className="toaster">
       <span>{title}</span>
