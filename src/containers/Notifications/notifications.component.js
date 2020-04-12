@@ -1,14 +1,9 @@
 import React,{useState,useCallback,useEffect} from "react";
 import {NotificationsList} from "./children";
 import {ldflexHelper} from "../.././utils";
-import {RDFToRoute} from "../.././viade";
-import auth from "solid-auth-client";
-import FC from "solid-file-client";
-const fc = new FC(auth);
 
 const Notifications = (props) => {
     const [inboxes, setInbox] = useState([]);
-    const [image,setImage]=useState([]);
     const { webId } = props;
     
     const discoverInbox = useCallback(async () => {
