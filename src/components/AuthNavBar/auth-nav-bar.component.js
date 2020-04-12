@@ -14,7 +14,7 @@ const AuthNavBar = () => {
 
 	const logOut = async () => {
 		await auth.logout();
-		localStorage.removeItem('solid-auth-client');
+		localStorage.removeItem("solid-auth-client");
 		window.location = "/";
 	};
 
