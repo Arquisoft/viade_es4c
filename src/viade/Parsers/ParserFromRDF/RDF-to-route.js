@@ -87,6 +87,7 @@ class RDFToRoute {
                 blob
               )
             );
+            break;
         default:
           break;
       }       

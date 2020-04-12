@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {Route} from "react-router-dom";
 import {withAuthorization} from "../../hooks";
-import {AuthNavBar, Loader} from "../../components";
+import {AuthNavBar} from "../../components";
 import {permissionHelper} from "../../utils";
 
 /**
