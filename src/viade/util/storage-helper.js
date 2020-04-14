@@ -6,7 +6,7 @@ const fc = new FC(auth);
 const ROUTES="viade/routes/";
 const MEDIA="viade/media/";
 const INBOX="viade/inbox/";
-const SHARED_ME="viade/share_with_me.txt";
+const SHARED_ME="viade/shared_with_me.txt";
 const VIADE="viade/";
 
 export const getBaseUrl=(webId)=>{
