@@ -30,7 +30,7 @@ export const NotificationCardComponent = (props) => {
 			{/* Left side of the card, contains the image and hidden fields */}
 			<div className="route-card-left">
 				<Image src={process.env.PUBLIC_URL + "/img/cards/notification.png"} alt={"Notification"}
-					   className="route-card-image"/>
+					className="route-card-image"/>
 				{/* Hidden fields, we should the same as visible and the a spn the mark it is a link */}
 				<div className="route-card-extra">
 					<h4>{props.name}</h4>
@@ -39,7 +39,7 @@ export const NotificationCardComponent = (props) => {
 						? <div className="route-card-link"> Accepted </div>
 						: <div>
 							<CustomButton onClick={accept} disabled={props.disabled} text="Accept"
-										  className="route-card-button"/>
+										className="route-card-button"/>
 						</div>
 					}
 				</div>
