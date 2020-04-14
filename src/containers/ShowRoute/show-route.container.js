@@ -25,7 +25,7 @@ export class ShowRoute extends Component {
 		let promise = RDFToRoute.parse(this.linkRuta);
 		return await promise.then((res) => {
 			this.route = res;
-			this.setState({promiseIsResolved: true})
+			this.setState({promiseIsResolved: true});
 		});
 	}
 

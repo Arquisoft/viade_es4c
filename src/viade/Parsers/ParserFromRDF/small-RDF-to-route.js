@@ -26,7 +26,7 @@ class SmallRDFToRoute {
           (results) => {
           return results;
         },
-        err => {throw err;}
+          (err) => {throw err;}
       );
       return this.getRoute(result,url);    
       }catch(err){

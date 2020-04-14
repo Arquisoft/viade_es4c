@@ -8,7 +8,10 @@ class ImageViade{
     }
 
     getUrl(){
-        if(!this.image)return;
+        if(!this.image) {
+            return;
+        }
+
         return URL.createObjectURL(this.image);
     }
 

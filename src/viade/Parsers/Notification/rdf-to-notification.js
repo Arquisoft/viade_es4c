@@ -34,7 +34,7 @@ class RDFToNotification {
       (results) => {
         return results;
       },
-      (err) => {throw err},
+      (err) => {throw err;}
     );
     return this.arrayToNotification(result,url);
     
