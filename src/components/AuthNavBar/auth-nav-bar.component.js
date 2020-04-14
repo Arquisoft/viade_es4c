@@ -12,8 +12,9 @@ import {navbar} from "../../contexts";
  */
 const AuthNavBar = () => {
 
-	const logOut = () => {
-		auth.logout();
+	const logOut = async () => {
+		await auth.logout();
+		localStorage.removeItem("solid-auth-client");
 		window.location = "/";
 	};
 
