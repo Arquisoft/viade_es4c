@@ -93,29 +93,27 @@ class RouteToRDF {
 
         var aux = "";
 
+        this.str +=('viade:hasMediaAttached ');
+
         // Para cada archivo multimedia de la ruta que estamos parseando se hace lo siguiente:
         for (let i = 0; i < this.route.media.length; i++) {
+            
+            aux += (':media');
+            aux += (i+1);
 
-            this.str +=('viade:hasMediaAttached :media');
-            this.str +=(i + 1);
+            aux +=(' schema:contentUrl ');
+            aux +=(this.route.media[i].iri);
+            aux +=(';');
+            aux +=('schema:publishedDate ');
+            aux +=(this.route.media[i].publicationTime);
+            aux +=('schema:author ');
+            aux +=(this.route.media[i].author);
 
             if (i == this.route.media.length - 1) {
-                this.str +=('.');
+                aux +=('.');
             } else {
-                this.str +=(';');
+                aux +=(';');
             }
-            
-            aux +=(':media');
-            aux +=(i + 1);
-            aux +=(' schema:contentUrl <');
-            aux +=(this.route.media[i].iri);
-            aux +=('>;');
-            aux +=('schema:publishedDate "');
-            aux +=(this.route.media[i].publicationTime);
-            aux +=('"^^xsd:dateTime;');
-            aux +=('schema:author <');
-            aux +=(this.route.media[i].author);
-            aux +=('>.');
 
         }
 
