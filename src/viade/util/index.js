@@ -1,3 +1,4 @@
 import * as routeHelper from "./route-helper";
 import * as notificationHelper from "./notification-helper";
-export{routeHelper,notificationHelper};
+import * as storeHelper from "./storage-helper";
+export{routeHelper,notificationHelper,storeHelper};

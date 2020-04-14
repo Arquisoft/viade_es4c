@@ -5,12 +5,28 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {Spacer} from "../../components";
 import {home} from "../../contexts";
+import {storeHelper} from "../../viade";
 import "./home.container.css";
+
+import auth from "solid-auth-client";
 
 /**
  * Home component that returns the homepage
  */
 export const HomeComponent = () => {
+
+    const checkStructure=async ()=>{
+        let session = await auth.currentSession();
+        if(session){
+            let webId=session.webId;
+            console.log(webId);
+            if(!localStorage.getItem("isLogged")){
+                storeHelper.checkFolderStructure(webId);
+                localStorage.setItem("isLogged",true);
+            }
+        }
+    }
+    checkStructure();
     return (
         <Container>
             {/* Logo row */}

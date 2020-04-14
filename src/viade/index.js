@@ -15,7 +15,8 @@ import {
 } from "./Parsers";
 import{
     routeHelper,
-    notificationHelper
+    notificationHelper,
+    storeHelper
 } from "./util"
 export {
   RouteViade,
@@ -30,5 +31,6 @@ export {
   NotificationToRDF,
   SmallRDFToRoute,
   routeHelper,
-  notificationHelper
+  notificationHelper,
+  storeHelper
 };
