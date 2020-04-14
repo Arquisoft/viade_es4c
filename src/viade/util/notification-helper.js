@@ -5,7 +5,7 @@ import { RDFToNotification, NotificationToRDF } from "../Parsers";
 
 const fc = new FC(auth);
 
-export const fetchNotificationsURLS=async (inboxURL)=>{
+export const fetchNotificationsURLS=async (inboxURL)=> {
   if (!inboxURL){
     return;
   }
@@ -15,7 +15,7 @@ export const fetchNotificationsURLS=async (inboxURL)=>{
   }catch(err){
     throw new Error("An error has occurred trying to load your notifications");
   }
-}
+};
 
 export const fetchNotification = async (url) => {
   try{

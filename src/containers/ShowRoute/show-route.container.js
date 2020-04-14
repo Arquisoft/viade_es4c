@@ -26,7 +26,7 @@ export class ShowRoute extends Component {
 		return await promise.then((res) => {
 			this.route = res;
 			this.setState({promiseIsResolved: true})
-		})
+		});
 	}
 
 	render() {

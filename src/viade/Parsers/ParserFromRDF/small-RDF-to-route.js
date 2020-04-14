@@ -23,7 +23,7 @@ class SmallRDFToRoute {
   
       try{
       const result = await sparqlFiddle.run(fiddle).then(
-        results => {
+          (results) => {
           return results;
         },
         err => {throw err;}

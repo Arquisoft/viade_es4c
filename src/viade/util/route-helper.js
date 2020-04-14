@@ -20,7 +20,9 @@ export const fetchUrlSharedWithMeRoutes = async () => {
     let webId = (await auth.currentSession()).webId;
     let filesString = await fc.readFile(getSharedWithMeFolder(webId));
     let routes= JSON.parse(filesString).rutas;
-    if(!routes)return [];
+    if (!routes) {
+      return [];
+    }
     return routes;
   } catch (err) {
     console.error(err);
