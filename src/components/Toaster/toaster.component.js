@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 type Props = {
   title: String,
@@ -9,7 +9,6 @@ type Props = {
 
 const Toaster = (props: Props) => {
   const { title, content, link } = props;
-  console.log("FUNCIONAA");
   return (
     <div className="toaster">
       <span>{title}</span>

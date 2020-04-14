@@ -29,13 +29,15 @@ class RDFToNotification {
       wanted: "Array"
     };
 
+
     const result = await sparqlFiddle.run(fiddle).then(
       (results) => {
         return results;
       },
-      (err) => console.log(err)
+      (err) => {throw err;}
     );
     return this.arrayToNotification(result,url);
+    
   }
 
   arrayToNotification = (result,url) => {

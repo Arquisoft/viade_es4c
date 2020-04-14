@@ -4,7 +4,7 @@ import NotFound from "./NotFound";
 import MyRoutes from "./MyRoutes";
 import ShowRoute from "./ShowRoute";
 import FriendsRoutes from "./FriendsRoutes";
-import Share from "./Share";
+import Share from "../components/Share";
 import Notifications from "./Notifications";
 
 export {

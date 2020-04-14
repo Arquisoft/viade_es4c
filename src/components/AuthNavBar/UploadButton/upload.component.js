@@ -49,12 +49,13 @@ export const UploadComponent = () => {
 	}
 	else {
 		const file = files[0];
+		console.log(file);
 		const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/routes/";
 		const rutaMedia = webid.substring(0, webid.length - 16) + "/public/viade/media/";
 			//webid -> https://usernamme.solid.community/profile/card#me
 			const url = rutaPod + file.name.substr(0, file.name.indexOf(".")) + ".ttl";
-	 	 //Empezamos a parsear el archivo
 
+		//Empezamos a parsear el archivo
 		try {
 			let promise = ParserToRoute.parse(file);
 			let route = await promise.then((route) => {
