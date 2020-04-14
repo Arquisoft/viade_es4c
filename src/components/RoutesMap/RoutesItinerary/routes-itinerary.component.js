@@ -21,7 +21,7 @@ const RoutesItinerary = (props) => {
 						return <div key={object.latitude + object.longitude} className="coordinate">
 							{object.latitude}, {object.longitude}
 						</div>;
-					})};
+					})}
 				</div>
 			</Collapse>
 		</div>
