@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Image} from "react-bootstrap";
 import {CustomButton} from "../index";
-import { errorToaster, successToaster } from "../../utils";
+import {errorToaster, successToaster} from "../../utils";
 import "./cards.css";
 
 /**
@@ -14,14 +14,14 @@ export const NotificationCardComponent = (props) => {
 
 	let [isAccepted, setAccepted] = useState(props.read);
 
-	let accept = async() => {
-		try{
-			let read=await props.action();
-			setAccepted(read===true);
+	let accept = async () => {
+		try {
+			let read = await props.action();
+			setAccepted(read === true);
 			successToaster("The route has been accepted");
-		}catch(err){
+		} catch (err) {
 			console.error(err);
-			errorToaster(err.message,err.name);
+			errorToaster(err.message, err.name);
 		}
 	};
 
@@ -30,27 +30,27 @@ export const NotificationCardComponent = (props) => {
 			{/* Left side of the card, contains the image and hidden fields */}
 			<div className="route-card-left">
 				<Image src={process.env.PUBLIC_URL + "/img/cards/notification.png"} alt={"Notification"}
-					className="route-card-image"/>
+					   className="route-card-image"/>
 				{/* Hidden fields, we should the same as visible and the a spn the mark it is a link */}
 				<div className="route-card-extra">
 					<h4>{props.name}</h4>
 					<p className="route-card-p">{props.user}</p>
-					{isAccepted ?
-						<div className="route-card-link"> Accepted </div> :
-						<div>
+					{isAccepted
+						? <div className="route-card-link"> Accepted </div>
+						: <div>
 							<CustomButton onClick={accept} disabled={props.disabled} text="Accept"
-								className="route-card-button"/>
+										  className="route-card-button"/>
 						</div>
 					}
 				</div>
 			</div>
 			{/* Right side of the card, with the visible info */}
-			<div className={"route-card-right"}>
+			<div className={"route-card-right notification-card-right"}>
 				<h4>{props.name}</h4>
 				<p className="route-card-p">{props.user}</p>
-				{(isAccepted) ?
-					<div className="route-card-link"> Accepted </div> :
-					<div className="route-card-link"> Pending </div>
+				{(isAccepted)
+					? <div className="route-card-link"> Accepted </div>
+					: <div className="route-card-link"> Pending </div>
 				}
 			</div>
 		</div>
