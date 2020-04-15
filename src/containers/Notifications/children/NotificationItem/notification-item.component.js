@@ -37,7 +37,7 @@ class NotificationItem extends React.Component {
         this.setSharing(true);
         await notificationHelper.addRouteSharedWithMe(
           notification.object,
-          this.webId
+          notification.actor
         );
         const marked = await notificationHelper.markAsRead(
           notification

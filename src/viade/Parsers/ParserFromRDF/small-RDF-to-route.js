@@ -11,7 +11,6 @@ class SmallRDFToRoute {
       
       SELECT ?name ?description WHERE {
        ?route a viade:Route.
-       ?route viade:point ?point .
        ?route schema:name ?name.
       OPTIONAL {?route schema:description ?description.}
       }`;

@@ -68,23 +68,26 @@ export const getDefaultInbox = (inboxes, inbox1, inbox2) =>
   inboxes.find((inbox) => inbox.name === inbox1) ||
   inboxes.find((inbox) => inbox.name === inbox2);
 
-export const addRouteSharedWithMe = async (url, webId) => {
-  try{
-  const base = "/public/viade/shared_with_me.txt";
-  const path = webId.split("/profile/card#me")[0] + base;
-  if (!(await fc.itemExists(path))) {
-    const obj = { rutas: [url] };
-    await fc.createFile(path, JSON.stringify(obj), "text/plain", {});
-    return;
-  }
-  let docu = await fc.readFile(path);
-  let obj = JSON.parse(docu);
-  obj.rutas.push(url);
-  await fc.createFile(path, JSON.stringify(obj), "text/plain", {});
-}catch(err){
-  throw new Error("An error has occurred adding the route they have shared with you");
-}
-};
+  export const addRouteSharedWithMe=async (route, friend)=>{
+    try{
+      let webId = (await auth.currentSession()).webId;
+      const base = "public/viade/shared_with_me.ttl";
+      const path = webId.split("profile/card#me")[0] + base;
+      let docu = await fc.readFile(path);
+      const insert=`
+          []
+              a schema:ShareAction ;
+              schema:agent "`+friend+`" ;
+              schema:object "`+route+`";
+              schema:recipient "`+webId+`".
+          `;
+          docu+=insert;
+      await fc.createFile(path, docu, "text/turtle", {});
+    }catch(err){
+      throw new Error("An error has occurred adding the route they have shared with you");
+    }
+  
+  };
 
 export const markAsRead = async (notification) => {
   try{
