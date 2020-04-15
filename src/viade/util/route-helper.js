@@ -3,12 +3,12 @@ import auth from "solid-auth-client";
 import FC from "solid-file-client";
 const fc = new FC(auth);
 
-export const getMyRoutesFolder = (webId) => {
-  return getViadeFolder(webId) + "/routes";
-};
-
 export const getViadeFolder = (webId) => {
   return webId.split("profile")[0] + "public/viade";
+};
+
+export const getMyRoutesFolder = (webId) => {
+  return getViadeFolder(webId) + "/routes";
 };
 
 export const getSharedWithMeFolder = (webId) => {
@@ -20,7 +20,9 @@ export const fetchUrlSharedWithMeRoutes = async () => {
     let webId = (await auth.currentSession()).webId;
     let filesString = await fc.readFile(getSharedWithMeFolder(webId));
     let routes= JSON.parse(filesString).rutas;
-    if(!routes)return [];
+    if (!routes) {
+      return [];
+    }
     return routes;
   } catch (err) {
     console.error(err);
@@ -62,5 +64,5 @@ export const getFullRoute = async (url) => {
 };
 
 export const parseRoutefromFile = (file) => {
-  return ParserToRoute.parse(file).then((route) => route,(err)=>{throw err});
+  return ParserToRoute.parse(file).then((route) => route,(err) => {throw err;});
 };

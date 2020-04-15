@@ -1,4 +1,4 @@
-import React,{useState,useCallback,useEffect} from "react";
+import React, {useState, useCallback, useEffect} from "react";
 import {NotificationsList} from "./children";
 import {ldflexHelper, errorToaster} from "../.././utils";
 

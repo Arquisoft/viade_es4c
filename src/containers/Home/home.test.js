@@ -1,7 +1,6 @@
 import React from "react";
 import { cleanup, act } from "@testing-library/react";
 import { render, unmountComponentAtNode } from "react-dom";
-import { BrowserRouter as Router } from 'react-router-dom';
 import HomeComponent from "./home.container";
 
 afterAll(cleanup);
@@ -28,7 +27,7 @@ it("Prueba que renderiza", () => {
   act(() => {
     render(<HomeComponent />, container);
   });
-  expect(container.textContent).toBe("Viade is a Solid project developed by third year students of the University of Oviedo Software Engineering degree in the Software Architecture subject. It offers a route sharing application following the SOLID principles. This is a site where all your data always remains yours. Developed by team es4c.Upload a new routeComplete it with images and videosShare it with whoever you wantAnd keep the ownership of all this  ");
+  expect(container.textContent).toBe("Viade is a Solid project developed by third year students of the University of Oviedo Software Engineering degree in the Software Architecture subject. It offers a route sharing application following the SOLID principles. This is a site where all your data always remains yours. Developed by team es4c.Upload a new routeComplete it with images and videosShare it with whoever you wantAnd keep the ownership of your data  ");
 });
 
 

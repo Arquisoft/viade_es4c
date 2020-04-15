@@ -8,7 +8,10 @@ class VideoViade{
     }
 
     getUrl(){
-        if(!this.video)return;
+        if (!this.video) {
+            return;
+        }
+
         return URL.createObjectURL(this.video);
     }
 }
