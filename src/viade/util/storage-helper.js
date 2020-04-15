@@ -9,7 +9,7 @@ const INBOX="viade/inbox/";
 const SHARED_ME="viade/shared_with_me.txt";
 const VIADE="viade/";
 
-export const getBaseUrl=(webId)=>{
+export const getBaseUrl=(webId)=> {
  return webId.split("profile")[0];
 };
 
@@ -29,7 +29,7 @@ const createRoutesFolder=(base)=> {
     fc.createFolder(base+ROUTES);
 };
 
-export const initFolderStructure=async (webId)=>{
+export const initFolderStructure=async (webId)=> {
     const base=getBaseUrl(webId);
     await createRoutesFolder(base);
     await createMediaFolder(base);
