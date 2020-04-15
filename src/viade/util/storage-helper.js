@@ -13,32 +13,31 @@ export const getBaseUrl=(webId)=>{
  return webId.split("profile")[0];
 };
 
+const createInbox=(base,webId)=> {
+    fc.createFolder(base+INBOX).then(async ()=> {await permissionHelper.checkOrSetInboxAppendPermissions(base+INBOX,webId);});
+};
+
+const createSharedMeFile=(base)=> {
+    fc.createFile(base+SHARED_ME,"{rutas:[]}","text/plain",{});
+};
+
+const createMediaFolder=(base)=> {
+    fc.createFolder(base+MEDIA);
+};
+
+const createRoutesFolder=(base)=> {
+    fc.createFolder(base+ROUTES);
+};
+
 export const initFolderStructure=async (webId)=>{
     const base=getBaseUrl(webId);
     await createRoutesFolder(base);
     await createMediaFolder(base);
     await createSharedMeFile(base);
     await createInbox(base,webId);
-    console.log("FINISH INIT");
 };
 
-const createInbox=(base,webId)=>{
-    fc.createFolder(base+INBOX).then(async ()=>{await permissionHelper.checkOrSetInboxAppendPermissions(base+INBOX,webId)});
-};
-
-const createSharedMeFile=(base)=>{
-    fc.createFile(base+SHARED_ME,"{rutas:[]}","text/plain",{});
-};
-
-const createMediaFolder=(base)=>{
-    fc.createFolder(base+MEDIA);
-};
-
-const createRoutesFolder=(base)=>{
-    fc.createFolder(base+ROUTES);
-};
-
-export const checkFolderStructure=async (webId)=>{
+export const checkFolderStructure=async (webId)=> {
     infoToaster("Checking repository state");
     const base=getBaseUrl(webId);
     if(!await fc.itemExists(base+VIADE)){

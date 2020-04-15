@@ -15,17 +15,16 @@ import auth from "solid-auth-client";
  */
 export const HomeComponent = () => {
 
-    const checkStructure=async ()=>{
+    const checkStructure=async ()=> {
         let session = await auth.currentSession();
         if(session){
             let webId=session.webId;
-            console.log(webId);
             if(!localStorage.getItem("isLogged")){
                 storeHelper.checkFolderStructure(webId);
                 localStorage.setItem("isLogged",true);
             }
         }
-    }
+    };
     checkStructure();
     return (
         <Container>

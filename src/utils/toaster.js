@@ -16,7 +16,7 @@ export const successToaster = (content: String, title: String = null, link: Obje
   });
 
   export const infoToaster = (content: String, title: String = null, link: Object) =>
-  toast(<Toaster {...{ content, title, type: 'info', link }} />, {
-    className: 'toaster-info',
-    type: 'info'
+  toast(<Toaster {...{ content, title, type: "info", link }} />, {
+    className: "toaster-info",
+    type: "info"
   });

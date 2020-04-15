@@ -76,7 +76,7 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
   return true;
 };
 
-export const setPermissions=async (webId,documentUri,permissions)=>{
+export const setPermissions=async (webId,documentUri,permissions)=> {
   const ACLFile = new AccessControlList(webId, documentUri);
   await ACLFile.createACL(permissions);
 };
