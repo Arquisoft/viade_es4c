@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Image} from "react-bootstrap";
 import {CustomButton} from "../index";
+import {errorToaster, successToaster} from "../../utils";
 import "./cards.css";
 
 /**
@@ -13,9 +14,15 @@ export const NotificationCardComponent = (props) => {
 
 	let [isAccepted, setAccepted] = useState(props.read);
 
-	let accept = () => {
-		props.action();
-		setAccepted(!isAccepted);
+	let accept = async () => {
+		try {
+			let read = await props.action();
+			setAccepted(read === true);
+			successToaster("The route has been accepted");
+		} catch (err) {
+			console.error(err);
+			errorToaster(err.message, err.name);
+		}
 	};
 
 	return (
@@ -28,22 +35,22 @@ export const NotificationCardComponent = (props) => {
 				<div className="route-card-extra">
 					<h4>{props.name}</h4>
 					<p className="route-card-p">{props.user}</p>
-					{isAccepted ?
-						<div className="route-card-link"> Accepted </div> :
-						<div>
+					{isAccepted
+						? <div className="route-card-link"> Accepted </div>
+						: <div>
 							<CustomButton onClick={accept} disabled={props.disabled} text="Accept"
-								className="route-card-button"/>
+										className="route-card-button"/>
 						</div>
 					}
 				</div>
 			</div>
 			{/* Right side of the card, with the visible info */}
-			<div className={"route-card-right"}>
+			<div className={"route-card-right notification-card-right"}>
 				<h4>{props.name}</h4>
 				<p className="route-card-p">{props.user}</p>
-				{(isAccepted) ?
-					<div className="route-card-link"> Accepted </div> :
-					<div className="route-card-link"> Pending </div>
+				{(isAccepted)
+					? <div className="route-card-link"> Accepted </div>
+					: <div className="route-card-link"> Pending </div>
 				}
 			</div>
 		</div>

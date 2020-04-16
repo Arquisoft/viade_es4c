@@ -1,3 +1,3 @@
-import RegisterModal from "./register-modal.component";
+import RegisterContainer from "./register.container";
 
-export default RegisterModal;
+export default RegisterContainer;

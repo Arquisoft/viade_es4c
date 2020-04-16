@@ -16,7 +16,7 @@ import {
 import{
     routeHelper,
     notificationHelper
-} from "./util"
+} from "./util";
 export {
   RouteViade,
   ItemViade,
