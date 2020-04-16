@@ -103,29 +103,48 @@ class RouteToRDF {
         // Para cada archivo multimedia de la ruta que estamos parseando se hace lo siguiente:
         for (let i = 0; i < this.route.media.length; i++) {
             
+            // Agregamos un nuevo hasMediaAttached, es decir, un nuevo enlace a un contenido multimedia.
             this.str +=('\tviade:hasMediaAttached ');
             this.str += (':media');
             this.str += (i+1);
 
+            /*
+            En caso de ser el último contenido multimedia, se añade el punto que representa el fin del
+            fichero.
+            En caso contrario, se añade punto y coma para seguir añadiendo contenidos multimedia.
+            */
             if (i == this.route.media.length - 1) {
                 this.str +=(' .\n');
             } else {
                 this.str +=(' ;\n');
             }
 
+            /*
+            Usando una variable auxiliar, vamos almacenando las definiciones como tal de los contenidos
+            multimedia, que posteriormente se añadirán al final del fichero, una vez la ruta esté completamente
+            definida.
+            */
+
+            /*
+            Añadimos el nombre del contenido multimedia, que en este caso será "media" + la posición que ocupa
+            en la lista de contenidos multimedia. Ej.: media1, media2...
+            */
             aux +=('\n:media');
             aux += (i+1);
             aux +=('\n');
 
+            // Agregamos la IRI del archivo.
             aux +=('\tschema:contentUrl <');
             aux +=(this.route.media[i].iri);
             aux +=('> ;\n');
 
+            // Añadimos la fecha de publicación del archivo.
             aux +=('\tschema:publishedDate ');
             aux +=(this.getDate(this.route.media[i].publicationTime));
             aux +=('^^xsd:dateTime');
             aux +=(' ;\n');
 
+            // Añadimos el autor del archivo.
             aux +=('\tschema:author <');
             aux +=(this.route.media[i].author);
             aux +=('> .\n');
@@ -133,11 +152,22 @@ class RouteToRDF {
         }
 
         this.str +=('\n');
+
+        /*
+        Añadimos a la variable global str (la que tiene todo el contenido del parser) el contenido
+        de la variable auxiliar utilizada para crear la representación de los archivos multimedia
+        en el fichero.
+        */
         this.str +=(aux);
 
     }
 
     getDate(date) {
+
+        /*
+        Creamos una variable auxiliar en la que se irá almacenando la cadena de texto que representa
+        la fecha y la devolvemos.
+        */
 
         var aux = "";
 
