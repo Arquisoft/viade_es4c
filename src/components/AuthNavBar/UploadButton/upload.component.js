@@ -70,9 +70,9 @@ export const UploadComponent = () => {
 				for (let i = 0; i < media.length; i++) {
 					await fc.putFile(rutaMedia + media[i].name, media[i], media[i].type);
 					if (media[i].name.includes(".mp4")) {
-						route.media.push(new VideoViade(rutaMedia, webid.substring(0, webid.length - 16), new Date()));
+						route.media.push(new VideoViade(rutaMedia + media[i].name, webid.substring(0, webid.length - 16), new Date()));
 					} else {
-						route.media.push(new ImageViade(rutaMedia, webid.substring(0, webid.length - 16), new Date()));
+						route.media.push(new ImageViade(rutaMedia + media[i].name, webid.substring(0, webid.length - 16), new Date()));
 					}
 
 				}
