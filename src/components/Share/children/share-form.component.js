@@ -15,11 +15,19 @@ const ShareFormComponent = ({
 	let [sentTo, setSentTo] = useState([]);
 
 	const shareWith = (target) => {
-        friend = target;
+		setSentTo([...sentTo, target]);
+
+		if (target.includes("profile/card#me")){
+			friend = target;
+		} else {
+			friend = target.concat("profile/card#me");
+		}
+
         shareRoute();
     };
 
 	const shareRoute = async () => {
+
 		const licenseUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
 		const inboxes = await notificationHelper.findUserInboxes([
 			{path: friend, name: "Global"}
@@ -27,8 +35,6 @@ const ShareFormComponent = ({
 
 		const to = inboxes[0];
 		const target = friend;
-		setSentTo([...sentTo, friend]);
-		successToaster("The route was shared successfully");
 
 		await sendNotification(
 			{
@@ -42,6 +48,8 @@ const ShareFormComponent = ({
 			NotificationTypes.OFFER,
 			licenseUrl
 		);
+
+		successToaster("The route was shared successfully");
 	};
 
 	return (
