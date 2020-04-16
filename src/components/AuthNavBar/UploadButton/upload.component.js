@@ -2,8 +2,7 @@ import React from "react";
 import SolidFileClient from "solid-file-client";
 import auth from "solid-auth-client";
 import Form from "react-bootstrap/Form";
-import {ParserToRoute, RouteToRDF} from "../../../viade";
-import {VideoViade, ImageViade} from "../../../viade";
+import {ParserToRoute, RouteToRDF,VideoViade, ImageViade,storageHelper} from "../../../viade";
 import ImageUploader from "react-images-upload";
 import { useWebId } from "@inrupt/solid-react-components";
 import {CustomButton} from "../../";
@@ -50,8 +49,8 @@ export const UploadComponent = () => {
 	else {
 		const file = files[0];
 		console.log(file);
-		const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/routes/";
-		const rutaMedia = webid.substring(0, webid.length - 16) + "/public/viade/media/";
+		const rutaPod = storageHelper.getMyRoutesFolder(webid);
+		const rutaMedia = storageHelper.getMediaFolder(webid);
 			//webid -> https://usernamme.solid.community/profile/card#me
 			const url = rutaPod + file.name.substr(0, file.name.indexOf(".")) + ".ttl";
 

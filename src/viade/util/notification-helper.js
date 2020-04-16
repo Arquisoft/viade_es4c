@@ -2,6 +2,7 @@ import { ldflexHelper} from "../../utils/index";
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
 import { RDFToNotification, NotificationToRDF } from "../Parsers";
+import {storageHelper} from "../util";
 
 const fc = new FC(auth);
 
@@ -70,8 +71,7 @@ export const getDefaultInbox = (inboxes, inbox1, inbox2) =>
 
 export const addRouteSharedWithMe = async (url, webId) => {
   try{
-  const base = "/public/viade/shared_with_me.txt";
-  const path = webId.split("/profile/card#me")[0] + base;
+  const path = storageHelper.getSharedWithMeFile(webId);
   if (!(await fc.itemExists(path))) {
     const obj = { rutas: [url] };
     await fc.createFile(path, JSON.stringify(obj), "text/plain", {});

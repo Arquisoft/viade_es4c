@@ -1,6 +1,7 @@
 import React from "react";
 import { NotificationTypes } from "@inrupt/solid-react-components";
-import { notificationHelper} from "../../../viade";
+import {storageHelper} from "../../../viade";
+import { errorToaster, successToaster } from "../../../utils";
 
 const ShareFormComponent = ({
     webId,
@@ -11,36 +12,42 @@ const ShareFormComponent = ({
     sendNotification
 }) => {
 
+
     const shareRoute = async () => {
-        const licenseUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
-        const inboxes = await notificationHelper.findUserInboxes([
-            { path: friend, name: "Global" }
-        ]);
+        try{
+            const licenseUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
+            const to = storageHelper.getInboxFolder(webId);
+            const target = friend;
 
-        const to = inboxes[0];
-        const target = friend;
-
-        await sendNotification(
-            {
-                title: "Route share",
-                summary: "has shared you a route.",
-                actor: webId,
-                object: route,
-                target
-            },
-            to.path,
-            NotificationTypes.OFFER,
-            licenseUrl
-        );
+            await sendNotification(
+                {
+                    title: "Route share",
+                    summary: "has shared you a route.",
+                    actor: webId,
+                    object: route,
+                    target
+                },
+                to.path,
+                NotificationTypes.OFFER,
+                licenseUrl
+            );
+            successToaster("The route has been shared!!");
+            }catch(error){
+                console.error(error);
+                errorToaster("An error has occurred sharing the route");
+            }
     };
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        shareRoute();
+        await shareRoute();
+        document.getElementById("share-form").reset();
+
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id="share-form">
             <label>
                 Route's webID:
         <input
