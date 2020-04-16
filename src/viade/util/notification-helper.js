@@ -26,26 +26,6 @@ export const fetchNotification = async (url) => {
 };
 
 
-
-export const sendNotification = async (
-  opponent,
-  content,
-  createNotification,
-  to
-) => {
-  try {
-    if (to) {
-      return createNotification(content, to);
-    }
-    /**
-     * If the opponent doesn't have an inbox, show an error
-     */
-    throw new Error("The user does not have an available inbox");
-  } catch (error) {
-    throw new Error(error);
-  }
-};
-
 export const findUserInboxes = async (paths) => {
   try {
     let inboxes = [];
