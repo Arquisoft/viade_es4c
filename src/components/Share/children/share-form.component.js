@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import {NotificationTypes} from "@inrupt/solid-react-components";
 import {notificationHelper} from "../../../viade";
 import {List, LoggedIn} from "@solid/react";
 import {FriendCard} from "../../index";
+import {successToaster} from "../../../utils";
 
 const ShareFormComponent = ({
 								webId,
@@ -10,10 +11,8 @@ const ShareFormComponent = ({
 								sendNotification,
 								routeURL
 	}) => {
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		shareRoute();
-	};
+
+	let [sentTo, setSentTo] = useState([]);
 
 	const shareWith = (target) => {
         friend = target;
@@ -28,6 +27,8 @@ const ShareFormComponent = ({
 
 		const to = inboxes[0];
 		const target = friend;
+		setSentTo([...sentTo, friend]);
+		successToaster("The route was shared successfully");
 
 		await sendNotification(
 			{
@@ -44,12 +45,13 @@ const ShareFormComponent = ({
 	};
 
 	return (
-		<form className={"list-holder"} onSubmit={handleSubmit} style={{width: "750px"}}>
+		<form className={"list-holder"} style={{width: "750px"}}>
 			<h1>Share with</h1>
 			<LoggedIn>
 				<List src="user.friends">
-					{(friend) => <FriendCard key={`${friend}`} friend={`${friend}`}
-											enable={false} onClick={() => shareWith(`${friend}`)}/>}
+					{(friend) => sentTo.includes(`${friend}`) ? null
+						:	<FriendCard key={`${friend}`} friend={`${friend}`}
+										enable={false} onClick={() => shareWith(`${friend}`)}/>}
 				</List>
 			</LoggedIn>
 		</form>
