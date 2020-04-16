@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Share should render correctly in "debug" mode 1`] = `
+<div>
+  <p>
+    .
+  </p>
+  <p>
+    .
+  </p>
+  <h1>
+    Share Routes
+  </h1>
+  <ShareFormComponent
+    friend=""
+    route=""
+    sendNotification={[Function]}
+    setFriend={[Function]}
+    setRoute={[Function]}
+  />
+</div>
+`;

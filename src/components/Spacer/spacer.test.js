@@ -1,13 +1,11 @@
-import React from "react";
-import { render, cleanup } from "@testing-library/react";
+import React from 'react';
+import { shallow } from 'enzyme';
 import Spacer from "./spacer.component";
 
-afterAll(cleanup);
-
-const { container } = render(<Spacer />);
-
-describe("Spacer", () => {
-  it("renders without crashing", () => {
-    expect(container).toBeTruthy();
+describe('Spacer', () => {
+  it('should render correctly in "debug" mode', () => {
+    const component = shallow(<Spacer debug />);
+  
+    expect(component).toMatchSnapshot();
   });
 });

@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import AuthNavBar from "./auth-nav-bar.component";
+import Toaster from "./toaster.component";
 
-describe('AuthNavBar', () => {
+describe('Toaster', () => {
   it('should render correctly in "debug" mode', () => {
-    const component = shallow(<AuthNavBar debug />);
+    const component = shallow(<Toaster debug />);
   
     expect(component).toMatchSnapshot();
   });

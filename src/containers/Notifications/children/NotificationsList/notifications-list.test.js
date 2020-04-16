@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import AuthNavBar from "./auth-nav-bar.component";
+import NotificationList from "./notifications-list.component";
 
-describe('AuthNavBar', () => {
+describe('NotificationList', () => {
   it('should render correctly in "debug" mode', () => {
-    const component = shallow(<AuthNavBar debug />);
+    const component = shallow(<NotificationList debug />);
   
     expect(component).toMatchSnapshot();
   });
