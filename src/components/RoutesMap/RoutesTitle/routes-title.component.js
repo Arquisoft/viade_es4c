@@ -24,8 +24,7 @@ class RouteTitle extends Component {
 				</div>
 				{ this.share
 					?	<div className="float-right">
-							<CustomModal text="Share" img="/img/buttons/share.png"
-									  component={<ShareComponent/>}/>
+							<CustomModal text="Share" img="/img/buttons/share.png" component={<ShareComponent/>}/>
 						</div>
 					: 	null	}
 			</div>
