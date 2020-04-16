@@ -17,7 +17,6 @@ export class ShowRoute extends Component {
 		super(props);
 		this.linkRuta = props.location.state.route;
 		this.state = {promiseIsResolved: false};
-		console.log(this.state);
 		this.route = this.getRoute();
 	}
 

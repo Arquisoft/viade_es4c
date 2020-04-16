@@ -24,7 +24,7 @@ export const HomeComponent = () => {
         localStorage.setItem("isLogged", true);
           await storageHelper.checkFolderStructure(webId);
         } catch (error) {
-          console.log(error);
+          console.error(error);
           errorToaster("An error has occurred with your POD ");
         }
       }

@@ -48,7 +48,6 @@ export const UploadComponent = () => {
 	}
 	else {
 		const file = files[0];
-		console.log(file);
 		const rutaPod = storageHelper.getMyRoutesFolder(webid);
 		const rutaMedia = storageHelper.getMediaFolder(webid);
 			//webid -> https://usernamme.solid.community/profile/card#me

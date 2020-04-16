@@ -17,7 +17,7 @@ import{
     routeHelper,
     notificationHelper,
     storageHelper
-} from "./util"
+} from "./util";
 
 export {
   RouteViade,
