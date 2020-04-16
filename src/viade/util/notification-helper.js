@@ -72,8 +72,9 @@ export const getDefaultInbox = (inboxes, inbox1, inbox2) =>
 export const addRouteSharedWithMe = async (url, webId) => {
   try{
   const path = storageHelper.getSharedWithMeFile(webId);
+  console.log(path);
   if (!(await fc.itemExists(path))) {
-    const obj = { rutas: [url] };
+    const obj = { "rutas": [url] };
     await fc.createFile(path, JSON.stringify(obj), "text/plain", {});
     return;
   }

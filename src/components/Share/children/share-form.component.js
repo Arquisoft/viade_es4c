@@ -16,7 +16,8 @@ const ShareFormComponent = ({
     const shareRoute = async () => {
         try{
             const licenseUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
-            const to = storageHelper.getInboxFolder(webId);
+            const to = storageHelper.getInboxFolder(friend);
+            console.log(to);
             const target = friend;
 
             await sendNotification(
@@ -27,7 +28,7 @@ const ShareFormComponent = ({
                     object: route,
                     target
                 },
-                to.path,
+                to,
                 NotificationTypes.OFFER,
                 licenseUrl
             );
