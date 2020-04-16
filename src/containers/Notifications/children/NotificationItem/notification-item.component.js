@@ -1,67 +1,73 @@
-import React from "react";
-import {notificationHelper,errorToaster} from "../../../../utils";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import Button from "react-bootstrap/Button";
+import React, { Fragment } from "react";
+import { notificationHelper } from "../../../../viade";
+import { NotificationCard } from "../../../../components";
+import { errorToaster } from "../../../../utils";
 
-class NotificationItem extends React.Component{
-	constructor(props){
-		super(props);
-		const {url, webId, setSharing, isSharing} = props;
-		this.url=url;
-		this.webId=webId;
-		this.setSharing=setSharing;
-		this.isSharing=isSharing;
-		this.state={};
-	}
+class NotificationItem extends React.Component {
+  constructor(props) {
+    super(props);
+    const { url, webId, setSharing, isSharing } = props;
+    this.url = url;
+    this.webId = webId;
+    this.setSharing = setSharing;
+    this.isSharing = isSharing;
+    this.state = {};
+  }
 
-	init = async () => {
-		if(this.state.notification){
-			return;
-		}
-		const notification=await notificationHelper.fetchNotification(this.url);
-		this.setState({notification:notification});
-		errorToaster("HOLA","HOLA",{});
-	}
+  init = async () => {
+    if (this.state.notification) {
+      return;
+    }
+    try {
+      const notification = await notificationHelper.fetchNotification(this.url);
+      this.setState({ notification: notification });
+    } catch (err) {
+      console.error(err);
+      let link = { href: this.url, label: this.url };
+      errorToaster(err.message, err.name, link);
+    }
+  };
 
-	addSharedWithMe = async (notification) => {	
-		if(!notification){
-			return;
-		}
-		if (!notification.read) {
-			this.setSharing(true);
-			await notificationHelper.addRouteSharedWithMe(notification.object, this.webId);
-			await notificationHelper.markAsRead(notification);
-			this.setSharing(false);
-		}
-	};
+  addSharedWithMe = async (notification) => {
+    if (!notification) {
+      return;
+    }
+    if (!notification.read) {
+      try {
+        this.setSharing(true);
+        await notificationHelper.addRouteSharedWithMe(
+          notification.object,
+          this.webId
+        );
+        const marked = await notificationHelper.markAsRead(
+          notification
+        );
+        this.setSharing(false);
+        return marked;
+      } catch (err) {
+        throw err;
+      }
+    }
+  };
 
-
-	render(){
-	this.init();
-	return (
-		<div>
-		{this.state.notification ?
-			<Card style={{margin: "0px 0px 10px 0px", width: "50%"}}>
-			<Card.Header>
-                <h4 className="d-inline-block">{this.state.notification.title}</h4>
-                {!this.state.notification.read ?
-                    <Button disabled={this.isSharing} onClick={() => this.addSharedWithMe(this.state.notification)}
-                        className="float-right d-inline-block">
-                        Accept Route
-                    </Button> : null}
-			</Card.Header>
-			<ListGroup variant="flush">
-				<ListGroup.Item>From: {this.state.notification.actor.toString()
-					.substr(8, this.state.notification.actor.toString().length - 40)}</ListGroup.Item>
-				<ListGroup.Item>Route: {this.state.notification.object.toString().split("/").pop()}</ListGroup.Item>
-
-			</ListGroup>
-		</Card>
-		:null}
-		</div>
-	);
-				}
+  render() {
+    this.init();
+    return (
+      <Fragment>
+        {this.state.notification ? (
+          <NotificationCard
+            name={this.state.notification.object.toString().split("/").pop()}
+            user={this.state.notification.actor
+              .toString()
+              .substr(8, this.state.notification.actor.toString().length - 40)}
+            read={this.state.notification.read}
+            action={() => this.addSharedWithMe(this.state.notification)}
+            disabled={this.isSharing}
+          />
+        ) : null}
+      </Fragment>
+    );
+  }
 }
 
 export default NotificationItem;

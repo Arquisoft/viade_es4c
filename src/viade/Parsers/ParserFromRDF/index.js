@@ -1,3 +1,3 @@
 import RDFToRoute from "./RDF-to-route";
-
-export {RDFToRoute};
+import SmallRDFToRoute from "./small-RDF-to-route";
+export {RDFToRoute,SmallRDFToRoute};

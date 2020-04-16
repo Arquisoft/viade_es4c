@@ -1,28 +1,31 @@
-import React from "react";
-import Card from "react-bootstrap/Card";
+import React, {useState} from "react";
+import {Collapse} from "react-bootstrap";
+import "./routes-itinerary.css";
+import {CustomButton} from "../../";
 
 /**
  * Element listing all the different points of interest of the route
  */
-class RoutesItinerary extends React.Component {
+const RoutesItinerary = (props) => {
 
-	constructor(props) {
-		super(props);
-		this.data = this.props.route.items;
-	}
+	const [isOpen, setIsOpen] = useState(false);
 
-	render() {
-		return (
-			<div className="itinerary">
-				<h2>Points:</h2>
-				{this.data.map(function (object) {
-					return <Card key={object.latitude + object.longitude}>
-						<p className="coordinate">{object.latitude}, {object.longitude}</p>
-					</Card>
-				})};
-			</div>
-		);
-	}
+	const toggle = () => setIsOpen(!isOpen);
+
+	return (
+		<div>
+			<CustomButton onClick={toggle} text="Points" className="dropdown-toggle w-100"/>
+			<Collapse in={isOpen}>
+				<div>
+					{props.route.items.map(function (object) {
+						return <div key={object.latitude + object.longitude} className="coordinate">
+							{object.latitude}, {object.longitude}
+						</div>;
+					})}
+				</div>
+			</Collapse>
+		</div>
+	);
 
 };
 

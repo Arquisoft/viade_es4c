@@ -1,0 +1,34 @@
+{
+  "logo": {
+    "src": "/img/logo.svg",
+    "alt": "Viade",
+    "href": ""
+  },
+  "notifications": {
+    "src": "/img/buttons/notification.png",
+    "href": "/notifications"
+  },
+  "logout": {
+    "src": "/img/buttons/logout.png"
+  },
+  "links": [
+    {
+      "text": "My Routes",
+      "src": "/img/links/route.png",
+      "alt": "My Routes",
+      "href": "/myRoutes"
+    },
+    {
+      "text": "Friend Routes",
+      "src": "/img/links/friends.png",
+      "alt": "Friend Routes",
+      "href": "/friendsRoutes"
+    },
+    {
+      "text": "Profile",
+      "src": "/img/links/profile.png",
+      "alt": "Profile",
+      "href": "/profile"
+    }
+  ]
+}

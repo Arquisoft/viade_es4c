@@ -1,5 +1,5 @@
 import {AccessControlList, AppPermission} from "@inrupt/solid-react-components";
-//import { errorToaster } from '@utils';
+import { errorToaster } from "./index";
 
 // Check that all permissions we need are set. If any are missing, this returns false
 const checkAppPermissions = (userAppPermissions, appPermissions) =>
@@ -32,12 +32,10 @@ export const checkPermissions = async (webId, errorMessage) => {
     userApp.permissions === null ||
     !checkAppPermissions(userApp.permissions, [APPEND, READ, WRITE, CONTROL])
   ) {
-    /*
     errorToaster(errorMessage.message, errorMessage.title, {
       label: errorMessage.label,
       href: errorMessage.href
-    });*/
-    alert(errorMessage.title+": "+errorMessage.message);
+    });
   }
 };
 
