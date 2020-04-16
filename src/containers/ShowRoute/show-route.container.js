@@ -15,9 +15,8 @@ export class ShowRoute extends Component {
 	 */
 	constructor(props) {
 		super(props);
-		this.linkRuta = props.location.state.route;
+		this.linkRuta = decodeURIComponent(props.match.params.uri);
 		this.state = {promiseIsResolved: false};
-		console.log(this.state);
 		this.route = this.getRoute();
 	}
 
