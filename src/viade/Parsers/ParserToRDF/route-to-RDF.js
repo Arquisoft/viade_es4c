@@ -189,65 +189,6 @@ class RouteToRDF {
 
     }
 
-    /*parseMedia() {
-
-        var aux = "";
-
-        this.str +=('viade:hasMediaAttached ');
-
-        // Para cada archivo multimedia de la ruta que estamos parseando se hace lo siguiente:
-        for (let i = 0; i < this.route.media.length; i++) {
-            
-            aux += (':media');
-            aux += (i+1);
-
-            aux +=(' schema:contentUrl ');
-            aux +=(this.route.media[i].iri);
-            aux +=(';');
-            aux +=('schema:publishedDate ');
-            aux +=(this.route.media[i].publicationTime);
-            aux +=('schema:author ');
-            aux +=(this.route.media[i].author);
-
-            if (i == this.route.media.length - 1) {
-                aux +=('.');
-            } else {
-                aux +=(';');
-            }
-
-        }
-
-        this.str +=(aux);
-
-    }*/
-
-    /*parseMedia() {
-
-        // Para cada archivo multimedia de la ruta que estamos parseando se hace lo siguiente:
-        for (let i = 0; i < this.route.media.length; i++) {
-            
-            this.str +=('viade:hasMediaAttached [');
-
-            this.str +=('schema:contentUrl "');
-            this.str +=(this.route.media[i].iri);
-            this.str +=('";');
-            this.str +=('schema:publishedDate ');
-            this.str +=(this.route.media[i].publicationTime);
-            this.str +=(';');
-            this.str +=('schema:author "');
-            this.str +=(this.route.media[i].author);
-            this.str +=('"');
-
-            if (i == this.route.media.length - 1) {
-                this.str +=('].');
-            } else {
-                this.str +=('];');
-            }
-
-        }
-
-    }*/
-
 }
 
 export default RouteToRDF;
