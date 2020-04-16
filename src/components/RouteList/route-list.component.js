@@ -4,7 +4,7 @@ import {Col, Row} from "react-bootstrap";
 
 const RouteList = (props) => {
 	const [urlRoutes, setUrlRoutes] = useState();
-	const {readRoutes, webId} = props;
+	const {readRoutes, webId, share} = props;
 
 	const initRoutes = async () => {
 		if (urlRoutes) {
@@ -25,7 +25,7 @@ const RouteList = (props) => {
 				<Row>
 					{(urlRoutes && urlRoutes.length > 0) ?
 						urlRoutes.map((url, pos) =>
-							<RouteItem key={pos} url={url} webId={webId}/>
+							<RouteItem key={pos} url={url} webId={webId} share={share}/>
 						) :
 						<h4 style={{textAlign: "center", margin: "15px 0 0 0", width: "100%"}}>
 							Sadly, you don't have routes to show here yet :(

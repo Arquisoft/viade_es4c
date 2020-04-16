@@ -35,7 +35,8 @@ export class ShowRoute extends Component {
 					<Row>
 						<Col xs={12} md={2}/>
 						<Col xs={12} md={8} className="route-container">
-							<RouteTitle route={this.route}/> 				{/* Name, description and share button */}
+							{/* Name, description and share button */}
+							<RouteTitle route={this.route} share={this.props.match.params.share === "my"}/>
 							<RouteMap route={this.route}/> 					{/* Map and route */}
 						</Col>
 						<Col xs={12} md={2}/>

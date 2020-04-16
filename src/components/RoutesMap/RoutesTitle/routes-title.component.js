@@ -11,6 +11,7 @@ class RouteTitle extends Component {
 		super(props);
 		this.name = props.route.name;
 		this.description = props.route.description;
+		this.share = props.share;
 	}
 
 	render() {
@@ -20,9 +21,11 @@ class RouteTitle extends Component {
 					<h1 className="title-text">{this.name}</h1>
 					<p className="title-text">{this.description}</p>
 				</div>
-				<div className="float-right">
-					<CustomButton text="Share" img="/img/buttons/share.png"/>
-				</div>
+				{ this.share
+					?	<div className="float-right">
+							<CustomButton text="Share" img="/img/buttons/share.png"/>
+						</div>
+					: null	}
 			</div>
 		);
 	}

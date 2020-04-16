@@ -35,10 +35,9 @@ const Routes = () => {
 					}
 					<PublicLayout component={Home} path="/" exact/> {/* Homepage - "/" */}
 					<PrivateLayout component={FriendsRoutes} path="/friendsRoutes" exact/> {/* Friends - "/friends" */}
-					<PrivateLayout component={ShowRoute} path="/route" exact/> {/* ShowRoute - "/route" */}
 					<PrivateLayout component={Profile} path="/profile" exact/> {/* Profile - "/profile" */}
 					<PrivateLayout component={MyRoutes} path="/myRoutes" exact/> {/* My Routes - "/myRoutes" */}
-					<PrivateLayout component={ShowRoute} path="/showRoute/:uri"/> {/* Show Route - "/showRoute..." */}
+					<PrivateLayout component={ShowRoute} path="/showRoute/:share/:uri"/> {/* Show Route - "/showRoute..." */}
 					<PrivateLayout component={Share} path="/share" exact /> {/* Share - "/share" */}
 					<PrivateLayout component={Notifications} path="/notifications" exact /> {/* Notifications - "/notifications" */}
 					<PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
