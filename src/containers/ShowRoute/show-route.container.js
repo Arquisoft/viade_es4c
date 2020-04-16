@@ -24,14 +24,14 @@ export class ShowRoute extends Component {
 		let promise = RDFToRoute.parse(this.linkRuta);
 		return await promise.then((res) => {
 			this.route = res;
-			this.setState({promiseIsResolved: true})
-		})
+			this.setState({promiseIsResolved: true});
+		});
 	}
 
 	render() {
 		return (
 			(this.state.promiseIsResolved) ?
-				<div>	{/* Shows the map and info when it finishes loading the Route */}
+				<div>    {/* Shows the map and info when it finishes loading the Route */}
 					<Row>
 						<Col xs={12} md={2}/>
 						<Col xs={12} md={8} className="route-container">
@@ -44,16 +44,20 @@ export class ShowRoute extends Component {
 					<Row>
 						<Col xs={12} md={2}/>
 						<Col xs={12} md={6}>
-																			{/* Images of the route */}
+							{/* Images of the route */}
 							{(this.route.media.length !== 0) ?
 								<div className="image-slide"><RoutesCarousel/></div> : null}
 						</Col>
 						<Col xs={12} md={2}>
-							<RoutesItinerary route={this.route}/> 			{/* List of points of the route */}
+							<RoutesItinerary route={this.route}/> {/* List of points of the route */}
 						</Col>
 						<Col xs={12} md={2}/>
 					</Row>
-				</div> : <div><Spacer/><Loader size="150"/></div>
+				</div>
+				: <div>
+					<Spacer/>
+					<Loader size="150"/>
+				</div>
 		);
 	}
 }

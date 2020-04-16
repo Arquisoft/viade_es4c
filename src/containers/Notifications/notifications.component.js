@@ -1,6 +1,6 @@
-import React,{useState,useCallback,useEffect} from "react";
+import React, {useState, useCallback, useEffect} from "react";
 import {NotificationsList} from "./children";
-import {ldflexHelper} from "../.././utils";
+import {ldflexHelper, errorToaster} from "../.././utils";
 
 const Notifications = (props) => {
     const [inboxes, setInbox] = useState([]);
@@ -25,14 +25,12 @@ const Notifications = (props) => {
            * know how fix it.
            */
           if (inboxes.length === 0) {
-            alert("Error you dont have an inbox");
+            errorToaster("Your inbox couldn't be found","Error");
           }
           setInbox(inboxes);
         } catch (error) {
-          /**
-           * Show general errors
-           */
-          alert("Error seleccionando inbox");
+          console.error(error);
+          errorToaster("An error has occurred with the inbox folder","Error");
         }
       }, [webId]);
 
@@ -45,7 +43,9 @@ const Notifications = (props) => {
       }, [webId,discoverInbox]);
 
   return (
+    <div>
       <NotificationsList inboxes={inboxUrl} {...props}/>
+      </div>
   );
 };
 

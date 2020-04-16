@@ -181,9 +181,18 @@ a.card-a:hover {
     left: 15px;
 }
 
+.route-card .notification-card-right {
+    width: 250px;
+}
+
 .already-accepted {
     background: #34d1ab;
     color: #f2f2f2;
+}
+
+.notification-status {
+    width: 250px;
+    height: 50px;
 }
 
 .fa-external-link-alt {
