@@ -32,7 +32,7 @@ class GpxToRoute {
         const numTracks = gpxParse.tracks.length;
 
         // Creamos un array sin tamaño fijo para una mayor flexibilidad, ya que no sabemos cuántos puntos tenemos en total.
-        var items = new Array();
+        var items = [];
 
         // Para cada track de la ruta, extraemos sus puntos, creamos items con ellos y los añadimos al array.
         var i = 0;
