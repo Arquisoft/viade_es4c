@@ -17,7 +17,7 @@ class VideoViade {
 	}
 
 	getComponent() {
-		return <video controls className="d-block route-img" src={this.getUrl()}/>
+		return <video controls className="d-block route-img" src={this.getUrl()}/>;
 	}
 }
 

@@ -20,7 +20,7 @@ class RoutesCarousel extends React.Component {
 					return (
 						<Carousel.Item key={object.getUrl()}>
 							{object.getComponent()}
-						</Carousel.Item>)
+						</Carousel.Item>);
 				})}
 			</Carousel>
 		);

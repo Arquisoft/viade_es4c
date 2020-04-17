@@ -18,7 +18,7 @@ class ImageViade{
     }
 
     getComponent() {
-        return <img className="d-block route-img" src={this.getUrl()} alt={this.author} />
+        return <img className="d-block route-img" src={this.getUrl()} alt={this.author} />;
     }
 
 }
