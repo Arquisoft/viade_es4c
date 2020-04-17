@@ -12,7 +12,7 @@ const Loader = (props) => {
 			/>
 		</Col>
 		<Col xs={12} md={5}/>
-	</Row>
+	</Row>;
 };
 
 export default Loader;

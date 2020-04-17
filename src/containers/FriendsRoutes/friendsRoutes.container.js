@@ -6,7 +6,7 @@ import {RouteList} from "../../components/";
 const FriendsRoutesComponent = (props) => {
 	const {webId}=props;
 		return (
-			<RouteList webId={webId} readRoutes={routeHelper.fetchUrlSharedWithMeRoutes}/>
+			<RouteList webId={webId} readRoutes={routeHelper.fetchUrlSharedWithMeRoutes} share={false}/>
 		);
 };
 

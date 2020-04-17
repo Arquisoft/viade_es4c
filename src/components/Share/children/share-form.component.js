@@ -10,10 +10,6 @@ const ShareFormComponent = ({
     setRoute,
     sendNotification
 }) => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        shareRoute();
-    };
 
     const shareRoute = async () => {
         const licenseUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
@@ -36,6 +32,11 @@ const ShareFormComponent = ({
             NotificationTypes.OFFER,
             licenseUrl
         );
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        shareRoute();
     };
 
     return (
