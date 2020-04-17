@@ -113,7 +113,7 @@ class RouteToRDF {
             fichero.
             En caso contrario, se añade punto y coma para seguir añadiendo contenidos multimedia.
             */
-            if (i == this.route.media.length - 1) {
+            if (i === this.route.media.length - 1) {
                 this.str +=(' .\n');
             } else {
                 this.str +=(' ;\n');
