@@ -13,6 +13,8 @@ class RouteTitle extends Component {
 		this.name = props.route.name;
 		this.description = props.route.description;
 		this.share = props.share;
+		this.routeURL = props.routeURL;
+		this.webId = props.webId;
 	}
 
 	render() {
@@ -24,7 +26,7 @@ class RouteTitle extends Component {
 				</div>
 				{ this.share
 					?	<div className="float-right">
-							<CustomModal text="Share" img="/img/buttons/share.png" component={<ShareComponent/>}/>
+							<CustomModal text="Share" img="/img/buttons/share.png" component={<ShareComponent routeURL={this.routeURL} webId={this.webId}/>}/>
 						</div>
 					: 	null	}
 			</div>

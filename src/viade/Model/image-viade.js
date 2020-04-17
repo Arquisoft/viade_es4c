@@ -1,3 +1,5 @@
+import React from "react";
+
 class ImageViade{
 
     constructor(iri,author,publicationTime,image=null){
@@ -13,6 +15,10 @@ class ImageViade{
         }
 
         return URL.createObjectURL(this.image);
+    }
+
+    getComponent() {
+        return <img className="d-block route-img" src={this.getUrl()} alt={this.author} />;
     }
 
 }

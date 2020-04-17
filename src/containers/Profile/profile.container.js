@@ -61,9 +61,11 @@ class ProfileComponent extends React.Component {
             }
           />
           <h2 style={{ textAlign: "center" }}>Friends</h2>
-          <List src="user.friends">
-            {(friend) => <FriendCard key={`${friend}`} friend={`${friend}`} />}
-          </List>
+          <div className={"list-holder"}>
+            <List src="user.friends">
+              {(friend) => <FriendCard key={`${friend}`} friend={`${friend}`} enable={true}/>}
+            </List>
+          </div>
         </LoggedIn>
       </Container>
     );
