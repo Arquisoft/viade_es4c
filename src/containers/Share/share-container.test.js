@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import AuthNavBar from "./auth-nav-bar.component";
+import Share from "./share.container";
 
-describe('AuthNavBar', () => {
+describe('Share', () => {
   it('should render correctly in "debug" mode', () => {
-    const component = shallow(<AuthNavBar debug />);
+    const component = shallow(<Share debug />);
   
     expect(component).toMatchSnapshot();
   });
