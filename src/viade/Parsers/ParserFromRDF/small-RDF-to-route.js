@@ -23,10 +23,10 @@ class SmallRDFToRoute {
   
       try{
       const result = await sparqlFiddle.run(fiddle).then(
-        results => {
+          (results) => {
           return results;
         },
-        err => {throw err;}
+          (err) => {throw err;}
       );
       return this.getRoute(result,url);    
       }catch(err){

@@ -15,9 +15,8 @@ export class ShowRoute extends Component {
 	 */
 	constructor(props) {
 		super(props);
-		this.linkRuta = props.location.state.route;
+		this.linkRuta = decodeURIComponent(props.match.params.uri);
 		this.state = {promiseIsResolved: false};
-		console.log(this.state);
 		this.route = this.getRoute();
 		this.webId = props.webId;
 	}
@@ -26,8 +25,8 @@ export class ShowRoute extends Component {
 		let promise = RDFToRoute.parse(this.linkRuta);
 		return await promise.then((res) => {
 			this.route = res;
-			this.setState({promiseIsResolved: true})
-		})
+			this.setState({promiseIsResolved: true});
+		});
 	}
 
 	render() {
@@ -38,8 +37,8 @@ export class ShowRoute extends Component {
 						<Col xs={12} md={2}/>
 						<Col xs={12} md={8} className="route-container">
 							{/* Name, description and share button */}
-							<RouteTitle route={this.route} routeURL={this.linkRuta} webId={this.webId}/>
-							<RouteMap route={this.route}/> {/* Map and route */}
+							<RouteTitle route={this.route} share={this.props.match.params.share === "my"} routeURL={this.linkRuta} webId={this.webId}/>
+							<RouteMap route={this.route}/> 					{/* Map and route */}
 						</Col>
 						<Col xs={12} md={2}/>
 					</Row>
@@ -48,7 +47,7 @@ export class ShowRoute extends Component {
 						<Col xs={12} md={6}>
 							{/* Images of the route */}
 							{(this.route.media.length !== 0) ?
-								<div className="image-slide"><RoutesCarousel/></div> : null}
+								<div className="image-slide"><RoutesCarousel media={this.route.media}/></div> : null}
 						</Col>
 						<Col xs={12} md={2}>
 							<RoutesItinerary route={this.route}/> {/* List of points of the route */}

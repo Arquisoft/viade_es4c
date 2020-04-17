@@ -12,6 +12,7 @@ class RouteTitle extends Component {
 		super(props);
 		this.name = props.route.name;
 		this.description = props.route.description;
+		this.share = props.share;
 		this.routeURL = props.routeURL;
 		this.webId = props.webId;
 	}
@@ -23,10 +24,11 @@ class RouteTitle extends Component {
 					<h1 className="title-text">{this.name}</h1>
 					<p className="title-text">{this.description}</p>
 				</div>
-				<div className="float-right">
-					<CustomModal text="Share" img="/img/buttons/share.png"
-						component={<ShareComponent routeURL={this.routeURL} webId={this.webId}/>}/>
-				</div>
+				{ this.share
+					?	<div className="float-right">
+							<CustomModal text="Share" img="/img/buttons/share.png" component={<ShareComponent routeURL={this.routeURL} webId={this.webId}/>}/>
+						</div>
+					: 	null	}
 			</div>
 		);
 	}

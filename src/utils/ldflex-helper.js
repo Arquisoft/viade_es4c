@@ -4,7 +4,7 @@ import ldflex from "@solid/query-ldflex";
 export const documentExists = async (documentUri) =>
   auth.fetch(documentUri, {
     headers: {
-      'Content-Type': 'text/turtle'
+      "Content-Type": "text/turtle"
     }
   });
 

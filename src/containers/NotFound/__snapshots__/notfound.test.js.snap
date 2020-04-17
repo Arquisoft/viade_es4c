@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound should render correctly in "debug" mode 1`] = `
+<div
+  className="ErrorImage"
+>
+  <NavLink
+    to="/"
+  >
+    <img
+      alt="error"
+      height="50%"
+      src="/img/error404.jpg"
+      width="50%"
+    />
+  </NavLink>
+  <p
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    <Link
+      to="/"
+    >
+      Go back Home 
+    </Link>
+  </p>
+</div>
+`;
