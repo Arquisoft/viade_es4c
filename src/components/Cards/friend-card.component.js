@@ -10,15 +10,15 @@ import "./cards.css";
 export const FriendCardComponent = (props) => {
 
 	return (
-		<div className={"route-card friend-card"}>
+		<div className={"route-card friend-card"} onClick={props.onClick}>
 			{/* Left side of the card, contains the image and hidden fields */}
 			<div className="route-card-left friend-card-left">
 				{/* Hidden fields, we should the same as visible and the a spn the mark it is a link */}
 				<div className="route-card-extra friend-card-extra">
 					<h3>
-						<a href={props.friend}>
-							{props.friend}
-						</a>
+						{props.enable
+							? <a href={props.friend}>{props.friend}</a>
+							: props.friend}
 					</h3>
 				</div>
 			</div>
