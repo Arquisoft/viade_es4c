@@ -1,7 +1,8 @@
 import React, {useState, useCallback} from "react";
 import {ShareFormComponent} from "./children";
 import {useNotification,withWebId} from "@inrupt/solid-react-components";
-import { errorToaster } from "../../utils";
+import { permissionHelper,errorToaster } from "../../utils";
+
 const ShareComponent = (props) => {
 	const [friend] = useState("");
 	const {webId, route} = props;
@@ -10,7 +11,8 @@ const ShareComponent = (props) => {
 	const sendNotification = useCallback(
 		async (content, to, type, license) => {
 			try{
-				await createNotification(content, to, type, license);
+				createNotification(content, to, type, license);
+				permissionHelper.setPermissions(content.actor,content.target,content.object,["R"]);
 			}catch(error){
 				errorToaster("An error has occurred creating the notification");
 			}

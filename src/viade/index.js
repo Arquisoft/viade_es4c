@@ -16,7 +16,8 @@ import {
 import{
     routeHelper,
     notificationHelper,
-    storageHelper
+    storageHelper,
+    Fetcher
 } from "./util";
 
 export {
@@ -33,5 +34,6 @@ export {
   SmallRDFToRoute,
   routeHelper,
   notificationHelper,
-  storageHelper
+  storageHelper,
+  Fetcher
 };

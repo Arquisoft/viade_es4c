@@ -81,7 +81,42 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
   return true;
 };
 
-export const setPermissions = async (webId, documentUri, permissions) => {
-  const ACLFile = new AccessControlList(webId, documentUri);
-  await ACLFile.createACL(permissions);
+const getPermissions = (array) => {
+  const modes = AccessControlList.MODES;
+  const { APPEND, READ, WRITE, CONTROL } = modes;
+  let permissions = [];
+  let p=0;
+  for (p;p<array.length;p++) {
+    switch (array[p]) {
+      case "A":
+        permissions.push(APPEND);
+        break;
+      case "R":
+        permissions.push(READ);
+        break;
+      case "W":
+        permissions.push(WRITE);
+        break;
+      case "C":
+        permissions.push(CONTROL);
+        break;
+      default:
+        break;
+    }
+  }
+
+  return permissions;
+};
+
+export const setPermissions = async (webId,agent, documentUri, permissions) => {
+  let path=documentUri.split("#")[0];
+  const ACLFile = new AccessControlList(webId, path);
+  let array=getPermissions(permissions);
+  const agentsPermissions = [
+    {
+      agents: agent,
+      modes: array,
+    },
+  ];
+  await ACLFile.createACL(agentsPermissions);
 };
