@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {notificationHelper} from "../../../../viade";
+import {notificationHelper, storageHelper} from "../../../../viade";
 import NotificationItem from "../NotificationItem";
 import {Col, Row} from "react-bootstrap";
 import {errorToaster} from "../../../../utils";
@@ -7,19 +7,18 @@ import {Loader} from "../../../../components";
 import Spacer from "../../../../components/Spacer";
 
 const NotificationsList = (props) => {
-	const {inboxes} = props;
 	const [notifications, setNotifications] = useState();
 	const [isSharing, setSharing] = useState(false);
-
+	const {webId}=props;
 	const initNotifications = async () => {
 		if (notifications) {
 			return;
 		}
 		try {
-			let urls = await notificationHelper.fetchNotificationsURLS(inboxes[0]);
+			let inbox=storageHelper.getInboxFolder(webId);
+			let urls = await notificationHelper.fetchNotificationsURLS(inbox);
 			setNotifications(urls);
 		} catch (error) {
-			console.error(error);
 			errorToaster(error.message, error.name);
 		}
 	};

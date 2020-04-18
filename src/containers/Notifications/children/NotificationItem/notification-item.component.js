@@ -22,7 +22,6 @@ class NotificationItem extends React.Component {
       const notification = await notificationHelper.fetchNotification(this.url);
       this.setState({ notification: notification });
     } catch (err) {
-      console.error(err);
       let link = { href: this.url, label: this.url };
       errorToaster(err.message, err.name, link);
     }
@@ -56,7 +55,7 @@ class NotificationItem extends React.Component {
       <Fragment>
         {this.state.notification ? (
           <NotificationCard
-            name={this.state.notification.object.toString().split("/").pop()}
+            name={this.state.notification.title}
             user={this.state.notification.actor
               .toString()
               .substr(8, this.state.notification.actor.toString().length - 40)}

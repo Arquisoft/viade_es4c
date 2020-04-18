@@ -63,6 +63,7 @@ class RDFToRoute {
   };
 
   getMedia = async (results) => {
+    if(!results){return [];}
     let media = [];
     let i;
     for (i=0;i<results.length;i++) {
