@@ -32,7 +32,7 @@ const createInbox = (webId) => {
 
 const createSharedMeFile = (webId) => {
   const path = getSharedWithMeFile(webId);
-  fc.createFile(path, '{"rutas":[]}', "text/plain", {});
+  fc.createFile(path, "{\"rutas\":[]}", "text/plain", {});
 };
 
 const createMediaFolder = (webId) => {
