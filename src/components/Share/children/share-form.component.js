@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NotificationTypes } from "@inrupt/solid-react-components";
-import { notificationHelper, storageHelper } from "../../../viade";
+import { storageHelper } from "../../../viade";
 import { List, LoggedIn } from "@solid/react";
 import { FriendCard } from "../../index";
 import { errorToaster, successToaster } from "../../../utils";
