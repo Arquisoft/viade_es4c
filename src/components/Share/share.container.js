@@ -12,7 +12,6 @@ const ShareComponent = (props) => {
 			try{
 				await createNotification(content, to, type, license);
 			}catch(error){
-				console.error(error);
 				errorToaster("An error has occurred creating the notification");
 			}
 		},

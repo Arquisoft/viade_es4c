@@ -19,7 +19,6 @@ const NotificationsList = (props) => {
 			let urls = await notificationHelper.fetchNotificationsURLS(inbox);
 			setNotifications(urls);
 		} catch (error) {
-			console.error(error);
 			errorToaster(error.message, error.name);
 		}
 	};

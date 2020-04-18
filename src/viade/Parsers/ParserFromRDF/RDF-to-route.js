@@ -7,8 +7,6 @@ import FC from "solid-file-client";
 const fc = new FC(auth);
 class RDFToRoute {
   parse = async (url) => {
-    url=url.replace(" ","%20");
-    console.log(url);
     const sparql = `PREFIX schema: <http://schema.org/>
       PREFIX viade:<http://arquisoft.github.io/viadeSpec/>
       PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -65,7 +63,7 @@ class RDFToRoute {
   };
 
   getMedia = async (results) => {
-    if(!results)return [];
+    if(!results){return []};
     let media = [];
     let i;
     for (i=0;i<results.length;i++) {

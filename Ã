@@ -1,0 +1,14 @@
+Fixed problems with URLS with spaces
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch feature/new_pod_structure
+# Your branch is up to date with 'origin/feature/new_pod_structure'.
+#
+# Changes to be committed:
+#	modified:   src/components/AuthNavBar/UploadButton/upload.component.js
+#	modified:   src/components/RoutesMap/RoutesTitle/routes-title.component.js
+#	modified:   src/components/Share/children/share-form.component.js
+#	modified:   src/components/Share/share.container.js
+#	modified:   src/containers/Notifications/children/NotificationItem/notification-item.component.js
+#

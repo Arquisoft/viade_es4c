@@ -73,7 +73,6 @@ export const UploadComponent = () => {
 				}
 			} catch (err) {
 				alert("Error en la subida de archivos");
-				console.error(err);
 			}
 
 			let parserToRDF = new RouteToRDF(route);

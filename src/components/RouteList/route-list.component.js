@@ -16,7 +16,6 @@ const RouteList = (props) => {
 			let urls = await readRoutes();
 			setUrlRoutes(urls);
 		} catch (error) {
-			console.error(error);
 			errorToaster(error.message, error.name);
 		}
 	};

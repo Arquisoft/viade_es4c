@@ -40,7 +40,6 @@ const ShareFormComponent = ({ webId, friend, sendNotification, route }) => {
       );
       successToaster("The route has been shared!!");
     } catch (error) {
-      console.error(error);
       errorToaster("An error has occurred sharing the route");
     }
   };

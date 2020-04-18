@@ -14,7 +14,6 @@ export const fetchUrlSharedWithMeRoutes = async () => {
     }
     return routes;
   } catch (err) {
-    console.error(err);
     throw new Error("An error has occurred loading the routes shared with you");
   }
 };
@@ -29,7 +28,6 @@ export const fetchUrlMyRoutes = async () => {
     let routes = await fc.readFolder(folder);
     return routes.files.map((file) => file.url);
   } catch (err) {
-    console.error(err);
     throw new Error("An error has occurred loading your routes");
   }
 };
@@ -38,7 +36,6 @@ export const getBasicRoute = async (url) => {
   try {
     return await SmallRDFToRoute.parse(url);
   } catch (err) {
-    console.error(err);
     throw new Error("An error occurred while loading the route");
   }
 };
@@ -47,7 +44,6 @@ export const getFullRoute = async (url) => {
   try {
     return await RDFToRoute.parse(url);
   } catch (err) {
-    console.error(err);
     throw new Error("An error occurred while loading the route");
   }
 };

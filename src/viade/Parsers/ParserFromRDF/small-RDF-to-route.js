@@ -4,7 +4,6 @@ class SmallRDFToRoute {
 
   
   parse=async (url) => {
-    url=url.replace(" ","%20");
     const sparql =
       `PREFIX schema: <http://schema.org/>
       PREFIX viade:<http://arquisoft.github.io/viadeSpec/>

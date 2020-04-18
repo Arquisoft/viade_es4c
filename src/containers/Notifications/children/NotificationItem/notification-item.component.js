@@ -22,7 +22,6 @@ class NotificationItem extends React.Component {
       const notification = await notificationHelper.fetchNotification(this.url);
       this.setState({ notification: notification });
     } catch (err) {
-      console.error(err);
       let link = { href: this.url, label: this.url };
       errorToaster(err.message, err.name, link);
     }
