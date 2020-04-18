@@ -11,6 +11,7 @@
 
 .friend-card {
     height: 50px;
+    cursor: pointer;
 }
 
 .route-card h1 {

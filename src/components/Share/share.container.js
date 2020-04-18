@@ -3,9 +3,8 @@ import {ShareFormComponent} from "./children";
 import {useNotification,withWebId} from "@inrupt/solid-react-components";
 import { errorToaster } from "../../utils";
 const ShareComponent = (props) => {
-	const [friend, setFriend] = useState("");
-	const [route, setRoute] = useState("");
-	const {webId} = props;
+	const [friend] = useState("");
+	const {webId, routeURL} = props;
 	const {createNotification} = useNotification(webId);
 
 	const sendNotification = useCallback(
@@ -25,10 +24,8 @@ const ShareComponent = (props) => {
 			<ShareFormComponent {...{
 				webId,
 				friend,
-				setFriend,
-				route,
-				setRoute,
-				sendNotification
+				sendNotification,
+				routeURL
 			}} />
 		</div>
 	);
