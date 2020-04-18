@@ -1,11 +1,11 @@
 import {sparqlFiddle} from "../../utils";
 
 class Fetcher {
-  fetch = async (sparql, endPoint, wanted = "Array") => {
+  fetch = async (sparql, endPoint, output = "Array") => {
     let fiddle = {
       data: endPoint,
       query: sparql,
-      wanted: wanted,
+      wanted: output,
     };
 
     return sparqlFiddle.run(fiddle).then(
@@ -20,4 +20,4 @@ class Fetcher {
 }
 
 const fetcher=new Fetcher();
-export default fetcher;
+export {fetcher};

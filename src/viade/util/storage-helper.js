@@ -16,7 +16,7 @@ export const getMediaFolder = (webId) => {
 };
 
 export const getSharedWithMeFile = (webId) => {
-  return getViadeFolder(webId) + "shared_with_me.txt";
+  return getViadeFolder(webId) + "shared_with_me.ttl";
 };
 
 export const getInboxFolder = (webId) => {
@@ -32,7 +32,7 @@ const createInbox = (webId) => {
 
 const createSharedMeFile = (webId) => {
   const path = getSharedWithMeFile(webId);
-  fc.createFile(path, "{\"rutas\":[]}", "text/plain", {});
+  fc.createFile(path, "@prefix schema: <http://schema.org/> .", "text/turtle", {});
 };
 
 const createMediaFolder = (webId) => {

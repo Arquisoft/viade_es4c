@@ -2,7 +2,7 @@ import { ldflexHelper} from "../../utils/index";
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
 import { RDFToNotification, NotificationToRDF } from "../Parsers";
-import {storageHelper} from "../util";
+import { storageHelper } from ".";
 
 const fc = new FC(auth);
 
@@ -14,6 +14,7 @@ export const fetchNotificationsURLS=async (inboxURL) => {
     const folder = await fc.readFolder(inboxURL, []);
     return folder.files.map((file) => file.url);
   }catch(err){
+    console.error(err);
     throw new Error("An error has occurred trying to load your notifications");
   }
 };
@@ -22,6 +23,7 @@ export const fetchNotification = async (url) => {
   try{
   return await RDFToNotification.parse(url);
   }catch(error){
+    console.error(error);
     throw new Error("An error has occurred parsing the notification from RDF");
   }
 };
@@ -41,6 +43,7 @@ export const findUserInboxes = async (paths) => {
 
     return inboxes;
   } catch (error) {
+    console.error(error);
     throw new Error(error);
   }
 };
@@ -52,8 +55,7 @@ export const getDefaultInbox = (inboxes, inbox1, inbox2) =>
   export const addRouteSharedWithMe=async (route, friend)=>{
     try{
       let webId = (await auth.currentSession()).webId;
-      const base = "public/viade/shared_with_me.ttl";
-      const path = webId.split("profile/card#me")[0] + base;
+      const path = storageHelper.getSharedWithMeFile(webId);
       let docu = await fc.readFile(path);
       const insert=`
           []
@@ -65,6 +67,7 @@ export const getDefaultInbox = (inboxes, inbox1, inbox2) =>
           docu+=insert;
       await fc.createFile(path, docu, "text/turtle", {});
     }catch(err){
+      console.error(err);
       throw new Error("An error has occurred adding the route they have shared with you");
     }
   
@@ -77,6 +80,7 @@ export const markAsRead = async (notification) => {
   await fc.createFile(notification.url, docu, "text/turtle", {});
   return true;
   }catch(err){
+    console.error(err);
     throw new Error("The notification could not be marked as read");
   }
 };

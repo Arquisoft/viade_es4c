@@ -109,7 +109,6 @@ const getPermissions = (array) => {
 };
 
 export const setPermissions = async (webId,agent, documentUri, permissions) => {
-  console.log(getPermissions(permissions));
   let path=documentUri.split("#")[0];
   const ACLFile = new AccessControlList(webId, path);
   let array=getPermissions(permissions);
