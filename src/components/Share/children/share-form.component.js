@@ -5,7 +5,7 @@ import { List, LoggedIn } from "@solid/react";
 import { FriendCard } from "../../index";
 import { errorToaster, successToaster } from "../../../utils";
 
-const ShareFormComponent = ({ webId, friend, sendNotification, routeURL }) => {
+const ShareFormComponent = ({ webId, friend, sendNotification, route }) => {
   let [sentTo, setSentTo] = useState([]);
 
   const shareWith = (target) => {
@@ -24,16 +24,14 @@ const ShareFormComponent = ({ webId, friend, sendNotification, routeURL }) => {
     try {
       const licenseUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
       const inbox=storageHelper.getInboxFolder(friend);
-    console.log(inbox);
       const to = inbox;
       const target = friend;
-
       await sendNotification(
         {
-          title: "Route share",
-          summary: "has shared you a route.",
+          title: route.name,
+          summary: "route sharing",
           actor: webId,
-          object: routeURL,
+          object: route.url,
           target,
         },
         to,

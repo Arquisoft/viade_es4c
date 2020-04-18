@@ -56,7 +56,7 @@ class NotificationItem extends React.Component {
       <Fragment>
         {this.state.notification ? (
           <NotificationCard
-            name={this.state.notification.object.toString().split("/").pop()}
+            name={this.state.notification.title}
             user={this.state.notification.actor
               .toString()
               .substr(8, this.state.notification.actor.toString().length - 40)}

@@ -4,7 +4,7 @@ import {useNotification,withWebId} from "@inrupt/solid-react-components";
 import { errorToaster } from "../../utils";
 const ShareComponent = (props) => {
 	const [friend] = useState("");
-	const {webId, routeURL} = props;
+	const {webId, route} = props;
 	const {createNotification} = useNotification(webId);
 
 	const sendNotification = useCallback(
@@ -25,7 +25,7 @@ const ShareComponent = (props) => {
 				webId,
 				friend,
 				sendNotification,
-				routeURL
+				route
 			}} />
 		</div>
 	);

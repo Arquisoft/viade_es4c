@@ -17,11 +17,8 @@ export const UploadComponent = () => {
 	let nameInput = React.createRef();//Campo nombre
 	let descriptionInput = React.createRef();//campo descripcion
 
-
 	let valueName = "";
 	let valueDescription = "";
-
-
 
 	const fileSelectedHadler = (e) => {
 		files = e.target.files;
@@ -51,7 +48,7 @@ export const UploadComponent = () => {
 		const rutaPod = storageHelper.getMyRoutesFolder(webid);
 		const rutaMedia = storageHelper.getMediaFolder(webid);
 			//webid -> https://usernamme.solid.community/profile/card#me
-			const url = rutaPod + file.name.substr(0, file.name.indexOf(".")) + ".ttl";
+			const url = rutaPod + Date.now() + ".ttl";
 
 		//Empezamos a parsear el archivo
 		try {
@@ -81,8 +78,6 @@ export const UploadComponent = () => {
 
 			let parserToRDF = new RouteToRDF(route);
 			let strRoute = parserToRDF.parse();
-
-
 			//Ya tenemos un String para meter en SolidFileClient
 			try {
 				//const res = await fc.putFile(url, file, file.type);
