@@ -6,7 +6,7 @@ import {Loader, Spacer} from "../index";
 
 const RouteList = (props) => {
 	const [urlRoutes, setUrlRoutes] = useState();
-	const {readRoutes, webId} = props;
+	const {readRoutes, webId, share} = props;
 
 	const initRoutes = async () => {
 		if (urlRoutes) {
@@ -16,7 +16,6 @@ const RouteList = (props) => {
 			let urls = await readRoutes();
 			setUrlRoutes(urls);
 		} catch (error) {
-			console.error(error);
 			errorToaster(error.message, error.name);
 		}
 	};
@@ -32,7 +31,7 @@ const RouteList = (props) => {
 						<Row>
 							{urlRoutes.length > 0 ?
 								urlRoutes.map((url, pos) =>
-									<RouteItem key={pos} url={url} webId={webId}/>
+									<RouteItem key={pos} url={url} webId={webId} share={share}/>
 								) :
 								<h4 style={{textAlign: "center", margin: "15px 0 0 0", width: "100%"}}>
 									Sadly, you don't have routes to show here yet :(
@@ -44,7 +43,7 @@ const RouteList = (props) => {
 				</Row>
 				: <div>
 					<Spacer/>
-					<Loader size="150"/>
+					<Loader size="150px"/>
 				</div>}
 		</div>);
 };

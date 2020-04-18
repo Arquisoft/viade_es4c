@@ -2,6 +2,7 @@ import { ldflexHelper} from "../../utils/index";
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
 import { RDFToNotification, NotificationToRDF } from "../Parsers";
+import {storageHelper} from "../util";
 
 const fc = new FC(auth);
 

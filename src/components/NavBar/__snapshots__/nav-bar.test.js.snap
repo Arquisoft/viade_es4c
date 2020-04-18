@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar should render correctly in "debug" mode 1`] = `
+<Navbar
+  bg="light"
+  collapseOnSelect={false}
+  expand="lg"
+  variant="light"
+>
+  <NavbarBrand
+    href=""
+  >
+    <Image
+      alt="Viade"
+      fluid={false}
+      rounded={false}
+      roundedCircle={false}
+      src="/img/logo.svg"
+      thumbnail={false}
+    />
+  </NavbarBrand>
+  <NavbarToggle
+    aria-controls="basic-navbar-nav"
+    label="Toggle navigation"
+  />
+  <NavbarCollapse
+    id="basic-navbar-nav"
+  >
+    <Nav
+      className="mr-auto"
+      fill={false}
+      justify={false}
+    />
+    <Nav
+      fill={false}
+      justify={false}
+    >
+      <LoginModal />
+      <LoginModal />
+    </Nav>
+  </NavbarCollapse>
+</Navbar>
+`;

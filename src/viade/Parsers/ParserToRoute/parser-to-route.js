@@ -26,7 +26,6 @@ class ParserToRoute {
         try{
           resolve(parser.execute(reader.result));
         }catch(err){
-          console.error(err);
           reject(new Error("A problem has occurred uploading the route"));
         }
       };
