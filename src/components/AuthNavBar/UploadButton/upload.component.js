@@ -52,7 +52,7 @@ export const UploadComponent = () => {
             const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/routes/";
             const rutaMedia = webid.substring(0, webid.length - 16) + "/public/viade/media/";
             //webid -> https://usernamme.solid.community/profile/card#me
-            const url = rutaPod + file.name.substr(0, file.name.indexOf(".")) + ".ttl";
+            const url = rutaPod + new Date() + ".ttl"; //file.name.substr(0, file.name.indexOf(".")) -> NOMBRE DEL ARCHIVO SIN LA EXTENSION
             //Empezamos a parsear el archivo
 
             try {
@@ -78,7 +78,6 @@ export const UploadComponent = () => {
                 }
                 
                 try{
-                    
                     await fc.createFile(url, strRoute, "text/turtle", {});
                 }catch(err) {
                     throw new Error("Error en la subida de la ruta");
@@ -86,7 +85,7 @@ export const UploadComponent = () => {
                 // Subida de archivos
                 try {
                     for (let i = 0; i < media.length; i++) {
-                        await fc.putFile(rutaMedia + media[i].name, media[i], media[i].type);
+                        await fc.putFile(rutaMedia + new Date() + "_" + i, media[i], media[i].type);//media[i].name
                         if (media[i].name.includes(".mp4")) {
                             route.media.push(new VideoViade(rutaMedia, webid.substring(0, webid.length - 16), new Date()));
                         } else {
