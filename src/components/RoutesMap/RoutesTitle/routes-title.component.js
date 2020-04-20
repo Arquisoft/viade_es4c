@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./routes-title.css";
-import {CustomButton} from "../../";
+import {CustomModal} from "../../";
+import ShareComponent from "../../Share";
 
 /**
  * Component featuring the route information
@@ -9,8 +10,11 @@ class RouteTitle extends Component {
 
 	constructor(props) {
 		super(props);
+		this.route=props.route;
 		this.name = props.route.name;
 		this.description = props.route.description;
+		this.share = props.share;
+		this.webId = props.webId;
 	}
 
 	render() {
@@ -20,9 +24,11 @@ class RouteTitle extends Component {
 					<h1 className="title-text">{this.name}</h1>
 					<p className="title-text">{this.description}</p>
 				</div>
-				<div className="float-right">
-					<CustomButton text="Share" img="/img/buttons/share.png"/>
-				</div>
+				{ this.share
+					?	<div className="float-right">
+							<CustomModal text="Share" img="/img/buttons/share.png" component={<ShareComponent route={this.route} webId={this.webId}/>}/>
+						</div>
+					: 	null	}
 			</div>
 		);
 	}

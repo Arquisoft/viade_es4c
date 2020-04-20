@@ -2,8 +2,7 @@ import React from "react";
 import SolidFileClient from "solid-file-client";
 import auth from "solid-auth-client";
 import Form from "react-bootstrap/Form";
-import {ParserToRoute, RouteToRDF} from "../../../viade";
-import {VideoViade, ImageViade} from "../../../viade";
+import {ParserToRoute, RouteToRDF,VideoViade, ImageViade,storageHelper} from "../../../viade";
 import ImageUploader from "react-images-upload";
 import {useWebId} from "@inrupt/solid-react-components";
 import {CustomButton} from "../../";
@@ -49,10 +48,13 @@ export const UploadComponent = () => {
 			warningToaster("Tienes que seleccionar un archivo", "Warn");
         } else {
             const file = files[0];
-            const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/routes/";
-            const rutaMedia = webid.substring(0, webid.length - 16) + "/public/viade/media/";
+            //const rutaPod = webid.substring(0, webid.length - 16) + "/public/viade/routes/";
+            //const rutaMedia = webid.substring(0, webid.length - 16) + "/public/viade/media/";
+          	const rutaPod = storageHelper.getMyRoutesFolder(webid);
+		        const rutaMedia = storageHelper.getMediaFolder(webid);
+            const date = Date.now();
             //webid -> https://usernamme.solid.community/profile/card#me
-            const url = rutaPod + new Date() + ".ttl"; //file.name.substr(0, file.name.indexOf(".")) -> NOMBRE DEL ARCHIVO SIN LA EXTENSION
+            const url = rutaPod + date + ".ttl"; //file.name.substr(0, file.name.indexOf(".")) -> NOMBRE DEL ARCHIVO SIN LA EXTENSION
             //Empezamos a parsear el archivo
 
             try {
@@ -85,7 +87,7 @@ export const UploadComponent = () => {
                 // Subida de archivos
                 try {
                     for (let i = 0; i < media.length; i++) {
-                        await fc.putFile(rutaMedia + new Date() + "_" + i, media[i], media[i].type);//media[i].name
+                        await fc.putFile(rutaMedia + date + "_" + i, media[i], media[i].type);//media[i].name -> nombre original del archivo
                         if (media[i].name.includes(".mp4")) {
                             route.media.push(new VideoViade(rutaMedia, webid.substring(0, webid.length - 16), new Date()));
                         } else {

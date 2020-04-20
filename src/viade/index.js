@@ -15,8 +15,11 @@ import {
 } from "./Parsers";
 import{
     routeHelper,
-    notificationHelper
-} from "./util"
+    notificationHelper,
+    storageHelper,
+    Fetcher
+} from "./util";
+
 export {
   RouteViade,
   ItemViade,
@@ -30,5 +33,7 @@ export {
   NotificationToRDF,
   SmallRDFToRoute,
   routeHelper,
-  notificationHelper
+  notificationHelper,
+  storageHelper,
+  Fetcher
 };

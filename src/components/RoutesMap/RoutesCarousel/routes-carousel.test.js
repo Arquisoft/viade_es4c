@@ -1,13 +1,11 @@
-import React from "react";
-import { render, cleanup } from "@testing-library/react";
+import React from 'react';
+import { shallow } from 'enzyme';
 import RoutesCarousel from "./routes-carousel.component";
 
-afterAll(cleanup);
-
-const { container } = render(<RoutesCarousel />);
-
-describe("RoutesCarousel", () => {
-  it("renders without crashing", () => {
-    expect(container).toBeTruthy();
+describe('RoutesCarousel', () => {
+  it('should render correctly in "debug" mode', () => {
+    const component = shallow(<RoutesCarousel debug />);
+  
+    expect(component).toMatchSnapshot();
   });
 });

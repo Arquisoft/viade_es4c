@@ -11,7 +11,6 @@ class SmallRDFToRoute {
       
       SELECT ?name ?description WHERE {
        ?route a viade:Route.
-       ?route viade:point ?point .
        ?route schema:name ?name.
       OPTIONAL {?route schema:description ?description.}
       }`;
@@ -21,13 +20,17 @@ class SmallRDFToRoute {
         wanted: "Array"
       };
   
+      try{
       const result = await sparqlFiddle.run(fiddle).then(
-        results => {
+          (results) => {
           return results;
         },
-        err => console.log(err)
+          (err) => {throw err;}
       );
       return this.getRoute(result,url);    
+      }catch(err){
+        throw err;
+      }
   };
 
   getRoute=(results,url) => {

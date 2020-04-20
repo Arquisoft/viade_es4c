@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render correctly in "debug" mode 1`] = `
+<Container
+  fluid={false}
+>
+  <Row
+    noGutters={false}
+  >
+    <Col
+      md={2}
+      xs={12}
+    />
+    <Col
+      className="logo-div home-div"
+      md={8}
+      xs={12}
+    >
+      <Image
+        alt="Viade"
+        fluid={false}
+        rounded={false}
+        roundedCircle={false}
+        src="/img/logo.svg"
+        thumbnail={false}
+      />
+    </Col>
+    <Col
+      md={8}
+      xs={12}
+    />
+  </Row>
+  <Row
+    noGutters={false}
+  >
+    <Col
+      md={2}
+      xs={12}
+    />
+    <Col
+      className="home-div"
+      md={8}
+      xs={12}
+    >
+      <p>
+        Viade is a Solid project developed by third year students of the University of Oviedo Software Engineering degree in the Software Architecture subject. It offers a route sharing application following the SOLID principles. This is a site where all your data always remains yours.
+         
+        <a
+          href="https://github.com/Arquisoft/viade_es4c"
+        >
+          Developed by team es4c
+        </a>
+        .
+      </p>
+    </Col>
+    <Col
+      md={2}
+      xs={12}
+    />
+  </Row>
+  <Row
+    noGutters={false}
+  >
+    <Col
+      md={2}
+      xs={12}
+    />
+    <Col
+      className="home-div"
+      key="upload"
+      md={2}
+      xs={6}
+    >
+      <Image
+        alt="Upload a route"
+        className="fill-image"
+        fluid={false}
+        rounded={false}
+        roundedCircle={false}
+        src="/img/home/uploadroute.svg"
+        thumbnail={false}
+      />
+      <p>
+        Upload a new route
+      </p>
+    </Col>
+    <Col
+      className="home-div"
+      key="media"
+      md={2}
+      xs={6}
+    >
+      <Image
+        alt="Upload images and videos"
+        className="fill-image"
+        fluid={false}
+        rounded={false}
+        roundedCircle={false}
+        src="/img/home/uploadmedia.svg"
+        thumbnail={false}
+      />
+      <p>
+        Complete it with images and videos
+      </p>
+    </Col>
+    <Col
+      className="home-div"
+      key="share"
+      md={2}
+      xs={6}
+    >
+      <Image
+        alt="Share it"
+        className="fill-image"
+        fluid={false}
+        rounded={false}
+        roundedCircle={false}
+        src="/img/home/shareroute.svg"
+        thumbnail={false}
+      />
+      <p>
+        Share it with whoever you want
+      </p>
+    </Col>
+    <Col
+      className="home-div"
+      key="keep"
+      md={2}
+      xs={6}
+    >
+      <Image
+        alt="Keep the ownership of your data"
+        className="fill-image"
+        fluid={false}
+        rounded={false}
+        roundedCircle={false}
+        src="/img/home/keepyours.svg"
+        thumbnail={false}
+      />
+      <p>
+        And keep the ownership of your data
+      </p>
+    </Col>
+    <Col
+      md={2}
+      xs={12}
+    />
+  </Row>
+  <Row
+    noGutters={false}
+  >
+    <Col>
+      <Spacer />
+    </Col>
+  </Row>
+  <Row
+    noGutters={false}
+  >
+    <Col>
+      <Spacer />
+    </Col>
+  </Row>
+  <Row
+    noGutters={false}
+  >
+    <Col
+      md={3}
+      xs={12}
+    />
+    <Col
+      className="home-div logo-div"
+      key="solid"
+      md={2}
+      xs={4}
+    >
+      <Image
+        alt="Solid"
+        className="fill-image"
+        fluid={false}
+        rounded={false}
+        roundedCircle={false}
+        src="/img/Solid.svg"
+        thumbnail={false}
+      />
+      <p />
+    </Col>
+    <Col
+      className="home-div logo-div"
+      key="uniovi"
+      md={2}
+      xs={4}
+    >
+      <Image
+        alt="University of Oviedo"
+        className="fill-image"
+        fluid={false}
+        rounded={false}
+        roundedCircle={false}
+        src="/img/home/uniovi.jpg"
+        thumbnail={false}
+      />
+      <p />
+    </Col>
+    <Col
+      className="home-div logo-div"
+      key="inrupt"
+      md={2}
+      xs={4}
+    >
+      <Image
+        alt="inrupt"
+        className="fill-image"
+        fluid={false}
+        rounded={false}
+        roundedCircle={false}
+        src="/img/inrupt.svg"
+        thumbnail={false}
+      />
+      <p />
+    </Col>
+    <Col
+      md={3}
+      xs={12}
+    />
+  </Row>
+</Container>
+`;
