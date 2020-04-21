@@ -7,4 +7,5 @@ ignore:
   - "src/layouts"
   - "src/services"
   - "src/utils/**/*"
-  - "src/viade"
+  - "src/viade/util"
+  - "src/viade/Model"
