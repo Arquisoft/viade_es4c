@@ -1,11 +1,18 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import AuthNavBar from "./auth-nav-bar.component";
+import {cleanup, render} from 'react-testing-library';
+import {HashRouter as Router} from 'react-router-dom';
+import AuthNavBar from './auth-nav-bar.component';
 
-describe('AuthNavBar', () => {
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<AuthNavBar debug />);
-  
-    expect(component).toMatchSnapshot();
+describe.only('AuthNavBar', () => {
+  afterAll(cleanup);
+
+  const { container } = render(
+    <Router>
+      <AuthNavBar t={key => key} />
+    </Router>
+  );
+
+  test('renders without crashing', () => {
+    expect(container).toBeTruthy();
   });
 });
