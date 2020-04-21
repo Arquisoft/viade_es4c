@@ -6,5 +6,5 @@ ignore:
   - "src/hooks"
   - "src/layouts"
   - "src/services"
-  - "src/utils"
+  - "src/utils/**/*"
   - "src/viade"
