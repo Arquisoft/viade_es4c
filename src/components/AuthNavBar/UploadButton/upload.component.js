@@ -127,6 +127,8 @@ export const UploadComponent = () => {
                     (Optional)
                 </Form.Text>
             </Form.Group>
+            <p>We don't support manual creation of routes as of yet, but you can use <a href={"http://geojson.io/"}>
+                this webpage</a> to make one if you don't have a GPS.</p>
             {/** Selección de archivo **/}
             <input type="file" onChange={fileSelectedHadler}/>
             <ImageUploader
