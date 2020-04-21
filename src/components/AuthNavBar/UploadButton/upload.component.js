@@ -7,7 +7,7 @@ import ImageUploader from "react-images-upload";
 import {useWebId} from "@inrupt/solid-react-components";
 import {CustomButton} from "../../";
 import "./upload.component.css";
-import {errorToaster,warningToaster,successToaster} from "../../../utils/toaster";
+import {errorToaster,warningToaster,successToaster, infoToaster} from "../../../utils/toaster";
 
 const fc = new SolidFileClient(auth);
 
@@ -50,6 +50,7 @@ export const UploadComponent = () => {
         warningToaster("You need to upload a route","Warn");
     }
     else {
+        infoToaster("Uploading route");
         const file = files[0];
         const rutaPod = storageHelper.getMyRoutesFolder(webid);
         const rutaMedia = storageHelper.getMediaFolder(webid);
