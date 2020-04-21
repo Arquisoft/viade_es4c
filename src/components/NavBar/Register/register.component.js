@@ -2,8 +2,8 @@ import React, {Component, Fragment} from "react";
 import ProviderItem from "./ProviderItem";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
-import "./register.component.css"
-import {MDBBtn} from "mdbreact";
+import "./register.component.css";
+import {CustomButton} from "../../index";
 
 type Provider = {};
 
@@ -43,7 +43,7 @@ class RegisterComponent extends Component<Props, State> {
 		}
 	};
 
-	selectProvider = e => {
+	selectProvider = (e) => {
 		const { register } = this.state;
 		this.setState({
 			register: { ...register, provider: e.target.value },
@@ -51,7 +51,7 @@ class RegisterComponent extends Component<Props, State> {
 		});
 	};
 
-	onSubmit = e => {
+	onSubmit = (e) => {
 		e.preventDefault();
 		const {
 			canContinue,
@@ -72,8 +72,8 @@ class RegisterComponent extends Component<Props, State> {
 		const { providers} = this.props;
 
 		return (
-			<Card className="text-center" style={{ width: '25rem' }}>
-				<Card.Img variant="top" src="/img/logo.svg" />
+			<Card className="text-center" style={{ width: "25rem" }}>
+				<Card.Img variant="top" src={process.env.PUBLIC_URL + "/img/logo.svg"} />
 				<Card.Body>
 					<Card.Title>Make a SOLID account</Card.Title>
 					<Card.Body>
@@ -88,7 +88,7 @@ class RegisterComponent extends Component<Props, State> {
 										rel="noopener noreferrer"
 									>What is a provider?</a>
 									<ul>
-										{providers.map(providerData => (
+										{providers.map((providerData) => (
 											<div className="p-item" key={`div-${providerData.id}`}>
 												<ProviderItem
 													data={providerData}
@@ -104,15 +104,13 @@ class RegisterComponent extends Component<Props, State> {
 									</ul>
 								</Fragment>
 							</div>
-							<MDBBtn
+							<CustomButton
 								className="btn-solid"
 								onClick={this.next}
 								type="submit"
 								disabled={!canContinue}
-								color="orange" outline
-							>
-								Next
-							</MDBBtn>
+								text="Next"
+							/>
 						</Form>
 					</Card.Body>
 				</Card.Body>

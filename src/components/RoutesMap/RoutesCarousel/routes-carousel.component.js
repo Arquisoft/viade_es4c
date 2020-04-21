@@ -8,26 +8,19 @@ import "./routes-carousel.component.css";
  */
 class RoutesCarousel extends React.Component {
 
-	data = [
-		{ src: "/img/inrupt.svg", date: "Imagen 1", description: "Description"},
-		{ src: "/img/logo.svg", date: "Imagen 2", description: "Description"},
-		{ src: "/img/Solid.svg", date: "Imagen 3", description: "Description"}
-	];
+	constructor(props) {
+		super(props);
+		this.data = props.media;
+	}
 
 	render() {
 		return (
 			<Carousel interval={5000}>
-				{this.data.map(function(object){
-					return <Carousel.Item>
-						<img
-							className="d-block route-img"
-							src={object.src}
-							alt={object.date}
-						/>
-						<Carousel.Caption>
-							<h3>{object.date}</h3>
-						</Carousel.Caption>
-					</Carousel.Item>;
+				{this.data.map(function (object) {
+					return (
+						<Carousel.Item key={object.getUrl()}>
+							{object.getComponent()}
+						</Carousel.Item>);
 				})}
 			</Carousel>
 		);

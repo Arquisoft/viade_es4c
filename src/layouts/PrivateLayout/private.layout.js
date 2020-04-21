@@ -1,14 +1,19 @@
 import React, {useEffect} from "react";
 import {Route} from "react-router-dom";
-import {withAuthorization} from "@inrupt/solid-react-components";
+import {withAuthorization} from "../../hooks";
 import {AuthNavBar} from "../../components";
-import {permissionHelper} from '../../utils';
+import {permissionHelper} from "../../utils";
 
 /**
-* Controls the paths that can be accessed only by logged users. If a not logged-in user tries to access that path he will be redirected to "/login".In addition, it also shows Auth NavBar.
-*@param {Component} component - The Container to be shown
-*@param {String} path - path asigned to the container
-*/
+ * Controls the paths that can be accessed only by logged users. If a not logged-in user tries to access that path he will be redirected to "/login".In addition, it also shows Auth NavBar.
+ * @param Component
+ * @param webId
+ * @param location
+ * @param history
+ * @param rest
+ * @returns {*}
+ * @constructor
+ */
 const PrivateLayout =({component:Component, webId, location, history, ...rest }) => {
   const errorMessages = {
     message: "The application permissions are not properly set. Please add additional permissions and try again",

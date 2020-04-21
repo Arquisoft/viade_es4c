@@ -1,9 +1,12 @@
-import {AccessControlList, AppPermission} from '@inrupt/solid-react-components';
-//import { errorToaster } from '@utils';
+import {
+  AccessControlList,
+  AppPermission,
+} from "@inrupt/solid-react-components";
+import { errorToaster } from "./index";
 
 // Check that all permissions we need are set. If any are missing, this returns false
 const checkAppPermissions = (userAppPermissions, appPermissions) =>
-  appPermissions.every(permission => userAppPermissions.includes(permission));
+  appPermissions.every((permission) => userAppPermissions.includes(permission));
 
 // Function to check for a specific permission included in the app
 export const checkSpecificAppPermission = async (webId, permission) => {
@@ -32,12 +35,10 @@ export const checkPermissions = async (webId, errorMessage) => {
     userApp.permissions === null ||
     !checkAppPermissions(userApp.permissions, [APPEND, READ, WRITE, CONTROL])
   ) {
-    /*
     errorToaster(errorMessage.message, errorMessage.title, {
       label: errorMessage.label,
-      href: errorMessage.href
-    });*/
-    alert(errorMessage.title+": "+errorMessage.message);
+      href: errorMessage.href,
+    });
   }
 };
 
@@ -51,9 +52,11 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
   // Fetch app permissions for the inbox and see if Append is there
   const inboxAcls = new AccessControlList(webId, inboxPath);
   const permissions = await inboxAcls.getPermissions();
-  const inboxPublicPermissions = permissions.filter(perm => perm.agents === null);
+  const inboxPublicPermissions = permissions.filter(
+    (perm) => perm.agents === null
+  );
 
-  const appendPermission = inboxPublicPermissions.filter(perm =>
+  const appendPermission = inboxPublicPermissions.filter((perm) =>
     perm.modes.includes(AccessControlList.MODES.APPEND)
   );
 
@@ -64,8 +67,8 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
       const permissions = [
         {
           agents: null,
-          modes: [AccessControlList.MODES.APPEND]
-        }
+          modes: [AccessControlList.MODES.APPEND],
+        },
       ];
       const ACLFile = new AccessControlList(webId, inboxPath);
       await ACLFile.createACL(permissions);
@@ -76,4 +79,44 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
   }
 
   return true;
+};
+
+const getPermissions = (array) => {
+  const modes = AccessControlList.MODES;
+  const { APPEND, READ, WRITE, CONTROL } = modes;
+  let permissions = [];
+  let p=0;
+  for (p;p<array.length;p++) {
+    switch (array[p]) {
+      case "A":
+        permissions.push(APPEND);
+        break;
+      case "R":
+        permissions.push(READ);
+        break;
+      case "W":
+        permissions.push(WRITE);
+        break;
+      case "C":
+        permissions.push(CONTROL);
+        break;
+      default:
+        break;
+    }
+  }
+
+  return permissions;
+};
+
+export const setPermissions = async (webId,agent, documentUri, permissions) => {
+  let path=documentUri.split("#")[0];
+  const ACLFile = new AccessControlList(webId, path);
+  let array=getPermissions(permissions);
+  const agentsPermissions = [
+    {
+      agents: agent,
+      modes: array,
+    },
+  ];
+  await ACLFile.createACL(agentsPermissions);
 };

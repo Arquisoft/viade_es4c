@@ -11,9 +11,9 @@ import "./login.css";
  */
 const LoginComponent = () => {
   return (
-    <nav className="nav nav__login">
-      <Card className="text-center" style={{ width: '25rem' }}>
-          <Card.Img variant="top" src="/img/logo.svg" />
+    <div>
+      <Card className="text-center" style={{ width: "25rem" }}>
+          <Card.Img variant="top" src={process.env.PUBLIC_URL + "/img/logo.svg"} />
           <Card.Body>
               <Card.Title>Login of Viade es4c</Card.Title>
               <Card.Text>
@@ -24,7 +24,7 @@ const LoginComponent = () => {
                       btnTxtWebId="Login with WebId"
                       btnTxtProvider="Login with Provider"
                       className="provider-login-component"
-                      callbackUri={`${window.location.origin}`}
+                      callbackUri={`${window.location.origin}` + /viade_es4c/}
                       errorsText={{
                           unknown: "unknown error",
                           webIdNotValid: "webIdNotValid",
@@ -36,7 +36,7 @@ const LoginComponent = () => {
               </Card.Text>
           </Card.Body>
       </Card>
-    </nav>
+    </div>
 
   );
 };
