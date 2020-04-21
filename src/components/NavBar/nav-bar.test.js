@@ -1,11 +1,18 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import NavBar from "./nav-bar.component";
+import {cleanup, render} from 'react-testing-library';
+import {HashRouter as Router} from 'react-router-dom';
+import NavBar from './nav-bar.component';
 
-describe('NavBar', () => {
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<NavBar debug />);
-  
-    expect(component).toMatchSnapshot();
+describe.only('NavBar', () => {
+  afterAll(cleanup);
+
+  const { container } = render(
+    <Router>
+      <NavBar t={key => key} />
+    </Router>
+  );
+
+  test('renders without crashing', () => {
+    expect(container).toBeTruthy();
   });
 });

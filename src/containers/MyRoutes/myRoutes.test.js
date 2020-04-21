@@ -1,11 +1,18 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import MyRoutes from "./myRoutes.container";
+import {cleanup, render} from 'react-testing-library';
+import {HashRouter as Router} from 'react-router-dom';
+import MyRoutes from './myRoutes.container';
 
-describe('MyRoutes', () => {
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<MyRoutes debug />);
-  
-    expect(component).toMatchSnapshot();
+describe.only('MyRoutes', () => {
+  afterAll(cleanup);
+
+  const { container } = render(
+    <Router>
+      <MyRoutes t={key => key} />
+    </Router>
+  );
+
+  test('renders without crashing', () => {
+    expect(container).toBeTruthy();
   });
 });

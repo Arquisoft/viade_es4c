@@ -1,11 +1,18 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import FriendsRoutes from "./friendsRoutes.container";
+import {cleanup, render} from 'react-testing-library';
+import {HashRouter as Router} from 'react-router-dom';
+import FriendsRoutes from './friendsRoutes.container';
 
-describe('FriendsRoutes', () => {
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<FriendsRoutes debug />);
-  
-    expect(component).toMatchSnapshot();
+describe.only('FriendsRoutes', () => {
+  afterAll(cleanup);
+
+  const { container } = render(
+    <Router>
+      <FriendsRoutes t={key => key} />
+    </Router>
+  );
+
+  test('renders without crashing', () => {
+    expect(container).toBeTruthy();
   });
 });
