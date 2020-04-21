@@ -55,7 +55,7 @@ export class ShowRoute extends Component {
 						</Col>
 						<Col xs={12} md={2}/>
 					</Row>
-				</div>:<Redirect to="/403" />
+				</div>:<Redirect to="/404" />
 				): <div>
 					<Spacer/>
 					<Loader size="150px"/>
