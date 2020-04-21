@@ -43,3 +43,32 @@ image:images/05_Level2.png["Viade View"]
 |Route <- RDF
 |We download RDF object and transform it into object Route to show it.
 |===
+
+=== Level 3
+
+Level 3 shows us a concrete vision about connections between interface and POD.
+
+image:images/05_Level3.png["Connections View"]
+
+.Level 3 descriptions
+|===
+|Name |Responsibility
+
+|Components and Containters
+|Generate the code to show the page using React
+
+|route-helper
+|Service that manage route methods
+
+|storage-helper
+|Service that manage storage methods
+
+|notificaction-helper
+|Service that manage notificaction methods
+
+|solid-file-client
+|A library for managing Solid files and folders.
+
+|sparql-fiddle
+|An online sparql-fiddle app allows you to load from URL, create, or cut and paste RDF and SPARQL into a form and then run the query, edit and re-run.
+|===
