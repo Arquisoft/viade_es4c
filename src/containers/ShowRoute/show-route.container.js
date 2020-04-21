@@ -1,12 +1,8 @@
 import React, {Component} from "react";
-import {
-	RouteMap,
-	RoutesCarousel,
-	RoutesItinerary,
-	RouteUploader,
-	Spacer
-} from "../../components";
-import "./show-route.css"
+import {Loader, RouteMap, RoutesCarousel, RoutesItinerary, RouteTitle, Spacer,} from "../../components";
+import {Col, Row} from "react-bootstrap";
+import "./show-route.css";
+import {RDFToRoute} from "../../viade";
 
 /**
  * Page which prints a Route and all its info
@@ -19,19 +15,50 @@ export class ShowRoute extends Component {
 	 */
 	constructor(props) {
 		super(props);
-		this.route = this.props.location.state.route;
+		this.linkRuta = decodeURIComponent(props.match.params.uri);
+		this.state = {promiseIsResolved: false};
+		this.route = this.getRoute();
+		this.webId = props.webId;
+	}
+
+	async getRoute() {
+		let promise = RDFToRoute.parse(this.linkRuta);
+		return await promise.then((res) => {
+			this.route = res;
+			this.setState({promiseIsResolved: true});
+		});
 	}
 
 	render() {
 		return (
-			<div className="grid-container">
-				<RouteMap route={this.route} className="route-map"/>				{/* Map */}
-				<RouteUploader route={this.route}/>									{/* Basic route info */}
-				<RoutesItinerary route={this.route}/>								{/* List of points of the route */}
-				{/* Images of the route */}
-				{(this.route.media.length !== 0) ? <div className="image-slide"><RoutesCarousel/></div> : <div/>}
-				<Spacer/>
-			</div>
+			(this.state.promiseIsResolved) ?
+				<div>    {/* Shows the map and info when it finishes loading the Route */}
+					<Row>
+						<Col xs={12} md={2}/>
+						<Col xs={12} md={8} className="route-container">
+							{/* Name, description and share button */}
+							<RouteTitle route={this.route} share={this.props.match.params.share === "my"} routeURL={this.linkRuta} webId={this.webId}/>
+							<RouteMap route={this.route}/> 					{/* Map and route */}
+						</Col>
+						<Col xs={12} md={2}/>
+					</Row>
+					<Row>
+						<Col xs={12} md={2}/>
+						<Col xs={12} md={6}>
+							{/* Images of the route */}
+							{(this.route.media.length !== 0) ?
+								<div className="image-slide"><RoutesCarousel media={this.route.media}/></div> : null}
+						</Col>
+						<Col xs={12} md={2}>
+							<RoutesItinerary route={this.route}/> {/* List of points of the route */}
+						</Col>
+						<Col xs={12} md={2}/>
+					</Row>
+				</div>
+				: <div>
+					<Spacer/>
+					<Loader size="150px"/>
+				</div>
 		);
-	};
+	}
 }

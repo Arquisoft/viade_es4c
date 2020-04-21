@@ -4,7 +4,7 @@ import ldflex from "@solid/query-ldflex";
 export const documentExists = async (documentUri) =>
   auth.fetch(documentUri, {
     headers: {
-      'Content-Type': 'text/turtle'
+      "Content-Type": "text/turtle"
     }
   });
 
@@ -27,9 +27,9 @@ export const deleteFile = async (url) => {
 export const createDocument = async (documentUri, body = "") => {
   try {
     const options = {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'text/turtle'
+        "Content-Type": "text/turtle"
       },
       body
     };
@@ -80,7 +80,7 @@ export const resourceExists = async (resourcePath) => {
     const result = await auth.fetch(resourcePath);
    return result.status === 403 || result.status === 200;
   } catch (e) {
-    alert("Error:ldflex-helper > resourceExists");
+    throw e;
 
   }
 };

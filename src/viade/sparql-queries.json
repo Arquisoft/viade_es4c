@@ -1,0 +1,11 @@
+{
+    "route": {
+        "full": "PREFIX schema: <http://schema.org/> PREFIX viade:<http://arquisoft.github.io/viadeSpec/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT ?lat ?long ?order ?name ?description ?name ?elevation WHERE { ?route a viade:Route. ?route viade:point ?point . ?point schema:latitude ?lat ; schema:longitude ?long ; viade:order ?order. OPTIONAL {?route schema:description ?description.} OPTIONAL {?route schema:name ?name.} OPTIONAL {?point schema:elevation ?elevation.} }",
+        "simple": "PREFIX schema: <http://schema.org/> PREFIX viade:<http://arquisoft.github.io/viadeSpec/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT ?name ?description WHERE { ?route a viade:Route. ?route schema:name ?name. OPTIONAL {?route schema:description ?description.} }",
+        "media": "PREFIX schema: <http://schema.org/> PREFIX viade:<http://arquisoft.github.io/viadeSpec/> SELECT ?iri ?publishedDate ?author WHERE { ?route a viade:Route. ?route viade:hasMediaAttached ?media . ?media schema:contentUrl ?iri ; schema:publishedDate ?publishedDate ; schema:author ?author. }"
+    },
+    "notifications": {},
+    "shared_with_me":{
+        "route_uris":"PREFIX schema: <http://schema.org/> SELECT ?route WHERE{ ?blank schema:object ?route.}"
+    }
+}

@@ -1,0 +1,50 @@
+{
+  "logo": "/img/logo.svg",
+  "name": "Viade",
+  "description": "Viade is a Solid project developed by third year students of the University of Oviedo Software Engineering degree in the Software Architecture subject. It offers a route sharing application following the SOLID principles. This is a site where all your data always remains yours.",
+  "team": "Developed by team es4c",
+  "link": "https://github.com/Arquisoft/viade_es4c",
+  "images": [
+    {
+      "key": "upload",
+      "alt": "Upload a route",
+      "icon": "/img/home/uploadroute.svg",
+      "text": "Upload a new route"
+    },
+    {
+      "key": "media",
+      "alt": "Upload images and videos",
+      "icon": "/img/home/uploadmedia.svg",
+      "text": "Complete it with images and videos"
+    },
+    {
+      "key": "share",
+      "alt": "Share it",
+      "icon": "/img/home/shareroute.svg",
+      "text": "Share it with whoever you want"
+    },
+    {
+      "key": "keep",
+      "alt": "Keep the ownership of your data",
+      "icon": "/img/home/keepyours.svg",
+      "text": "And keep the ownership of your data"
+    }
+  ],
+  "footer": [
+    {
+      "key": "solid",
+      "icon": "/img/Solid.svg",
+      "alt": "Solid"
+    },
+    {
+      "key": "uniovi",
+      "icon": "/img/home/uniovi.jpg",
+      "alt": "University of Oviedo"
+    },
+    {
+      "key": "inrupt",
+      "icon": "/img/inrupt.svg",
+      "alt": "inrupt"
+    }
+  ]
+}

@@ -1,67 +1,124 @@
 @import url('https://unpkg.com/leaflet@1.5.1/dist/leaflet.css');
 
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 .leaflet-container {
-  height: 500px;
+    height: 500px;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 nav img {
-  height: 60px;
-  cursor: pointer;
+    height: 60px;
+    cursor: pointer;
 }
 
 .link {
-  font-size: 1.5em;
-  margin: 20px;
-  color: black;
-  text-decoration: none;
-  float: right;
+    font-size: 1.5em;
+    margin: 0 20px;
+    color: black;
+    text-decoration: none;
+    float: right;
+    padding-top: 15px;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: #34d1ab;
+    border-top: 4px solid #34d1ab;
+}
+
+.link > div {
+    display: flex;
+    justify-content: center;
 }
 
 .active {
-  font-weight: bold;
+    font-weight: bold;
+    border-bottom: 4px solid #34d1ab;
 }
 
 .logout-img {
-  margin-top: 20px;
-  margin-left: 10px;
-  height: 40px;
+    margin-top: 20px;
+    margin-left: 10px;
+    height: 40px;
+}
+
+.viade-toaster-container {
+    min-width: 500px;
+    margin-left: 0;
+    transform: translateX(-50%);
+    padding: 0;
+}
+
+.list-holder > ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+.viade-toaster {
+    border-radius: 4px;
+    min-width: 410px;
+    color: #fff;
+    display: flex;
+    align-content: center;
+    min-height: 72px;
+    margin: 0;
+}
+
+.viade-toaster > .viade-toaster-body {
+    margin: 0;
+    display: flex;
+}
+
+.viade-toaster > .viade-toaster-body > button {
+    color: #fff;
+    opacity: 0.8;
+}
+
+div > .toaster-error {
+    color: #fff;
+    background: rgba(255, 69, 0, 0.9);
+}
+
+div > .toaster-success {
+    color: #fff;
+    background: rgba(137, 217, 198, 0.9);
 }
