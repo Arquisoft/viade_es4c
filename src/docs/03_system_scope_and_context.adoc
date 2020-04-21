@@ -22,12 +22,12 @@ and other type of files with his friends
 	* Pod: Each user has a POD where the routes and the shared information are stored.
 	* Viade: Decentralized application to store routes and share with other people.
 
-image::images/03_Business_Context.png[]
+image::03_Business_Context.png[]
 
 
 
 === Technical Context
 
-image::images/03_Deployment_Diagram.png[]
+image::03_Deployment_Diagram.png[]
 
 The descentralized server system of the application will make use of SOLID storing all the user's data on their respective PODs. This will be integrated through the use of React, which will be the library of Javascript used to make all the interfaces of the application. An important key in the interaction and manageability of the web when communicating with the users will be the maps, which will be offered making use of OpenStreetMaps API.
