@@ -13,18 +13,21 @@ class ParserToRoute {
       case "gpx":
         return new GpxToRoute(file);
       default:
-        console.log("formato no soportado");
-        break;
+        throw new Error("Unsupported format");
     }
   };
 
-  parse =  file => {
+  parse =  (file) => {
     const f = file;
     const parser = this.selectParser(f);
     return new Promise((resolve, reject) => {
       let reader = new FileReader();
-      reader.onload = ()=> {
-        resolve(parser.execute(reader.result));
+      reader.onload = () => {
+        try{
+          resolve(parser.execute(reader.result));
+        }catch(err){
+          reject(new Error("A problem has occurred uploading the route"));
+        }
       };
       reader.onerror=reject;
       reader.readAsText(f);

@@ -1,7 +1,6 @@
 class NotificationToRDF{
 
-    parse=(notification)=>{
-        console.log(notification.title);
+    parse= (notification) => {
         return `@prefix terms: <http://purl.org/dc/terms#>.
         @prefix as: <https://www.w3.org/ns/activitystreams#>.
         @prefix schema: <http://schema.org/>.
@@ -20,8 +19,10 @@ class NotificationToRDF{
             as:published "`+notification.published+`"^^xsd:dateTime.`;
     }
 
-    clearQuotes=(string)=>{
-        if(!string)return;
+    clearQuotes= (string) => {
+        if(!string){
+            return;
+        }
         return string.replace(/['"]+/g, '');
     }
 }

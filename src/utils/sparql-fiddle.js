@@ -6,7 +6,7 @@ class SparqlFiddle{
     do = (fiddle) => {
       return new Promise((resolve, reject) => {
         this.parseRdf(fiddle).then( (response) => {
-            this.prepare(fiddle).then( (preparedQuery) => {
+            this.prepare(fiddle).then( (preparedQuery) => {              
                 this.execute(fiddle,preparedQuery).then( (results) => {
                     this.store = fiddle.store;
                     if(fiddle.wanted==="Array"){
@@ -59,7 +59,7 @@ class SparqlFiddle{
     });};
     prepare = (fiddle) => {
         return new Promise((resolve, reject)=>{
-            try {
+            try {            
               let query = rdf.SPARQLToQuery(fiddle.query,false,fiddle.store);
               resolve(query);
             }
@@ -71,7 +71,7 @@ class SparqlFiddle{
         return new Promise((resolve, reject)=>{
             let wanted = preparedQuery.vars;
             let resultAry = [];
-            fiddle.store.query((preparedQuery, results) =>  {
+            fiddle.store.query(preparedQuery, (results) =>  {
                 if(typeof(results)==="undefined") { reject("No results."); }
                 else { 
                     let row = rowHandler(fiddle,wanted,results) ;
@@ -181,7 +181,7 @@ class SparqlFiddle{
                     resolve(results)
                 }, err => reject(err) )
             }, err => reject(err) )
-        }, err => console.log("CH:"+err) )
+        }, err => console.log(err) )
     };
     loadLibrary = ( fiddleLibrary) => {
         return new Promise((resolve, reject)=>{
@@ -248,7 +248,7 @@ class SparqlFiddle{
                 // replace the url with it's content
                 fiddle[type] = response.responseText;
                 resolve( fiddle )
-            })
+            }).catch((err)=>reject(err));
         } catch(err) { reject(err) }
       })
     };

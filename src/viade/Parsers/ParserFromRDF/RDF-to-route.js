@@ -1,17 +1,13 @@
-import { RouteViade, ItemViade } from "../../Model";
+import { RouteViade, ItemViade, ImageViade, VideoViade } from "../../Model";
+import { sparqlFiddle } from "../../../utils";
 
-import * as comunica from "@comunica/actor-init-sparql";
+import auth from "solid-auth-client";
+import FC from "solid-file-client";
+
+const fc = new FC(auth);
 class RDFToRoute {
-
-  /**
-   * Parse route viade in RDF to a RouteViade
-   * @param {*} url URL of the route
-   * @return A promise
-   */
-  parse=async (url) => {
-    const engine=comunica.newEngine();
-    const sparql =
-      `PREFIX schema: <http://schema.org/>
+  parse = async (url) => {
+    const sparql = `PREFIX schema: <http://schema.org/>
       PREFIX viade:<http://arquisoft.github.io/viadeSpec/>
       PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
       
@@ -25,53 +21,110 @@ class RDFToRoute {
       OPTIONAL {?route schema:name ?name.}
       OPTIONAL {?point schema:elevation ?elevation.}
       }`;
-      const result= await engine.query(sparql,{sources:[url]});
-      const { data } = await engine.resultToString(result, "application/json");
-      return new Promise((resolve,reject) => {
-        
-    
-    
-    let text="";
+    let fiddle = {
+      data: url,
+      query: sparql,
+      wanted: "Array",
+    };
 
-    data.on("data", (chunk) => {
-      text+=chunk;  
-    });
+    const result = await sparqlFiddle.run(fiddle).then(
+      (results) => {
+        return results;
+      },
+      (err) => console.log(err)
+    );
 
-    data.on("end",() => {
-      resolve(this.getRoute(JSON.parse(text)));
-   });
-      });
-    
+    let sparqlMedia = `
+        PREFIX schema: <http://schema.org/>
+        PREFIX viade:<http://arquisoft.github.io/viadeSpec/>
+      
+      SELECT ?iri ?publishedDate ?author WHERE {
+       ?route a viade:Route.
+       ?route viade:hasMediaAttached ?media .
+       ?media schema:contentUrl ?iri ;
+              schema:publishedDate ?publishedDate ;
+              schema:author ?author.
+      }
+        `;
+
+    let fiddleMedia = {
+      data: url,
+      query: sparqlMedia,
+      wanted: "Array",
+    };
+    const resultMedia = await sparqlFiddle.run(fiddleMedia).then(
+      (results) => {
+        return results;
+      },
+      (err) => console.log(err)
+    );
+    let media = await this.getMedia(resultMedia);
+    return this.getRoute(result, media, url);
   };
 
-
-/**
- * @param {*} results Array of JSON objects with the items value
- * @returns RouteViade object
- */
-  getRoute=(results) => {
-    if(!results||!results.length) {return;}
-    let items=results.map((i) => new ItemViade(this.parseToFloat(i["?long"]),this.parseToFloat(i["?lat"]),this.parseToFloat(i["?order"]),this.parseToFloat(i["?elevation"])));
-    return new RouteViade(this.cleanValue(results[0]["?name"]),items,this.cleanValue(results[0]["?description"]));
+  getMedia = async (results) => {
+    if(!results){return [];}
+    let media = [];
+    let i;
+    for (i=0;i<results.length;i++) {
+      let blob = await fc.readFile(results[i]["iri"]);
+      switch (blob.type.split("/")[0]) {
+        case "image":
+          media.push(
+            new ImageViade(
+              results[i]["iri"],
+              results[i]["author"],
+              results[i]["publishedDate"],
+              blob
+            )
+          );
+          break;
+          case "video":
+            media.push(
+              new VideoViade(
+                results[i]["contentUrl"],
+                results[i]["author"],
+                results[i]["publishedDate"],
+                blob
+              )
+            );
+            break;
+        default:
+          break;
+      }       
+    }
+    return media;
   };
-  /**
-   * Removes type of literals(RDF) and double quotes
-   *  @param {*} value value of literal
-   * 
-   * Example: "47.64458"^^http://www.w3.org/2001/XMLSchema#decimal => 47.64458
-   */
-  cleanValue=(value) => {
-    if(!value)return;
-    return value.split("^^")[0].replace(/['"]+/g,"");
+
+  getRoute = (results, media, url) => {
+    if (!results || !results.length) {
+      return;
+    }
+    let items = results.map(
+      (i) =>
+        new ItemViade(
+          this.parseToFloat(i["long"]),
+          this.parseToFloat(i["lat"]),
+          this.parseToFloat(i["order"]),
+          this.parseToFloat(i["elevation"])
+        )
+    );
+    return new RouteViade(
+      results[0]["name"],
+      items,
+      results[0]["description"],
+      media,
+      [],
+      url
+    );
   };
 
-  parseToFloat=(value) => {
-    if(!value){return;}
-    let clean=this.cleanValue(value);
-    return parseFloat(clean);
-
-  }
-
+  parseToFloat = (value) => {
+    if (!value) {
+      return;
+    }
+    return parseFloat(value);
+  };
 }
 
 const parser = new RDFToRoute();
