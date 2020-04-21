@@ -1,11 +1,18 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import NotificationList from "./notifications-list.component";
+import {cleanup, render} from 'react-testing-library';
+import {HashRouter as Router} from 'react-router-dom';
+import NotificationList from './notifications-list.component';
 
-describe('NotificationList', () => {
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<NotificationList debug />);
-  
-    expect(component).toMatchSnapshot();
+describe.only('NotificationList', () => {
+  afterAll(cleanup);
+
+  const { container } = render(
+    <Router>
+      <NotificationList t={key => key} />
+    </Router>
+  );
+
+  test('renders without crashing', () => {
+    expect(container).toBeTruthy();
   });
 });

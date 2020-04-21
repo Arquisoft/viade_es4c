@@ -65,8 +65,12 @@
     ]
   },
   "devDependencies": {
+    "react-testing-library": "^6.0.0",
+    "@testing-library/user-event": "7.2.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
+    "jest-puppeteer": "^4.4.0",
+    "jest-puppeteer-preset": "^4.4.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
