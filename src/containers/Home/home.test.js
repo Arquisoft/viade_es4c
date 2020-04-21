@@ -1,11 +1,18 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Home from "./home.container";
+import {cleanup, render} from 'react-testing-library';
+import {HashRouter as Router} from 'react-router-dom';
+import Home from './home.container';
 
-describe('Home', () => {
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<Home debug />);
-  
-    expect(component).toMatchSnapshot();
+describe.only('Home', () => {
+  afterAll(cleanup);
+
+  const { container } = render(
+    <Router>
+      <Home t={key => key} />
+    </Router>
+  );
+
+  test('renders without crashing', () => {
+    expect(container).toBeTruthy();
   });
 });
