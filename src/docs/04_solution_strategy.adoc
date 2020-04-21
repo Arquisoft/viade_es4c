@@ -7,13 +7,15 @@ Viade is a decentralized route management system based on the Solid specificatio
 
 ==== Libraries
 
-- https://react-bootstrap.github.io/[React Bootstrap] : To stylize our application 
+- https://react-bootstrap.github.io/[React Bootstrap] : To stylize our application (Grids and image carousel)
+- https://github.com/inrupt/solid-react-components[Solid React Components] :To help with some of the POD features (login, registration, friends list)
 - https://github.com/jeff-zucker/solid-file-client[Solid-File-Client] : To access POD resources
 - https://github.com/jeff-zucker/sparql-fiddle[sparql-fiddle] : 
-To manipulate data stored in RDF (Routes).
-- https://comunica.linkeddatafragments.org/[Cominca Engine]: As SPARQL Engine
-- https://leafletjs.com/[Leaflet]: To display the routes on a map
+To query data stored in PODs.
+- https://leafletjs.com/[Leaflet] and https://www.openstreetmap.org/[OpenStreetMap] : To display the routes on a map
 - https://jestjs.io/[Jest] : To do the tests
+- https://www.npmjs.com/package/react-toastify[Toastify]:  :To display information to the users
+- https://www.npmjs.com/package/gpxparser[GPXParser]: To help manage GPX-formatted routes
 
 ==== Languages
 - Javascript
@@ -22,13 +24,28 @@ To manipulate data stored in RDF (Routes).
 
 ==== Other decisions
 
-- Use of .geojson as the main format for route representation (more formats will be supported later).
+- We support GPX and GeoJSON(LineString) formats.
 - NodeJs to implement the Solid server
 - Using the Solid recommendations and specifications
 
 === Organizational decisions
 
-All members are unaware of the React technology and SOLID specifications, so it has been decided that all members will study React and Solid on their own. In addition, some members will focus more on information management in PODs and others on access to them.
+Although all members have contributed to almost all parts of the implementation, the overall distribution is:
+
+- Rut Alfonso Garcia, parsing and file formats
+
+- Carlos Menchaca Mosteiro, POD and file loading
+
+- Manuel Lorenzo Vega, file uploading and management
+
+- Daniel Pancho Cueto, testing and coverage
+
+- Christian Peláez Fernández, backend and SOLID logic
+
+- Carmen Sirgo Lopez, backend and frontend bridge
+
+- Ricardo Soto Estévez, frontend developer
+
 
 === Solution-approaches
 
@@ -42,10 +59,10 @@ All members are unaware of the React technology and SOLID specifications, so it 
 |Solid React SDK
 
 |Testeability
-|Travis CI
+|Codecov
 
-|Availability
-|Deploy a server
+|Maintainability
+|Travis, Codecov, Modular design
 
 |Interoperability
 |Use of https://arquisoft.github.io/viadeSpec/[Viade Data Model Specification]

@@ -13,5 +13,7 @@ providers
 |RDF | RDF stands for Resource Description Framework and is a standard for data interchange, developed and agreed upon by W3C.
 |Turtle | Is a syntax and file format for expressing data in the Resource Description Framework (RDF) data model
 |SPARQL | Query language for RDF
+|GPX | An XML schema designed as a common GPS data format for software applications
+|GeoJSON | An open standard format designed for representing simple geographical features,based on the JavaScript Object Notation (JSON).
 |
 |===
