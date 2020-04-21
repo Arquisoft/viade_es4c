@@ -10,7 +10,13 @@ export const errorToaster = (content: String, title: String = null, link: Object
   });
 
 export const successToaster = (content: String, title: String = null, link: Object) =>
-  toast(<Toaster {...{ content, title, type: "success", link }} />, {
+  toast(<Toaster {...{ content, title, type: "success", link }}/>, {
     className: "toaster-success",
     type: "success"
+  });
+
+  export const infoToaster = (content: String, title: String = null, link: Object) =>
+  toast(<Toaster {...{ content, title, type: "info", link }} />, {
+    className: "toaster-info",
+    type: "info"
   });

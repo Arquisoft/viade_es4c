@@ -15,10 +15,10 @@ export class ShowRoute extends Component {
 	 */
 	constructor(props) {
 		super(props);
-		this.linkRuta = props.location.state.route;
+		this.linkRuta = decodeURIComponent(props.match.params.uri);
 		this.state = {promiseIsResolved: false};
-		console.log(this.state);
 		this.route = this.getRoute();
+		this.webId = props.webId;
 	}
 
 	async getRoute() {
@@ -36,8 +36,9 @@ export class ShowRoute extends Component {
 					<Row>
 						<Col xs={12} md={2}/>
 						<Col xs={12} md={8} className="route-container">
-							<RouteTitle route={this.route}/> {/* Name, description and share button */}
-							<RouteMap route={this.route}/> {/* Map and route */}
+							{/* Name, description and share button */}
+							<RouteTitle route={this.route} share={this.props.match.params.share === "my"} routeURL={this.linkRuta} webId={this.webId}/>
+							<RouteMap route={this.route}/> 					{/* Map and route */}
 						</Col>
 						<Col xs={12} md={2}/>
 					</Row>
@@ -46,7 +47,7 @@ export class ShowRoute extends Component {
 						<Col xs={12} md={6}>
 							{/* Images of the route */}
 							{(this.route.media.length !== 0) ?
-								<div className="image-slide"><RoutesCarousel/></div> : null}
+								<div className="image-slide"><RoutesCarousel media={this.route.media}/></div> : null}
 						</Col>
 						<Col xs={12} md={2}>
 							<RoutesItinerary route={this.route}/> {/* List of points of the route */}
@@ -56,7 +57,7 @@ export class ShowRoute extends Component {
 				</div>
 				: <div>
 					<Spacer/>
-					<Loader size="150"/>
+					<Loader size="150px"/>
 				</div>
 		);
 	}

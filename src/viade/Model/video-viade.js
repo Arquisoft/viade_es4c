@@ -1,19 +1,24 @@
-class VideoViade{
+import React from "react";
 
-    constructor(iri, author, publicationTime,video=null){
-        this.iri=iri;
-        this.author=author;
-        this.publicationTime=publicationTime;
-        this.video=video;
-    }
+class VideoViade {
 
-    getUrl(){
-        if (!this.video) {
-            return;
-        }
+	constructor(iri, author, publicationTime, video = null) {
+		this.iri = iri;
+		this.author = author;
+		this.publicationTime = publicationTime;
+		this.video = video;
+	}
 
-        return URL.createObjectURL(this.video);
-    }
+	getUrl() {
+		if (!this.video) {
+			return;
+		}
+		return URL.createObjectURL(this.video);
+	}
+
+	getComponent() {
+		return <video controls className="d-block route-img" src={this.getUrl()}/>;
+	}
 }
 
 export default VideoViade;

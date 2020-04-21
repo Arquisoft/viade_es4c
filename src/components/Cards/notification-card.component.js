@@ -20,7 +20,6 @@ export const NotificationCardComponent = (props) => {
 			setAccepted(read === true);
 			successToaster("The route has been accepted");
 		} catch (err) {
-			console.error(err);
 			errorToaster(err.message, err.name);
 		}
 	};

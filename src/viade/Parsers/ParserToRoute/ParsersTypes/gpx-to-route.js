@@ -28,19 +28,34 @@ class GpxToRoute {
 
     getItems = (gpxParse) => {
 
-        // Obtenemos el número de puntos que tiene la ruta.
-        const numWaypoints = gpxParse.waypoints.length;
+        // Obtenemos el número de Tracks que tiene la ruta.
+        const numTracks = gpxParse.tracks.length;
 
-        // Creamos un array de ese tamaño.
-        var items = [numWaypoints];
+        // Creamos un array sin tamaño fijo para una mayor flexibilidad, ya que no sabemos cuántos puntos tenemos en total.
+        var items = [];
 
-        // Para cada punto de la ruta, extraemos su info, creamos un item con esta y lo añadimos al array.
+        // Para cada track de la ruta, extraemos sus puntos, creamos items con ellos y los añadimos al array.
         var i = 0;
-        for (i = 0; i < numWaypoints; i++) {
-            const longitude = gpxParse.waypoints[i].lon;
-            const latitude = gpxParse.waypoints[i].lat;
-            const elevation = gpxParse.waypoints[i].ele;
-            items[i] = new ItemViade(longitude, latitude, i+1, elevation);
+        var j = 0;
+        var numTotalPoints = 0;
+
+        for (i = 0; i < numTracks; i++) {
+
+            // Obtenemos el número de puntos que tiene el track.
+            var numPoints = gpxParse.tracks[i].points.length;
+
+            // Para cada punto de la ruta, extraemos su info, creamos un item con esta y lo añadimos al array.
+            for (j = 0; j < numPoints; j++) {
+
+                const longitude = gpxParse.tracks[i].points[j].lon;
+                const latitude = gpxParse.tracks[i].points[j].lat;
+                const elevation = gpxParse.tracks[i].points[j].ele;
+                items[numTotalPoints] = new ItemViade(longitude, latitude, numTotalPoints+1, elevation);
+
+                numTotalPoints++;
+
+            }
+
         }
 
         // Devolvemos el array de items.
