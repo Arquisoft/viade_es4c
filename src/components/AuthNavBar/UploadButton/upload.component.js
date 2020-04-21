@@ -70,11 +70,12 @@ export const UploadComponent = () => {
             // Subida de archivos
             try {
                 for (let i = 0; i < media.length; i++) {
-                    await fc.putFile(rutaMedia + date + "_" + i +media[i].name.split(".")[1] , media[i], media[i].type);
+                    let extension="."+media[i].name.split(".").slice(-1)[0];
+                    await fc.putFile(rutaMedia + date + "_" + i +extension , media[i], media[i].type);
                     if (media[i].name.includes(".mp4")) {
-                        route.media.push(new VideoViade(rutaMedia + date + "_" + i +media[i].name.split(".")[1], webid.substring(0, webid.length - 16), new Date()));
+                        route.media.push(new VideoViade(rutaMedia + date + "_" + i +extension, webid.substring(0, webid.length - 16), new Date()));
                     } else {
-                        route.media.push(new ImageViade(rutaMedia + date + "_" + i +media[i].name.split(".")[1], webid.substring(0, webid.length - 16), new Date()));
+                        route.media.push(new ImageViade(rutaMedia + date + "_" + i +extension, webid.substring(0, webid.length - 16), new Date()));
                     }
 
                 }
