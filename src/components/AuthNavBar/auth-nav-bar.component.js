@@ -16,7 +16,7 @@ const AuthNavBar = () => {
 		await auth.logout();
 		localStorage.removeItem("solid-auth-client");
 		localStorage.removeItem("isLogged");
-		window.location = "/";
+		window.location = process.env.PUBLIC_URL;
 	};
 
 	return (
@@ -31,7 +31,8 @@ const AuthNavBar = () => {
 				<Nav className="mr-auto"/>
 				<Nav>
 					<NavLink exact to={navbar.notifications.href}>
-						<CustomButton img={navbar.notifications.src}/>
+						<CustomButton
+							img={navbar.notifications.src}/>
 					</NavLink>
                     {navbar.links.map((link) =>
                         <NavLink exact to={link.href} className="link" key={link.href}>
