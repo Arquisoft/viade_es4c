@@ -10,7 +10,7 @@ ignore:
   - "src/components/RoutesMap/RouteMap/index.js"
   - "src/components/RoutesMap/RoutesCarousel/index.js"
   - "src/components/RoutesMap/RoutesItinerary/index.js"
-  - "src/components/RoutesMap/RoutesUploader/index.js"
+  - "src/components/RoutesMap/RoutesTitle/index.js"
   - "src/components/RoutesMap/index.js"
   - "src/components/Spacer/index.js"
   - "src/components/index.js"
