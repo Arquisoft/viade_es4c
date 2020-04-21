@@ -43,7 +43,7 @@ export const UploadComponent = () => {
         if(!webid) {
             errorToaster("You need to be logged in","FatalError");//alert("You need to be logged in");
 
-    }else if( valueName == ""){
+    }else if( valueName === ""){
         warningToaster("You need to introduce a name for te route", "Warn");
     }
     else if (files == null) {
