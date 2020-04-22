@@ -1,9 +1,9 @@
-import React from 'react';
-import {cleanup, render} from 'react-testing-library';
-import RouteTitle from './index';
-import { ItemViade, RouteViade } from '../../../viade/Model';
+import React from "react";
+import {cleanup, render} from "react-testing-library";
+import RouteTitle from "./index";
+import { ItemViade, RouteViade } from "../../../viade/Model";
 
-describe.only('RouteTitle', () => {
+describe.only("RouteTitle", () => {
   afterAll(cleanup);
 
   let item1 = new ItemViade(50,50,1)
@@ -17,7 +17,7 @@ describe.only('RouteTitle', () => {
       <RouteTitle route = {prueba}/>
   );
 
-  test('renders without crashing', () => {
+  test("renders without crashing", () => {
     expect(container).toBeTruthy();
   });
 });

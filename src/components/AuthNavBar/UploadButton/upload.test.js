@@ -1,15 +1,15 @@
-import React from 'react';
-import {cleanup, render} from 'react-testing-library';
-import UploadComponent from './index';
+import React from "react";
+import {cleanup, render} from "react-testing-library";
+import UploadComponent from "./index";
 
-describe.only('UploadComponent', () => {
+describe.only("UploadComponent", () => {
   afterAll(cleanup);
 
   const { container } = render(
       <UploadComponent/>
   );
 
-  test('renders without crashing', () => {
+  test("renders without crashing", () => {
     expect(container).toBeTruthy();
   });
 });

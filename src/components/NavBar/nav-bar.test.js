@@ -1,9 +1,9 @@
-import React from 'react';
-import {cleanup, render} from 'react-testing-library';
-import {HashRouter as Router} from 'react-router-dom';
-import NavBar from './nav-bar.component';
+import React from "react";
+import {cleanup, render} from "react-testing-library";
+import {HashRouter as Router} from "react-router-dom";
+import NavBar from "./nav-bar.component";
 
-describe.only('NavBar', () => {
+describe.only("NavBar", () => {
   afterAll(cleanup);
 
   const { container } = render(
@@ -12,7 +12,7 @@ describe.only('NavBar', () => {
     </Router>
   );
 
-  test('renders without crashing', () => {
+  test("renders without crashing", () => {
     expect(container).toBeTruthy();
   });
 });
