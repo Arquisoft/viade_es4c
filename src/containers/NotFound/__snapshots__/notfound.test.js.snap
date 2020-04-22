@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NotFound should render correctly in "debug" mode 1`] = `
+exports[`NotFound should render correctly in 'debug' mode 1`] = `
 <div
   className="ErrorImage"
 >
