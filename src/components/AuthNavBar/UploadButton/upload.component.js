@@ -7,7 +7,7 @@ import ImageUploader from "react-images-upload";
 import {useWebId} from "@inrupt/solid-react-components";
 import {CustomButton} from "../../";
 import "./upload.component.css";
-import {errorToaster,warningToaster,successToaster} from "../../../utils/toaster";
+import {errorToaster,warningToaster,successToaster, infoToaster} from "../../../utils/toaster";
 
 const fc = new SolidFileClient(auth);
 
@@ -50,6 +50,7 @@ export const UploadComponent = () => {
         warningToaster("You need to upload a route","Warn");
     }
     else {
+        infoToaster("Uploading route");
         const file = files[0];
         const rutaPod = storageHelper.getMyRoutesFolder(webid);
         const rutaMedia = storageHelper.getMediaFolder(webid);
@@ -70,11 +71,12 @@ export const UploadComponent = () => {
             // Subida de archivos
             try {
                 for (let i = 0; i < media.length; i++) {
-                    await fc.putFile(rutaMedia + date + "_" + i +media[i].name.split(".")[1] , media[i], media[i].type);
+                    let extension="."+media[i].name.split(".").slice(-1)[0];
+                    await fc.putFile(rutaMedia + date + "_" + i +extension , media[i], media[i].type);
                     if (media[i].name.includes(".mp4")) {
-                        route.media.push(new VideoViade(rutaMedia + date + "_" + i +media[i].name.split(".")[1], webid.substring(0, webid.length - 16), new Date()));
+                        route.media.push(new VideoViade(rutaMedia + date + "_" + i +extension, webid.substring(0, webid.length - 16), new Date()));
                     } else {
-                        route.media.push(new ImageViade(rutaMedia + date + "_" + i +media[i].name.split(".")[1], webid.substring(0, webid.length - 16), new Date()));
+                        route.media.push(new ImageViade(rutaMedia + date + "_" + i +extension, webid.substring(0, webid.length - 16), new Date()));
                     }
 
                 }
@@ -86,8 +88,9 @@ export const UploadComponent = () => {
                 let parserToRDF = new RouteToRDF(route);
                 strRoute = parserToRDF.parse();
                 //Ya tenemos un String para meter en SolidFileClient
-                if(strRoute == null)
+                if(strRoute == null) {
                     throw new Error();
+                }
             }catch(err){
                 throw new Error("Error in the content of the route");
             }

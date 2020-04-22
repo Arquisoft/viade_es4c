@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ShareForm should render correctly in "debug" mode 1`] = `
+exports[`ShareForm should render correctly in 'debug' mode 1`] = `
 <form
   className="list-holder"
   style={

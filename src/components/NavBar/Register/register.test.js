@@ -1,15 +1,12 @@
 import React from "react";
 import {cleanup, render} from "react-testing-library";
-import {HashRouter as Router} from "react-router-dom";
-import Home from "./home.container";
+import RegisterContainer from "./index";
 
-describe.only("Home", () => {
+describe.only("RegisterContainer", () => {
   afterAll(cleanup);
 
   const { container } = render(
-    <Router>
-      <Home t={key => key} />
-    </Router>
+      <RegisterContainer/>
   );
 
   test("renders without crashing", () => {

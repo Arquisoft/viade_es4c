@@ -1,9 +1,9 @@
-import React from 'react';
-import {cleanup, render} from 'react-testing-library';
-import {HashRouter as Router} from 'react-router-dom';
-import FriendsRoutes from './friendsRoutes.container';
+import React from "react";
+import {cleanup, render} from "react-testing-library";
+import {HashRouter as Router} from "react-router-dom";
+import FriendsRoutes from "./friendsRoutes.container";
 
-describe.only('FriendsRoutes', () => {
+describe.only("FriendsRoutes", () => {
   afterAll(cleanup);
 
   const { container } = render(
@@ -12,7 +12,7 @@ describe.only('FriendsRoutes', () => {
     </Router>
   );
 
-  test('renders without crashing', () => {
+  test("renders without crashing", () => {
     expect(container).toBeTruthy();
   });
 });

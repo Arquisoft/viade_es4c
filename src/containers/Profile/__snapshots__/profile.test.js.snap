@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Profile should render correctly in "debug" mode 1`] = `
+exports[`Profile should render correctly in 'debug' mode 1`] = `
 <ProfileComponent
   debug={true}
 />

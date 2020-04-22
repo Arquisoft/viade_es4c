@@ -1,9 +1,9 @@
-import React from 'react';
-import {cleanup, render} from 'react-testing-library';
-import {HashRouter as Router} from 'react-router-dom';
-import NotificationList from './notifications-list.component';
+import React from "react";
+import {cleanup, render} from "react-testing-library";
+import {HashRouter as Router} from "react-router-dom";
+import NotificationList from "./notifications-list.component";
 
-describe.only('NotificationList', () => {
+describe.only("NotificationList", () => {
   afterAll(cleanup);
 
   const { container } = render(
@@ -12,7 +12,7 @@ describe.only('NotificationList', () => {
     </Router>
   );
 
-  test('renders without crashing', () => {
+  test("renders without crashing", () => {
     expect(container).toBeTruthy();
   });
 });
