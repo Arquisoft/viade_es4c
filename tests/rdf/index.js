@@ -1,3 +1,3 @@
-import rdfNotification from "./rdf-notification.json";
+import rdf from "./rdf.json";
 
-export {rdfNotification};
+export {rdf};
