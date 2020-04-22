@@ -8,18 +8,6 @@ import { errorToaster, successToaster } from "../../../utils";
 const ShareFormComponent = ({ webId, friend, sendNotification, route }) => {
   let [sentTo, setSentTo] = useState([]);
 
-  const shareWith = (target) => {
-    setSentTo([...sentTo, target]);
-
-    if (target.includes("profile/card#me")) {
-      friend = target;
-    } else {
-      friend = target.concat("profile/card#me");
-    }
-
-    shareRoute();
-  };
-
   const shareRoute = async () => {
     try {
       const licenseUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
@@ -42,6 +30,18 @@ const ShareFormComponent = ({ webId, friend, sendNotification, route }) => {
     } catch (error) {
       errorToaster("An error has occurred sharing the route");
     }
+  };
+
+  const shareWith = (target) => {
+      setSentTo([...sentTo, target]);
+
+      if (target.includes("profile/card#me")) {
+          friend = target;
+      } else {
+          friend = target.concat("profile/card#me");
+      }
+
+        shareRoute();
   };
 
   return (
