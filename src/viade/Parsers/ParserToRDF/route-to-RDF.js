@@ -17,20 +17,35 @@ class RouteToRDF {
         this.str +=('@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n');
         this.str +=('\n');
 
-        // Definimos la ruta como un objeto de tipo Route de viade haciendo uso de su nombre.
+        // Definimos la ruta como un objeto de tipo Route de viade haciendo uso de myRoute.
+        /* Estas dos líneas se sustituirán por la tercera en caso de que se quiera poner el
+        nombre de la ruta en cuestión en lugar de myRoute.
         this.str += (':');
         this.str += (this.route.name.replace(/ /g, ""));
+        */
+        this.str +=(':myRoute');
         this.str +=(' a viade:Route ;\n');
 
         // Añadimos el nombre al "schema".
         this.str +=('\tschema:name "');
         this.str +=(this.route.name);
-        this.str +=('" ;\n');
 
         // Añadimos la descripción en caso de que el objeto Route que se nos pasa la tenga.
         if (this.route.description != null && this.route.name !== "") {
+            this.str +=('" ;\n');
             this.str +=('\tschema:description "');
             this.str +=(this.route.description);
+        }
+
+        /*
+        En caso de que no haya ni puntos ni contenidos multimedia en la ruta, entonces finalizamos
+        la declaración de la ruta con un punto.
+        En caso contrario, le agregamos un punto y coma para continuar con el resto de definiciones
+        de la ruta.
+        */
+       if (!this.route.items.length > 0 && !this.route.media.length > 0) {
+        this.str +=('" .\n');
+        } else {
             this.str +=('" ;\n');
         }
 
