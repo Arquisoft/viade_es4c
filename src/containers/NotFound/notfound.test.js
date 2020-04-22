@@ -1,11 +1,18 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import NotFound from "./notfound.component";
+import {cleanup, render} from 'react-testing-library';
+import {HashRouter as Router} from 'react-router-dom';
+import NotFoundComponent from './index';
 
-describe('NotFound', () => {
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<NotFound debug />);
-  
-    expect(component).toMatchSnapshot();
+describe.only('NotFoundComponent', () => {
+  afterAll(cleanup);
+
+  const { container } = render(
+    <Router>
+      <NotFoundComponent/>
+    </Router>
+  );
+
+  test('renders without crashing', () => {
+    expect(container).toBeTruthy();
   });
 });

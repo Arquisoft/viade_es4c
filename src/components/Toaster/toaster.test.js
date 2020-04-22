@@ -1,11 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Toaster from "./toaster.component";
+import {cleanup, render} from 'react-testing-library';
+import Toaster from './index';
 
-describe('Toaster', () => {
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<Toaster debug />);
-  
-    expect(component).toMatchSnapshot();
+describe.only('Toaster', () => {
+  afterAll(cleanup);
+
+  const { container } = render(
+      <Toaster/>
+  );
+
+  test('renders without crashing', () => {
+    expect(container).toBeTruthy();
   });
 });

@@ -1,11 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Share from "./share.container";
+import {cleanup, render} from 'react-testing-library';
+import Share from './share.container';
 
-describe('Share', () => {
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<Share debug />);
-  
-    expect(component).toMatchSnapshot();
+describe.only('Share', () => {
+  afterAll(cleanup);
+
+  const { container } = render(
+      <Share/>
+  );
+
+  test('renders without crashing', () => {
+    expect(container).toBeTruthy();
   });
 });
