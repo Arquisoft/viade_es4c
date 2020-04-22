@@ -88,8 +88,9 @@ export const UploadComponent = () => {
                 let parserToRDF = new RouteToRDF(route);
                 strRoute = parserToRDF.parse();
                 //Ya tenemos un String para meter en SolidFileClient
-                if(strRoute == null)
+                if(strRoute == null) {
                     throw new Error();
+                }
             }catch(err){
                 throw new Error("Error in the content of the route");
             }
