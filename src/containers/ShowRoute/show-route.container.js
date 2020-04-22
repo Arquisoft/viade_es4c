@@ -3,6 +3,7 @@ import {Loader, RouteMap, RoutesCarousel, RoutesItinerary, RouteTitle, Spacer,} 
 import {Col, Row} from "react-bootstrap";
 import "./show-route.css";
 import {RDFToRoute} from "../../viade";
+import { Redirect } from "react-router-dom";
 
 /**
  * Page which prints a Route and all its info
@@ -32,7 +33,7 @@ export class ShowRoute extends Component {
 	render() {
 		return (
 			(this.state.promiseIsResolved) ?
-				<div>    {/* Shows the map and info when it finishes loading the Route */}
+				((this.route)?<div>    {/* Shows the map and info when it finishes loading the Route */}
 					<Row>
 						<Col xs={12} md={2}/>
 						<Col xs={12} md={8} className="route-container">
@@ -54,8 +55,8 @@ export class ShowRoute extends Component {
 						</Col>
 						<Col xs={12} md={2}/>
 					</Row>
-				</div>
-				: <div>
+				</div>:<Redirect to="/404" />
+				): <div>
 					<Spacer/>
 					<Loader size="150px"/>
 				</div>
