@@ -25,8 +25,9 @@ describe.only("Parser to route", () => {
         ParserToRoute.parse(geo2).then(((r) => expect(r).toEqual(output)));
       });
 
-      test("route GeoJSON 3", () => {
-        ParserToRoute.parse(geo3).then(((r) => expect(r).toEqual(output)));
-      });
+    test("route GeoJSON 3", () => {
+      ParserToRoute.parse(geo3).then(((r) => expect(r).toEqual(output)));
+    });
+    
 
   });
