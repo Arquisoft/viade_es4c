@@ -11,6 +11,6 @@
 
 | Main library | React
 
-| Architectural pattern | TODO
+| Architectural pattern | Domain Driven Design
 
 |===
