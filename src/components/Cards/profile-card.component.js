@@ -11,7 +11,8 @@ import "./cards.css";
  * @constructor
  */
 export const ProfileCardComponent = (props) => {
-
+	const {webId}=props;
+	console.log(webId);
 	return (
 		<div className={"route-card"}>
 			{/* Left side of the card, contains the image and hidden fields */}
@@ -41,10 +42,10 @@ export const ProfileCardComponent = (props) => {
 							</Link>
 						</div>
 						<div>
-							<Link to={"/friendsRoutes"}>
+							<a href={webId}>
 								<FontAwesomeIcon icon={faFolderOpen}/>
 								<div className="title">My POD</div>
-							</Link>
+							</a>
 						</div>
 					</div>
 				</div>
