@@ -81,9 +81,16 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
   return true;
 };
 
+export const setReadPermissionRoute=async(webId,agent,route)=>{
+  setReadPermission(webId,agent,route.url.toString());
+  for(let i=0;i<route.media.length;i++){
+    setReadPermission(webId,agent,route.media[i].iri.toString())
+  }
+};
 
-export const setReadPermission = async (webId,agent, documentUri) => {
-  let path=documentUri.split("#")[0];
+
+export const setReadPermission = async (webId,agent, documentUrl) => {
+  let path=documentUrl.split("#")[0];
   const ACLFile = new AccessControlList(webId, path);
   const permissions = await ACLFile.getPermissions();
   const modeRead = [AccessControlList.MODES.READ];

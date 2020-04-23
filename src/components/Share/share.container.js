@@ -10,7 +10,7 @@ const ShareComponent = (props) => {
 
 	const sendNotification = async (content, to, type, license) => {
 			try{
-				await permissionHelper.setReadPermission(content.actor,content.target,route.url);
+				await permissionHelper.setReadPermissionRoute(content.actor,content.target,route);
 				await createNotification(content, to, type, license);
 			}catch(error){
 				console.error(error);
