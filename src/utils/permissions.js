@@ -3,7 +3,9 @@ import {
   AppPermission,
 } from "@inrupt/solid-react-components";
 import { errorToaster } from "./index";
-
+import auth from "solid-auth-client";
+import FC from "solid-file-client";
+const fc = new FC(auth);
 // Check that all permissions we need are set. If any are missing, this returns false
 const checkAppPermissions = (userAppPermissions, appPermissions) =>
   appPermissions.every((permission) => userAppPermissions.includes(permission));
@@ -92,6 +94,17 @@ export const setReadPermissionRoute=async(webId,agent,route)=>{
 export const setReadPermission = async (webId,agent, documentUrl) => {
   let path=documentUrl.split("#")[0];
   const ACLFile = new AccessControlList(webId, path);
+
+  if(!await fc.itemExists(ACLFile.aclUri)){
+    const agentsPermissions = [
+      {
+        agents: agent,
+        modes: [AccessControlList.MODES.READ],
+      },
+    ];
+    await ACLFile.createACL(agentsPermissions);
+  }
+
   const permissions = await ACLFile.getPermissions();
   const modeRead = [AccessControlList.MODES.READ];
   const listPermissions = permissions.filter(perm => perm.modes.toString() === modeRead.toString())
