@@ -81,42 +81,40 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
   return true;
 };
 
-const getPermissions = (array) => {
-  const modes = AccessControlList.MODES;
-  const { APPEND, READ, WRITE, CONTROL } = modes;
-  let permissions = [];
-  let p=0;
-  for (p;p<array.length;p++) {
-    switch (array[p]) {
-      case "A":
-        permissions.push(APPEND);
-        break;
-      case "R":
-        permissions.push(READ);
-        break;
-      case "W":
-        permissions.push(WRITE);
-        break;
-      case "C":
-        permissions.push(CONTROL);
-        break;
-      default:
-        break;
-    }
+export const setReadPermissionRoute=async(webId,agent,route)=>{
+  setReadPermission(webId,agent,route.url.toString());
+  for(let i=0;i<route.media.length;i++){
+    setReadPermission(webId,agent,route.media[i].iri.toString())
   }
-
-  return permissions;
 };
 
-export const setPermissions = async (webId,agent, documentUri, permissions) => {
-  let path=documentUri.split("#")[0];
+
+export const setReadPermission = async (webId,agent, documentUrl) => {
+  let path=documentUrl.split("#")[0];
   const ACLFile = new AccessControlList(webId, path);
-  let array=getPermissions(permissions);
-  const agentsPermissions = [
-    {
-      agents: agent,
-      modes: array,
-    },
-  ];
-  await ACLFile.createACL(agentsPermissions);
+  const permissions = await ACLFile.getPermissions();
+  const modeRead = [AccessControlList.MODES.READ];
+  const listPermissions = permissions.filter(perm => perm.modes.toString() === modeRead.toString())
+  if(listPermissions.length===0){//No se ha compartido con nadie
+    const agentsPermissions = [
+      {
+        agents: agent,
+        modes: [AccessControlList.MODES.READ],
+      },
+    ];
+    await ACLFile.createACL(agentsPermissions);
+  }else{//Ya tiene gente compartida
+    let newAgents=listPermissions[0].agents;
+    newAgents.push(agent);
+    const agentsPermissions = [
+      {
+        agents: newAgents,
+        modes: [AccessControlList.MODES.READ],
+      },
+    ];
+    await ACLFile.createACL(agentsPermissions);
+  }
+  
 };
+  
+
