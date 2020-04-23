@@ -83,7 +83,7 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
   return true;
 };
 
-export const setReadPermissionRoute=async(webId,agent,route)=>{
+export const setReadPermissionRoute=async(webId,agent,route)=> {
   setReadPermission(webId,agent,route.url.toString());
   for(let i=0;i<route.media.length;i++){
     setReadPermission(webId,agent,route.media[i].iri.toString())
@@ -106,7 +106,7 @@ export const setReadPermission = async (webId,agent, documentUrl) => {
   }
   const permissions = await ACLFile.getPermissions();
   const modeRead = [AccessControlList.MODES.READ];
-  const listPermissions = permissions.filter(perm => perm.modes.toString() === modeRead.toString())
+  const listPermissions = permissions.filter((perm) => perm.modes.toString() === modeRead.toString())
   if(listPermissions.length===0){//No se ha compartido con nadie
     const agentsPermissions = [
       {
