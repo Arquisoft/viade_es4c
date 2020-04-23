@@ -82,7 +82,7 @@ class RDFToRoute {
           case "video":
             media.push(
               new VideoViade(
-                results[i]["contentUrl"],
+                results[i]["iri"],
                 results[i]["author"],
                 results[i]["publishedDate"],
                 blob

@@ -25,9 +25,7 @@ export const getInboxFolder = (webId) => {
 
 const createInbox = (webId) => {
   const path = getInboxFolder(webId);
-  fc.createFolder(path).then(async () => {
-    await permissionHelper.checkOrSetInboxAppendPermissions(path, webId);
-  });
+  fc.createFolder(path);
 };
 
 const createSharedMeFile = (webId) => {
@@ -57,16 +55,17 @@ export const checkFolderStructure = async (webId) => {
     initFolderStructure(webId);
     return;
   }
+  if (!(await fc.itemExists(getInboxFolder(webId)))) {
+    await createInbox(webId);
+  }
   if (!(await fc.itemExists(getMyRoutesFolder(webId)))) {
     await createRoutesFolder(webId);
   }
   if (!(await fc.itemExists(getMediaFolder(webId)))) {
     await createMediaFolder(webId);
   }
-  if (!(await fc.itemExists(getInboxFolder(webId)))) {
-    await createInbox(webId);
-  }
   if (!(await fc.itemExists(getSharedWithMeFile(webId)))) {
     await createSharedMeFile(webId);
   }
+  await permissionHelper.checkOrSetInboxAppendPermissions(getInboxFolder(webId), webId);
 };
