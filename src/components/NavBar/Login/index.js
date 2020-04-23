@@ -1,4 +1,3 @@
-//import LoginComponent from "./login.component";
-import LoginModal from "./login-modal.component";
+import LoginComponent from "./login.component";
 
-export default LoginModal;
+export default LoginComponent;

@@ -1,11 +1,11 @@
-import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import React from "react";
+import {Link, NavLink} from "react-router-dom";
 
 const NotFoundComponent = () => {
 	return (
-	    <div className="ErrorImage">
+		<div className="ErrorImage">
 			<NavLink to="/">
-				<img src="/viade_es4c/img/error404.jpg" alt="error" height="50%" width="50%"/>
+				<img src={process.env.PUBLIC_URL + "/img/error404.jpg"} alt="error" height="50%" width="50%"/>
 			</NavLink>
 			<p style={{textAlign: "center"}}>
 				<Link to="/">Go back Home </Link>

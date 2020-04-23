@@ -1,6 +1,6 @@
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
+import {cleanup, render} from "react-testing-library";
+import {HashRouter as Router} from "react-router-dom";
 import AuthNavBar from "./auth-nav-bar.component";
 
 describe.only("AuthNavBar", () => {
