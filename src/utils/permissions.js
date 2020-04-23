@@ -94,8 +94,7 @@ export const setReadPermissionRoute=async(webId,agent,route)=>{
 export const setReadPermission = async (webId,agent, documentUrl) => {
   let path=documentUrl.split("#")[0];
   const ACLFile = new AccessControlList(webId, path);
-
-  if(!await fc.itemExists(ACLFile.aclUri)){
+  if(!(await fc.itemExists(ACLFile.aclUri))){
     const agentsPermissions = [
       {
         agents: agent,
@@ -103,8 +102,8 @@ export const setReadPermission = async (webId,agent, documentUrl) => {
       },
     ];
     await ACLFile.createACL(agentsPermissions);
+    return;
   }
-
   const permissions = await ACLFile.getPermissions();
   const modeRead = [AccessControlList.MODES.READ];
   const listPermissions = permissions.filter(perm => perm.modes.toString() === modeRead.toString())
@@ -127,7 +126,6 @@ export const setReadPermission = async (webId,agent, documentUrl) => {
     ];
     await ACLFile.createACL(agentsPermissions);
   }
-  
 };
   
 
