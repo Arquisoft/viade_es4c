@@ -5,3 +5,17 @@
 .share-img {
     height: 50px;
 }
+
+.edit {
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed #89d9c6;
+    width: 100%;
+    outline: none;
+    padding: 0 0 0 0;
+    font-style: italic;
+}
+
+.edit-title {
+    font-size: 2rem;
+}

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "./routes-title.css";
-import {CustomModal} from "../../";
+import {CustomButton, CustomModal} from "../../";
 import ShareComponent from "../../Share";
 
 /**
@@ -8,6 +8,10 @@ import ShareComponent from "../../Share";
  */
 class RouteTitle extends Component {
 
+	/**
+	 * The page receives the route and will show its name and description
+	 * @param props	Containing the route to display, its webId and if the route is sharable
+	 */
 	constructor(props) {
 		super(props);
 		this.route=props.route;
@@ -15,18 +19,58 @@ class RouteTitle extends Component {
 		this.description = props.route.description;
 		this.share = props.share;
 		this.webId = props.webId;
-	}
+		this.state = {
+			isEditing: false,
+			editedName: this.name,
+			editedDescription: this.description
+		};
+	};
+
+	/**
+	 * Changes the name and description to be modifiable
+	 */
+	edit = () => { this.setState({isEditing: true}); };
+
+	/**
+	 * Saves the route with the modified fields
+	 */
+	save = () => {
+		this.setState({isEditing: false});
+		this.name = this.state.editedName;
+		this.description = this.state.editedDescription;
+	};
+
+	/**
+	 * Updates the name/description of the item
+	 * @param evt
+	 */
+	updateName = (evt) => { this.setState( {editedName: evt.target.value}) };
+	updateDescription = (evt) => { this.setState( {editedDescription: evt.target.value}) };
 
 	render() {
 		return (
 			<div className="d-inline-flex w-100 overflow-hidden">
 				<div className="flex-grow-1">
-					<h1 className="title-text">{this.name}</h1>
-					<p className="title-text">{this.description}</p>
+					{(this.state.isEditing)
+						? 	<div className={"flex-grow-1"}>
+								<input type={"text"} className="edit edit-title"
+									value={this.state.editedName} onChange={this.updateName}/>
+							</div>
+						: 	<h1 className="title-text">{this.name}</h1>}
+					{(this.state.isEditing)
+						? 	<div className={"flex-grow-1"}>
+								<input type={"text"}  className="edit"
+									value={this.state.editedDescription} onChange={this.updateDescription}/>
+							</div>
+						: 	<p className="title-text">{this.description}</p>}
 				</div>
+				{(this.state.isEditing)
+					? <CustomButton onClick={this.save} img="/img/buttons/save.png"/>
+					: <CustomButton onClick={this.edit} img="/img/buttons/edit.png"/> }
 				{ this.share
 					?	<div className="float-right">
-							<CustomModal text="Share" img="/img/buttons/share.png" component={<ShareComponent route={this.route} webId={this.webId}/>}/>
+							<CustomModal text="Share" img="/img/buttons/share.png"
+										 component={<ShareComponent route={this.route} webId={this.webId}/>}/>
 						</div>
 					: 	null	}
 			</div>
