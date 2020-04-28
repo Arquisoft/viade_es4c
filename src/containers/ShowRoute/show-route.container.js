@@ -38,7 +38,8 @@ export class ShowRoute extends Component {
 						<Col xs={12} md={2}/>
 						<Col xs={12} md={8} className="route-container">
 							{/* Name, description and share button */}
-							<RouteTitle route={this.route} share={this.props.match.params.share === "my"} routeURL={this.linkRuta} webId={this.webId}/>
+							<RouteTitle route={this.route} share={this.props.match.params.share === "my"}
+										routeURL={this.linkRuta} webId={this.webId}/>
 							<RouteMap route={this.route}/> 					{/* Map and route */}
 						</Col>
 						<Col xs={12} md={2}/>

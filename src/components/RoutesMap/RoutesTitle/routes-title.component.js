@@ -38,6 +38,7 @@ class RouteTitle extends Component {
 		this.setState({isEditing: false});
 		this.name = this.state.editedName;
 		this.description = this.state.editedDescription;
+		// TODO persist the changes
 	};
 
 	/**
@@ -47,30 +48,44 @@ class RouteTitle extends Component {
 	updateName = (evt) => { this.setState( {editedName: evt.target.value}) };
 	updateDescription = (evt) => { this.setState( {editedDescription: evt.target.value}) };
 
+	handleKeyEnter = (e) => {
+		if (e.key === "Enter" && this.state.isEditing) {
+			this.save();
+		}
+		if (e.key === "Escape" && this.state.isEditing) {
+			this.setState( {editedName: this.name});
+			this.setState( {editedDescription: this.description});
+			this.setState({isEditing: false});
+		}
+	};
+
 	render() {
 		return (
 			<div className="d-inline-flex w-100 overflow-hidden">
 				<div className="flex-grow-1">
 					{(this.state.isEditing)
 						? 	<div className={"flex-grow-1"}>
-								<input type={"text"} className="edit edit-title"
+								<input type={"text"} className="edit edit-title" onKeyDown={this.handleKeyEnter}
 									value={this.state.editedName} onChange={this.updateName}/>
 							</div>
 						: 	<h1 className="title-text">{this.name}</h1>}
 					{(this.state.isEditing)
 						? 	<div className={"flex-grow-1"}>
-								<input type={"text"}  className="edit"
+								<input type={"text"}  className="edit" onKeyDown={this.handleKeyEnter}
 									value={this.state.editedDescription} onChange={this.updateDescription}/>
 							</div>
 						: 	<p className="title-text">{this.description}</p>}
 				</div>
-				{(this.state.isEditing)
-					? <CustomButton onClick={this.save} img="/img/buttons/save.png"/>
-					: <CustomButton onClick={this.edit} img="/img/buttons/edit.png"/> }
+
 				{ this.share
-					?	<div className="float-right">
-							<CustomModal text="Share" img="/img/buttons/share.png"
+					?	<div>
+							{(this.state.isEditing)
+								? <CustomButton onClick={this.save} img="/img/buttons/save.png"/>
+								: <CustomButton onClick={this.edit} img="/img/buttons/edit.png"/> }
+							<div className="float-right">
+								<CustomModal text="Share" img="/img/buttons/share.png"
 										 component={<ShareComponent route={this.route} webId={this.webId}/>}/>
+							</div>
 						</div>
 					: 	null	}
 			</div>
