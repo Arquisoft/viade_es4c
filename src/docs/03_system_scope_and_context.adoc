@@ -3,22 +3,19 @@
 
 The scope of our project is a website where the users can create, explore and share routes without the related data being stored on a third-party server. So, a sharing website where all the shared data belongs to the private server of each user making use of SOLID. 
 
-Each user will be able to create new routes using a map form OpenStreetMap or importing it from a text file, save them on their PODs and share them with other users, publicly (to all the users) or privately (to concrete users).
-The shared routes will have descriptions, categories and tags so other users can search them easily through the use of diverse filters. Clients will also be able to comment and rate those public routes. 
-Users can befriend others users and join groups, building on that social side they will be able to select friends and groups to share their routes with.
+Each user will be able to import new routes through GeoJSON or GPX files, save them on their PODs and share them with their friends.
+The shared routes will have titles, descriptions and attached media.
 
-The application will be able to load and show routes made with other apps as well as exporting routes to those external formats simplifying the integration with those similar apps.
-
+The application will be able to load and show routes made with similar apps.
 
 
 === Business Context
 
-A user can store routes of varius types that will be kept in his POD. He can also share the routes
-and other type of files with his friends
+A user can store routes of various types that will be kept in his POD. He can also share the routes  and other type of files with their friends
 
 	* Regular user: Stores his own routes.
-	* Sender: Sends multimedia or files to other user
-	* Receiver user: Receives multimedia or files from other user.
+	* Sender: Sends routes to other user
+	* Receiver user: Receives notifications containing routes from other user.
 	* Pod: Each user has a POD where the routes and the shared information are stored.
 	* Viade: Decentralized application to store routes and share with other people.
 
