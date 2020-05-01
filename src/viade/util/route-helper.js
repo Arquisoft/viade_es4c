@@ -10,7 +10,7 @@ const supportRoutes = (array) => {
   let supported = array.filter((url) => url.split(".")[1] === "ttl");
   if (array.length !== supported.length) {
     infoToaster(
-      "There are routes on your POD that are not supported in our app :("
+      "We don't support some routes of your POD, so you won't be able to see them :( "
     );
   }
   return supported;
@@ -23,7 +23,7 @@ export const fetchUrlSharedWithMeRoutes = async () => {
       sparql.shared_with_me.route_uris,
       storageHelper.getSharedWithMeFile(webId)
     );
-    return result.map((route) => route["route"]);
+    return supportRoutes(result.map((route) => route["route"]));
   } catch (err) {
     console.error(err);
     throw new Error("An error has occurred loading the routes shared with you");
