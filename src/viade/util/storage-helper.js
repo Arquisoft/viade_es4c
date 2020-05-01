@@ -8,7 +8,7 @@ export const getViadeFolder = (webId) => {
 };
 
 export const getMyRoutesFolder = (webId) => {
-  return getViadeFolder(webId) + "advises/";
+  return getViadeFolder(webId) + "routes/";
 };
 
 export const getMediaFolder = (webId) => {

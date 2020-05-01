@@ -5,7 +5,7 @@ import {errorToaster, successToaster} from "../../utils";
 import "./cards.css";
 
 /**
- * Cards with the notification info to display on the lists of advises
+ * Cards with the notification info to display on the lists of routes
  * @param props
  * @returns {*}
  * @constructor
