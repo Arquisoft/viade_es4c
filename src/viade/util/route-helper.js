@@ -6,9 +6,8 @@ import sparql from "../sparql-queries.json";
 import { infoToaster } from "../../utils";
 const fc = new FC(auth);
 
-const supportRoutes=(array)=>{
-  let supported=array.filter((url)=>url.split(".")[1]==="ttl");
-  console.log(supported);
+const supportRoutes=(array)=> {
+  let supported=array.filter((url)=> url.split(".")[1]==="ttl");
   if(array.length!==supported.length){
     infoToaster("There are routes on your POD that are not supported in our app :(");
   }
