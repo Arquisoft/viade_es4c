@@ -3,7 +3,18 @@ import { storageHelper, Fetcher } from "../util";
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
 import sparql from "../sparql-queries.json";
+import { infoToaster } from "../../utils";
 const fc = new FC(auth);
+
+const supportRoutes = (array) => {
+  let supported = array.filter((url) => url.split(".").slice(-1)[0] === "ttl");
+  if (array.length !== supported.length) {
+    infoToaster(
+      "We don't support some routes of your POD, so you won't be able to see them :( "
+    );
+  }
+  return supported;
+};
 
 export const fetchUrlSharedWithMeRoutes = async () => {
   try {
@@ -12,7 +23,7 @@ export const fetchUrlSharedWithMeRoutes = async () => {
       sparql.shared_with_me.route_uris,
       storageHelper.getSharedWithMeFile(webId)
     );
-    return result.map((route) => route["route"]);
+    return supportRoutes(result.map((route) => route["route"]));
   } catch (err) {
     console.error(err);
     throw new Error("An error has occurred loading the routes shared with you");
@@ -27,7 +38,7 @@ export const fetchUrlMyRoutes = async () => {
       return [];
     }
     let routes = await fc.readFolder(folder);
-    return routes.files.map((file) => file.url);
+    return supportRoutes(routes.files.map((file) => file.url));
   } catch (err) {
     console.error(err);
     throw new Error("An error has occurred loading your routes");
