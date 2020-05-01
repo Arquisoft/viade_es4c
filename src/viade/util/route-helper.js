@@ -7,7 +7,7 @@ import { infoToaster } from "../../utils";
 const fc = new FC(auth);
 
 const supportRoutes = (array) => {
-  let supported = array.filter((url) => url.split(".")[1] === "ttl");
+  let supported = array.filter((url) => url.split(".").slice(-1)[0] === "ttl");
   if (array.length !== supported.length) {
     infoToaster(
       "We don't support some routes of your POD, so you won't be able to see them :( "
@@ -38,9 +38,7 @@ export const fetchUrlMyRoutes = async () => {
       return [];
     }
     let routes = await fc.readFolder(folder);
-    let array = routes.files.map((file) => file.url);
-    supportRoutes(array);
-    return array;
+    return supportRoutes(routes.files.map((file) => file.url));
   } catch (err) {
     console.error(err);
     throw new Error("An error has occurred loading your routes");
