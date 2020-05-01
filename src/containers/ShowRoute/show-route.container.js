@@ -1,5 +1,13 @@
 import React, {Component} from "react";
-import {Loader, RouteMap, RoutesCarousel, RoutesItinerary, RouteTitle, Spacer,} from "../../components";
+import {
+	Loader,
+	RouteMap,
+	RoutesCarousel,
+	RoutesItinerary,
+	RoutesMediaUpload,
+	RouteTitle,
+	Spacer,
+} from "../../components";
 import {Col, Row} from "react-bootstrap";
 import "./show-route.css";
 import {RDFToRoute} from "../../viade";
@@ -51,6 +59,9 @@ export class ShowRoute extends Component {
 							<div className="image-slide"><RoutesCarousel media={this.route.media}/></div>
 						</Col>
 						<Col xs={12} md={2}>
+							{this.props.match.params.share === "my"
+								? <RoutesMediaUpload route={this.route} webId={this.webId}/>
+								: null}
 							<RoutesItinerary route={this.route}/> {/* List of points of the route */}
 						</Col>
 						<Col xs={12} md={2}/>
