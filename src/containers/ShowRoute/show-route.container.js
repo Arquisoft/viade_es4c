@@ -48,8 +48,7 @@ export class ShowRoute extends Component {
 						<Col xs={12} md={2}/>
 						<Col xs={12} md={6}>
 							{/* Images of the route */}
-							{(this.route.media.length !== 0) ?
-								<div className="image-slide"><RoutesCarousel media={this.route.media}/></div> : null}
+							<div className="image-slide"><RoutesCarousel media={this.route.media}/></div>
 						</Col>
 						<Col xs={12} md={2}>
 							<RoutesItinerary route={this.route}/> {/* List of points of the route */}

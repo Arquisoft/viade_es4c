@@ -15,7 +15,7 @@ export const fetchUrlSharedWithMeRoutes = async () => {
     return result.map((route) => route["route"]);
   } catch (err) {
     console.error(err);
-    throw new Error("An error has occurred loading the routes shared with you");
+    throw new Error("An error has occurred loading the advises shared with you");
   }
 };
 
@@ -30,7 +30,7 @@ export const fetchUrlMyRoutes = async () => {
     return routes.files.map((file) => file.url);
   } catch (err) {
     console.error(err);
-    throw new Error("An error has occurred loading your routes");
+    throw new Error("An error has occurred loading your advises");
   }
 };
 

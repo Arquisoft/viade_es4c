@@ -3,7 +3,7 @@ import {Image} from "react-bootstrap";
 import "./cards.css";
 
 /**
- * Cards with the Route info to display on the lists of routes
+ * Cards with the Route info to display on the lists of advises
  * @param props
  * @returns {*}
  * @constructor
