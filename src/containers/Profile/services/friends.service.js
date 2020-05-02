@@ -16,7 +16,7 @@ const isWebIdValid = async (friendWebId) => {
 	}
 };
 
-const friendAlreadyAdded = async (friendWebId, user) => {
+const isFriend = async (friendWebId, user) => {
 	for await (const friend of user.friends)
 		if (String(friend).localeCompare(String(friendWebId)) === 0) return true;
 	return false;
@@ -26,17 +26,19 @@ export const addFriend = async (friendWebId, userWebId) =>{
 	if (friendWebId == null || userWebId == null || friendWebId === "" || userWebId === "")
 		return;
 	const user = await data[userWebId];
-	isWebIdValid(friendWebId).then(() => {
-		friendAlreadyAdded(friendWebId, user).then((res) => {
-			if (res) {
-				errorToaster("You and this user are already friends");
-			} else {
-				user.knows.add(data[friendWebId]).then((res) => {
-					if (res) {
-						successToaster("Congratulations, this user is already your friend.\nReload to see the changes");
-					}
-				});
-			}
-		});
+	isWebIdValid(friendWebId).then((res) => {
+		if (!res) { errorToaster("The entered user does not exists"); }
+		else {
+			isFriend(friendWebId, user).then((res) => {
+				if (res) { errorToaster("You and this user are already friends"); }
+				else {
+					user.knows.add(data[friendWebId]).then((res) => {
+						if (res) {
+							successToaster("Congratulations, this user is already your friend.\nReload to see the changes");
+						} else { errorToaster("Sorry, some unexpected error has occurred"); }
+					});
+				}
+			});
+		}
 	});
 };

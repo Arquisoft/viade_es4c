@@ -4,6 +4,8 @@ import { Button, FormControl, InputGroup, Container} from "react-bootstrap";
 import { FriendCard, ProfileCard } from "../../components";
 import { routeHelper } from "../../viade";
 import { errorToaster } from "../../utils";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import addFriend from "./services/";
 import "./profile.container.css";
 
@@ -74,9 +76,10 @@ class ProfileComponent extends React.Component {
                   aria-describedby="basic-addon2"
               />
               <InputGroup.Append>
-                <Button variant="outline-secondary"
+                <Button variant="outline-primary"
                         onClick={() => addFriend(this.state.enteredWebId, this.props.webId, this.updateLastFriend)}>
-                  Add Friend
+                  <FontAwesomeIcon icon={faPlus} data-toggle="tooltip" title="My POD"/>
+                   Add Friend
                 </Button>
               </InputGroup.Append>
             </InputGroup>

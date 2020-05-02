@@ -16,3 +16,9 @@
 .card-text {
     margin-top: 25px;
 }
+
+.input-group > .input-group-append > .btn {
+    background: #34d1ab;
+    border-color: #34d1ab;
+    color: #f2f2f2;
+}
