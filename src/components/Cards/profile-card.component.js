@@ -12,7 +12,6 @@ import "./cards.css";
  */
 export const ProfileCardComponent = (props) => {
 	const {webId}=props;
-	console.log(webId);
 	return (
 		<div className={"route-card"}>
 			{/* Left side of the card, contains the image and hidden fields */}

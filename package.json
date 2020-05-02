@@ -10,7 +10,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@inrupt/solid-react-components": "0.5.0",
     "@solid/context": "^1.1.0",
-    "@solid/query-ldflex": "^2.10.0",
+    "@solid/query-ldflex": "^2.10.2",
     "@solid/react": "^1.9.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",

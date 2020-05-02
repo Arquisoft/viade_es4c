@@ -1,10 +1,11 @@
 import React from "react";
 import { Image, List, LoggedIn, Value, withWebId } from "@solid/react";
+import { Button, FormControl, InputGroup, Container} from "react-bootstrap";
 import { FriendCard, ProfileCard } from "../../components";
 import { routeHelper } from "../../viade";
-import Container from "react-bootstrap/Container";
-import "./profile.container.css";
 import { errorToaster } from "../../utils";
+import addFriend from "./services/";
+import "./profile.container.css";
 
 class ProfileComponent extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class ProfileComponent extends React.Component {
     this.state = {
       loadedNMyRoutes: false,
       loadedNFriendsRoutes: false,
+      enteredWebId: "",
     };
     this.nMyRoutes = this.getNumMyRoutes();
     this.nFriendsRoutes = this.getNumSharedWithMe();
@@ -39,6 +41,8 @@ class ProfileComponent extends React.Component {
     }
   };
 
+  updateFriendWebId = (evt) => { this.setState( {enteredWebId: evt.target.value}) };
+
   render() {
     return (
       <Container>
@@ -62,9 +66,23 @@ class ProfileComponent extends React.Component {
           />
           <h2 style={{ textAlign: "center" }}>Friends</h2>
           <div className={"list-holder"}>
-            <List src="user.friends">
+            <InputGroup className="mb-3">
+              <FormControl
+                  onChange={this.updateFriendWebId}
+                  placeholder="Username WebId"
+                  aria-label="Username WebId"
+                  aria-describedby="basic-addon2"
+              />
+              <InputGroup.Append>
+                <Button variant="outline-secondary"
+                        onClick={() => addFriend(this.state.enteredWebId, this.props.webId, this.updateLastFriend)}>
+                  Add Friend
+                </Button>
+              </InputGroup.Append>
+            </InputGroup>
+            {<List src="user.friends">
               {(friend) => <FriendCard key={`${friend}`} friend={`${friend}`} enable={true}/>}
-            </List>
+            </List>}
           </div>
         </LoggedIn>
       </Container>
