@@ -34,20 +34,14 @@ const isFriend = async (friendWebId, user) => {
 };
 
 /**
- * Adds the friend if it is valid and not a friend, if not throws an error message
- * @param friendWebId			username of the friend (without the rest of the url of the WebId)
+ * Adds the friend if it is valid and not a friend already, if not throws an error message
+ * @param friendWebId			WebId of the friend to add
  * @param userWebId				current user WebId
  * @returns {Promise<void>}		promise to make the async call
  */
 export const addFriend = async (friendWebId, userWebId) =>{
-	// Checks the input is valid, the url is completed by us so it is not needed
-	if (friendWebId == null || userWebId == null || friendWebId === "" || userWebId === "" ||
-			friendWebId.includes("https://") || friendWebId.includes(".solid.community")){
-		errorToaster("The entered input is not valid, check you didn't submit the whole URL WebId");
-		return;
-	}
-	// Creates the WebId from the username
-	friendWebId = "https://" + friendWebId + ".solid.community/profile/card#me";
+	// Checks the input is valid
+	if (friendWebId == null || userWebId == null || friendWebId === "" || userWebId === ""){ return; }
 	// Loads the current user
 	const user = await data[userWebId];
 	// Checks the friend exists

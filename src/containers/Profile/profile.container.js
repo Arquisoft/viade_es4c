@@ -87,10 +87,6 @@ class ProfileComponent extends React.Component {
           <div className={"list-holder"}>
             {/* Input group where to add the friend */}
             <InputGroup className="mb-3">
-              {/* https:// */}
-              <InputGroup.Prepend>
-                <InputGroup.Text id="basic-addon1">https://</InputGroup.Text>
-              </InputGroup.Prepend>
               {/* input */}
               <FormControl
                   onChange={this.updateFriendWebId}
@@ -100,7 +96,6 @@ class ProfileComponent extends React.Component {
               />
               {/* solid community indicator and submit button */}
               <InputGroup.Append>
-                <InputGroup.Text id="basic-addon1">.solid.community/profile/card#me</InputGroup.Text>
                 <Button variant="outline-primary"
                         onClick={() => addFriend(this.state.enteredWebId, this.props.webId, this.updateLastFriend)}>
                   <FontAwesomeIcon icon={faPlus} data-toggle="tooltip" title="My POD"/>
