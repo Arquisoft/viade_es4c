@@ -1,7 +1,11 @@
 import React, {Component} from "react";
+import SolidFileClient from "solid-file-client";
+import auth from "solid-auth-client";
 import "./routes-title.css";
 import {CustomButton, CustomModal} from "../../";
 import ShareComponent from "../../Share";
+import {RouteToRDF,storageHelper} from "../../../viade";
+import {errorToaster,successToaster, infoToaster} from "../../../utils/toaster";
 
 /**
  * Component featuring the route information
@@ -34,11 +38,42 @@ class RouteTitle extends Component {
 	/**
 	 * Saves the route with the modified fields
 	 */
-	save = () => {
+	save = async () => {
 		this.setState({isEditing: false});
 		this.name = this.state.editedName;
 		this.description = this.state.editedDescription;
 		// TODO persist the changes
+		if( this.route.name === this.name && this.route.description === this.description)
+			infoToaster("Nothing to modify");
+		else {
+			this.route.name = this.name;
+			this.route.description = this.description;
+
+			let parserToRDF = new RouteToRDF(this.route);
+			//Parsear la ruta a RDF
+			let strRoute = parserToRDF.parse();
+
+			//alert(this.route.url); https://viadees4c.solid.community/viade/routes/1587668614753.ttl
+
+			const rutaPod = storageHelper.getMyRoutesFolder(this.webId); //
+			//alert(this.webId); //https://viadees4c.solid.community/profile/card#me
+			const aux = this.route.url.split("/");
+			const nombreRuta = aux[aux.length - 1];
+			const url = rutaPod + nombreRuta;//no tiene sentido quitar el .ttl para luego volver a ponerlo :)
+			//alert(nombreRuta);
+
+
+			//Subir La ruta
+			try {
+				const fc = new SolidFileClient(auth);//creamos el objeto solid file client
+				await fc.createFile(url, strRoute, "text/turtle", {});
+
+				successToaster("Route modified successfully");
+
+			} catch (e) {
+				errorToaster("Error in the modification");
+			}
+		}
 	};
 
 	/**
