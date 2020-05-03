@@ -14,9 +14,11 @@ const NavBar = () => {
 
 	return (
 		<Navbar bg="light" expand="lg">
+			{/* Application logo, leading to the home */}
 			<Navbar.Brand href={process.env.PUBLIC_URL + navbar.logo.href}>
 				<Image src={process.env.PUBLIC_URL + navbar.logo.src} alt={navbar.logo.alt}/>
 			</Navbar.Brand>
+			{/* Hamburger menu for mobile and lesser screens */}
 			<Navbar.Toggle aria-controls="basic-navbar-nav"/>
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="mr-auto">

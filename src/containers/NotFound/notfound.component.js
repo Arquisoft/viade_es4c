@@ -1,6 +1,11 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
 
+/**
+ * 404 Page
+ * @returns {*}
+ * @constructor
+ */
 const NotFoundComponent = () => {
 	return (
 		<div className="ErrorImage">

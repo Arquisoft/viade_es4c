@@ -8,6 +8,9 @@ type State = {
   providers: Array<Object>
 };
 
+/**
+ * Component holding the registration logic
+ */
 class RegisterContainer extends Component<Props, State> {
   constructor(props) {
     super(props);

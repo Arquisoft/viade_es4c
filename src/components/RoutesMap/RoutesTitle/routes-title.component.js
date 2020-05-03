@@ -14,7 +14,10 @@ class RouteTitle extends Component {
 
 	/**
 	 * The page receives the route and will show its name and description
-	 * @param props	Containing the route to display, its webId and if the route is sharable
+	 * @param props
+	 * 			route, with the info to show, edit or share
+	 * 			share, indicates if the routes is sharable and editable
+	 * 			webId, webId of the user
 	 */
 	constructor(props) {
 		super(props);
@@ -78,11 +81,15 @@ class RouteTitle extends Component {
 
 	/**
 	 * Updates the name/description of the item
-	 * @param evt
+	 * @param evt		Event triggering the update
 	 */
 	updateName = (evt) => { this.setState( {editedName: evt.target.value}) };
 	updateDescription = (evt) => { this.setState( {editedDescription: evt.target.value}) };
 
+	/**
+	 * Function to hold the Enter (save) and Escape (abort) actions
+	 * @param e
+	 */
 	handleKeyEnter = (e) => {
 		if (e.key === "Enter" && this.state.isEditing) {
 			this.save();
@@ -98,12 +105,14 @@ class RouteTitle extends Component {
 		return (
 			<div className="d-inline-flex w-100 overflow-hidden">
 				<div className="flex-grow-1">
+					{/* Name of the route, it's an input if editing */}
 					{(this.state.isEditing)
 						? 	<div className={"flex-grow-1"}>
 								<input type={"text"} className="edit edit-title" onKeyDown={this.handleKeyEnter}
 									value={this.state.editedName} onChange={this.updateName}/>
 							</div>
 						: 	<h1 className="title-text">{this.name}</h1>}
+					{/* Description of the route, it's an input if editing */}
 					{(this.state.isEditing)
 						? 	<div className={"flex-grow-1"}>
 								<input type={"text"}  className="edit" onKeyDown={this.handleKeyEnter}
@@ -111,7 +120,7 @@ class RouteTitle extends Component {
 							</div>
 						: 	<p className="title-text">{this.description}</p>}
 				</div>
-
+				{/* Share and edit buttons, only visible when the route is owned */}
 				{ this.share
 					?	<div>
 							{(this.state.isEditing)

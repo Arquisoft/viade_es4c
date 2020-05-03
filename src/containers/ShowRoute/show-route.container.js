@@ -20,7 +20,9 @@ export class ShowRoute extends Component {
 
 	/**
 	 * The page receives a route through the state
-	 * @param props	Containing the route to display
+	 * @param props
+	 * 			uri, URI of the route to load
+	 * 			webId, webId of the current user
 	 */
 	constructor(props) {
 		super(props);
@@ -30,6 +32,9 @@ export class ShowRoute extends Component {
 		this.webId = props.webId;
 	}
 
+	/**
+	 * Loads the route
+	 */
 	async getRoute() {
 		let promise = RDFToRoute.parse(this.linkRuta);
 		return await promise.then((res) => {

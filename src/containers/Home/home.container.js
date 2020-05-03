@@ -15,6 +15,10 @@ import {errorToaster } from "../../utils";
  * Home component that returns the homepage
  */
 export const HomeComponent = () => {
+
+  /**
+   * Checks if the user has the correct folder structure, if not, it creates it
+   */
   const checkStructure = async () => {
     let session = await auth.currentSession();
     if (session) {
@@ -29,7 +33,9 @@ export const HomeComponent = () => {
       }
     }
   };
+
   checkStructure();
+
   return (
     <Container>
       {/* Logo row */}

@@ -30,7 +30,7 @@ class ProfileComponent extends React.Component {
    */
   getNumMyRoutes = async () => {
     try {
-      return await routeHelper.fetchUrlMyRoutes().then((res) => {
+      return await routeHelper.fetchAllUrlMyRoutes().then((res) => {
         this.nMyRoutes = res.length;
         this.setState({ loadedNMyRoutes: true });   // Sets the number of own routes
       });
@@ -45,7 +45,7 @@ class ProfileComponent extends React.Component {
    */
   getNumSharedWithMe = async () => {
     try {
-      return await routeHelper.fetchUrlSharedWithMeRoutes().then((res) => {
+      return await routeHelper.fetchAllUrlSharedWithMeRoutes().then((res) => {
         this.nFriendsRoutes = res ? res.length : 0;
         this.setState({ loadedNFriendsRoutes: true });  // Sets the number of friend routes
       });
