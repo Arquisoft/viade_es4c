@@ -12,7 +12,7 @@ import {RouteList} from "../../components/";
 const MyRoutesComponent = (props) => {
 		const {webId}=props;
 		return (
-			<RouteList webId={webId} readRoutes={routeHelper.fetchUrlMyRoutes} share={true}/>
+			<RouteList webId={webId} readRoutes={routeHelper.fetchSupportedUrlMyRoutes} share={true}/>
 		);
 };
 

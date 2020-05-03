@@ -9,28 +9,38 @@ const fc = new FC(auth);
 const supportRoutes = (array) => {
   let supported = array.filter((url) => url.split(".").slice(-1)[0] === "ttl");
   if (array.length !== supported.length) {
+    let notSupported=array.length-supported.length;
     infoToaster(
-      "We don't support some routes of your POD, so you won't be able to see them :( "
+      "Unfortunately we don't support "+notSupported+" route(s),but I'll show you the ones we do support."
     );
   }
   return supported;
 };
 
-export const fetchUrlSharedWithMeRoutes = async () => {
+export const fetchSupportedUrlSharedWithMeRoutes = async () => {
+    return fetchAllUrlSharedWithMeRoutes().then((res)=>supportRoutes(res));
+};
+
+export const fetchSupportedUrlMyRoutes = async () => {
+  return fetchAllUrlMyRoutes().then((res)=>supportRoutes(res));
+};
+
+
+export const fetchAllUrlSharedWithMeRoutes = async () => {
   try {
     let webId = (await auth.currentSession()).webId;
     let result = await Fetcher.fetch(
       sparql.shared_with_me.route_uris,
       storageHelper.getSharedWithMeFile(webId)
     );
-    return supportRoutes(result.map((route) => route["route"]));
+    return result.map((route) => route["route"]);
   } catch (err) {
     console.error(err);
     throw new Error("An error has occurred loading the routes shared with you");
   }
 };
 
-export const fetchUrlMyRoutes = async () => {
+export const fetchAllUrlMyRoutes = async () => {
   try {
     let webId = (await auth.currentSession()).webId;
     let folder = storageHelper.getMyRoutesFolder(webId);
@@ -38,7 +48,7 @@ export const fetchUrlMyRoutes = async () => {
       return [];
     }
     let routes = await fc.readFolder(folder);
-    return supportRoutes(routes.files.map((file) => file.url));
+    return routes.files.map((file) => file.url);
   } catch (err) {
     console.error(err);
     throw new Error("An error has occurred loading your routes");

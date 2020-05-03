@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Image} from "react-bootstrap";
 import {CustomButton} from "../index";
-import {errorToaster, successToaster} from "../../utils";
+import {errorToaster, successToaster, infoToaster} from "../../utils";
 import "./cards.css";
 
 /**
@@ -23,9 +23,13 @@ export const NotificationCardComponent = (props) => {
 	 */
 	let accept = async () => {
 		try {
-			let read = await props.action();
-			setAccepted(read === true);
-			successToaster("The route has been accepted");
+			if(await props.condition()){
+				let read = await props.action();
+				setAccepted(read === true);
+				successToaster("The route has been accepted");
+			}else{
+				infoToaster(props.message);
+			}
 		} catch (err) {
 			errorToaster(err.message, err.name);
 		}
