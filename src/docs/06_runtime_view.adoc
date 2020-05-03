@@ -42,4 +42,4 @@ image:06_SendNotification.png["Send Notification"]
 
 This is a general view of how incoming Notifications are handled
 
-image:images/06_ReceiveNotification.png["Receive Notification"]
+image:06_ReceiveNotification.png["Receive Notification"]
