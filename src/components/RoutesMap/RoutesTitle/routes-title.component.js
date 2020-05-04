@@ -5,7 +5,7 @@ import "./routes-title.css";
 import {CustomButton, CustomModal} from "../../";
 import ShareComponent from "../../Share";
 import {RouteToRDF,storageHelper} from "../../../viade";
-import {errorToaster,successToaster, infoToaster} from "../../../utils/toaster";
+import {errorToaster,successToaster} from "../../../utils/toaster";
 
 /**
  * Component featuring the route information
@@ -45,10 +45,7 @@ class RouteTitle extends Component {
 		this.setState({isEditing: false});
 		this.name = this.state.editedName;
 		this.description = this.state.editedDescription;
-		// TODO persist the changes
-		if( this.route.name === this.name && this.route.description === this.description)
-			infoToaster("Nothing to modify");
-		else {
+		if ( this.route.name !== this.name || this.route.description !== this.description) {
 			this.route.name = this.name;
 			this.route.description = this.description;
 
