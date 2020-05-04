@@ -178,13 +178,13 @@ class RouteToRDF {
     }
 
     getDate(date) {
-
         /*
         Creamos una variable auxiliar en la que se irá almacenando la cadena de texto que representa
         la fecha y la devolvemos.
         */
+        var aux = "";
         if (typeof date == "string") {
-            var aux = "";
+            aux = "";
 
             aux += ('"');
             aux += (date);
@@ -192,7 +192,7 @@ class RouteToRDF {
             return aux;
         }
         else {
-            var aux = "";
+            aux = "";
 
             aux += ('"');
             aux += (date.getFullYear());

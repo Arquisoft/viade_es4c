@@ -3,7 +3,7 @@ import {Collapse} from "react-bootstrap";
 import "./routes-media-upload.css";
 import {CustomButton} from "../../";
 import ImageUploader from "react-images-upload";
-import {errorToaster, infoToaster, successToaster, warningToaster} from "../../../utils";
+import {infoToaster, successToaster, warningToaster} from "../../../utils";
 import {storageHelper} from "../../../viade/util";
 import {ImageViade, VideoViade} from "../../../viade/Model";
 import {RouteToRDF} from "../../../viade/Parsers/ParserToRDF";
@@ -31,10 +31,9 @@ const RoutesMediaUpload = (props) => {
 
 	const summitHandler = async (e) => {
 
-		if (media.length == 0) {
+		if (media.length === 0) {
 			warningToaster("You need to upload a file", "Warn");
 		} else {
-
 			infoToaster("Uploading files");
 			const rutaMedia = storageHelper.getMediaFolder(webId);
 			//webid -> https://usernamme.solid.community/profile/card#me
@@ -82,9 +81,6 @@ const RoutesMediaUpload = (props) => {
 
 		return (
 			<div>
-				{console.log(route)}
-				{console.log(webId) // <-- Son para eludir las compilaciones con warning
-				}
 				<CustomButton onClick={toggle} text="Upload media" className="dropdown-toggle w-100"/>
 				<Collapse in={isOpen}>
 					<div>
@@ -96,7 +92,7 @@ const RoutesMediaUpload = (props) => {
 							imgExtension={[".jpg", ".gif", ".png", ".gif", ".mp4"]}
 							maxFileSize={5242880}
 						/>
-						<CustomButton onClick={summitHandler} text="Upload"/>
+						<CustomButton onClick={summitHandler} text="Upload" className="w-100 mb-4"/>
 					</div>
 
 				</Collapse>
