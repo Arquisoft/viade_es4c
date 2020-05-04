@@ -18,11 +18,11 @@ const supportRoutes = (array) => {
 };
 
 export const fetchSupportedUrlSharedWithMeRoutes = async () => {
-    return fetchAllUrlSharedWithMeRoutes().then((res)=>supportRoutes(res));
+    return fetchAllUrlSharedWithMeRoutes().then((res) => supportRoutes(res));
 };
 
 export const fetchSupportedUrlMyRoutes = async () => {
-  return fetchAllUrlMyRoutes().then((res)=>supportRoutes(res));
+  return fetchAllUrlMyRoutes().then((res) => supportRoutes(res));
 };
 
 

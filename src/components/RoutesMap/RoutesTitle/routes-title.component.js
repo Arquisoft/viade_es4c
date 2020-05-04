@@ -31,7 +31,7 @@ class RouteTitle extends Component {
 			editedName: this.name,
 			editedDescription: this.description
 		};
-	};
+	}
 
 	/**
 	 * Changes the name and description to be modifiable
@@ -80,8 +80,8 @@ class RouteTitle extends Component {
 	 * Updates the name/description of the item
 	 * @param evt		Event triggering the update
 	 */
-	updateName = (evt) => { this.setState( {editedName: evt.target.value}) };
-	updateDescription = (evt) => { this.setState( {editedDescription: evt.target.value}) };
+	updateName = (evt) => { this.setState( {editedName: evt.target.value}); };
+	updateDescription = (evt) => { this.setState( {editedDescription: evt.target.value}); };
 
 	/**
 	 * Function to hold the Enter (save) and Escape (abort) actions
@@ -125,7 +125,7 @@ class RouteTitle extends Component {
 								: <CustomButton onClick={this.edit} img="/img/buttons/edit.png"/> }
 							<div className="float-right">
 								<CustomModal text="Share" img="/img/buttons/share.png"
-										 component={<ShareComponent route={this.route} webId={this.webId}/>}/>
+									component={<ShareComponent route={this.route} webId={this.webId}/>}/>
 							</div>
 						</div>
 					: 	null	}

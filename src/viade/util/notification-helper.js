@@ -90,9 +90,9 @@ export const markAsRead = async (notification) => {
     console.error(err);
     throw new Error("The notification could not be marked as read");
   }
-}
+};
 
-export const hasNotBeenAccepted=async (route,webId)=>{
+export const hasNotBeenAccepted=async (route,webId) => {
     const urlSharedWithMe=storageHelper.getSharedWithMeFile(webId);
     const sparql=`PREFIX schema: <http://schema.org/>
     SELECT ?blank WHERE {

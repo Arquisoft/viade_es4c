@@ -58,7 +58,7 @@ class ProfileComponent extends React.Component {
    * Updates the entered web id in the new friend input
    * @param evt Event triggering the update
    */
-  updateFriendWebId = (evt) => { this.setState( {enteredWebId: evt.target.value}) };
+  updateFriendWebId = (evt) => { this.setState( {enteredWebId: evt.target.value}); };
 
   render() {
     return (
