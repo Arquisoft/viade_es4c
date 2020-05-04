@@ -58,7 +58,7 @@ class RouteTitle extends Component {
 			const aux = this.route.url.split("/");
 			const nombreRuta = aux[aux.length - 1];
 			const url = rutaPod + nombreRuta;//no tiene sentido quitar el .ttl para luego volver a ponerlo :)
-			//Subir La ruta
+			//Subir La ruta al pod
 			try {
 				const fc = new SolidFileClient(auth);
 				await fc.createFile(url, strRoute, "text/turtle", {});
