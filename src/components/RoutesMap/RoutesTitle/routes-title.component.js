@@ -5,7 +5,7 @@ import "./routes-title.css";
 import {CustomButton, CustomModal} from "../../";
 import ShareComponent from "../../Share";
 import {RouteToRDF,storageHelper} from "../../../viade";
-import {errorToaster,successToaster, infoToaster} from "../../../utils/toaster";
+import {errorToaster,successToaster} from "../../../utils/toaster";
 
 /**
  * Component featuring the route information
@@ -31,7 +31,7 @@ class RouteTitle extends Component {
 			editedName: this.name,
 			editedDescription: this.description
 		};
-	};
+	}
 
 	/**
 	 * Changes the name and description to be modifiable
@@ -45,10 +45,7 @@ class RouteTitle extends Component {
 		this.setState({isEditing: false});
 		this.name = this.state.editedName;
 		this.description = this.state.editedDescription;
-		// TODO persist the changes
-		if( this.route.name === this.name && this.route.description === this.description)
-			infoToaster("Nothing to modify");
-		else {
+		if ( this.route.name !== this.name || this.route.description !== this.description) {
 			this.route.name = this.name;
 			this.route.description = this.description;
 
@@ -78,8 +75,8 @@ class RouteTitle extends Component {
 	 * Updates the name/description of the item
 	 * @param evt		Event triggering the update
 	 */
-	updateName = (evt) => { this.setState( {editedName: evt.target.value}) };
-	updateDescription = (evt) => { this.setState( {editedDescription: evt.target.value}) };
+	updateName = (evt) => { this.setState( {editedName: evt.target.value}); };
+	updateDescription = (evt) => { this.setState( {editedDescription: evt.target.value}); };
 
 	/**
 	 * Function to hold the Enter (save) and Escape (abort) actions
@@ -123,7 +120,7 @@ class RouteTitle extends Component {
 								: <CustomButton onClick={this.edit} img="/img/buttons/edit.png"/> }
 							<div className="float-right">
 								<CustomModal text="Share" img="/img/buttons/share.png"
-										 component={<ShareComponent route={this.route} webId={this.webId}/>}/>
+									component={<ShareComponent route={this.route} webId={this.webId}/>}/>
 							</div>
 						</div>
 					: 	null	}

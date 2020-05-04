@@ -4,18 +4,18 @@
 }
 
 .no-media {
-    text-align:center;
-    height:500px;
+    text-align: center;
+    height: 500px;
 }
 
 .carousel-caption {
-    background: rgba(188, 218, 211,.8);
+    background: rgba(188, 218, 211, .8);
 }
 
 .carousel-control-prev {
-    background: rgba(0,0,0,.2);
+    background: rgba(0, 0, 0, .2);
 }
 
 .carousel-control-next {
-    background: rgba(0,0,0,.2);
+    background: rgba(0, 0, 0, .2);
 }

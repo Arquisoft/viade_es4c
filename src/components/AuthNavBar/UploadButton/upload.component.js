@@ -37,6 +37,7 @@ export const UploadComponent = () => {
     };
 
     const summitHandler = async (e) => {
+
         e.preventDefault();
         //setUploadStatus(true)//empezamos a subir
 

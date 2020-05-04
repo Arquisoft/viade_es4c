@@ -2,7 +2,7 @@ import FileClient from "solid-file-client";
 import auth from "solid-auth-client";
 import {errorToaster, successToaster} from "../../../utils";
 
-const { default: data } = require('@solid/query-ldflex');
+const { default: data } = require("@solid/query-ldflex");
 
 /**
  * Checks if the entered webId corresponds to a valid user
@@ -29,7 +29,7 @@ const isWebIdValid = async (friendWebId) => {
  */
 const isFriend = async (friendWebId, user) => {
 	for await (const friend of user.friends)
-		if (String(friend).localeCompare(String(friendWebId)) === 0) return true;
+		if (String(friend).localeCompare(String(friendWebId)) === 0) {return true;}
 	return false;
 };
 
@@ -39,7 +39,7 @@ const isFriend = async (friendWebId, user) => {
  * @param userWebId				current user WebId
  * @returns {Promise<void>}		promise to make the async call
  */
-export const addFriend = async (friendWebId, userWebId) =>{
+export const addFriend = async (friendWebId, userWebId) => {
 	// Checks the input is valid
 	if (friendWebId == null || userWebId == null || friendWebId === "" || userWebId === ""){ return; }
 	// Loads the current user
