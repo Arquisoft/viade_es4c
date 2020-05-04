@@ -11,6 +11,7 @@ import {
 	RouteMap,
 	RoutesCarousel,
 	RoutesItinerary,
+	RoutesMediaUpload,
 	RouteTitle
 } from "./RoutesMap";
 import Spacer from "./Spacer";
@@ -34,6 +35,7 @@ export {
 	RouteTitle,
 	RoutesCarousel,
 	RoutesItinerary,
+	RoutesMediaUpload,
 	Spacer,
 	Toaster,
 	RouteList,

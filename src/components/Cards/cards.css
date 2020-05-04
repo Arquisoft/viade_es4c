@@ -85,6 +85,7 @@
 
 .route-card .route-card-left .friend-card-extra {
     left: 15px;
+    width: calc(100% - 15px);
 }
 
 .route-card-p {

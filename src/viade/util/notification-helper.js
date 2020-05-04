@@ -2,7 +2,7 @@ import { ldflexHelper } from "../../utils/index";
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
 import { RDFToNotification, NotificationToRDF } from "../Parsers";
-import { storageHelper } from ".";
+import { storageHelper, Fetcher } from ".";
 
 const fc = new FC(auth);
 
@@ -90,4 +90,14 @@ export const markAsRead = async (notification) => {
     console.error(err);
     throw new Error("The notification could not be marked as read");
   }
+};
+
+export const hasNotBeenAccepted=async (route,webId) => {
+    const urlSharedWithMe=storageHelper.getSharedWithMeFile(webId);
+    const sparql=`PREFIX schema: <http://schema.org/>
+    SELECT ?blank WHERE {
+    ?blank schema:object "`+route+`".
+    }`;
+    const result=await Fetcher.fetch(sparql,urlSharedWithMe);
+    return result.length===0;
 };

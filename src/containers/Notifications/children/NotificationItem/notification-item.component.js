@@ -61,6 +61,8 @@ class NotificationItem extends React.Component {
               .substr(8, this.state.notification.actor.toString().length - 40)}
             read={this.state.notification.read}
             action={() => this.addSharedWithMe(this.state.notification)}
+            condition={() => notificationHelper.hasNotBeenAccepted(this.state.notification.object,this.webId)}
+            message="That route has already been shared with you"
             disabled={this.isSharing}
           />
         ) : null}

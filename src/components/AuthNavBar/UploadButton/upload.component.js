@@ -37,6 +37,7 @@ export const UploadComponent = () => {
     };
 
     const summitHandler = async (e) => {
+
         e.preventDefault();
         //setUploadStatus(true)//empezamos a subir
 
@@ -84,14 +85,14 @@ export const UploadComponent = () => {
                 throw new Error("Error in the upload of the media");
             }
             let strRoute = null;
-            try{
+            try {
                 let parserToRDF = new RouteToRDF(route);
                 strRoute = parserToRDF.parse();
                 //Ya tenemos un String para meter en SolidFileClient
                 if(strRoute == null) {
                     throw new Error();
                 }
-            }catch(err){
+            } catch(err) {
                 throw new Error("Error in the content of the route");
             }
 
@@ -115,13 +116,13 @@ export const UploadComponent = () => {
     return (
 
         <Form>
-            {/** Campo del nombre **/}
+            {/* Name field */}
             <Form.Group controlId="formName">
                 <Form.Label>Name:</Form.Label>
                 <Form.Control ref={nameInput} onChange={() => handleNameChange()}
                               type="text" placeholder="Enter the name of the route"/>
             </Form.Group>
-            {/** Campo de la descripción**/}
+            {/* Description field */}
             <Form.Group controlId="formDescription">
                 <Form.Label>Description:</Form.Label>
                 <Form.Control ref={descriptionInput} onChange={() => handleDescriptionChange()}
@@ -132,8 +133,9 @@ export const UploadComponent = () => {
             </Form.Group>
             <p>We don't support manual creation of routes as of yet, but you can use <a href={"http://geojson.io/"}>
                 this webpage</a> to make one if you don't have a GPS.</p>
-            {/** Selección de archivo **/}
+            {/** File selector **/}
             <input type="file" onChange={fileSelectedHadler}/>
+            {/* Media handler */}
             <ImageUploader
                 withIcon={true}
                 withPreview={true}
@@ -142,7 +144,7 @@ export const UploadComponent = () => {
                 imgExtension={[".jpg", ".gif", ".png", ".gif", ".mp4"]}
                 maxFileSize={5242880}
             />
-            {/** Botón de subida de archivo **/}
+            {/** Upload button **/}
             <CustomButton onClick={summitHandler} text="Upload"/>
         </Form>
 

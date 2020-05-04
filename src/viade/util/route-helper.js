@@ -3,9 +3,30 @@ import { storageHelper, Fetcher } from "../util";
 import auth from "solid-auth-client";
 import FC from "solid-file-client";
 import sparql from "../sparql-queries.json";
+import { infoToaster } from "../../utils";
 const fc = new FC(auth);
 
-export const fetchUrlSharedWithMeRoutes = async () => {
+const supportRoutes = (array) => {
+  let supported = array.filter((url) => url.split(".").slice(-1)[0] === "ttl");
+  if (array.length !== supported.length) {
+    let notSupported=array.length-supported.length;
+    infoToaster(
+      "Unfortunately we don't support "+notSupported+" route(s),but I'll show you the ones we do support."
+    );
+  }
+  return supported;
+};
+
+export const fetchSupportedUrlSharedWithMeRoutes = async () => {
+    return fetchAllUrlSharedWithMeRoutes().then((res) => supportRoutes(res));
+};
+
+export const fetchSupportedUrlMyRoutes = async () => {
+  return fetchAllUrlMyRoutes().then((res) => supportRoutes(res));
+};
+
+
+export const fetchAllUrlSharedWithMeRoutes = async () => {
   try {
     let webId = (await auth.currentSession()).webId;
     let result = await Fetcher.fetch(
@@ -19,7 +40,7 @@ export const fetchUrlSharedWithMeRoutes = async () => {
   }
 };
 
-export const fetchUrlMyRoutes = async () => {
+export const fetchAllUrlMyRoutes = async () => {
   try {
     let webId = (await auth.currentSession()).webId;
     let folder = storageHelper.getMyRoutesFolder(webId);

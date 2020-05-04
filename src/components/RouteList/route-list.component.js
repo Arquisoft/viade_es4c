@@ -4,10 +4,24 @@ import {Col, Row} from "react-bootstrap";
 import {errorToaster} from "../../utils";
 import {Loader, Spacer} from "../index";
 
+/**
+ * List to display all the passed routes
+ * @param props
+ * 			readRoutes, function to load the routes
+ * 			webId, webId of the user
+ * 			share, specifies if the routes are own by the user or are shared
+ * @returns {*}
+ * @constructor
+ */
 const RouteList = (props) => {
+
 	const [urlRoutes, setUrlRoutes] = useState();
 	const {readRoutes, webId, share} = props;
 
+	/**
+	 * Calls to retrieve the routes to load
+	 * @returns {Promise<void>}
+	 */
 	const initRoutes = async () => {
 		if (urlRoutes) {
 			return;
@@ -29,6 +43,7 @@ const RouteList = (props) => {
 					<Col key="col-1" xs={12} sm={12} md={12} lg={1} xl={1}/>
 					<Col key="col-2" xs={12} sm={12} md={12} lg={10} xl={10}>
 						<Row>
+							{/* Routes to show */}
 							{urlRoutes.length > 0 ?
 								urlRoutes.map((url, pos) =>
 									<RouteItem key={pos} url={url} webId={webId} share={share}/>
@@ -43,6 +58,7 @@ const RouteList = (props) => {
 				</Row>
 				: <div>
 					<Spacer/>
+					{/* Loader to show when initRoutes didn't load any route yet */}
 					<Loader size="150px"/>
 				</div>}
 		</div>);

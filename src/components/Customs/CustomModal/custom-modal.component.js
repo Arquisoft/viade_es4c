@@ -5,18 +5,25 @@ import {CustomButton} from "../../Customs";
 /**
  * Button triggering a modal pop-up with the component specified
  * @param props
- * 		img -> Image of the button
- * 		text -> Text of the button
- * 		component -> Component to open with the modal
+ * 		img, image of the button
+ * 		text, text of the button
+ * 		component, component to open with the modal
  */
 const CustomModal = (props) => {
 
+	// Status of the button to reload when it changes
 	const [isOpen, setIsOpen] = React.useState(false);
 
+	/*
+	 * Opens the modal
+	 */
 	const showModal = () => {
 		setIsOpen(true);
 	};
 
+	/*
+	 * Closes the modal
+	 */
 	const hideModal = () => {
 		setIsOpen(false);
 	};

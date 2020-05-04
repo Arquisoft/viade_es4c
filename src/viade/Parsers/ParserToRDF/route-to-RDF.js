@@ -178,29 +178,38 @@ class RouteToRDF {
     }
 
     getDate(date) {
-
         /*
         Creamos una variable auxiliar en la que se irá almacenando la cadena de texto que representa
         la fecha y la devolvemos.
         */
-
         var aux = "";
+        if (typeof date == "string") {
+            aux = "";
 
-        aux +=('"');
-        aux +=(date.getFullYear());
-        aux +=('-');
-        aux +=(date.getMonth());
-        aux +=('-');
-        aux +=(date.getDate());
-        aux +=('T');
-        aux +=(date.getHours());
-        aux +=(':');
-        aux +=(date.getMinutes());
-        aux +=(':');
-        aux +=(date.getSeconds());
-        aux +=('"');
+            aux += ('"');
+            aux += (date);
+            aux += ('"');
+            return aux;
+        }
+        else {
+            aux = "";
 
-        return aux;
+            aux += ('"');
+            aux += (date.getFullYear());
+            aux += ('-');
+            aux += (date.getMonth());
+            aux += ('-');
+            aux += (date.getDate());
+            aux += ('T');
+            aux += (date.getHours());
+            aux += (':');
+            aux += (date.getMinutes());
+            aux += (':');
+            aux += (date.getSeconds());
+            aux += ('"');
+
+            return aux;
+        }
 
     }
 

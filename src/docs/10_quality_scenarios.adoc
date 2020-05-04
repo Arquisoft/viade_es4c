@@ -5,17 +5,6 @@
 
 This development aims to fulfill the quality requirements specified in the following tree diagram.
 
-[plantuml, 10_quality_tree, png]
-....
-digraph G {
-    Quality -> Maintainability
-    Quality -> Performance
-    Quality -> Privacy
-    Quality -> Testeability
-    Quality -> Usability
-}
-....
-
 image::10_quality_tree_extended.png[Quality Tree Extended]
 
 === Quality Scenarios
@@ -55,7 +44,7 @@ Who:: Any member of the development team
 When:: Starting to develop a new function
 Where:: Code
 What:: The code should be easy to extend its functionality
-How:: Keeping it as modular as posible and implementing software designs.
+How:: Keeping it as modular as possible and implementing software designs.
 ====
 
 ==== Performance
@@ -80,7 +69,7 @@ How:: Checking all the inputs at the moments and having a strong exception build
 Who:: Any user
 When:: Someone trying to access their data
 Where:: The service
-What:: The application should isntantly notify the affected user about the acess and block it
+What:: The application should instantly notify the affected user about the access and block it
 How:: Checking the identification of each user in every operation
 ====
 
@@ -129,7 +118,7 @@ Who:: Any user
 When:: Using the application with keyboard
 Where:: GUI
 What:: The user should be able to navigate through the whole application using only the keyboard
-How:: Thorugh the use of correct shotcuts, tab navegation and mnemonics
+How:: Through the use of correct shortcuts, tab navigation and mnemonics
 ====
 
 ===== Scenario #10: Compatibility with multiple formats
@@ -140,7 +129,7 @@ Who:: Any user
 When:: Importing or exporting routes
 Where:: Routes manager
 What:: The user should be able to import and export the routes to, at least: GeoJSON, KML and GPX
-How:: Using the relevant conversors
+How:: Through the use of parsers and the RouteViade object
 ====
 
 ===== Scenario #11: New user understanding the application fast

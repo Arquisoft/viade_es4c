@@ -12,6 +12,10 @@ import UploadComponent from "./UploadButton";
  */
 const AuthNavBar = () => {
 
+	/**
+	 * Logs out the current authenticated user
+	 * @returns {Promise<void>}		Async promise
+	 */
 	const logOut = async () => {
 		await auth.logout();
 		localStorage.removeItem("solid-auth-client");
@@ -21,19 +25,25 @@ const AuthNavBar = () => {
 
 	return (
 		<Navbar bg="light" expand="lg">
+			{/* Application logo, leading to the home */}
 			<Navbar.Brand href={process.env.PUBLIC_URL + navbar.logo.href}>
 				<Image src={process.env.PUBLIC_URL + navbar.logo.src} alt={navbar.logo.alt}/>
 			</Navbar.Brand>
+			{/* Button that opens the upload pop-up */}
 			<CustomModal text="Upload a route" img="/img/buttons/upload.png"
 				component={<UploadComponent/>}/>
+			{/* Hamburger menu for mobile and lesser screens */}
 			<Navbar.Toggle aria-controls="basic-navbar-nav"/>
 			<Navbar.Collapse id="basic-navbar-nav">
+				{/* Nav spacer */}
 				<Nav className="mr-auto"/>
 				<Nav>
+					{/* Notifications button */}
 					<NavLink exact to={navbar.notifications.href}>
 						<CustomButton
 							img={navbar.notifications.src}/>
 					</NavLink>
+					{/* Rest of links of the navbar, loaded from the JSON config file */}
                     {navbar.links.map((link) =>
                         <NavLink exact to={link.href} className="link" key={link.href}>
                             <div>
@@ -44,6 +54,7 @@ const AuthNavBar = () => {
                             </div>
                             {link.text}
                         </NavLink>)}
+					{/* Log out button */}
 					<CustomButton img={navbar.logout.src} onClick={logOut}/>
 				</Nav>
 			</Navbar.Collapse>

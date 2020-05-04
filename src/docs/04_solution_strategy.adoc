@@ -3,17 +3,17 @@
 
 Viade is a decentralized route management system based on the Solid specifications.
 
-=== Technollogy decisions
+=== Technology decisions
 
 ==== Libraries
 
-- https://react-bootstrap.github.io/[React Bootstrap] : To stylize our application (Grids and image carousel)
+- https://react-bootstrap.github.io/[React Bootstrap] : To implement the layout of our application
 - https://github.com/inrupt/solid-react-components[Solid React Components] :To help with some of the POD features (login, registration, friends list)
 - https://github.com/jeff-zucker/solid-file-client[Solid-File-Client] : To access POD resources
 - https://github.com/jeff-zucker/sparql-fiddle[sparql-fiddle] : 
 To query data stored in PODs.
 - https://leafletjs.com/[Leaflet] and https://www.openstreetmap.org/[OpenStreetMap] : To display the routes on a map
-- https://jestjs.io/[Jest] : To do the tests
+- https://jestjs.io/[Jest] : Testing
 - https://www.npmjs.com/package/react-toastify[Toastify]:  :To display information to the users
 - https://www.npmjs.com/package/gpxparser[GPXParser]: To help manage GPX-formatted routes
 
@@ -30,21 +30,29 @@ To query data stored in PODs.
 
 === Organizational decisions
 
+To develop this project we designed a workflow that would ensure flexibility and consistency.
+The new functionalities would be selected each week in reunions, those new characteristics would be develop alone or in pairs and they should be feasible to finish in one week.
+
+Each feature would be supervised and/or adapted by one of the coordinators, we will have two, one for the front-end and one for the back-end.
+Below that we decided some extra specializations to optimize our strengths and time.
+
 Although all members have contributed to almost all parts of the implementation, the overall distribution is:
 
-- Rut Alfonso Garcia, parsing and file formats
+- Rut Alfonso Garcia, in charge of the decisions about file formats and the parsers.
 
-- Carlos Menchaca Mosteiro, POD and file loading
+- Carlos Menchaca Mosteiro, mostly dedicated to POD and file loading issues.
 
-- Manuel Lorenzo Vega, file uploading and management
+- Manuel Lorenzo Vega, file uploading and directory management from the client side.
 
-- Daniel Pancho Cueto, testing and coverage
+- Daniel Pancho Cueto, specialized in the testing and quality assurance.
 
-- Christian Peláez Fernández, backend and SOLID logic
+- Christian Peláez Fernández, back-end coordinator and specialist of the SPARQL queries.
 
-- Carmen Sirgo Lopez, backend and frontend bridge
+- Carmen Sirgo Lopez, back-end and front-end bridge defining all its communication.
 
-- Ricardo Soto Estévez, frontend developer
+- Ricardo Soto Estévez, front-end coordinator and UI/UX designer.
+
+image::04_Workflow.png[Workflow]
 
 
 === Solution-approaches
@@ -52,19 +60,34 @@ Although all members have contributed to almost all parts of the implementation,
 |===
 |Quality goal |Solution approach
 
-|Accessibility 
-|Solid Style Guide
-
-|Usabilidad
-|Solid React SDK
-
-|Testeability
-|Codecov
-
-|Maintainability
-|Travis, Codecov, Modular design
+|Adaptability
+|Colorblind friendly color scheme
 
 |Interoperability
 |Use of https://arquisoft.github.io/viadeSpec/[Viade Data Model Specification]
 
+|Maintainability
+|Travis, Codecov, Modular design
+
+|Scalability
+|Modular design, genericity and abstraction
+
+|Testeability
+|Codecov
+
+|Usability
+|Two-step operations and functionality color remark
+
 |===
+
+==== Adaptability approach
+
+image::04_Adaptability.png[Adaptibility]
+
+==== Scalability approach
+
+image::04_Scalability.png[Scalability]
+
+==== Usability approach
+
+image::04_Usability.png[Usability]

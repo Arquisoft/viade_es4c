@@ -48,7 +48,7 @@ image:05_Level2.png["Viade View"]
 
 Level 3 shows us a concrete vision about connections between interface and POD.
 
-image:images/05_Level3.png["Connections View"]
+image:05_Level3.png["Connections View"]
 
 .Level 3 descriptions
 |===

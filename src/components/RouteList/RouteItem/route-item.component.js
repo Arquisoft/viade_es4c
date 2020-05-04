@@ -5,10 +5,22 @@ import {errorToaster} from "../../../utils";
 import {Col} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
+/**
+ * Item with all the info and functionality of the routes on the list
+ * @param props
+ * 			url, url of the route
+ * 			share, if the route is owned or shared
+ * @returns {*}
+ * @constructor
+ */
 const RouteItem = (props) => {
 	const [route, setRoute] = useState();
 	const {url, share} = props;
 
+	/**
+	 * Loads the info of the route
+	 * @returns {Promise<void>}
+	 */
 	const init = async () => {
 		if (route) {
 			return;
@@ -27,6 +39,7 @@ const RouteItem = (props) => {
 		<Fragment>
 			{route ?
 				<Col md={12} lg={4}>
+					{/* Route card to display with the link to its page */}
 					<Link
 						key={route.name}
 						className="card-a"
