@@ -1,15 +1,11 @@
 import React from "react";
 import {
     cleanup,
-    waitForElement,
     render,
-    fireEvent,
-    queryByTestId,
-    queryByText
+    getByText,
+    getByValue
 } from "react-testing-library";
 import RegisterContainer from "./index";
-
-let rendered = null;
 
 describe.only("RegisterContainer", () => {
   afterAll(cleanup);
@@ -23,11 +19,10 @@ describe.only("RegisterContainer", () => {
   });
 
   test("runs select provider", () => {
-    waitForElement(() => {
-      global.open = jest.fn();
-      fireEvent.click(queryByTestId(rendered, "radio-solid-community"));
-      fireEvent.click(queryByText(rendered, "Next"));
-    });
+      const radio = getByValue(container,"https://solid.community/register");
+      radio.click();
+      const next = getByText(container, "Next");
+      next.click();
   });
 
 });
