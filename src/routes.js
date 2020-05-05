@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import {BrowserRouter as Router, Switch} from "react-router-dom";
+import {HashRouter, Switch} from "react-router-dom";
 
 import {
 	FriendsRoutes,
@@ -22,7 +22,7 @@ import {PrivateLayout, PublicLayout} from "./layouts";
  */
 const Routes = () => {
 	return (
-		<Router basename={process.env.PUBLIC_URL}>
+		<HashRouter>
 			<Fragment>
 				{/* Chooses the first route matching the direction and loads it */}
 				<Switch>
@@ -43,7 +43,7 @@ const Routes = () => {
 					<PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
 				</Switch>
 			</Fragment>
-		</Router>
+		</HashRouter>
 	);
 };
 

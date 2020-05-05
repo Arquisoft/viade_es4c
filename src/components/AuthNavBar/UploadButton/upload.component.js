@@ -102,7 +102,7 @@ export const UploadComponent = () => {
             } catch (err) {
                 throw new Error("Error uploading files");//console.error(err); // Da warning aquí por usar la consola
             }
-            successToaster("Route uploaded succesfully");
+            successToaster("Route uploaded succesfully");//feedback al usuario
         }
         catch (err) {//Damos feedback al usuario
             errorToaster(err.toString());
