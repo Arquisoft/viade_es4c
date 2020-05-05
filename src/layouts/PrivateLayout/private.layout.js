@@ -3,6 +3,7 @@ import {Route} from "react-router-dom";
 import {withAuthorization} from "../../hooks";
 import {AuthNavBar} from "../../components";
 import {permissionHelper} from "../../utils";
+import {useWebId} from "@inrupt/solid-react-components";
 
 /**
  * Controls the paths that can be accessed only by logged users. If a not logged-in user tries to access that path he will be redirected to "/login".In addition, it also shows Auth NavBar.
@@ -14,7 +15,8 @@ import {permissionHelper} from "../../utils";
  * @returns {*}
  * @constructor
  */
-const PrivateLayout =({component:Component, webId, location, history, ...rest }) => {
+const PrivateLayout =({component:Component, location, history, ...rest }) => {
+  const webId=useWebId();
   const errorMessages = {
     message: "The application permissions are not properly set. Please add additional permissions and try again",
     title: "Error",
