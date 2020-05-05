@@ -26,36 +26,30 @@ describe.only("UploadComponent", () => {
   });
 
   test("no name filled and clicking upload", () => {
-    waitForElement(() => {
-      global.open = jest.fn();
-      fireEvent.click(queryByText(rendered, "Upload"));
-      expect(queryByText(rendered, "Warn")).not.toBeNull();
-    });
+    const uploadbutton = getByText(container, "Upload");
+    uploadbutton.click();
+    expect(getByText(container, "Upload")).not.toBeNull();
   });
 
   test("name filled and clicking upload", () => {
-    waitForElement(() => {
-      global.open = jest.fn();
-      const nameInput = queryByTestId(rendered, "formName");
-      nameInput.value = "Test";
-      expect(nameInput.value).toBe("Test");
-      fireEvent.click(queryByText(rendered, "Upload"));
-      expect(queryByText(rendered, "Warn")).not.toBeNull();
-    });
+    const inputName = getByTestId(container,"formName");
+    inputName.innerText = "Test";
+    expect(inputName.innerText).toBe("Test");
+    const uploadbutton = getByText(container, "Upload");
+    uploadbutton.click();
+    expect(getByText(container, "Upload")).not.toBeNull();
   });
 
   test("name and description filled and clicking upload", () => {
-    waitForElement(() => {
-      global.open = jest.fn();
-      const nameInput = queryByTestId(rendered, "formName");
-      nameInput.value = "Test";
-      expect(nameInput.value).toBe("Test");
-      const descInput = queryByTestId(rendered, "formDescription");
-      descInput.value = "TestDesc";
-      expect(descInput.value).toBe("TestDesc");
-      fireEvent.click(queryByText(rendered, "Upload"));
-      expect(queryByText(rendered, "Warn")).not.toBeNull();
-    });
+    const inputName = getByTestId(container,"formName");
+    inputName.innerText = "Test";
+    expect(inputName.innerText).toBe("Test");
+    const inputDesc = getByTestId(container,"formName");
+    inputDesc.innerText = "Test";
+    expect(inputDesc.innerText).toBe("Test");
+    const uploadbutton = getByText(container, "Upload");
+    uploadbutton.click();
+    expect(getByText(container, "Upload")).not.toBeNull();
   });
 
   test("name filled and description filled, file uploaded, clicking upload", () => {
@@ -66,23 +60,20 @@ describe.only("UploadComponent", () => {
       type: "application/json"
     });
 
-
     Object.defineProperty(inputRoute, "files", {
       value: [file]
     });
-
     fireEvent.change(inputRoute);
 
-    getByTestId("formName").click();
     const inputName = getByTestId("formName");
     inputName.innerText = "Test";
+    expect(inputName.innerText).toBe("Test");
 
-    getByTestId("formDescription").click();
     const inputDesc = getByTestId("formDescription");
     inputDesc.innerText = "Test";
+    expect(inputDesc.innerText).toBe("Test");
 
     const uploadbutton = getByText(container, "Upload");
-    console.log(uploadbutton);
     uploadbutton.click();
   });
 
