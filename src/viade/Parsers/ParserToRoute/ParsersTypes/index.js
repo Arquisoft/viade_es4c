@@ -1,3 +1,4 @@
-import GeoJSONToRoute from "./geoJSON-to-route";
+import GeoJSONToRoute from "./GeoJSON";
+import GpxToRoute from "./gpx-to-route";
 
-export {GeoJSONToRoute};
+export {GeoJSONToRoute, GpxToRoute};

@@ -1,3 +1,5 @@
+image::images/08-Crosscutting-Concepts-Structure-EN.png[]
+
 [[section-concepts]]
 == Cross-cutting Concepts
 

@@ -3,7 +3,7 @@ import ProviderItem from "./ProviderItem";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import "./register.component.css";
-import {MDBBtn} from "mdbreact";
+import {CustomButton} from "../../index";
 
 type Provider = {};
 
@@ -39,7 +39,7 @@ class RegisterComponent extends Component<Props, State> {
 		const { protocol, host } = window.location;
 		if (canContinue) {
 			//window.location = `${provider}?returnToUrl=${protocol}//${host}/register/success`;
-			window.location = `${provider}?returnToUrl=${protocol}//${host}/login`;
+			window.location = `${provider}?returnToUrl=${protocol}//${host}/viade_es4c/`;
 		}
 	};
 
@@ -60,7 +60,7 @@ class RegisterComponent extends Component<Props, State> {
 		const { protocol, host } = window.location;
 		if (canContinue) {
 			//window.location = `${provider}?returnToUrl=${protocol}//${host}/register/success`;
-			window.location = `${provider}?returnToUrl=${protocol}//${host}/login`;
+			window.location = `${provider}?returnToUrl=${protocol}//${host}/viade_es4c/`;
 		}
 	};
 
@@ -73,7 +73,7 @@ class RegisterComponent extends Component<Props, State> {
 
 		return (
 			<Card className="text-center" style={{ width: "25rem" }}>
-				<Card.Img variant="top" src="/viade_es4c/img/logo.svg" />
+				<Card.Img variant="top" src={process.env.PUBLIC_URL + "/img/logo.svg"} />
 				<Card.Body>
 					<Card.Title>Make a SOLID account</Card.Title>
 					<Card.Body>
@@ -104,15 +104,13 @@ class RegisterComponent extends Component<Props, State> {
 									</ul>
 								</Fragment>
 							</div>
-							<MDBBtn
+							<CustomButton
 								className="btn-solid"
 								onClick={this.next}
 								type="submit"
 								disabled={!canContinue}
-								color="orange" outline
-							>
-								Next
-							</MDBBtn>
+								text="Next"
+							/>
 						</Form>
 					</Card.Body>
 				</Card.Body>

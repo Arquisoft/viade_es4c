@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import {BrowserRouter as Router, Switch} from "react-router-dom";
+import {HashRouter, Switch} from "react-router-dom";
 
 import {
 	FriendsRoutes,
@@ -22,7 +22,7 @@ import {PrivateLayout, PublicLayout} from "./layouts";
  */
 const Routes = () => {
 	return (
-		<Router>
+		<HashRouter>
 			<Fragment>
 				{/* Chooses the first route matching the direction and loads it */}
 				<Switch>
@@ -33,18 +33,17 @@ const Routes = () => {
 						  PrivateLayout para rutas que se tienen que mostrar a usuarios que SI están loggeados
 						*/
 					}
-					<PublicLayout component={Home} path="/viade_es4c" exact/> {/* Homepage - "/" */}
-					<PrivateLayout component={FriendsRoutes} path="/viade_es4c/friendsRoutes" exact/> {/* Friends - "/friends" */}
-					<PrivateLayout component={ShowRoute} path="/viade_es4c/route" exact/> {/* ShowRoute - "/route" */}
-					<PrivateLayout component={Profile} path="/viade_es4c/profile" exact/> {/* Profile - "/profile" */}
-					<PrivateLayout component={MyRoutes} path="/viade_es4c/myRoutes" exact/> {/* My Routes - "/myROutes" */}
-					<PrivateLayout component={ShowRoute} path="/viade_es4c/showRoute" exact/> {/* View Map - "/viewMap" */}
-					<PrivateLayout component={Share} path="/viade_es4c/share" exact /> {/* Share - "/share" */}
-					<PrivateLayout component={Notifications} path="/viade_es4c/notifications" exact /> {/* Notifications - "/notifications" */}
+					<PublicLayout component={Home} path="/" exact/> {/* Homepage - "/" */}
+					<PrivateLayout component={FriendsRoutes} path="/friendsRoutes" exact/> {/* Friends - "/friends" */}
+					<PrivateLayout component={Profile} path="/profile" exact/> {/* Profile - "/profile" */}
+					<PrivateLayout component={MyRoutes} path="/myRoutes" exact/> {/* My Routes - "/myRoutes" */}
+					<PrivateLayout component={ShowRoute} path="/showRoute/:share/:uri"/> {/* Show Route - "/showRoute..." */}
+					<PrivateLayout component={Share} path="/share" exact /> {/* Share - "/share" */}
+					<PrivateLayout component={Notifications} path="/notifications" exact /> {/* Notifications - "/notifications" */}
 					<PublicLayout component={NotFound} path="*"/> {/* Error - "*" */}
 				</Switch>
 			</Fragment>
-		</Router>
+		</HashRouter>
 	);
 };
 

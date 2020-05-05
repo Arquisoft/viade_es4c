@@ -1,5 +1,5 @@
 import React from "react";
-import Carousel from "react-bootstrap/Carousel";
+import {Image, Carousel} from "react-bootstrap";
 import "./routes-carousel.component.css";
 
 
@@ -8,28 +8,32 @@ import "./routes-carousel.component.css";
  */
 class RoutesCarousel extends React.Component {
 
-	data = [
-		{ src: "/viade_es4c/img/inrupt.svg", date: "Imagen 1", description: "Description"},
-		{ src: "/viade_es4c/img/logo.svg", date: "Imagen 2", description: "Description"},
-		{ src: "/viade_es4c/img/Solid.svg", date: "Imagen 3", description: "Description"}
-	];
+	/**
+	 * Loads the data to display from the props
+	 * @param props
+	 * 			media, images and videos to show
+	 */
+	constructor(props) {
+		super(props);
+		this.data = props.media;
+	}
 
 	render() {
 		return (
-			<Carousel interval={5000}>
-				{this.data.map(function(object){
-					return <Carousel.Item key={object.src}>
-						<img
-							className="d-block route-img"
-							src={object.src}
-							alt={object.date}
-						/>
-						<Carousel.Caption>
-							<h3>{object.date}</h3>
-						</Carousel.Caption>
-					</Carousel.Item>;
-				})}
-			</Carousel>
+			this.data.length > 0 ?
+				<Carousel interval={5000}>
+					{this.data.map(function (object) {
+						return (
+							<Carousel.Item key={object.getUrl()}>
+								{object.getComponent()}
+							</Carousel.Item>);
+					})}
+				</Carousel>
+			: 	<div className={"no-media"}>
+					{/* If the route has no media, it advises it */}
+					<Image src={process.env.PUBLIC_URL + "/img/advises/nomedia.png"}/>
+					<h3>This route doesn't have any attached media</h3>
+				</div>
 		);
 	}
 

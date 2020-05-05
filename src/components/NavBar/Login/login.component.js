@@ -11,12 +11,14 @@ import "./login.css";
  */
 const LoginComponent = () => {
   return (
-    <nav className="nav nav__login">
+    <div>
       <Card className="text-center" style={{ width: "25rem" }}>
-          <Card.Img variant="top" src="/viade_es4c/img/logo.svg" />
+          {/* Viade logo */}
+          <Card.Img variant="top" src={process.env.PUBLIC_URL + "/img/logo.svg"} />
           <Card.Body>
               <Card.Title>Login of Viade es4c</Card.Title>
               <Card.Text>
+                  {/* Library component holding the login */}
                   <ProviderLogin
                       selectPlaceholder="Pick an identity provider"
                       inputPlaholder="Please enter your WebID or the URL of your identity provider"
@@ -36,7 +38,7 @@ const LoginComponent = () => {
               </Card.Text>
           </Card.Body>
       </Card>
-    </nav>
+    </div>
 
   );
 };

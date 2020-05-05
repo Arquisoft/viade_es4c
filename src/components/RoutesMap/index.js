@@ -1,6 +1,7 @@
 import RouteMap from "./RouteMap";
-import RouteUploader from "./RoutesUploader";
+import RouteTitle from "./RoutesTitle";
 import RoutesCarousel from "./RoutesCarousel";
 import RoutesItinerary from "./RoutesItinerary";
+import RoutesMediaUpload from "./RoutesMediaUpload";
 
-export {RouteMap, RouteUploader, RoutesCarousel, RoutesItinerary};
+export {RouteMap, RouteTitle, RoutesCarousel, RoutesItinerary, RoutesMediaUpload};

@@ -1,9 +1,21 @@
 .route-img {
-    width: 500px;
     height: 500px;
     margin: 0 auto;
 }
 
+.no-media {
+    text-align: center;
+    height: 500px;
+}
+
+.carousel-caption {
+    background: rgba(188, 218, 211, .8);
+}
+
+.carousel-control-prev {
+    background: rgba(0, 0, 0, .2);
+}
+
 .carousel-control-next {
-    color: black;
+    background: rgba(0, 0, 0, .2);
 }

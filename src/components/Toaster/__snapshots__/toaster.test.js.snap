@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toaster should render correctly in 'debug' mode 1`] = `
+<div
+  className="toaster"
+>
+  <span />
+  <p />
+</div>
+`;
