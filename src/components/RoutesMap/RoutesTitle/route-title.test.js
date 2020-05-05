@@ -50,10 +50,11 @@ describe.only("RouteTitle", () => {
   });
 
   test("triggers edit, changes values and press Enter", () => {
-    const button = getByTestId(container,"editbtn");
+    const { getByTestId } = render(<RouteTitle route = {prueba} share={true}/>);
+    const button = getByTestId("editbtn");
     fireEvent.click(button);
     waitForDomChange(() => {
-      expect(getByTestId(container,"savebtn")).not.toBeNull();
+      expect(getByTestId("savebtn")).not.toBeNull();
       const inputName = getByTestId("inputName");
       inputName.innerText = "Test";
       expect(inputName.innerText).toBe("Test");
@@ -64,7 +65,7 @@ describe.only("RouteTitle", () => {
       var event = new KeyboardEvent("keydown", {"key": "Enter"});
       document.dispatchEvent(event);
       waitForDomChange(() => {
-        expect(getByTestId(container,"editbtn")).not.toBeNull();
+        expect(getByTestId("editbtn")).not.toBeNull();
       });
     });
   });
