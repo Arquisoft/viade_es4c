@@ -52,20 +52,15 @@ class RouteTitle extends Component {
 			let parserToRDF = new RouteToRDF(this.route);
 			//Parsear la ruta a RDF
 			let strRoute = parserToRDF.parse();
-
-			//alert(this.route.url); https://viadees4c.solid.community/viade/routes/1587668614753.ttl
-
+			//this.route.url -> https://viadees4c.solid.community/viade/routes/1587668614753.ttl
 			const rutaPod = storageHelper.getMyRoutesFolder(this.webId); //
-			//alert(this.webId); //https://viadees4c.solid.community/profile/card#me
+			//this.webId -> https://viadees4c.solid.community/profile/card#me
 			const aux = this.route.url.split("/");
 			const nombreRuta = aux[aux.length - 1];
 			const url = rutaPod + nombreRuta;//no tiene sentido quitar el .ttl para luego volver a ponerlo :)
-			//alert(nombreRuta);
-
-
-			//Subir La ruta
+			//Subir La ruta al pod
 			try {
-				const fc = new SolidFileClient(auth);//creamos el objeto solid file client
+				const fc = new SolidFileClient(auth);
 				await fc.createFile(url, strRoute, "text/turtle", {});
 
 				successToaster("Route modified successfully");
