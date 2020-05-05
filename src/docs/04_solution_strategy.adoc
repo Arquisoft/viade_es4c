@@ -86,7 +86,7 @@ image::04_Adaptability.png[Adaptibility]
 
 ==== Scalability approach
 
-image::04_Scalability.png[Scalability]
+image::04_Scalability.PNG[Scalability]
 
 ==== Usability approach
 
