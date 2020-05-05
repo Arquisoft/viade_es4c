@@ -14,7 +14,7 @@ describe.only("LoginComponent", () => {
   });
 
   test("renders ProviderLogin", () => {
-    const providerLogin = document.querySelector('.solid-provider-login-component');
+    const providerLogin = document.querySelector(".solid-provider-login-component");
     expect(providerLogin).toBeTruthy();
   });
 

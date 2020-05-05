@@ -1,18 +1,14 @@
 import React from "react";
 import {
-    cleanup,
-    waitForElement,
-    render,
-    fireEvent,
-    queryByText,
-    queryByTestId,
-    getByTestId,
-    within,
-    getByText
+  cleanup,
+  render,
+  fireEvent,
+  getByTestId,
+  getByText,
+  waitForDomChange
 } from "react-testing-library";
 import UploadComponent from "./index";
 
-let rendered = null;
 
 describe.only("UploadComponent", () => {
   afterAll(cleanup);
@@ -27,8 +23,10 @@ describe.only("UploadComponent", () => {
 
   test("no name filled and clicking upload", () => {
     const uploadbutton = getByText(container, "Upload");
-    uploadbutton.click();
-    expect(getByText(container, "Upload")).not.toBeNull();
+    fireEvent.click(uploadbutton);
+    waitForDomChange(() => {
+      expect(getByText(container, "Warn")).not.toBeNull();
+    });
   });
 
   test("name filled and clicking upload", () => {
@@ -36,8 +34,10 @@ describe.only("UploadComponent", () => {
     inputName.innerText = "Test";
     expect(inputName.innerText).toBe("Test");
     const uploadbutton = getByText(container, "Upload");
-    uploadbutton.click();
-    expect(getByText(container, "Upload")).not.toBeNull();
+    fireEvent.click(uploadbutton);
+    waitForDomChange(() => {
+      expect(getByText(container, "Warn")).not.toBeNull();
+    });
   });
 
   test("name and description filled and clicking upload", () => {
@@ -48,11 +48,13 @@ describe.only("UploadComponent", () => {
     inputDesc.innerText = "Test";
     expect(inputDesc.innerText).toBe("Test");
     const uploadbutton = getByText(container, "Upload");
-    uploadbutton.click();
-    expect(getByText(container, "Upload")).not.toBeNull();
+    fireEvent.click(uploadbutton);
+    waitForDomChange(() => {
+      expect(getByText(container, "Warn")).not.toBeNull();
+    });
   });
 
-  test("name filled and description filled, file uploaded, clicking upload", () => {
+  test("name filled and description filled, file uploaded, clicking upload, not auth", () => {
     const { getByTestId } = render(<UploadComponent />);
     const inputRoute = getByTestId("input");
 
@@ -74,8 +76,12 @@ describe.only("UploadComponent", () => {
     expect(inputDesc.innerText).toBe("Test");
 
     const uploadbutton = getByText(container, "Upload");
-    uploadbutton.click();
+    fireEvent.click(uploadbutton);
+    waitForDomChange(() => {
+      expect(getByText(container, "Warn")).not.toBeNull();
+    });
   });
+
 
 
 
