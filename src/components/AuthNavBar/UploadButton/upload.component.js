@@ -119,13 +119,13 @@ export const UploadComponent = () => {
             {/* Name field */}
             <Form.Group controlId="formName">
                 <Form.Label>Name:</Form.Label>
-                <Form.Control ref={nameInput} onChange={() => handleNameChange()}
+                <Form.Control ref={nameInput} onChange={() => handleNameChange()} data-testid="formName"
                               type="text" placeholder="Enter the name of the route"/>
             </Form.Group>
             {/* Description field */}
             <Form.Group controlId="formDescription">
                 <Form.Label>Description:</Form.Label>
-                <Form.Control ref={descriptionInput} onChange={() => handleDescriptionChange()}
+                <Form.Control ref={descriptionInput} onChange={() => handleDescriptionChange()} data-testid="formDescription"
                               as="textarea" placeholder="Enter the description of the route"/>
                 <Form.Text className="text-muted">
                     (Optional)
@@ -134,12 +134,12 @@ export const UploadComponent = () => {
             <p>We don't support manual creation of routes as of yet, but you can use <a href={"http://geojson.io/"}>
                 this webpage</a> to make one if you don't have a GPS.</p>
             {/** File selector **/}
-            <input type="file" onChange={fileSelectedHadler}/>
+            <input type="file" onChange={fileSelectedHadler} data-testid="input"/>
             {/* Media handler */}
             <ImageUploader
                 withIcon={true}
                 withPreview={true}
-                buttonText='Choose images and videos'
+                buttonText="Choose images and videos"
                 onChange={mediaSelectedHadler}
                 imgExtension={[".jpg", ".gif", ".png", ".gif", ".mp4"]}
                 maxFileSize={5242880}

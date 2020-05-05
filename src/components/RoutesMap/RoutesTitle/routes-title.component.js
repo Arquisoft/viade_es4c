@@ -21,7 +21,7 @@ class RouteTitle extends Component {
 	 */
 	constructor(props) {
 		super(props);
-		this.route=props.route;
+		this.route = props.route;
 		this.name = props.route.name;
 		this.description = props.route.description;
 		this.share = props.share;
@@ -101,14 +101,15 @@ class RouteTitle extends Component {
 					{(this.state.isEditing)
 						? 	<div className={"flex-grow-1"}>
 								<input type={"text"} className="edit edit-title" onKeyDown={this.handleKeyEnter}
-									value={this.state.editedName} onChange={this.updateName}/>
+									value={this.state.editedName} onChange={this.updateName} data-testid={"inputName"}/>
 							</div>
 						: 	<h1 className="title-text">{this.name}</h1>}
 					{/* Description of the route, it's an input if editing */}
 					{(this.state.isEditing)
 						? 	<div className={"flex-grow-1"}>
 								<input type={"text"}  className="edit" onKeyDown={this.handleKeyEnter}
-									value={this.state.editedDescription} onChange={this.updateDescription}/>
+									value={this.state.editedDescription} onChange={this.updateDescription}
+									data-testid={"inputDesc"}/>/>
 							</div>
 						: 	<p className="title-text">{this.description}</p>}
 				</div>
@@ -116,8 +117,8 @@ class RouteTitle extends Component {
 				{ this.share
 					?	<div>
 							{(this.state.isEditing)
-								? <CustomButton onClick={this.save} img="/img/buttons/save.png"/>
-								: <CustomButton onClick={this.edit} img="/img/buttons/edit.png"/> }
+								? <CustomButton onClick={this.save} img="/img/buttons/save.png" testid={"savebtn"}/>
+								: <CustomButton onClick={this.edit} img="/img/buttons/edit.png" testid={"editbtn"}/> }
 							<div className="float-right">
 								<CustomModal text="Share" img="/img/buttons/share.png"
 									component={<ShareComponent route={this.route} webId={this.webId}/>}/>

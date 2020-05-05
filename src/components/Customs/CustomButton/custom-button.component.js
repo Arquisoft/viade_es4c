@@ -18,7 +18,8 @@ const CustomButton = (props) => {
 
 	return (
 		<button onClick={props.onClick} className={"custom-button " + (props.className ? props.className : "")}
-			type={(props.type ? props.type : "button") } disabled={(props.disabled ? props.disabled : false)}>
+			type={(props.type ? props.type : "button") } disabled={(props.disabled ? props.disabled : false)}
+			data-testid={(props.testid ? props.testid : "predefinedtestid")}>
 			{props.img ?
 				<Image src={process.env.PUBLIC_URL + props.img} alt={props.text} className="cb-img"/>
 				: null}
