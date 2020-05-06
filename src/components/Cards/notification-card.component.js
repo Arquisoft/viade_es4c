@@ -36,7 +36,7 @@ export const NotificationCardComponent = (props) => {
 	};
 
 	return (
-		<div className={"route-card " + (isAccepted ? "already-accepted" : "")}>
+		<div className={"route-card " + (isAccepted ? "already-accepted" : "")} data-testid={"noticard"}>
 			{/* Left side of the card, contains the image and hidden fields */}
 			<div className="route-card-left">
 				<Image src={process.env.PUBLIC_URL + "/img/cards/notification.png"} alt={"Notification"}
@@ -50,7 +50,7 @@ export const NotificationCardComponent = (props) => {
 						? <div className="route-card-link"> Accepted </div>
 						: <div>
 							<CustomButton onClick={accept} disabled={props.disabled} text="Accept"
-										className="route-card-button"/>
+										className="route-card-button" testid={"notibtn"}/>
 						</div>
 					}
 				</div>
