@@ -35,7 +35,7 @@ describe.only("NotificationCardComponent returning true", () => {
 		<NotificationCardComponent	name="Test" user={"https://viadees4c.solid.community/profile/card#me"}
 									disabled={false} read={false}
 									condition={async () => {return true;}}
-								  	action={async () => {}}/>
+									action={async () => {}}/>
 	);
 
 	test("renders without crashing", () => {
