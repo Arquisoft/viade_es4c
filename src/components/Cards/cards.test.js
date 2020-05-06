@@ -45,7 +45,7 @@ describe.only("NotificationCardComponent returning true", () => {
 	test("accept it and return true on condition", () => {
 		let { getByTestId } = render(
 			<NotificationCardComponent	name="Test" user={"https://viadees4c.solid.community/profile/card#me"}
-									  	disabled={false} read={false}
+										disabled={false} read={false}
 										condition={async () => {return true;}}
 										action={async () => {}}/>
 		);
@@ -67,8 +67,8 @@ describe.only("NotificationCardComponent returning false", () => {
 	let {container} = render(
 		<NotificationCardComponent	name="Test" user={"https://viadees4c.solid.community/profile/card#me"}
 									disabled={false} read={false}
-								  	condition={async () => {return false;}}
-								  	action={async () => {}}/>
+									condition={async () => {return false;}}
+									action={async () => {}}/>
 	);
 
 	test("renders without crashing", () => {
