@@ -10,7 +10,7 @@ describe.only("RouteListComponent", () => {
 			"http://thiswillfail.com",
 			"http://thiswillfail.com",
 			"http://thiswillfail.com"
-		]
+		];
 	};
 
 	const {container} = render(

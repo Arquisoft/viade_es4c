@@ -6,7 +6,7 @@ import {ItemViade, RouteViade} from "../../../viade";
 describe.only("RouteMapComponent", () => {
 	afterAll(cleanup);
 
-	jest.mock('leaflet');
+	jest.mock("leaflet");
 
 	const mockRoute = new RouteViade("Test", [
 		new ItemViade(1.0, 1.0, 1),

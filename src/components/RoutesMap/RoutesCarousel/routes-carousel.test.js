@@ -8,7 +8,7 @@ describe.only("RoutesCarouselComponent", () => {
 
 	function noOp () { }
 	if (typeof window.URL.createObjectURL === "undefined") {
-		Object.defineProperty(window.URL, "createObjectURL", { value: noOp})
+		Object.defineProperty(window.URL, "createObjectURL", { value: noOp});
 	}
 
 	const type = "image/png";

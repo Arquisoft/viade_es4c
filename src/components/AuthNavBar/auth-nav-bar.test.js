@@ -20,5 +20,6 @@ describe.only("AuthNavBar", () => {
     const { getByTestId } = render(<Router><AuthNavBar /></Router>);
     const inputRoute = getByTestId("logoutbtn");
     inputRoute.click();
-  })
+  });
+
 });

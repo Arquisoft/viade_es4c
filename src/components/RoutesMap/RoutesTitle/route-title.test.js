@@ -1,5 +1,13 @@
 import React from "react";
-import {cleanup, fireEvent, getByTestId, getByText, render, waitForDomChange} from "react-testing-library";
+import {
+  cleanup,
+  fireEvent,
+  getByTestId,
+  getByText,
+  render,
+  waitForDomChange,
+  waitForElement
+} from "react-testing-library";
 import RouteTitle from "./index";
 import { ItemViade, RouteViade } from "../../../viade/Model";
 
@@ -32,18 +40,15 @@ describe.only("RouteTitle", () => {
   test("triggers edit, changes values and press Escape", () => {
     const button = getByTestId(container,"editbtn");
     fireEvent.click(button);
-    waitForDomChange(() => {
+    waitForElement(() => {
       expect(getByTestId(container,"savebtn")).not.toBeNull();
-      const inputName = getByTestId("inputName");
-      inputName.innerText = "Test";
-      expect(inputName.innerText).toBe("Test");
-      const inputDesc = getByTestId("inputDesc");
-      inputDesc.innerText = "Test";
-      expect(inputDesc.innerText).toBe("Test");
+      const inputName = getByTestId(container, "inputName");
+      fireEvent.change(inputName, { target: { value: "Test" } });
+      const inputDesc = getByTestId(container, "inputDesc");
+      fireEvent.change(inputDesc, { target: { value: "Test2" } });
       inputName.click();
-      var event = new KeyboardEvent("keydown", {"key": "Escape"});
-      document.dispatchEvent(event);
-      waitForDomChange(() => {
+      fireEvent.keyDown(inputName, { key: "Escape", code: "Escape" });
+      waitForElement(() => {
         expect(getByTestId(container,"editbtn")).not.toBeNull();
       });
     });
@@ -53,18 +58,15 @@ describe.only("RouteTitle", () => {
     const { getByTestId } = render(<RouteTitle route = {prueba} share={true}/>);
     const button = getByTestId("editbtn");
     fireEvent.click(button);
-    waitForDomChange(() => {
+    waitForElement(async () => {
       expect(getByTestId("savebtn")).not.toBeNull();
       const inputName = getByTestId("inputName");
-      inputName.innerText = "Test";
-      expect(inputName.innerText).toBe("Test");
+      fireEvent.change(inputName, { target: { value: "Test" } });
       const inputDesc = getByTestId("inputDesc");
-      inputDesc.innerText = "Test";
-      expect(inputDesc.innerText).toBe("Test");
+      fireEvent.change(inputDesc, { target: { value: "Test2" } });
       inputName.click();
-      var event = new KeyboardEvent("keydown", {"key": "Enter"});
-      document.dispatchEvent(event);
-      waitForDomChange(() => {
+      fireEvent.keyDown(inputName, { key: "Enter", code: "Enter" });
+      await waitForDomChange(() => {
         expect(getByTestId("editbtn")).not.toBeNull();
       });
     });
