@@ -15,4 +15,11 @@ describe.only("AuthNavBar", () => {
   test("renders without crashing", () => {
     expect(container).toBeTruthy();
   });
+
+  test("logout", () => {
+    const { getByTestId } = render(<Router><AuthNavBar /></Router>);
+    const inputRoute = getByTestId("logoutbtn");
+    inputRoute.click();
+  });
+
 });

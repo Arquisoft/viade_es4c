@@ -29,7 +29,7 @@ const RoutesMediaUpload = (props) => {
 		media = e;
 	};
 
-	const summitHandler = async (e) => {
+	const summitHandler = async () => {
 
 		if (media.length === 0) {
 			warningToaster("You need to upload a file", "Warn");
@@ -81,7 +81,7 @@ const RoutesMediaUpload = (props) => {
 
 		return (
 			<div>
-				<CustomButton onClick={toggle} text="Upload media" className="dropdown-toggle w-100"/>
+				<CustomButton onClick={toggle} text="Upload media" className="dropdown-toggle w-100" testid={"drbtn"}/>
 				<Collapse in={isOpen}>
 					<div>
 						<ImageUploader
@@ -92,7 +92,7 @@ const RoutesMediaUpload = (props) => {
 							imgExtension={[".jpg", ".gif", ".png", ".gif", ".mp4"]}
 							maxFileSize={5242880}
 						/>
-						<CustomButton onClick={summitHandler} text="Upload" className="w-100 mb-4"/>
+						<CustomButton onClick={summitHandler} text="Upload" className="w-100 mb-4" testid={"upbtn"}/>
 					</div>
 
 				</Collapse>

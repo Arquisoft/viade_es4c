@@ -55,7 +55,7 @@ const AuthNavBar = () => {
                             {link.text}
                         </NavLink>)}
 					{/* Log out button */}
-					<CustomButton img={navbar.logout.src} onClick={logOut}/>
+					<CustomButton img={navbar.logout.src} onClick={logOut} testid={"logoutbtn"}/>
 				</Nav>
 			</Navbar.Collapse>
 		</Navbar>
