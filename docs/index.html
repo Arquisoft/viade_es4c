@@ -1,0 +1,2184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<title>VIADE ES4C</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1><span class="image"><img src="./images/LogoASW.png" alt="arc42"></span> VIADE ES4C</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#section-introduction-and-goals">1. Introduction and Goals</a>
+<ul class="sectlevel2">
+<li><a href="#_requirements_overview">1.1. Requirements Overview</a></li>
+<li><a href="#_quality_goals">1.2. Quality Goals</a></li>
+<li><a href="#_stakeholders">1.3. Stakeholders</a></li>
+</ul>
+</li>
+<li><a href="#section-architecture-constraints">2. Architecture Constraints</a></li>
+<li><a href="#section-system-scope-and-context">3. System Scope and Context</a>
+<ul class="sectlevel2">
+<li><a href="#_business_context">3.1. Business Context</a></li>
+<li><a href="#_technical_context">3.2. Technical Context</a></li>
+</ul>
+</li>
+<li><a href="#section-solution-strategy">4. Solution Strategy</a>
+<ul class="sectlevel2">
+<li><a href="#_technology_decisions">4.1. Technology decisions</a></li>
+<li><a href="#_organizational_decisions">4.2. Organizational decisions</a></li>
+<li><a href="#_solution_approaches">4.3. Solution-approaches</a></li>
+</ul>
+</li>
+<li><a href="#section-building-block-view">5. Building Block View</a>
+<ul class="sectlevel2">
+<li><a href="#_level_1">5.1. Level 1</a></li>
+<li><a href="#_level_2">5.2. Level 2</a></li>
+<li><a href="#_level_3">5.3. Level 3</a></li>
+</ul>
+</li>
+<li><a href="#section-runtime-view">6. Runtime View</a>
+<ul class="sectlevel2">
+<li><a href="#_log_in">6.1. Log in</a></li>
+<li><a href="#_upload_a_route">6.2. Upload a Route</a></li>
+<li><a href="#_load_your_routes">6.3. Load your Routes</a></li>
+<li><a href="#_display_a_route">6.4. Display a Route</a></li>
+<li><a href="#_send_a_notification">6.5. Send a Notification</a></li>
+<li><a href="#_receive_a_notification">6.6. Receive a Notification</a></li>
+<li><a href="#section-deployment-view">6.7. Infrastructure Level 1</a></li>
+<li><a href="#_infrastructure_level_2">6.8. Infrastructure Level 2</a></li>
+</ul>
+</li>
+<li><a href="#section-concepts">7. Cross-cutting Concepts</a>
+<ul class="sectlevel2">
+<li><a href="#_domain_concepts">7.1. <em>Domain Concepts</em></a></li>
+<li><a href="#_user_experience_concepts_ux">7.2. <em>User Experience concepts (UX)</em></a></li>
+<li><a href="#_safety_and_security_concepts">7.3. <em>Safety and security concepts</em></a></li>
+<li><a href="#_architecture_and_design_patterns">7.4. <em>Architecture and design patterns</em></a></li>
+<li><a href="#_under_the_hood_concepts">7.5. <em>“Under-the-hood” concepts</em></a></li>
+<li><a href="#_development_concepts">7.6. <em>Development concepts</em></a></li>
+<li><a href="#_operational_concepts">7.7. <em>Operational concepts</em></a></li>
+</ul>
+</li>
+<li><a href="#section-design-decisions">8. Design Decisions</a></li>
+<li><a href="#section-quality-scenarios">9. Quality Requirements</a>
+<ul class="sectlevel2">
+<li><a href="#_quality_tree">9.1. Quality Tree</a></li>
+<li><a href="#_quality_scenarios">9.2. Quality Scenarios</a></li>
+</ul>
+</li>
+<li><a href="#section-technical-risks">10. Risks and Technical Debts</a></li>
+<li><a href="#section-glossary">11. Glossary</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<style>
+.arc42help {font-size:small; width: 14px; height: 16px; overflow: hidden; position: absolute; right: 0px; padding: 2px 0px 3px 2px;}
+.arc42help::before {content: "?";}
+.arc42help:hover {width:auto; height: auto; z-index: 100; padding: 10px;}
+.arc42help:hover::before {content: "";}
+@media print {
+	.arc42help {display:hidden;}
+}
+</style>
+<hr>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This version of the template contains some help and explanations.
+It is used for familiarization with arc42 and the understanding of the concepts.
+For documentation of your own system you use better the <em>plain</em> version.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-introduction-and-goals">1. Introduction and Goals</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A decentralized web application of routes will be made following the SOLID architecture and the React framework. With it, users will be able to store routes, visualize them on a map, complete them with photos or videos and share them with their friends.</p>
+</div>
+<div class="sect2">
+<h3 id="_requirements_overview">1.1. Requirements Overview</h3>
+<div class="sect3">
+<h4 id="_functionals">1.1.1. Functionals</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Users should be able to view the routes on a map and store them on their own pods.</p>
+</li>
+<li>
+<p>By using their own pods, the information will be totally decentralized, favoring data security.</p>
+</li>
+<li>
+<p>The user will also be able to upload images and videos with their routes.</p>
+</li>
+<li>
+<p>Those routes will be shareable with their friends.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_non_functionals">1.1.2. Non functionals</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The system must be accessible and intuitive for all types of users, although special attention will be focused on favouring those with less experience in applications of this style.</p>
+</li>
+<li>
+<p>Avoid compromising user information by decentralizing data on separate pods for each user.</p>
+</li>
+<li>
+<p>Follow the recommendations of the W3C to ensure an error-free and safer website.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quality_goals">1.2. Quality Goals</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Table Goals</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Goal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mainteinability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The website can be easily maintained and progressively expanded in a simple way as development progresses, either by extending existing features or by adding new ones.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The system must be effective and react quickly to user requests for action.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Privacy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User data should be stored out of the internal servers and protected to prevent third parties from accessing them.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests must be able to be carried out to check the correct functioning of the system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The application must be intuitive and easy to use by any type of user.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_stakeholders">1.3. Stakeholders</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Table Stakeholders</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Role/Name</th>
+<th class="tableblock halign-left valign-top">Contact</th>
+<th class="tableblock halign-left valign-top">Expectations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application users</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>These represent the end users of the application</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Have at their disposal an application that allows them to store their routes and share them with their friends.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Teachers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Who evaluate the project being carried out</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Find a project that meets the above requirements.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Developers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Who will be in charge of developing the product</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Make a system that meets the requirements above.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-architecture-constraints">2. Architecture Constraints</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Restriction</th>
+<th class="tableblock halign-left valign-top">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It is an organization which principal objective decentralize the data in a way that each user has total control over their own data</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">React</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It is a Javascript library that allows you to create user interfaces that are simple and easy to reuse. It is an open source software, maintained by Facebook and used by companies such as Airbnb or Instagram</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arc42</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">They are a set of templates used in the development of a software product. These templates differ from other documentation in that the extension is smaller since by means of diagrams and parts of the code it does not require so much text.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GitHub</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It is a collaborative software development platform to host projects using the Git version control system</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Collaborators</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In this project we have seven developers, contributing with different parts of the project each one and making progress together</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We have 3 months to develop the whole project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solid Server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> Not supporting JSON-LD as serializing format RDF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ESLint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implemented with Codacy to check and ensure the code quality</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solid Server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not supporting queries to navigate in the user POD</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-system-scope-and-context">3. System Scope and Context</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The scope of our project is a website where the users can create, explore and share routes without the related data being stored on a third-party server. So, a sharing website where all the shared data belongs to the private server of each user making use of SOLID.</p>
+</div>
+<div class="paragraph">
+<p>Each user will be able to import new routes through GeoJSON or GPX files, save them on their PODs and share them with their friends.
+The shared routes will have titles, descriptions and attached media.</p>
+</div>
+<div class="paragraph">
+<p>The application will be able to load and show routes made with similar apps.</p>
+</div>
+<div class="sect2">
+<h3 id="_business_context">3.1. Business Context</h3>
+<div class="paragraph">
+<p>A user can store routes of various types that will be kept in his POD. He can also share the routes  and other type of files with their friends</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Regular user: Stores his own routes.</p>
+</li>
+<li>
+<p>Sender: Sends routes to other user</p>
+</li>
+<li>
+<p>Receiver user: Receives notifications containing routes from other user.</p>
+</li>
+<li>
+<p>Pod: Each user has a POD where the routes and the shared information are stored.</p>
+</li>
+<li>
+<p>Viade: Decentralized application to store routes and share with other people.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/03_Business_Context.png" alt="03 Business Context">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_technical_context">3.2. Technical Context</h3>
+<div class="imageblock">
+<div class="content">
+<img src="./images/03_Deployment_Diagram.png" alt="03 Deployment Diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The descentralized server system of the application will make use of SOLID storing all the user&#8217;s data on their respective PODs. This will be integrated through the use of React, which will be the library of Javascript used to make all the interfaces of the application. An important key in the interaction and manageability of the web when communicating with the users will be the maps, which will be offered making use of OpenStreetMaps API.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-solution-strategy">4. Solution Strategy</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Viade is a decentralized route management system based on the Solid specifications.</p>
+</div>
+<div class="sect2">
+<h3 id="_technology_decisions">4.1. Technology decisions</h3>
+<div class="sect3">
+<h4 id="_libraries">4.1.1. Libraries</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://react-bootstrap.github.io/">React Bootstrap</a> : To implement the layout of our application</p>
+</li>
+<li>
+<p><a href="https://github.com/inrupt/solid-react-components">Solid React Components</a> :To help with some of the POD features (login, registration, friends list)</p>
+</li>
+<li>
+<p><a href="https://github.com/jeff-zucker/solid-file-client">Solid-File-Client</a> : To access POD resources</p>
+</li>
+<li>
+<p><a href="https://github.com/jeff-zucker/sparql-fiddle">sparql-fiddle</a> :
+To query data stored in PODs.</p>
+</li>
+<li>
+<p><a href="https://leafletjs.com/">Leaflet</a> and <a href="https://www.openstreetmap.org/">OpenStreetMap</a> : To display the routes on a map</p>
+</li>
+<li>
+<p><a href="https://jestjs.io/">Jest</a> : Testing</p>
+</li>
+<li>
+<p><a href="https://www.npmjs.com/package/react-toastify">Toastify</a>:  :To display information to the users</p>
+</li>
+<li>
+<p><a href="https://www.npmjs.com/package/gpxparser">GPXParser</a>: To help manage GPX-formatted routes</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_languages">4.1.2. Languages</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Javascript</p>
+</li>
+<li>
+<p>CSS</p>
+</li>
+<li>
+<p>SPARQL</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_other_decisions">4.1.3. Other decisions</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>We support GPX and GeoJSON(LineString) formats.</p>
+</li>
+<li>
+<p>NodeJs to implement the Solid server</p>
+</li>
+<li>
+<p>Using the Solid recommendations and specifications</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_organizational_decisions">4.2. Organizational decisions</h3>
+<div class="paragraph">
+<p>To develop this project we designed a workflow that would ensure flexibility and consistency.
+The new functionalities would be selected each week in reunions, those new characteristics would be develop alone or in pairs and they should be feasible to finish in one week.</p>
+</div>
+<div class="paragraph">
+<p>Each feature would be supervised and/or adapted by one of the coordinators, we will have two, one for the front-end and one for the back-end.
+Below that we decided some extra specializations to optimize our strengths and time.</p>
+</div>
+<div class="paragraph">
+<p>Although all members have contributed to almost all parts of the implementation, the overall distribution is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Rut Alfonso Garcia, in charge of the decisions about file formats and the parsers.</p>
+</li>
+<li>
+<p>Carlos Menchaca Mosteiro, mostly dedicated to POD and file loading issues.</p>
+</li>
+<li>
+<p>Manuel Lorenzo Vega, file uploading and directory management from the client side.</p>
+</li>
+<li>
+<p>Daniel Pancho Cueto, specialized in the testing and quality assurance.</p>
+</li>
+<li>
+<p>Christian Peláez Fernández, back-end coordinator and specialist of the SPARQL queries.</p>
+</li>
+<li>
+<p>Carmen Sirgo Lopez, back-end and front-end bridge defining all its communication.</p>
+</li>
+<li>
+<p>Ricardo Soto Estévez, front-end coordinator and UI/UX designer.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/04_Workflow.png" alt="Workflow">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_solution_approaches">4.3. Solution-approaches</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Quality goal</th>
+<th class="tableblock halign-left valign-top">Solution approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adaptability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Colorblind friendly color scheme</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interoperability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use of <a href="https://arquisoft.github.io/viadeSpec/">Viade Data Model Specification</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maintainability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Travis, Codecov, Modular design</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scalability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modular design, genericity and abstraction</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testeability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Codecov</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Two-step operations and functionality color remark</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_adaptability_approach">4.3.1. Adaptability approach</h4>
+<div class="imageblock">
+<div class="content">
+<img src="./images/04_Adaptability.png" alt="Adaptibility">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_scalability_approach">4.3.2. Scalability approach</h4>
+<div class="imageblock">
+<div class="content">
+<img src="./images/04_Scalability.PNG" alt="Scalability">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_usability_approach">4.3.3. Usability approach</h4>
+<div class="imageblock">
+<div class="content">
+<img src="./images/04_Usability.png" alt="Usability">
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-building-block-view">5. Building Block View</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section is a decomposition of our system into diagrams. Each level is more specific than the previous one.</p>
+</div>
+<div class="sect2">
+<h3 id="_level_1">5.1. Level 1</h3>
+<div class="paragraph">
+<p>Level 1 shows us a global vision of the project.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/05_Level1.PNG" alt="General View"></span></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Level 1 descriptions</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description in the glossary</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Viade</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Our Application</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_level_2">5.2. Level 2</h3>
+<div class="paragraph">
+<p>Level 2 shows us a global vision about project architecture.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/05_Level2.png" alt="Viade View"></span></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. Level 2 descriptions</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Components and Containters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate the code to show the page using React</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoJson &#8594; Route</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We transform de GeoJson into an object Route in order to make route managment easier from our app.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Route &#8594; RDF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We transform de object Route into RDF to be able to upload it to a Solid Pod.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Route &#8592; RDF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We download RDF object and transform it into object Route to show it.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_level_3">5.3. Level 3</h3>
+<div class="paragraph">
+<p>Level 3 shows us a concrete vision about connections between interface and POD.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/05_Level3.png" alt="Connections View"></span></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. Level 3 descriptions</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Components and Containters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate the code to show the page using React</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">route-helper</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service that manage route methods</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">storage-helper</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service that manage storage methods</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">notificaction-helper</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service that manage notificaction methods</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">solid-file-client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A library for managing Solid files and folders.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sparql-fiddle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An online sparql-fiddle app allows you to load from URL, create, or cut and paste RDF and SPARQL into a form and then run the query, edit and re-run.</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-runtime-view">6. Runtime View</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Here are some Scenarios to understand how Viade works</p>
+</div>
+<div class="sect2">
+<h3 id="_log_in">6.1. Log in</h3>
+<div class="paragraph">
+<p>This is a general view of the access to the web</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/06_LogIn.png" alt="Log in"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_upload_a_route">6.2. Upload a Route</h3>
+<div class="paragraph">
+<p>This is a general view of the process to upload a route</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/06_UploadRoute.png" alt="Upload Routes"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_load_your_routes">6.3. Load your Routes</h3>
+<div class="paragraph">
+<p>This is a general view of how the routes are loaded from the POD</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/06_LoadRoutes.png" alt="Load Routes"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_display_a_route">6.4. Display a Route</h3>
+<div class="paragraph">
+<p>This is a general view of how the Route are loaded to be displayed</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/06_DisplayRoute.png" alt="Display your Routes"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_send_a_notification">6.5. Send a Notification</h3>
+<div class="paragraph">
+<p>This is a general view of how the Routes are shared</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/06_SendNotification.png" alt="Send Notification"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_receive_a_notification">6.6. Receive a Notification</h3>
+<div class="paragraph">
+<p>This is a general view of how incoming Notifications are handled</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/06_ReceiveNotification.png" alt="Receive Notification"></span></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="section-deployment-view">6.7. Infrastructure Level 1</h3>
+<div class="paragraph">
+<p>As Viade is a decentralized browser application, we only need 3 elements per user:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The user&#8217;s computer. Which must have a browser to access the application. We recommend using Google Chrome as other browsers like Internet Explorer may not have all the JavaScript functionalities used to run the application. This also means that the user does not need a very powerful computer, just Internet conexion.</p>
+</li>
+<li>
+<p>The SOLID&#8217;s server. Here is where the user&#8217;s POD is. All the routes and multimedia data are stored in the POD. Thanks to the SOLID de-centralized authentication mechanisms it is not necesary to have a central server for the signing up/login process.</p>
+</li>
+<li>
+<p>The GitHub Pages server. This will be the Web Hosting Service for the application.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/07_Deployment_Diagram.png" alt="07 Deployment Diagram">
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Motivation</dt>
+<dd>
+<p>We think choosing a browser application is a good way to be open to more public, as some clients would rather access to the application online than having to install a desktop application. Moreover, being a de-centralized application can appeal clients who only want to store their routes somewhere instead of sharing them online, in this way, we can satisfy both types of clients (the ones who want to share routes and the ones wo want to keep them).</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_infrastructure_level_2">6.8. Infrastructure Level 2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Solid POD: This is a personal storage space where you caan decide which things are public and private and who can see them (people, apps&#8230;&#8203;).</p>
+</li>
+<li>
+<p>GitHub Pages: Theese are public webpages hosted and published through GitHub. They can be managed via the web or locally in a computer.</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/08-Crosscutting-Concepts-Structure-EN.png" alt="08 Crosscutting Concepts Structure EN">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-concepts">7. Cross-cutting Concepts</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_domain_concepts">7.1. <em>Domain Concepts</em></h3>
+<div class="paragraph">
+<p><em>i.e domain models, business data model</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_user_experience_concepts_ux">7.2. <em>User Experience concepts (UX)</em></h3>
+<div class="paragraph">
+<p><em>User interface</em></p>
+</div>
+<div class="paragraph">
+<p><em>Ergonomics</em></p>
+</div>
+<div class="paragraph">
+<p><em>Internationalization</em></p>
+</div>
+<div class="paragraph">
+<p>How to make the system usable in international settings, translation, screen-layout, wording and other</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_safety_and_security_concepts">7.3. <em>Safety and security concepts</em></h3>
+<div class="paragraph">
+<p><em>Security</em></p>
+</div>
+<div class="paragraph">
+<p>i.e. how to achieve confidentiality, non-reputiability and other goals.</p>
+</div>
+<div class="paragraph">
+<p><em>Safety</em></p>
+</div>
+<div class="paragraph">
+<p>Safety-critical systems are those whose failure or malfunction may result in death or injury or severe financial loss</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_architecture_and_design_patterns">7.4. <em>Architecture and design patterns</em></h3>
+<div class="paragraph">
+<p>recurring patterns within the system</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_under_the_hood_concepts">7.5. <em>“Under-the-hood” concepts</em></h3>
+<div class="paragraph">
+<p><em>Persistency</em></p>
+</div>
+<div class="paragraph">
+<p>how / where to store and retrieve data</p>
+</div>
+<div class="paragraph">
+<p><em>Process control</em></p>
+</div>
+<div class="paragraph">
+<p><em>Transaction handling</em></p>
+</div>
+<div class="paragraph">
+<p>How to handle technical or business transactions, i.e. to achieve ACID properties</p>
+</div>
+<div class="paragraph">
+<p><em>Session handling</em></p>
+</div>
+<div class="paragraph">
+<p>How to handle user/client sessions</p>
+</div>
+<div class="paragraph">
+<p><em>Communication and integration</em></p>
+</div>
+<div class="paragraph">
+<p>How to integrate with other systems, how to communicate (i.e. sync, async, pub-sub…)</p>
+</div>
+<div class="paragraph">
+<p><em>Exception and error handling</em></p>
+</div>
+<div class="paragraph">
+<p>What errors to handle, how to handle exceptional situations</p>
+</div>
+<div class="paragraph">
+<p><em>Parallization and threading</em></p>
+</div>
+<div class="paragraph">
+<p>How to parallelize tasks, how to create/spawn/manage processes</p>
+</div>
+<div class="paragraph">
+<p><em>Plausibility checks and validation</em></p>
+</div>
+<div class="paragraph">
+<p>i.e. client-side validation, how to verify/check data, input, results.</p>
+</div>
+<div class="paragraph">
+<p><em>Business rules</em></p>
+</div>
+<div class="paragraph">
+<p>i.e. how to use a rule-engine, how to implement/configure business rules, how to change those…</p>
+</div>
+<div class="paragraph">
+<p><em>Batch processing</em></p>
+</div>
+<div class="paragraph">
+<p>How to process data in batches (i.e. offline processing)</p>
+</div>
+<div class="paragraph">
+<p><em>Reporting</em></p>
+</div>
+<div class="paragraph">
+<p>How to create reports, how to gather the required data, how to render the results</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_development_concepts">7.6. <em>Development concepts</em></h3>
+<div class="paragraph">
+<p><em>Build, test, deploy</em></p>
+</div>
+<div class="paragraph">
+<p><em>Code generation</em></p>
+</div>
+<div class="paragraph">
+<p><em>Migration</em></p>
+</div>
+<div class="paragraph">
+<p><em>Configurability</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_operational_concepts">7.7. <em>Operational concepts</em></h3>
+<div class="paragraph">
+<p><em>Administration</em></p>
+</div>
+<div class="paragraph">
+<p><em>Management</em></p>
+</div>
+<div class="paragraph">
+<p><em>Disaster-Recovery</em></p>
+</div>
+<div class="paragraph">
+<p><em>Scaling</em></p>
+</div>
+<div class="paragraph">
+<p><em>Clustering</em></p>
+</div>
+<div class="paragraph">
+<p><em>Monitoring, Logging</em></p>
+</div>
+<div class="paragraph">
+<p><em>High Availability</em></p>
+</div>
+<div class="paragraph">
+<p><em>Load balancing</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/08-Crosscutting-Concepts-Structure-EN.png" alt="08 Crosscutting Concepts Structure EN">
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-design-decisions">8. Design Decisions</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Version-control system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Github</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Programming language</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JavaScript</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Distributed application structure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Main library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">React</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural pattern</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Domain Driven Design</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-quality-scenarios">9. Quality Requirements</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_quality_tree">9.1. Quality Tree</h3>
+<div class="paragraph">
+<p>This development aims to fulfill the quality requirements specified in the following tree diagram.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/10_quality_tree_extended.png" alt="Quality Tree Extended">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quality_scenarios">9.2. Quality Scenarios</h3>
+<div class="paragraph">
+<p>Achieving the expected response of the application for the following scenarios is the goal to meet the quality
+expectations.</p>
+</div>
+<div class="sect3">
+<h4 id="_maintainability">9.2.1. Maintainability</h4>
+<div class="sect4">
+<h5 id="_scenario_1_documentation_updated">Scenario #1: Documentation updated</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>New member of the development team</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>Joining the development</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>Documentation</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>The documentation should offer easily all the information the others developers will need</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Keeping the arc42 updated</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+</div>
+<div class="sect4">
+<h5 id="_scenario_2_readable_code">Scenario #2: Readable code</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>New member of the development team</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>Joining the development</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>Code</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>The code should be easy to understand to others</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Keeping it legible, commented and following style guides</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+</div>
+<div class="sect4">
+<h5 id="_scenario_3_extension_of_the_functionality">Scenario #3: Extension of the functionality</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>Any member of the development team</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>Starting to develop a new function</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>Code</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>The code should be easy to extend its functionality</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Keeping it as modular as possible and implementing software designs.</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_performance">9.2.2. Performance</h4>
+<div class="sect4">
+<h5 id="_scenario_4_warning_an_user_about_an_invalid_operation">Scenario #4: Warning an user about an invalid operation</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>Any user</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>Making a mistake or invalid operation</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>The view</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>The application should register and notify the error at the moment, the warning should be clear and comprenhensible</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Checking all the inputs at the moments and having a strong exception build</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_privacy">9.2.3. Privacy</h4>
+<div class="sect4">
+<h5 id="_scenario_5_someone_tries_to_access_the_data_of_other_user">Scenario #5: Someone tries to access the data of other user</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>Any user</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>Someone trying to access their data</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>The service</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>The application should instantly notify the affected user about the access and block it</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Checking the identification of each user in every operation</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_testeability">9.2.4. Testeability</h4>
+<div class="sect4">
+<h5 id="_scenario_6_testing_new_functionality">Scenario #6: Testing new functionality</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>Any developer</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>Adding new functionality</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>Any point of the application</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>Any new functionality added should be tested to confirm it&#8217;s well implemented</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Through a battery of unit tests</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+</div>
+<div class="sect4">
+<h5 id="_scenario_7_user_beta_testing">Scenario #7: User beta testing</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>A standard user</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>The application is usable</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>Any point of the application</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>Try the app and give some feedback</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Through an issue on GitHub</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_usability">9.2.5. Usability</h4>
+<div class="sect4">
+<h5 id="_scenario_8_colorblind_clarity">Scenario #8: Colorblind clarity</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>Colorblind user</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>Using the application</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>GUI</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>The user interface must be adapted to be easily usable by all the colorblindness types</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Through the use of a valid palette, icons and texts</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+</div>
+<div class="sect4">
+<h5 id="_scenario_9_navigable_using_keyboard">Scenario #9: Navigable using keyboard</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>Any user</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>Using the application with keyboard</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>GUI</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>The user should be able to navigate through the whole application using only the keyboard</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Through the use of correct shortcuts, tab navigation and mnemonics</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+</div>
+<div class="sect4">
+<h5 id="_scenario_10_compatibility_with_multiple_formats">Scenario #10: Compatibility with multiple formats</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>Any user</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>Importing or exporting routes</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>Routes manager</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>The user should be able to import and export the routes to, at least: GeoJSON, KML and GPX</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Through the use of parsers and the RouteViade object</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+</div>
+<div class="sect4">
+<h5 id="_scenario_11_new_user_understanding_the_application_fast">Scenario #11: New user understanding the application fast</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>New user</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>First time using the application</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>GUI</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>The user should be able to learn to navigate and use the app instantly</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Keeping a clear and straightforward user interface</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+</div>
+<div class="sect4">
+<h5 id="_scenario_12_mobile_compatibility">Scenario #12: Mobile compatibility</h5>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Who
+</td>
+<td class="hdlist2">
+<p>Mobile user</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+When
+</td>
+<td class="hdlist2">
+<p>Using the application</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Where
+</td>
+<td class="hdlist2">
+<p>The whole application</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+What
+</td>
+<td class="hdlist2">
+<p>The user should be able use the application without problems</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+How
+</td>
+<td class="hdlist2">
+<p>Making the interface and functionality compatible with lesser screens</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</details>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-technical-risks">10. Risks and Technical Debts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">Contents</div>
+<p>Any project that is undertaken is inevitably going to have a number of risks, both technical and team-related. At the same time, there will also be motivations and positive events on which we can rely to continue the work successfully.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>In this case, we will have the support of the teachers of the subject, who will advise us and consult our doubts and problems.
+In addition, as far as the internal organization of the team is concerned, we have decided to create "user histories" containing all the functionalities, modifications and tests that must be carried out on the application.</p>
+</div>
+<div class="ulist">
+<div class="title">Form</div>
+<ul>
+<li>
+<p>SOLID. SOLID&#8217;s architecture is something we are not familiar with at all, so working with this might be a little difficult when it comes to starting the project, because it will require a long research and adaptation process, and also during the development stage, for the reason that it might appear some problems that we probably don&#8217;t know how to fix.</p>
+</li>
+<li>
+<p>React. Like SOLID, React is a framework totally new for us, so we must get information about this technology before starting to produce the application. This not only implies documenting about it, but we must also investigate how to connect it with SOLID and how to integrate both with the rest of the system.</p>
+</li>
+<li>
+<p>Little experience in web development. Before the beginning of this project, the only contact we&#8217;d had with web application development was the one we acquired in the SEW course. In addition, this knowledge was not particulary high, because a four-month subject is&#8217;t enough to study the complexity of web design in depth. That&#8217;s why we must do a biggest effort to be able to get acceptable results.</p>
+</li>
+<li>
+<p>Stranger team. Even though this is probably going to be the usual thing for us in the future, the truth is that working with strangers is always a challenge and a risk, because the chance of not being able to get alog with our workmate, lack of communication or not reaching agreement despite the effort put into the dialogue is present at all times.</p>
+</li>
+<li>
+<p>Large team. Again, this is part of our future work as software developers or software architects and we must be prepared for it. However, until we get used to it, sharing team with six other people can be a problem, because the more members it has, the more difficult it will be to coordinate it. This is why we must work to encourage good communication between us.</p>
+</li>
+<li>
+<p>Limited time. For the first presentation of the application, we have a total of three weeks in which we must make a first prototype that includes as many functionalities as possible. Linking this limited time with everything described above could become a problem, preventing even the successful completion of this first prototype.</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-glossary">11. Glossary</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solid is a web decentralization project led by Tim Berners-Lee.The project "aims to radically change the way Web applications work today, resulting in true data ownership as well as improved privacy" by developing a platform for linked-data applications that are completely decentralized and fully under users' control rather than controlled by other entities.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web-accessible personal online
+datastore. Each user can have one or more pods
+from different pod providers, and can easily switch between
+providers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Linked Data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Is structured data which is interlinked with other data so it becomes more useful through semantic queries.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RDF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RDF stands for Resource Description Framework and is a standard for data interchange, developed and agreed upon by W3C.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Turtle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Is a syntax and file format for expressing data in the Resource Description Framework (RDF) data model</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SPARQL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query language for RDF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GPX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An XML schema designed as a common GPS data format for software applications</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoJSON</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An open standard format designed for representing simple geographical features,based on the JavaScript Object Notation (JSON).</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p><strong>About arc42</strong></p>
+</div>
+<div class="paragraph lead">
+<p>arc42, the Template for documentation of
+software and system architecture.</p>
+</div>
+<div class="paragraph">
+<p>By Dr. Gernot Starke, Dr. Peter Hruschka and contributors.</p>
+</div>
+<div class="paragraph">
+<p>Template Revision: 7.0 EN (based on asciidoc), January 2017</p>
+</div>
+<div class="paragraph">
+<p>&#169;
+We acknowledge that this document uses material from the
+arc 42 architecture template, <a href="http://www.arc42.de" class="bare">http://www.arc42.de</a>.
+Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-05-06 15:54:06 UTC
+</div>
+</div>
+</body>
+</html>
