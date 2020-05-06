@@ -1,7 +1,7 @@
 import React from "react";
 import {
 	cleanup,
-	waitForDomChange,
+	waitForElement,
 	render,
 	fireEvent,
 	getByTestId,
@@ -23,8 +23,18 @@ describe.only("CustomModal", () => {
 	test("opens modal", () => {
 		const button = getByText(container,"TestButton");
 		fireEvent.click(button);
-		waitForDomChange(() => {
+		waitForElement(() => {
 			expect(getByTestId(container, "h1test")).not.toBeNull();
+		});
+	});
+
+	test("closes modal", () => {
+		const button = getByText(container,"TestButton");
+		fireEvent.click(button);
+		waitForElement(() => {
+			fireEvent.click(getByTestId(container, "h1test"));
+			var event = new KeyboardEvent("keydown", {"key": "Escape"});
+			document.dispatchEvent(event);
 		});
 	});
 

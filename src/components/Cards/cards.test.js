@@ -34,7 +34,7 @@ describe.only("NotificationCardComponent returning true", () => {
 	const {container} = render(
 		<NotificationCardComponent	name="Test" user={"https://viadees4c.solid.community/profile/card#me"}
 									disabled={false} read={false}
-								  	condition={async () => {return true;}}
+									condition={async () => {return true;}}
 								  	action={async () => {}}/>
 	);
 
@@ -78,9 +78,9 @@ describe.only("NotificationCardComponent returning false", () => {
 	test("accept it and return false on condition", () => {
 		let { getByTestId } = render(
 			<NotificationCardComponent	name="Test" user={"https://viadees4c.solid.community/profile/card#me"}
-										  disabled={false} read={false}
-										  condition={async () => {return false;}}
-										  action={async () => {}}/>
+										disabled={false} read={false}
+										condition={async () => {return false;}}
+										action={async () => {}}/>
 		);
 		fireEvent.mouseOver(getByTestId("noticard"));
 		waitForElement(() => {
